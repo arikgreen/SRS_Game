@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5EEF85F7-9C07-41B0-9BA3-1074C0FB2091}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IML.ModelEdit</RootNamespace>
+    <AssemblyName>IML.ModelEdit</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OrdNumbers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyLib\bin\OrdNumbers.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\BaseCodeGenerator.cs" />
+    <Compile Include="Helpers\AssemblyValueConverter.cs" />
+    <Compile Include="Helpers\CodeBuilder.cs" />
+    <Compile Include="Helpers\Configurator.cs" />
+    <Compile Include="Helpers\MetamodelCodeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ModelEditResources.cs" />
+    <Compile Include="Resources\KnownMetamodels.Designer.cs">
+      <DependentUpon>KnownMetamodels.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\MetamodelsStrings.Designer.cs">
+      <DependentUpon>MetamodelsStrings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ViewModels\ClassProperties.cs" />
+    <Compile Include="ViewModels\ClassProperty.cs" />
+    <Compile Include="ViewModels\EnumType.cs" />
+    <Compile Include="ViewModels\EnumValue.cs" />
+    <Compile Include="ViewModels\EnumValues.cs" />
+    <Compile Include="ViewModels\Metaclass.cs" />
+    <Compile Include="ViewModels\Metamodel.cs" />
+    <Compile Include="ViewModels\MetamodelingElement.cs" />
+    <Compile Include="ViewModels\Metamodels.cs" />
+    <Compile Include="ViewModels\Metatype.cs" />
+    <Compile Include="ViewModels\Metatypes.cs" />
+    <Compile Include="ViewModels\Reference.cs" />
+    <Compile Include="ViewModels\References.cs" />
+    <Compile Include="ViewModels\Subclasses.cs" />
+    <Compile Include="ViewModels\TypeReference.cs" />
+    <Compile Include="ViewModels\TypeReferences.cs" />
+    <Compile Include="Views\EnumValuesControl.xaml.cs">
+      <DependentUpon>EnumValuesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MessageWindow.Designer.cs">
+      <DependentUpon>MessageWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MetaclassControl.xaml.cs">
+      <DependentUpon>MetaclassControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MetamodelControl.xaml.cs">
+      <DependentUpon>MetamodelControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MetamodelsControl.xaml.cs">
+      <DependentUpon>MetamodelsControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\PropertiesControl.xaml.cs">
+      <DependentUpon>PropertiesControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\EnumTypeControl.xaml.cs">
+      <DependentUpon>EnumTypeControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IML\IML.csproj">
+      <Project>{978ea772-f29a-429f-93a6-cf8a35f53f17}</Project>
+      <Name>IML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVVM\MVVM.csproj">
+      <Project>{a7e935f3-9443-478b-a2fd-6773bfad7f80}</Project>
+      <Name>MVVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\Controls\WPFControls\WPFControls.csproj">
+      <Project>{337e1dee-1494-434b-8a36-de929a3805d7}</Project>
+      <Name>WPFControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\KnownMetamodels.pl.resx" />
+    <EmbeddedResource Include="Resources\KnownMetamodels.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>KnownMetamodels.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>IML.ModelEdit</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MetamodelsStrings.pl.resx" />
+    <EmbeddedResource Include="Resources\MetamodelsStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MetamodelsStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>IML.ModelEdit</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MessageWindow.resx">
+      <DependentUpon>MessageWindow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KnownMetamodels.zreproj" />
+    <None Include="Resources\MetamodelsStrings.zreproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\EnumValuesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MetaclassControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MetamodelControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MetamodelsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertiesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EnumTypeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\EnumType.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Model.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Property.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\EnumValue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SomeType.png" />
+    <Resource Include="Resources\Images\Model+Modified.png" />
+    <Resource Include="Resources\Images\Metaclass.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

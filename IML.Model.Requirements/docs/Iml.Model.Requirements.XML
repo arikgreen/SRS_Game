@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Iml.Model.Requirements</name>
+    </assembly>
+    <members>
+        <member name="T:Iml.Model.Requirements.ActiveComponent">
+            <class refID="CLASS_010"/>
+            <summary>
+            Aktywny komponent projektu.
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.ActiveObject">
+            <class refID="CLASS_008"/>
+            <summary>
+            Abstrakcyjna klasa aktywnego obiektu systemu. Zalicza się tu użytkowników
+            i komponenty aktywne (klasa abstrakcyjna). Zawiera motywacje (potrzeby i zadania).
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.RequirementsElement">
+            <class refID="CLASS_002"/>
+            <summary>
+            Podstawowa klasa elementu specyfikacji wymagań.
+            Wszystkie elementy mają swój priorytet
+            </summary>
+        </member>
+        <member name="M:Iml.Model.Requirements.RequirementsElement.#ctor">
+            <summary>
+            konstruktor bezparametrowy
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.RequirementsElement.Priority">
+            <summary>
+            Priorytet elementu specyfikacji wymagań.
+            </summary>
+        </member>
+        <member name="M:Iml.Model.Requirements.ActiveObject.#ctor">
+            <summary>
+            Konstruktor publiczny tworzy listę motywacji
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.ActiveObject.Motivations">
+            <summary>
+            potrzeby obiektu, które system musi zaspokoić; zadania, które system musi pomóc wykonać
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.ActiveComponent.Interfaces">
+            <summary>
+            interfejsy, przez które komponent porozumiewa się z innymi komponentami
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.AcceptationCriterium">
+            <class refID="CLASS_025"/>
+            <summary>
+            Klasa reprezentująca kryterium akceptacyjne
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.Requirement">
+            <class refID="CLASS_017"/>
+            <summary>
+            Abstrakcyjna klasa reprezentująca wymaganie. 
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.ExtraRequirement">
+            <summary>
+            Dodatkowe wymaganie
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.ExtraSource">
+            <summary>
+            Dodatkowe źródło wymagań
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.Source">
+            <summary>
+            Klasa reprezentująca udziałowca (źródło wymagań)
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.ExtraSource.Publication">
+            <summary>
+            Informacje o publikacji (tytuł, wydawnictwo, akt prawny, rok etc.)
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.StakeholderKind">
+            <class refID="ENUM_002"/>
+            <summary>
+            Rodzaje źródeł wymagań
+            </summary>
+        </member>
+        <member name="F:Iml.Model.Requirements.StakeholderKind.Undefined">
+            <value>
+            nieznany typ źródła
+            </value>
+        </member>
+        <member name="F:Iml.Model.Requirements.StakeholderKind.Personal">
+            <value>
+            źródło osobowe
+            </value>
+        </member>
+        <member name="F:Iml.Model.Requirements.StakeholderKind.Organizational">
+            <value>
+            źródło organizacyjne
+            </value>
+        </member>
+        <member name="F:Iml.Model.Requirements.StakeholderKind.Group">
+            <value>
+            źródło prawne
+            </value>
+        </member>
+        <member name="T:Iml.Model.Requirements.SystemInterface">
+            <summary>
+            Klasa reprezentująca interfejs systemowy.
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.HardwareRequirement">
+            <summary>
+            Klasa reprezentująca wymaganie na sprzęt
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.RequirementPriority">
+            <class refID="ENUM_001"/>
+            <summary>
+            Poziomy ważności wymagań.
+            </summary>
+        </member>
+        <member name="F:Iml.Model.Requirements.RequirementPriority.unknown">
+            <value>
+            nieustalony priorytet
+            </value>
+        </member>
+        <member name="F:Iml.Model.Requirements.RequirementPriority.optional">
+            <value>
+            priorytet opcjonalny
+            </value>
+        </member>
+        <member name="F:Iml.Model.Requirements.RequirementPriority.low">
+            <value>
+            priorytet niski
+            </value>
+        </member>
+        <member name="F:Iml.Model.Requirements.RequirementPriority.medium">
+            <value>
+            priorytet średni
+            </value>
+        </member>
+        <member name="F:Iml.Model.Requirements.RequirementPriority.high">
+            <value>
+            priorytet wysoki
+            </value>
+        </member>
+        <member name="F:Iml.Model.Requirements.RequirementPriority.critical">
+            <value>
+            priorytet krytyczny
+            </value>
+        </member>
+        <member name="T:Iml.Model.Requirements.SoftwareRequirement">
+            <summary>
+            Klasa reprezentująca wymaganie na oprogramowanie
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.ExceptionalSituation">
+            <summary>
+            Klasa reprezentująca sytuację wyjątkową.
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.QualityRequirement">
+            <class refID="CLASS_019"/>
+            <summary>
+            Klasa reprezentująca wymaganie jakościowe
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.QualityRequirement.Metric">
+            <summary>
+            Metryka jakości, której dotyczy to wymaganie
+            </summary>
+        </member>
+        <member name="M:Iml.Model.Requirements.ExceptionalSituation.#ctor">
+            <summary>
+            Domyślna metryka dotyczy wiarygodności
+            </summary>
+        </member>
+        <member name="M:Iml.Model.Requirements.ExceptionalSituation.ShouldSerializeMetric">
+            <summary>
+            Domyślna metryka nie jest serializowana
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Iml.Model.Requirements.ExceptionalSituation.Level">
+            <summary>
+            Poziom zagrożenia
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.ExceptionalSituation.Solutions">
+            <summary>
+            Wymagania funkcjonalne, które umożliwiają rozwiązanie sytuacji wyjątkowej
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.ThreatLevel">
+            <class refID="ENUM_003"/>
+            <summary>
+            Poziomy zagrożeń
+            </summary>
+        </member>
+        <member name="F:Iml.Model.Requirements.ThreatLevel.unknown">
+            <value>nieokreślony</value>
+        </member>
+        <member name="F:Iml.Model.Requirements.ThreatLevel.disturbance">
+            <value>zakłócenie normalnego działania, nie powinno prowadzić do awarii</value>
+        </member>
+        <member name="F:Iml.Model.Requirements.ThreatLevel.critical">
+            <value>zagrożenie krytyczne, może doprowadzić do awarii</value>
+        </member>
+        <member name="F:Iml.Model.Requirements.ThreatLevel.catastrophic">
+            <value>katastrofa - awaria już wystąpiła</value>
+        </member>
+        <member name="T:Iml.Model.Requirements.DataItem">
+            <summary>
+            Klasa reprezentująca element danych. Wchodzi w skład wymagania na dane.
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.DataRequirement">
+            <summary>
+            Klasa reprezentująca wymaganie na dane
+            </summary>
+        </member>
+        <member name="M:Iml.Model.Requirements.DataRequirement.#ctor">
+            <summary>
+            Konstruktor domyślny
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.DataRequirement.Data">
+            <summary>
+            Dane, jakie muszą być zapamiętywane i przekazywane
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.ExternalSystem">
+            <summary>
+            Klasa reprezentująca zewnętrzny system
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.FunctionalRequirement">
+            <summary>
+            Klasa reprezentująca wymaganie funkcjonalne
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.Goal">
+            <summary>
+            Cel biznesowy projektu
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.Objective">
+            <class refID="CLASS_004"/>
+            <summary>
+            Abstrakcyjna klasa celu projektu. Dzieli się na cele biznesowe (<see cref="T:Iml.Model.Requirements.Goal"/>)
+            i cele funkcjonalne (<see cref="T:Iml.Model.Requirements.Purpose"/>)
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.Goal.Motivations">
+            <summary>
+            Korzyści, które można osiągnąć; problemy, które można rozwiązać.
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.HardwareComponent">
+            <class refID="CLASS_014"/>
+            <summary>
+            Klasa reprezentująca komponent sprzętowy
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.SystemComponent">
+            <class refID="CLASS_011"/>
+            <summary>
+            Klasa reprezentująca komponent systemu.
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.Motivation">
+            <summary>
+            Motywacja, która przyświeca działaniom obiektów kontekstowych.
+            Są tu potrzeby i zadania (rozróżniane przez stereotyp).
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.Purpose">
+            <summary>
+            Cel funkcjonalny projektu
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.RequirementsModel">
+            <class refID="CLASS_001"/>
+            <summary>
+            Model wymagań. Udostępnia metaklasy tego modelu.
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.RequirementsModel.Metaclasses">
+            <summary>
+            Lista metaklas (klas potomnych z elementu semantycznego)
+            należących do tego modelu.
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.SoftwareComponent">
+            <summary>
+            Klasa reprezentująca komponent softwerowy
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.Stakeholder">
+            <summary>
+            Klasa reprezentująca interesariusza projektu
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.Stakeholder.Kind">
+            <summary>
+            Rodzaj źródła
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.Stakeholder.Representative">
+            <summary>
+            Osoba reprezentująca (nazwisko, dane kontaktowe etc.)
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.Subsystem">
+            <summary>
+            Klasa reprezentująca podsystem. Podsystem może zawierać inne podsystemy
+            oraz komponenty programowe i sprzętowe.
+            </summary>
+        </member>
+        <member name="P:Iml.Model.Requirements.Subsystem.Components">
+            <summary>
+            komponenty składowe podsystemu; mogą to być inne podsystemy, komponenty programowe albo sprzętowe
+            </summary>
+        </member>
+        <member name="T:Iml.Model.Requirements.User">
+            <summary>
+            Klasa reprezentująca użytkownika systemu
+            </summary>
+        </member>
+    </members>
+</doc>

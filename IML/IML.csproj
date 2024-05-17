@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{978EA772-F29A-429F-93A6-CF8A35F53F17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Iml</RootNamespace>
+    <AssemblyName>IML</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>docs\IML.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <NoWarn>3005</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dosemylib\DocumentFormat.OpenXml\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="GuidUtils">
+      <HintPath>lib\GuidUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="OrdNumbers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyLib\bin\OrdNumbers.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Documentation\Bibliography\Address.cs" />
+    <Compile Include="Documentation\Bibliography\Author.cs" />
+    <Compile Include="Documentation\Bibliography\AuthorRole.cs" />
+    <Compile Include="Documentation\Bibliography\Authors.cs" />
+    <Compile Include="Documentation\Bibliography\Corporation.cs" />
+    <Compile Include="Documentation\Bibliography\Person.cs" />
+    <Compile Include="Documentation\Bibliography\Source.cs" />
+    <Compile Include="Documentation\Bibliography\Source.Stereotyped.cs" />
+    <Compile Include="Documentation\Bibliography\Sources.cs" />
+    <Compile Include="Documentation\Bibliography\SourceTypes.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Art.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\ArticleInAPeriodical.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Book.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\BookSection.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Case.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\ConferenceProceedings.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\DocumentFromInternetSite.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\ElectronicSource.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Film.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\InternetSite.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Interview.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\JournalArticle.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Misc.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Patent.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Performance.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\Report.cs" />
+    <Compile Include="Documentation\Bibliography\Stereotypes\Source\SoundRecording.cs" />
+    <Compile Include="Documentation\Drawings\Anchor.cs" />
+    <Compile Include="Documentation\Drawings\WrapSqure.cs" />
+    <Compile Include="Documentation\Drawings\Position.cs" />
+    <Compile Include="Documentation\Drawings\Position.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\SimplePosition.cs" />
+    <Compile Include="Documentation\Drawings\SimplePosition.TypeConverter.cs" />
+    <Compile Include="Documentation\Footers.cs" />
+    <Compile Include="Documentation\Formats\DocnoteNumbering.cs" />
+    <Compile Include="Documentation\Formats\DocnotePosition.cs" />
+    <Compile Include="Documentation\Headers.cs" />
+    <Compile Include="Documentation\Formats\DocnoteFormat.cs" />
+    <Compile Include="Documentation\Mathematics\MathAccentProperties.cs" />
+    <Compile Include="Documentation\Mathematics\MathDelimiterProperties.cs" />
+    <Compile Include="Documentation\Mathematics\MathElement.cs" />
+    <Compile Include="Documentation\Mathematics\MathLimitLocationValues.cs" />
+    <Compile Include="Documentation\Mathematics\MathMatrixProperties.cs" />
+    <Compile Include="Documentation\Mathematics\MathNaryProperties.cs" />
+    <Compile Include="Documentation\Mathematics\MathParagraph.cs" />
+    <Compile Include="Documentation\Mathematics\MathRunProperties.cs" />
+    <Compile Include="Documentation\Mathematics\MathShapeDelimiterValues.cs" />
+    <Compile Include="Documentation\Mathematics\MathStyleValues.cs" />
+    <Compile Include="Documentation\Numbering\AbstractNum.cs" />
+    <Compile Include="Documentation\Numbering\AbstractNumList.cs" />
+    <Compile Include="Documentation\Numbering\MultiLevelKind.cs" />
+    <Compile Include="Documentation\Numbering\NumberingFormat.cs" />
+    <Compile Include="Documentation\Numbering\NumberingInstance.cs" />
+    <Compile Include="Documentation\Numbering\NumberingInstanceList.cs" />
+    <Compile Include="Documentation\Numbering\NumberingLevel.cs" />
+    <Compile Include="Documentation\ParagraphAndText\GrammarError.cs" />
+    <Compile Include="Documentation\ParagraphAndText\GrammarErrorBegin.cs" />
+    <Compile Include="Documentation\ParagraphAndText\GrammarErrorEnd.cs" />
+    <Compile Include="Documentation\ParagraphAndText\ProofError.cs" />
+    <Compile Include="Documentation\ParagraphAndText\SpellError.cs" />
+    <Compile Include="Documentation\ParagraphAndText\SpellErrorEnd.cs" />
+    <Compile Include="Documentation\ParagraphAndText\SpellErrorBegin.cs" />
+    <Compile Include="Documentation\Properties\ArrayDimensions.cs" />
+    <Compile Include="Documentation\Author.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\AuthorList.cs" />
+    <Compile Include="Documentation\Block.cs" />
+    <Compile Include="Documentation\Body.cs" />
+    <Compile Include="Documentation\Colors\ColorTransformation.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\ComplementTransformation.TypeTransformation.cs" />
+    <Compile Include="Documentation\Colors\GammaTransformation.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\GrayTransformation.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\InverseTransformation.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\ScaleColorMember.TypeTransformation.cs" />
+    <Compile Include="Documentation\Colors\SetColorMember.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\ShadeTransformation.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\ShiftColorTransformation.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\TintTransformation.TypeConverter.cs" />
+    <Compile Include="Documentation\ContentControls\DataBinding.TypeConverter.cs" />
+    <Compile Include="Documentation\ContentControls\ListItem.TypeConverter.cs" />
+    <Compile Include="Documentation\ContentControls\ListItems.TypeConverter.cs" />
+    <Compile Include="Documentation\ContentControls\Parameter.cs" />
+    <Compile Include="Documentation\ContentControls\Parameter.TypeConverter.cs" />
+    <Compile Include="Documentation\ContentControls\Parameters.cs" />
+    <Compile Include="Documentation\ContentControls\Parameters.TypeConverter.cs" />
+    <Compile Include="Documentation\CustomXmlPart.cs" />
+    <Compile Include="Documentation\CustomXmlParts.cs" />
+    <Compile Include="Documentation\Drawings\Angle.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Bevel.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Camera.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Effects\EffectList.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Effects\Effects.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Effects\Outline.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Fill.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Drawings\GradientStop.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\GradientStopList.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Light.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\LinearGradientFill.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\NoFill.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\PathGradientFill.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Drawings\RelativeRectangle.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Scene3DLayout.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Drawings\Shape3DLayout.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Drawings\ShapeConnection.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\ShapeParameter.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\ShapeParameters.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\SolidFill.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\AutoFitting.cs" />
+    <Compile Include="Documentation\Drawings\ColorRef.cs" />
+    <Compile Include="Documentation\ContentControls\ControlContents.cs" />
+    <Compile Include="Documentation\ContentControls\ListItem.cs" />
+    <Compile Include="Documentation\ContentControls\ListItems.cs" />
+    <Compile Include="Documentation\Drawings\ColorRef.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\DrawingItemList.cs" />
+    <Compile Include="Documentation\Drawings\FontRef.cs" />
+    <Compile Include="Documentation\Drawings\FontRef.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\LineEnding.cs" />
+    <Compile Include="Documentation\Drawings\LineEndingLength.cs" />
+    <Compile Include="Documentation\Drawings\LineEndingType.cs" />
+    <Compile Include="Documentation\Drawings\LineEndingWidth.cs" />
+    <Compile Include="Documentation\Drawings\ShapeConnection.cs" />
+    <Compile Include="Documentation\Drawings\ShapeParameter.cs" />
+    <Compile Include="Documentation\Drawings\ShapeParameters.cs" />
+    <Compile Include="Documentation\Drawings\NoFill.cs" />
+    <Compile Include="Documentation\Drawings\Outline.cs" />
+    <Compile Include="Documentation\Drawings\Stroke.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\TextBoxFormat.cs" />
+    <Compile Include="Documentation\Drawings\TextBoxFormat.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\TextWrapping.cs" />
+    <Compile Include="Documentation\Drawings\TextWrapping.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Tiling.TypeConverter.cs" />
+    <Compile Include="Documentation\EnumValue Converter.cs" />
+    <Compile Include="Documentation\Fields\BlockField.cs" />
+    <Compile Include="Documentation\BlockFormat.cs" />
+    <Compile Include="Documentation\BlockList.cs" />
+    <Compile Include="Documentation\BlockStyle.cs" />
+    <Compile Include="Documentation\Colors\HlsColor.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Colors\LuminanceTransformation.cs" />
+    <Compile Include="Documentation\Colors\NameMapping.cs" />
+    <Compile Include="Documentation\DocumentContent.cs" />
+    <Compile Include="Documentation\Drawings\Effects\BlurTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\BrightnessTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ColorChangeTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ColorMemberTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ColorReplacementTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ColorTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ContrastTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Canvas.cs" />
+    <Compile Include="Documentation\Drawings\Drawing.shared.cs" />
+    <Compile Include="Documentation\Drawings\DrawingItem.shared.cs" />
+    <Compile Include="Documentation\Drawings\DrawingLocks.cs" />
+    <Compile Include="Documentation\Drawings\Effects\DuotoneTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\EffectContainer.cs" />
+    <Compile Include="Documentation\Drawings\Effects\FillOverlayTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\GrayTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ImageTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ImageTransformations.cs" />
+    <Compile Include="Documentation\Fields\ComplexFieldRun.cs" />
+    <Compile Include="Documentation\Fields\ComplexFieldRun.shared.cs" />
+    <Compile Include="Documentation\Fields\FieldInstruction.shared.cs" />
+    <Compile Include="Documentation\Fields\FieldInstructions.cs" />
+    <Compile Include="Documentation\Fields\FieldParameters.cs" />
+    <Compile Include="Documentation\Fields\FieldResults.cs" />
+    <Compile Include="Documentation\Fields\SimpleFieldRun.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Footer.cs" />
+    <Compile Include="Documentation\FooterReference.cs" />
+    <Compile Include="Documentation\Formats\FormatType.cs" />
+    <Compile Include="Documentation\Formats\HorizontalSpacing.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\HorizontalSpacingKind.cs" />
+    <Compile Include="Documentation\Formats\ParagraphFormat.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\ParagraphNumbering.cs" />
+    <Compile Include="Documentation\Formats\ParagraphNumbering.TypeConverter.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Endnote.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Footnote.cs" />
+    <Compile Include="Documentation\Properties\ArrayBounds.cs" />
+    <Compile Include="Documentation\Properties\ArrayValue.cs" />
+    <Compile Include="Documentation\Properties\Value.TypeConverter.cs" />
+    <Compile Include="Documentation\Properties\ValueType.cs" />
+    <Compile Include="Documentation\Properties\Values.cs" />
+    <Compile Include="Documentation\Properties\ValueType.shared.cs" />
+    <Compile Include="Documentation\Properties\ValueType.TypeConverter.cs" />
+    <Compile Include="Documentation\Properties\ValueTypes.cs" />
+    <Compile Include="Documentation\Properties\Value.cs" />
+    <Compile Include="Documentation\Properties\VariantValue.cs" />
+    <Compile Include="Documentation\Properties\VariantValue.TypeConverter.cs" />
+    <Compile Include="Documentation\Properties\VectorValue.cs" />
+    <Compile Include="Documentation\Properties\VectorValue.TypeConverter.cs" />
+    <Compile Include="Documentation\Scheme.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Sections\DocGridType.cs" />
+    <Compile Include="Documentation\Sections\PageOrientation.cs" />
+    <Compile Include="Documentation\Sections\PageFormat.cs" />
+    <Compile Include="Documentation\Sections\SectionFormat.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\Shading.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\TabStop.cs" />
+    <Compile Include="Documentation\Formats\TabStop.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\TabStopKind.cs" />
+    <Compile Include="Documentation\Formats\TabStops.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\TextDirection.cs" />
+    <Compile Include="Documentation\Formats\TextFormat.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\TextFormatSub.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Formats\TextFormatSub.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Formats\TextFormatSubstitutes.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\VerticalSpacing.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Formats\VerticalSpacing.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Formats\VerticalSpacingKind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Header.cs" />
+    <Compile Include="Documentation\HeaderFooter.cs" />
+    <Compile Include="Documentation\HeaderFooterReference.cs" />
+    <Compile Include="Documentation\HeaderReference.cs" />
+    <Compile Include="Documentation\NamedItemIndex.cs" />
+    <Compile Include="Documentation\ParagraphAndText\AlternateChoice.cs" />
+    <Compile Include="Documentation\ParagraphAndText\AlternateChoices.cs" />
+    <Compile Include="Documentation\ParagraphAndText\AlternateContent.cs" />
+    <Compile Include="Documentation\ParagraphAndText\AlternateFallback.cs" />
+    <Compile Include="Documentation\ParagraphAndText\BookmarkEnd.cs" />
+    <Compile Include="Documentation\ParagraphAndText\BookmarkBegin.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Displacing.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Bookmarks.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Break.cs" />
+    <Compile Include="Documentation\ParagraphAndText\BreakLocation.cs" />
+    <Compile Include="Documentation\ParagraphAndText\BreakType.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Docnote.cs" />
+    <Compile Include="Documentation\ParagraphAndText\ReferenceMarkType.cs" />
+    <Compile Include="Documentation\ParagraphAndText\DocnoteType.cs" />
+    <Compile Include="Documentation\ParagraphAndText\LastRenderedPageBreak.cs" />
+    <Compile Include="Documentation\ParagraphAndText\ReferenceMark.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Text.shared.cs" />
+    <Compile Include="Documentation\ParagraphAndText\TextItems.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\PictureFill.TypeConverter.cs" />
+    <Compile Include="Documentation\Sections\SectionFormat.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Separator.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Hyperlink.cs" />
+    <Compile Include="Documentation\Fields\TextInstruction.cs" />
+    <Compile Include="Documentation\ParagraphAndText\SeparatorMark.cs" />
+    <Compile Include="Documentation\ParagraphAndText\SeparatorType.cs" />
+    <Compile Include="Documentation\ParagraphAndText\SoftHyphen.cs" />
+    <Compile Include="Documentation\ParagraphAndText\SymbolChar.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Text.cs" />
+    <Compile Include="Documentation\ParagraphAndText\TextItem.cs" />
+    <Compile Include="Documentation\ParagraphAndText\TextItems.cs" />
+    <Compile Include="Documentation\ParagraphAndText\TextItems.shared.cs" />
+    <Compile Include="Documentation\RichText.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Sections\SectionBreakType.cs" />
+    <Compile Include="Documentation\Sections\TextColumn.cs" />
+    <Compile Include="Documentation\Sections\TextColumns.cs" />
+    <Compile Include="Documentation\SpecificationTableList.cs" />
+    <Compile Include="Documentation\SpecificationTableRow.cs" />
+    <Compile Include="Documentation\SpecificationTableRows.cs" />
+    <Compile Include="Documentation\Styles\StyleRef.cs" />
+    <Compile Include="Documentation\Tables\BorderLine.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\Tables\Borders.TypeConverter.cs" />
+    <Compile Include="Documentation\Tables\TableCellFormat.TypeConverter.cs" />
+    <Compile Include="Documentation\Tables\TableFormat.TypeConverter.cs" />
+    <Compile Include="Documentation\Tables\TableGrid.TypeConverter.cs" />
+    <Compile Include="Documentation\Tables\TableGridCol.TypeConverter.cs" />
+    <Compile Include="Documentation\Tables\TableLayout.TypeConverter.cs" />
+    <Compile Include="Documentation\Tables\TableRowFormat.TypeConverter.cs" />
+    <Compile Include="Documentation\VML\ConnectionPointType.cs" />
+    <Compile Include="Documentation\VML\Fill.cs" />
+    <Compile Include="Documentation\VML\Fill.TypeConverter.cs" />
+    <Compile Include="Documentation\VML\Formula.cs" />
+    <Compile Include="Documentation\VML\Formula.TypeConverter.cs" />
+    <Compile Include="Documentation\VML\Formulas.cs" />
+    <Compile Include="Documentation\VML\Formulas.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\VML\Group.cs" />
+    <Compile Include="Documentation\VML\Locks.cs" />
+    <Compile Include="Documentation\VML\Path.cs" />
+    <Compile Include="Documentation\VML\Path.TypeConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\VML\Picture.cs" />
+    <Compile Include="Documentation\Tables\VerticalAlignment.cs" />
+    <Compile Include="Documentation\TextOverflowHandling.cs" />
+    <Compile Include="Documentation\VML\Rectangle.cs" />
+    <Compile Include="Documentation\VML\Shadow.cs" />
+    <Compile Include="Documentation\VML\Shadow.TypeConverter.cs" />
+    <Compile Include="Documentation\VML\Shape.cs" />
+    <Compile Include="Documentation\VML\ShapeHandle.cs" />
+    <Compile Include="Documentation\VML\ShapeHandle.TypeConverter.cs" />
+    <Compile Include="Documentation\VML\ShapeHandles.cs" />
+    <Compile Include="Documentation\VML\ShapeHandles.TypeConverter.cs" />
+    <Compile Include="Documentation\VML\Shapetype.cs" />
+    <Compile Include="Documentation\VML\Stroke.cs" />
+    <Compile Include="Documentation\VML\Stroke.TypeConverter.cs" />
+    <Compile Include="Documentation\VML\TextBox.cs" />
+    <Compile Include="Documentation\VML\TrueFalseValue.cs" />
+    <Compile Include="Documentation\VML\TrueFalseValue.TypeConverter.cs" />
+    <Compile Include="Documentation\VML\VmlElement.cs" />
+    <Compile Include="Documentation\VML\VmlElementList.cs" />
+    <Compile Include="Documentation\VML\VmlItem.cs" />
+    <Compile Include="Documentation\VML\VmlItemList.cs" />
+    <Compile Include="Documentation\VML\VmlShape.cs" />
+    <Compile Include="Foundation\CanContainAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Foundation\Date.cs" />
+    <Compile Include="Foundation\Date.TypeConverter.cs" />
+    <Compile Include="Modeling\ContentAttribute.cs" />
+    <Compile Include="Modeling\EnumType.cs" />
+    <Compile Include="Foundation\IsSpecificationTableType.cs" />
+    <Compile Include="Foundation\IUniqueItemsCollection.cs" />
+    <Compile Include="Modeling\Class.cs" />
+    <Compile Include="Modeling\EnumValue.cs" />
+    <Compile Include="Modeling\EnumValues.cs" />
+    <Compile Include="Modeling\MetaclassAttribute.cs" />
+    <Compile Include="Modeling\Classes.cs" />
+    <Compile Include="Modeling\Metamodels.cs" />
+    <Compile Include="Modeling\ModelElement.cs" />
+    <Compile Include="Modeling\Properties.cs" />
+    <Compile Include="Modeling\Type.cs" />
+    <Compile Include="Modeling\MetatypeAttribute.cs" />
+    <Compile Include="Modeling\Types.cs" />
+    <Compile Include="Modeling\Model.cs" />
+    <Compile Include="Foundation\NameValuePair.cs" />
+    <Compile Include="Documentation\Drawings\Picture.cs" />
+    <Compile Include="Documentation\Drawings\PictureCompressionFactor.cs" />
+    <Compile Include="Documentation\Drawings\PictureFill.cs" />
+    <Compile Include="Documentation\Drawings\Rectangle.cs" />
+    <Compile Include="Documentation\Drawings\Rectangle.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ScaleColorMember.cs" />
+    <Compile Include="Documentation\Drawings\Effects\SetColorMember.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ShiftColorMember.cs" />
+    <Compile Include="Documentation\Drawings\Effects\TresholdTransformation.cs" />
+    <Compile Include="Documentation\Drawings\Tiling.cs" />
+    <Compile Include="Documentation\Events\EventHyperlink.cs" />
+    <Compile Include="Documentation\Extensions\Extension.cs" />
+    <Compile Include="Documentation\Extensions\ExtensionList.cs" />
+    <Compile Include="Documentation\Formats\CapsMode.cs" />
+    <Compile Include="Documentation\Math\MathAccentProperties.cs" />
+    <Compile Include="Documentation\Math\MathDelimiterProperties.cs" />
+    <Compile Include="Documentation\Math\MathElement.cs" />
+    <Compile Include="Documentation\Math\MathLimitLocationValues.cs" />
+    <Compile Include="Documentation\Math\MathMatrixProperties.cs" />
+    <Compile Include="Documentation\Math\MathNaryProperties.cs" />
+    <Compile Include="Documentation\Math\MathParagraph.cs" />
+    <Compile Include="Documentation\Math\MathRunProperties.cs" />
+    <Compile Include="Documentation\Math\MathShapeDelimiterValues.cs" />
+    <Compile Include="Documentation\Math\MathStyleValues.cs" />
+    <Compile Include="Documentation\Multimedia\Image.cs" />
+    <Compile Include="Documentation\Multimedia\Sound.cs" />
+    <Compile Include="Documentation\ParagraphAndText\DrawingRun.cs" />
+    <Compile Include="Documentation\ParagraphAndText\TabChar.cs" />
+    <Compile Include="Documentation\Revisions\Revision.cs" />
+    <Compile Include="Documentation\Revisions\Revisions.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Run.cs" />
+    <Compile Include="Documentation\Tables\Borders.shared.cs" />
+    <Compile Include="Documentation\Tables\BorderLine.cs" />
+    <Compile Include="Documentation\Tables\BorderLine.shared.cs" />
+    <Compile Include="Documentation\Tables\Borders.cs" />
+    <Compile Include="Documentation\Colors\Color.HLS.cs" />
+    <Compile Include="Documentation\Colors\Color.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\ColorDef.cs" />
+    <Compile Include="Documentation\Colors\ColorHelper.shared.cs" />
+    <Compile Include="Documentation\Colors\Color.cs" />
+    <Compile Include="Documentation\Colors\Color.shared.cs" />
+    <Compile Include="Documentation\Colors\ColorMembers.cs" />
+    <Compile Include="Documentation\Colors\ColorMemberTransformation.cs" />
+    <Compile Include="Documentation\Colors\ColorTransformation.cs" />
+    <Compile Include="Documentation\Colors\ColorTransformation.shared.cs" />
+    <Compile Include="Documentation\Colors\ColorTransformations.cs" />
+    <Compile Include="Documentation\Colors\ColorTransformations.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\ComplementTransformation.cs" />
+    <Compile Include="Documentation\Colors\ComplementTransformation.shared.cs" />
+    <Compile Include="Documentation\Colors\GammaTransformation.cs" />
+    <Compile Include="Documentation\Colors\GammaTransformation.shared.cs" />
+    <Compile Include="Documentation\Colors\GrayTransformation.cs" />
+    <Compile Include="Documentation\Colors\GrayTransformation.shared.cs" />
+    <Compile Include="Documentation\Colors\HlsColor.cs" />
+    <Compile Include="Documentation\Colors\InverseTransformation.cs" />
+    <Compile Include="Documentation\Colors\InverseTransformation.shared.cs" />
+    <Compile Include="Documentation\Drawings\Effects\LuminanceTransformation.cs" />
+    <Compile Include="Documentation\Colors\PresetColor.cs" />
+    <Compile Include="Documentation\Colors\PresetColor.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\ARGBColor.cs" />
+    <Compile Include="Documentation\Colors\ARGBColor.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\ScaleColorMember.cs" />
+    <Compile Include="Documentation\Colors\ScaleColorMember.shared.cs" />
+    <Compile Include="Documentation\Colors\SchemeColor.cs" />
+    <Compile Include="Documentation\Colors\SchemeColor.shared.cs" />
+    <Compile Include="Documentation\Colors\SchemeColor.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\SetColorMember.cs" />
+    <Compile Include="Documentation\Colors\SetColorMember.shared.cs" />
+    <Compile Include="Documentation\Colors\ShadeTransformation.cs" />
+    <Compile Include="Documentation\Colors\ShadeTransformation.shared.cs" />
+    <Compile Include="Documentation\Colors\ShiftColorMember.cs" />
+    <Compile Include="Documentation\Colors\ShiftColorMember.shared.cs" />
+    <Compile Include="Documentation\Colors\SystemColor.cs" />
+    <Compile Include="Documentation\Colors\SystemColor.shared.cs" />
+    <Compile Include="Documentation\Colors\SystemColor.TypeConverter.cs" />
+    <Compile Include="Documentation\Colors\TintTransformation.cs" />
+    <Compile Include="Documentation\Colors\TintTransformation.shared.cs" />
+    <Compile Include="Documentation\Colors\TransformedColor.cs" />
+    <Compile Include="Documentation\Colors\TransformedColor.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Angle.cs" />
+    <Compile Include="Documentation\Drawings\Angle.shared.cs" />
+    <Compile Include="Documentation\Drawings\Bevel.cs" />
+    <Compile Include="Documentation\Drawings\Camera.cs" />
+    <Compile Include="Documentation\Drawings\CompoundLineType.cs" />
+    <Compile Include="Documentation\Drawings\Effects\Effect.cs" />
+    <Compile Include="Documentation\Drawings\Effects\EffectList.cs" />
+    <Compile Include="Documentation\Drawings\GradientStop.cs" />
+    <Compile Include="Documentation\Drawings\GradientStopList.cs" />
+    <Compile Include="Documentation\Drawings\Light.cs" />
+    <Compile Include="Documentation\Drawings\LineAlignmentType.cs" />
+    <Compile Include="Documentation\Drawings\LinearGradientFill.cs" />
+    <Compile Include="Documentation\Drawings\LineCapType.cs" />
+    <Compile Include="Documentation\Drawings\PathGradientFill.cs" />
+    <Compile Include="Documentation\Drawings\RectangleAlignment.cs" />
+    <Compile Include="Documentation\Drawings\RelativeRectangle.cs" />
+    <Compile Include="Documentation\Drawings\Rotation3D.cs" />
+    <Compile Include="Documentation\Drawings\Rotation3D.shared.cs" />
+    <Compile Include="Documentation\Drawings\Rotation3D.TypeConverter.cs" />
+    <Compile Include="Documentation\Drawings\Scene3DLayout.cs" />
+    <Compile Include="Documentation\Drawings\Effects\Shadow.cs" />
+    <Compile Include="Documentation\Drawings\Effects\ShadowType.cs" />
+    <Compile Include="Documentation\Drawings\Shape3DLayout.cs" />
+    <Compile Include="Documentation\Drawings\TileFlipping.cs" />
+    <Compile Include="Documentation\ContentControls\DataBinding.cs" />
+    <Compile Include="Documentation\Formats\Formats.cs" />
+    <Compile Include="Documentation\DocPart.cs" />
+    <Compile Include="Documentation\Document.cs" />
+    <Compile Include="Documentation\Document.shared.cs" />
+    <Compile Include="Documentation\Properties\Properties.cs" />
+    <Compile Include="Documentation\Properties\Property.cs" />
+    <Compile Include="Documentation\Colors\ColorScheme.cs" />
+    <Compile Include="Documentation\Colors\ColorSchemeMap.cs" />
+    <Compile Include="Documentation\Drawings\Color.Drawings.cs" />
+    <Compile Include="Documentation\Drawings\Drawing.cs" />
+    <Compile Include="Documentation\Drawings\DrawingItem.cs" />
+    <Compile Include="Documentation\Drawings\DrawingGroup.cs" />
+    <Compile Include="Documentation\Drawings\DrawingShape.cs" />
+    <Compile Include="Foundation\NameValueList.cs" />
+    <Compile Include="Documentation\Drawings\Effects\Effects.cs" />
+    <Compile Include="Documentation\Drawings\Fill.cs" />
+    <Compile Include="Documentation\Drawings\GradientFill.cs" />
+    <Compile Include="Documentation\Drawings\GraphicStyle.cs" />
+    <Compile Include="Documentation\Drawings\GraphicScheme.cs" />
+    <Compile Include="Documentation\Drawings\SolidFill.cs" />
+    <Compile Include="Documentation\Drawings\Stroke.cs" />
+    <Compile Include="Documentation\Drawings\Point.cs" />
+    <Compile Include="Documentation\Drawings\ShapeGeometry.cs" />
+    <Compile Include="Documentation\Drawings\ShapePath.cs" />
+    <Compile Include="Documentation\Drawings\ShapePathCmd.cs" />
+    <Compile Include="Documentation\Drawings\ShapePathCommand.cs" />
+    <Compile Include="Documentation\Drawings\ShapeTypeValues.cs" />
+    <Compile Include="Documentation\Drawings\TextBox.cs" />
+    <Compile Include="Documentation\Fields\FieldBlock.cs" />
+    <Compile Include="Documentation\Fields\FieldInstruction.cs" />
+    <Compile Include="Documentation\Math\Fonts\Font.cs" />
+    <Compile Include="Documentation\Math\Fonts\Font.shared.cs" />
+    <Compile Include="Documentation\Math\Fonts\FontCollection.cs" />
+    <Compile Include="Documentation\Math\Fonts\FontScheme.cs" />
+    <Compile Include="Documentation\Math\Fonts\FontSubstitutes.TypeConverter.cs" />
+    <Compile Include="Documentation\Math\Fonts\FontUsage.cs" />
+    <Compile Include="Documentation\Math\Fonts\FontSubstitutes.cs" />
+    <Compile Include="Documentation\Math\Fonts\FontUsage.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\Format.cs" />
+    <Compile Include="Documentation\Formats\TextFormatSubstitutes.cs" />
+    <Compile Include="Documentation\Tables\TableGridCol.cs" />
+    <Compile Include="Documentation\Math\Fonts\Hideable.cs" />
+    <Compile Include="Documentation\History.cs" />
+    <Compile Include="Documentation\HistoryItem.cs" />
+    <Compile Include="Documentation\Formats\HorizontalAlignment.cs" />
+    <Compile Include="Documentation\Formats\HorizontalSpacing.cs" />
+    <Compile Include="Documentation\IDocumentItem.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Inline.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Inline.shared.cs" />
+    <Compile Include="Documentation\ParagraphAndText\InlineContainer.cs" />
+    <Compile Include="Documentation\Styles\LatentStyle.cs" />
+    <Compile Include="Documentation\Drawings\LineKind.cs" />
+    <Compile Include="Documentation\Formats\LineSpacing.shared.cs" />
+    <Compile Include="Documentation\Formats\LineSpacing.TypeConverter.cs" />
+    <Compile Include="Documentation\Formats\LineSpacing.cs" />
+    <Compile Include="Documentation\Formats\LineSpacingKind.cs" />
+    <Compile Include="Documentation\Drawings\LineStyle.cs" />
+    <Compile Include="Documentation\Styles\ListStyle.cs" />
+    <Compile Include="Documentation\Numbering\Numbering.cs" />
+    <Compile Include="Documentation\ParagraphAndText\InlineObject.cs" />
+    <Compile Include="Documentation\OnOff.cs" />
+    <Compile Include="Documentation\OpenXMLAttributeNameAttribute.cs" />
+    <Compile Include="Documentation\OpenXMLAttributeValueAttribute.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Paragraph.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Paragraph.shared.cs" />
+    <Compile Include="Documentation\Formats\ParagraphFormat.cs" />
+    <Compile Include="Documentation\ContentControls\ContentControl.cs" />
+    <Compile Include="Documentation\Formats\ParagraphFormat.shared.cs" />
+    <Compile Include="Documentation\PointValue.cs" />
+    <Compile Include="Documentation\PointValue.shared.cs" />
+    <Compile Include="Documentation\Formats\Shading.cs" />
+    <Compile Include="Documentation\Tables\BorderLinePlacement.cs" />
+    <Compile Include="Documentation\Tables\TableCellFormat.cs" />
+    <Compile Include="Documentation\Tables\TableFormat.shared.cs" />
+    <Compile Include="Documentation\Tables\TableLook.cs" />
+    <Compile Include="Documentation\Tables\TableRowFormat.cs" />
+    <Compile Include="Documentation\Tables\TableRows.cs" />
+    <Compile Include="Documentation\Tables\TableWidth.cs" />
+    <Compile Include="Documentation\Tables\TableCellMargin.TypeConverter.cs" />
+    <Compile Include="Documentation\Tables\TableLayout.cs" />
+    <Compile Include="Documentation\Tables\TableLayout.shared.cs" />
+    <Compile Include="Documentation\Tables\TableCellMargin.cs" />
+    <Compile Include="Documentation\Tables\TableFormat.cs" />
+    <Compile Include="Documentation\Formats\TextFormat.shared.cs" />
+    <Compile Include="Documentation\Tables\TableWidth.TypeConverter.cs" />
+    <Compile Include="Documentation\Styles\ParagraphStyle.cs" />
+    <Compile Include="Documentation\PresentationBlock.cs" />
+    <Compile Include="Documentation\PresentationElement.cs" />
+    <Compile Include="Documentation\ParagraphAndText\Run.shared.cs" />
+    <Compile Include="Documentation\Sections\Section.cs" />
+    <Compile Include="Documentation\Sections\Sections.cs" />
+    <Compile Include="Documentation\SpecificationTable.cs" />
+    <Compile Include="Documentation\Styles\Style.cs" />
+    <Compile Include="Documentation\Styles\StyleList.cs" />
+    <Compile Include="Documentation\Styles\StyleType.cs" />
+    <Compile Include="Documentation\Tables\Table.cs" />
+    <Compile Include="Documentation\Tables\TableCell.cs" />
+    <Compile Include="Documentation\Tables\TablePartFormat.cs" />
+    <Compile Include="Documentation\Tables\TableRow.cs" />
+    <Compile Include="Documentation\Styles\TableStyle.cs" />
+    <Compile Include="Documentation\Formats\TabStops.cs" />
+    <Compile Include="Documentation\Formats\TextAttributes.cs" />
+    <Compile Include="Documentation\Formats\TextAttributes.shared.cs" />
+    <Compile Include="Documentation\Formats\TextFormat.cs" />
+    <Compile Include="Documentation\ParagraphAndText\TextMode.cs" />
+    <Compile Include="Documentation\Formats\TextProofing.cs" />
+    <Compile Include="Documentation\ParagraphAndText\TextRun.cs" />
+    <Compile Include="Documentation\Styles\TextStyle.cs" />
+    <Compile Include="Documentation\Tables\VerticalMergeType.cs" />
+    <Compile Include="Documentation\Formats\VerticalPosition.cs" />
+    <Compile Include="Foundation\CanBelongToAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Foundation\CanReferToAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Documentation\DocParts.cs" />
+    <Compile Include="Foundation\CompoundItem.cs" />
+    <Compile Include="Foundation\CompoundObject.cs" />
+    <Compile Include="Foundation\Element.cs" />
+    <Compile Include="Foundation\ElementList.cs" />
+    <Compile Include="Foundation\FoundationAttribute.cs" />
+    <Compile Include="Foundation\INotifyObjectChanged.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Foundation\IObject.cs" />
+    <Compile Include="Modeling\IsAbstractAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modeling\MetaclassPropertyAttribute.cs" />
+    <Compile Include="Foundation\Item.cs" />
+    <Compile Include="Foundation\ItemIndex.cs" />
+    <Compile Include="Foundation\ItemList.cs" />
+    <Compile Include="Foundation\Name.cs" />
+    <Compile Include="Foundation\ElementQuery.cs" />
+    <Compile Include="Foundation\GuidGenerator.cs" />
+    <Compile Include="Foundation\ImlSemanticAttribute.cs" />
+    <Compile Include="Foundation\ImlText.cs" />
+    <Compile Include="Foundation\ImlTextList.cs" />
+    <Compile Include="Foundation\INamedElement.cs" />
+    <Compile Include="Foundation\IReferencedElement.shared.cs" />
+    <Compile Include="Foundation\IReferencingElement.shared.cs" />
+    <Compile Include="Foundation\Object.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Foundation\ObjectIndex.cs" />
+    <Compile Include="Foundation\ObjectList.cs" />
+    <Compile Include="Foundation\Percent.cs" />
+    <Compile Include="Foundation\Percent.shared.cs" />
+    <Compile Include="Foundation\ReferencingElementList.cs" />
+    <Compile Include="Modeling\Metamodel.cs" />
+    <Compile Include="Foundation\NamedElement.cs" />
+    <Compile Include="Foundation\NamedElement.partial.cs" />
+    <Compile Include="Foundation\NameList.cs" />
+    <Compile Include="Foundation\OutcomeAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Foundation\ProjectElement.cs" />
+    <Compile Include="Foundation\PropertyAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Foundation\Reference.cs" />
+    <Compile Include="Foundation\Reference.shared.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Foundation\ReferenceList.cs" />
+    <Compile Include="Foundation\ReferenceTypeConverter.cs" />
+    <Compile Include="Foundation\RefIDGenerator.cs" />
+    <Compile Include="Foundation\SemanticElement.cs" />
+    <Compile Include="Foundation\SemanticElements.cs" />
+    <Compile Include="Foundation\SemanticQuery.cs" />
+    <Compile Include="Documentation\Multimedia\ImageList.cs" />
+    <Compile Include="Documentation\HeaderFooterType.cs" />
+    <Compile Include="Helpers\FormatHelper.cs" />
+    <Compile Include="Modeling\Property.cs" />
+    <Compile Include="Modeling\BehavioralFeatures.cs" />
+    <Compile Include="Modeling\Changeabilities.cs" />
+    <Compile Include="Modeling\Classifiers.cs" />
+    <Compile Include="Modeling\Comments.cs" />
+    <Compile Include="Modeling\Constraints.cs" />
+    <Compile Include="Modeling\Expressions.cs" />
+    <Compile Include="Modeling\Generalizations.cs" />
+    <Compile Include="Modeling\Instances.cs" />
+    <Compile Include="Modeling\Literals.cs" />
+    <Compile Include="Modeling\Multiplicities.cs" />
+    <Compile Include="Modeling\MultiplicityExpressions.cs" />
+    <Compile Include="Modeling\Namespaces.cs" />
+    <Compile Include="Modeling\PrimitiveTypes.cs" />
+    <Compile Include="Modeling\Redefinitions.cs" />
+    <Compile Include="Modeling\Relationships.cs" />
+    <Compile Include="Modeling\StructuralFeatures.cs" />
+    <Compile Include="Modeling\Classifier.cs" />
+    <Compile Include="Modeling\TypedElements.cs" />
+    <Compile Include="Modeling\Visibilities.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\DataErrors.Designer.cs" />
+    <Compile Include="Resources\DataResources.Designer.cs" />
+    <Compile Include="Stereotyping\AddedPropertyAttribute.cs" />
+    <Compile Include="Stereotyping\NameValueList.cs" />
+    <Compile Include="Stereotyping\RequiredAttribute.cs" />
+    <Compile Include="Stereotyping\StereotypeInterfaceAttribute.cs" />
+    <Compile Include="Documentation\ParagraphAndText\TextRun.shared.cs" />
+    <Compile Include="Documentation\Tables\TableGrid.cs" />
+    <Compile Include="Documentation\Styles\Style.shared.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Documentation\PresentationElement.shared.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\IML.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="docs\AssemblyDependencies.dgml" />
+    <None Include="docs\Attributes.cd" />
+    <None Include="docs\BaseCollections.cd" />
+    <None Include="docs\BasicClasses.cd" />
+    <None Include="docs\DocumentStructure.cd" />
+    <None Include="docs\Elements.cd" />
+    <None Include="docs\IMLShortDesc.docx" />
+    <None Include="docs\Items.cd" />
+    <None Include="docs\Model_IML.docx" />
+    <None Include="Properties\DataSources\Iml.Docs.Document.datasource" />
+    <None Include="Resources\DataResources.zreproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataErrors.resx" />
+    <EmbeddedResource Include="Resources\DataResources.pl.resx" />
+    <EmbeddedResource Include="Resources\DataResources.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

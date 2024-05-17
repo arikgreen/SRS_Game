@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdminAccess" xml:space="preserve">
+    <value>admin</value>
+  </data>
+  <data name="AuthorAlreadyExists_1" xml:space="preserve">
+    <value>Author "{0}" already exists</value>
+  </data>
+  <data name="AuthorNotRegisteredInSolution_2" xml:space="preserve">
+    <value>Author "{0}" not registered in solution "{1}"</value>
+  </data>
+  <data name="AuthorNotRegisteredInProject_2" xml:space="preserve">
+    <value>Author "{0}" not registered in project "{1}"</value>
+  </data>
+  <data name="CantChangeElementAtLowerLayer_3" xml:space="preserve">
+    <value>Can't change element "{0}" at layer "{1}" which is lower than element's original layer "{2}"</value>
+  </data>
+  <data name="CantCreateDatabase_1" xml:space="preserve">
+    <value>Can't create database "{0}"</value>
+  </data>
+  <data name="CantCreateTablesInDatabase_1" xml:space="preserve">
+    <value>Can't create table(s) in database "{0}"</value>
+  </data>
+  <data name="CantCreateTable_1" xml:space="preserve">
+    <value>Can't create table "{0}"</value>
+  </data>
+  <data name="CantDeleteActiveAuthor_1" xml:space="preserve">
+    <value>Can't delete author "{0}". Author was active.</value>
+  </data>
+  <data name="CantDeleteDatabase_1" xml:space="preserve">
+    <value>Can't delete database "{0}"</value>
+  </data>
+  <data name="CantDeleteNonEmptyDocument_1" xml:space="preserve">
+    <value>Can't delete non empty document "{0}"</value>
+  </data>
+  <data name="CantDeleteNonEmptyLayer_1" xml:space="preserve">
+    <value>Can't delete non empty layer "{0}"</value>
+  </data>
+  <data name="CantDeleteNonEmptyProject_1" xml:space="preserve">
+    <value>Can't delete non empty project "{0}"</value>
+  </data>
+  <data name="CantDeleteUsedNamespace_1" xml:space="preserve">
+    <value>Can't delete used namespace "{0}"</value>
+  </data>
+  <data name="ConnectionOpeningTimedOut" xml:space="preserve">
+    <value>ConnectionOpeningTimedOut</value>
+  </data>
+  <data name="DatabaseReadError_1" xml:space="preserve">
+    <value>Database "{0}" read error</value>
+  </data>
+  <data name="DatabaseWriteError_1" xml:space="preserve">
+    <value>Database "{0}" write error</value>
+  </data>
+  <data name="DocumentNotFoundInSolution_2" xml:space="preserve">
+    <value>Document "{0}" not found in solution "{1}"</value>
+  </data>
+  <data name="DocumentNotFoundInLayer_2" xml:space="preserve">
+    <value>Document "{0}" not found in layer "{1}"</value>
+  </data>
+  <data name="EmptyAuthorID" xml:space="preserve">
+    <value>Author's ID must not be empty</value>
+  </data>
+  <data name="EmptyLayerID" xml:space="preserve">
+    <value>Layer ID must not be empty</value>
+  </data>
+  <data name="EntityDeleteError_2" xml:space="preserve">
+    <value>{0} "{1}" delete error</value>
+  </data>
+  <data name="EntityInsertError_2" xml:space="preserve">
+    <value>{0} "{1}" insert error</value>
+  </data>
+  <data name="EntityUpdateError_2" xml:space="preserve">
+    <value>{0} "{1}" update error</value>
+  </data>
+  <data name="IndexKeyCantBeNull_1" xml:space="preserve">
+    <value>Index "{0}" key can't be null</value>
+  </data>
+  <data name="ValueForPropertyIsAlreadyUsed_2" xml:space="preserve">
+    <value>Value "{0}" for property "{1}" is already used</value>
+  </data>
+  <data name="InvalidLayerID_1" xml:space="preserve">
+    <value>Layer ID "{0}" is invalid</value>
+  </data>
+  <data name="InvalidUserAccess_2" xml:space="preserve">
+    <value>User "{0}" has no {1} access</value>
+  </data>
+  <data name="InvalidXmlElementName_2" xml:space="preserve">
+    <value>Invalid Xml element name "{0}". "{1}" expected.</value>
+  </data>
+  <data name="LayerAlreadyExists_1" xml:space="preserve">
+    <value>Layer "{0}" already exists</value>
+  </data>
+  <data name="LayerIsClosed_1" xml:space="preserve">
+    <value>Layer "{0} is closed</value>
+  </data>
+  <data name="LayerIsNotIteration_1" xml:space="preserve">
+    <value>Layer "{0} does not represent iteration</value>
+  </data>
+  <data name="LayerNotFoundInSolution_2" xml:space="preserve">
+    <value>Layer "{0}" not found in solution "{1}"</value>
+  </data>
+  <data name="LayerTemplateNotFound_1" xml:space="preserve">
+    <value>Layer "{0}" template not found</value>
+  </data>
+  <data name="MissingProjectSymbol_1" xml:space="preserve">
+    <value>"ProjectSymbol" attribute missing in "{0}" document element</value>
+  </data>
+  <data name="NamespaceAlreadyExists_1" xml:space="preserve">
+    <value>Namespace "{0}" already exists</value>
+  </data>
+  <data name="NamespaceNotFoundInSolution_2" xml:space="preserve">
+    <value>Namespace "{0}" not found in solution "{1}"</value>
+  </data>
+  <data name="NewAuthorCanChangeElementOnlyAtHigherLayer_2" xml:space="preserve">
+    <value>New author can change element "{0}" only at layer higher than "{1}"</value>
+  </data>
+  <data name="NoRootNodeInXmlDocument" xml:space="preserve">
+    <value>No root node in a XML document</value>
+  </data>
+  <data name="NoVersionFoundForLayer_1" xml:space="preserve">
+    <value>No version found for layer "{0}"</value>
+  </data>
+  <data name="PrimaryIndexAlreadyExistsInTable_1" xml:space="preserve">
+    <value>Primary index already exists in table "{0}"</value>
+  </data>
+  <data name="PrimaryKeyAlreadyExistsInTable_1" xml:space="preserve">
+    <value>Primary key already exists in table "{0}"</value>
+  </data>
+  <data name="PrimaryKeyViolation_1" xml:space="preserve">
+    <value>Primary key "{0}" violation for "{0}"</value>
+  </data>
+  <data name="ProjectNotFoundInSolution_2" xml:space="preserve">
+    <value>Project "{0}" not found in solution "{1}"</value>
+  </data>
+  <data name="ReadAccess" xml:space="preserve">
+    <value>read</value>
+  </data>
+  <data name="ReadOnlyProperty_1" xml:space="preserve">
+    <value>Property "{0}" is read only</value>
+  </data>
+  <data name="RichTextParseErrorAtPos_2" xml:space="preserve">
+    <value>Rich text "{0}" parse error at position {1}</value>
+  </data>
+  <data name="UnrecognizedConnectionState_1" xml:space="preserve">
+    <value>Unrecognized connection state: "{0}"</value>
+  </data>
+  <data name="UnrecognizedXmlAttributeValue_2" xml:space="preserve">
+    <value>Unrecognized Xml attribute value {0}="{1}"</value>
+  </data>
+  <data name="UnrecognizedXmlElement_1" xml:space="preserve">
+    <value>Unrecognized Xml element "{0}"</value>
+  </data>
+  <data name="WriteAccess" xml:space="preserve">
+    <value>write</value>
+  </data>
+  <data name="XmlFileReadError_1" xml:space="preserve">
+    <value>Error reading XML file "{0}"</value>
+  </data>
+  <data name="XmlFileWriteError_1" xml:space="preserve">
+    <value>Error writing XML file "{0}"</value>
+  </data>
+  <data name="PropertyFileToFound_1" xml:space="preserve">
+    <value>Property file for database "{0}" not found</value>
+  </data>
+  <data name="InvalidAccessKey_1" xml:space="preserve">
+    <value>Invalid access key for user "{0}"</value>
+  </data>
+  <data name="InactiveAccessKey_1" xml:space="preserve">
+    <value>Inactive access key for user "{0}"</value>
+  </data>
+  <data name="InvalidAccessKey" xml:space="preserve">
+    <value>Invalid (empty) access key</value>
+  </data>
+  <data name="IterationNotFound_1" xml:space="preserve">
+    <value>Iteration "{0}" not found</value>
+  </data>
+  <data name="PhaseNotFound_1" xml:space="preserve">
+    <value>Phase "{0}" not found</value>
+  </data>
+  <data name="KeyExpired" xml:space="preserve">
+    <value>Key expired</value>
+  </data>
+  <data name="AttemptToAddEmptyItemToCollection_1" xml:space="preserve">
+    <value>Attempt to add empty item to {0} collection</value>
+  </data>
+  <data name="InvalidItemType_1" xml:space="preserve">
+    <value>Invalid item type {0}</value>
+  </data>
+  <data name="DuplicateValueForUniqueProperty_2" xml:space="preserve">
+    <value>Duplicate value "{0}" for unique property "{1}"</value>
+  </data>
+  <data name="ValueForPropertyCantBeChanged_2" xml:space="preserve">
+    <value>Value "{0}" for property "{1}" can't be changed</value>
+  </data>
+  <data name="ValueForPropertyCantBeEmpty_1" xml:space="preserve">
+    <value>Value fo property "{0}" can't be empty</value>
+  </data>
+</root>

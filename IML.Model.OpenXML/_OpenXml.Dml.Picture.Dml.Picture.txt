@@ -1,0 +1,8 @@
+[Tag("pictureNonVisual")]
+[Alias("PictureNonVisual")]
+CT_PictureNonVisual = PictureNonVisualType;
+
+[Tag("picture")]
+[Alias("Picture")]
+CT_Picture = Picture;
+

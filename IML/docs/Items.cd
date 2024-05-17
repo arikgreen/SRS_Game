@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Iml.Foundation.Item" Collapsed="true">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAA0IABAAABAAAAgAQAAAAAIAAABAAAAAA=</HashCode>
+      <FileName>Foundation\Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Iml.Foundation.NamedElement" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAkAAACAAkAAAAIAAQAAYAAAAAAAAAAAAAABAAAIA=</HashCode>
+      <FileName>Foundation\NamedElement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Iml.Documentation.DocumentProperty" Collapsed="true">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Documents\DocumentProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Documentation.HistoryItem" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAAAAAAAAAgAAAAgAAQAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Documents\HistoryItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Documentation.Section" Collapsed="true">
+    <Position X="7.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAiAEwAAAAAAABAAACAQAgAAACCABAAIAAQAA=</HashCode>
+      <FileName>Documents\Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Iml.Foundation.ImlText" Collapsed="true">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAACAAAAAAMAIAAAAAAAAAAAAAAABAACAICACA=</HashCode>
+      <FileName>Foundation\ImlText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Foundation.Reference" Collapsed="true">
+    <Position X="11.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAgEAAAgjIQAQQkgDACASAAAAAhAgAgAACAABkAABA=</HashCode>
+      <FileName>Foundation\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Iml.Foundation.Element" Collapsed="true">
+    <Position X="1" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAgAAQ2IABAgAAEAAAgAQAIAAAYAAADAEAAAA=</HashCode>
+      <FileName>Foundation\Element.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Iml.Foundation.Name" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Foundation\Name.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

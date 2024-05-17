@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Iml.Model.Requirements.RequirementsElement" Collapsed="true">
+    <Position X="9" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RequirementsElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.ActiveObject" Collapsed="true">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ActiveObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.DataItem" Collapsed="true">
+    <Position X="8.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.Motivation" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Motivation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.Objective" Collapsed="true">
+    <Position X="11.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objective.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.Requirement" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.Stakeholder" Collapsed="true">
+    <Position X="7.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Stakeholder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.SystemInterface" Collapsed="true">
+    <Position X="10.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SystemInterface.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Foundation.SemanticElement" Collapsed="true">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="Iml.Model.Requirements.RequirementPriority" Collapsed="true">
+    <Position X="12" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAACAAAAAAAAAAACAIAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>RequirementsElement.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

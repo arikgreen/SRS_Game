@@ -1,0 +1,238 @@
+ST_StyleMatrixColumnIndex = UInt32;
+
+[Alias("FontCollectionIndex")]
+ST_FontCollectionIndex = FontCollectionIndexValues;
+
+[Alias("ColorSchemeIndex")]
+ST_ColorSchemeIndex = ColorSchemeIndexValues;
+
+ST_Coordinate = class;
+
+ST_CoordinateUnqualified = Int64;
+
+ST_Coordinate32 = class;
+
+ST_Coordinate32Unqualified = Int32;
+
+ST_PositiveCoordinate = Int64;
+
+[MinValue(0)]
+ST_PositiveCoordinate32 = Int32;
+
+ST_Angle = Int32;
+
+[MinValue(-5399999)]
+[MaxValue(5399999)]
+ST_FixedAngle = Int32;
+
+[MinValue(0)]
+[MaxValue(21599999)]
+ST_PositiveFixedAngle = Int32;
+
+ST_Percentage = class;
+
+ST_PositivePercentage = class;
+
+ST_FixedPercentage = class;
+
+ST_PositiveFixedPercentage = class;
+
+[Alias("SystemColorVal")]
+ST_SystemColorVal = SystemColorValues;
+
+[Alias("SchemeColorVal")]
+ST_SchemeColorVal = SchemeColorValues;
+
+[Alias("PresetColorVal")]
+ST_PresetColorVal = PresetColorValues;
+
+[Alias("RectAlignment")]
+ST_RectAlignment = RectangleAlignmentValues;
+
+[Alias("BlackWhiteMode")]
+ST_BlackWhiteMode = BlackWhiteModeValues;
+
+ST_DrawingElementId = UInt32;
+
+[Alias("ChartBuildStep")]
+ST_ChartBuildStep = ChartBuildStepValues;
+
+[Alias("DgmBuildStep")]
+ST_DgmBuildStep = DiagramBuildStepValues;
+
+[Alias("AnimationBuildType")]
+ST_AnimationBuildType = AnimationBuildValues;
+
+[Alias("AnimationDgmOnlyBuildType")]
+ST_AnimationDgmOnlyBuildType = AnimationDiagramOnlyBuildValues;
+
+ST_AnimationDgmBuildType = class;
+
+[Alias("AnimationChartOnlyBuildType")]
+ST_AnimationChartOnlyBuildType = AnimationChartOnlyBuildValues;
+
+ST_AnimationChartBuildType = class;
+
+[Alias("PresetCameraType")]
+ST_PresetCameraType = PresetCameraValues;
+
+[MinValue(0)]
+[MaxValue(10800000)]
+ST_FOVAngle = Int32;
+
+[Alias("LightRigDirection")]
+ST_LightRigDirection = LightRigDirectionValues;
+
+[Alias("LightRigType")]
+ST_LightRigType = LightRigValues;
+
+[Alias("BevelPresetType")]
+ST_BevelPresetType = BevelPresetValues;
+
+[Alias("PresetMaterialType")]
+ST_PresetMaterialType = PresetMaterialTypeValues;
+
+[Alias("PresetShadowVal")]
+ST_PresetShadowVal = PresetShadowValues;
+
+[Alias("PathShadeType")]
+ST_PathShadeType = PathShadeTypeValues;
+
+[Alias("TileFlipMode")]
+ST_TileFlipMode = ErrorBarDirectionValues;
+
+[Alias("BlipCompression")]
+ST_BlipCompression = BlipCompressionValues;
+
+[Alias("PresetPatternVal")]
+ST_PresetPatternVal = PresetPatternValues;
+
+[Alias("BlendMode")]
+ST_BlendMode = BlendModeValues;
+
+[Alias("EffectContainerType")]
+ST_EffectContainerType = EffectContainerValues;
+
+[Alias("ShapeType")]
+ST_ShapeType = ShapeValues;
+
+[Alias("TextShapeType")]
+ST_TextShapeType = TextShapeValues;
+
+[Token]
+ST_GeomGuideName = String;
+
+ST_GeomGuideFormula = String;
+
+ST_AdjCoordinate = class;
+
+ST_AdjAngle = class;
+
+[Alias("PathFillMode")]
+ST_PathFillMode = PathFillModeValues;
+
+[Alias("LineEndType")]
+ST_LineEndType = LineEndValues;
+
+[Alias("LineEndWidth")]
+ST_LineEndWidth = LineEndWidthValues;
+
+[Alias("LineEndLength")]
+ST_LineEndLength = LineEndLengthValues;
+
+[Alias("PresetLineDashVal")]
+ST_PresetLineDashVal = PresetLineDashValues;
+
+[Alias("LineCap")]
+ST_LineCap = LineCapValues;
+
+[MinValue(0)]
+[MaxValue(20116800)]
+ST_LineWidth = Int32;
+
+[Alias("PenAlignment")]
+ST_PenAlignment = PenAlignmentValues;
+
+[Alias("CompoundLine")]
+ST_CompoundLine = CompoundLineValues;
+
+[Token]
+ST_ShapeID = String;
+
+[Alias("OnOffStyleType")]
+ST_OnOffStyleType = OnOffOnlyValues;
+
+[Alias("TextAnchoringType")]
+ST_TextAnchoringType = TextAnchoringTypeValues;
+
+[Alias("TextVertOverflowType")]
+ST_TextVertOverflowType = TextVerticalOverflowValues;
+
+[Alias("TextHorzOverflowType")]
+ST_TextHorzOverflowType = TextHorizontalOverflowValues;
+
+[Alias("TextVerticalType")]
+ST_TextVerticalType = TextVerticalValues;
+
+[Alias("TextWrappingType")]
+ST_TextWrappingType = TextWrappingValues;
+
+ST_TextColumnCount = Int32;
+
+ST_TextFontScalePercentOrPercentString = class;
+
+ST_TextBulletStartAtNum = Int32;
+
+[Alias("TextAutonumberScheme")]
+ST_TextAutonumberScheme = TextAutoNumberSchemeValues;
+
+ST_TextBulletSize = class;
+
+[Pattern(@"0*((2[5-9])|([3-9][0-9])|([1-3][0-9][0-9])|400)%")]
+[Units(new string[]{"%"})]
+ST_TextBulletSizePercent = Int32;
+
+ST_TextPoint = class;
+
+ST_TextPointUnqualified = Int32;
+
+ST_TextNonNegativePoint = Int32;
+
+ST_TextFontSize = Int32;
+
+ST_TextTypeface = String;
+
+ST_PitchFamily = SByte;
+
+[Alias("TextUnderlineType")]
+ST_TextUnderlineType = TextUnderlineValues;
+
+[Alias("TextStrikeType")]
+ST_TextStrikeType = TextStrikeValues;
+
+[Alias("TextCapsType")]
+ST_TextCapsType = TextCapsValues;
+
+ST_TextSpacingPoint = Int32;
+
+ST_TextSpacingPercentOrPercentString = class;
+
+[MinValue(0)]
+[MaxValue(51206400)]
+ST_TextMargin = Int32;
+
+[MinValue(-51206400)]
+[MaxValue(51206400)]
+ST_TextIndent = Int32;
+
+[Alias("TextTabAlignType")]
+ST_TextTabAlignType = TextTabAlignmentValues;
+
+[Alias("TextAlignType")]
+ST_TextAlignType = TextAlignmentTypeValues;
+
+[Alias("TextFontAlignType")]
+ST_TextFontAlignType = TextFontAlignmentValues;
+
+ST_TextIndentLevelType = Int32;
+
