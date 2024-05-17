@@ -1,0 +1,751 @@
+[Tag("boolean")]
+[Alias("Boolean")]
+CT_Boolean = BooleanType;
+
+[Tag("double")]
+[Alias("Double")]
+CT_Double = DoubleType;
+
+[Tag("unsignedInt")]
+[Alias("UnsignedInt")]
+CT_UnsignedInt = DepthPercent;
+
+[Tag("relId")]
+[Alias("RelId")]
+CT_RelId = FormatId;
+
+[Tag("extension")]
+[Alias("Extension")]
+CT_Extension = Extension;
+
+[Tag("extensionList")]
+[Alias("ExtensionList")]
+CT_ExtensionList = ExtensionList;
+
+[Tag("numVal")]
+[Alias("NumVal")]
+CT_NumVal = YValues;
+
+[Tag("numData")]
+[Alias("NumData")]
+CT_NumData = NumberingFormat;
+
+[Tag("numRef")]
+[Alias("NumRef")]
+CT_NumRef = NumberReference;
+
+[Tag("numDataSource")]
+[Alias("NumDataSource")]
+CT_NumDataSource = PivotSource;
+
+[Tag("strVal")]
+[Alias("StrVal")]
+CT_StrVal = YValues;
+
+[Tag("strData")]
+[Alias("StrData")]
+CT_StrData = StringLiteral;
+
+[Tag("strRef")]
+[Alias("StrRef")]
+CT_StrRef = StringReference;
+
+[Tag("tx")]
+[Alias("Tx")]
+CT_Tx = ChartText;
+
+[Tag("textLanguageID")]
+[Alias("TextLanguageID")]
+CT_TextLanguageID = Scaling;
+
+[Tag("lvl")]
+[Alias("Lvl")]
+CT_Lvl = Level;
+
+[Tag("multiLvlStrData")]
+[Alias("MultiLvlStrData")]
+CT_MultiLvlStrData = MultiLevelStringCache;
+
+[Tag("multiLvlStrRef")]
+[Alias("MultiLvlStrRef")]
+CT_MultiLvlStrRef = MultiLevelStringReference;
+
+[Tag("axDataSource")]
+[Alias("AxDataSource")]
+CT_AxDataSource = PivotSource;
+
+[Tag("serTx")]
+[Alias("SerTx")]
+CT_SerTx = SeriesAxis;
+
+[Alias("LayoutTarget")]
+ST_LayoutTarget = LayoutTargetValues;
+
+[Tag("layoutTarget")]
+[Alias("LayoutTarget")]
+CT_LayoutTarget = LayoutTarget;
+
+[Alias("LayoutMode")]
+ST_LayoutMode = LayoutModeValues;
+
+[Tag("layoutMode")]
+[Alias("LayoutMode")]
+CT_LayoutMode = LayoutModeType;
+
+[Tag("manualLayout")]
+[Alias("ManualLayout")]
+CT_ManualLayout = ManualLayout;
+
+[Tag("layout")]
+[Alias("Layout")]
+CT_Layout = Layout;
+
+[Tag("title")]
+[Alias("Title")]
+CT_Title = Title;
+
+[Alias("RotX")]
+ST_RotX = RotXValue;
+
+[Tag("rotX")]
+[Alias("RotX")]
+CT_RotX = RotateX;
+
+[Union]
+[Alias("HPercent")]
+ST_HPercent = HPercentValue;
+
+[Pattern(@"0*(([5-9])|([1-9][0-9])|([1-4][0-9][0-9])|500)%")]
+[Units(new string[]{"%"})]
+[Alias("HPercentWithSymbol")]
+ST_HPercentWithSymbol = HPercentWithSymbolValue;
+
+[Tag("hPercent")]
+[Alias("HPercent")]
+CT_HPercent = HeightPercent;
+
+[Alias("RotY")]
+ST_RotY = RotYValue;
+
+[Tag("rotY")]
+[Alias("RotY")]
+CT_RotY = RotateY;
+
+[Union]
+[Alias("DepthPercent")]
+ST_DepthPercent = DepthPercent;
+
+[Pattern(@"0*(([2-9][0-9])|([1-9][0-9][0-9])|(1[0-9][0-9][0-9])|2000)%")]
+[Units(new string[]{"%"})]
+[Alias("DepthPercentWithSymbol")]
+ST_DepthPercentWithSymbol = DepthPercentWithSymbolValue;
+
+[Tag("depthPercent")]
+[Alias("DepthPercent")]
+CT_DepthPercent = DepthPercent;
+
+[Alias("Perspective")]
+ST_Perspective = Perspective;
+
+[Tag("perspective")]
+[Alias("Perspective")]
+CT_Perspective = Perspective;
+
+[Tag("view3D")]
+[Alias("View3D")]
+CT_View3D = View3D;
+
+[Tag("surface")]
+[Alias("Surface")]
+CT_Surface = SurfaceType;
+
+[Union]
+[Alias("Thickness")]
+ST_Thickness = Thickness;
+
+[Pattern(@"([0-9]+)%")]
+[Units(new string[]{"%"})]
+[Alias("ThicknessPercent")]
+ST_ThicknessPercent = ThicknessPercentValue;
+
+[Tag("thickness")]
+[Alias("Thickness")]
+CT_Thickness = Thickness;
+
+[Tag("dTable")]
+[Alias("DTable")]
+CT_DTable = DataTable;
+
+[Union]
+[Alias("GapAmount")]
+ST_GapAmount = GapAmountValue;
+
+[Pattern(@"0*(([0-9])|([1-9][0-9])|([1-4][0-9][0-9])|500)%")]
+[Units(new string[]{"%"})]
+[Alias("GapAmountPercent")]
+ST_GapAmountPercent = GapAmountPercentValue;
+
+[Tag("gapAmount")]
+[Alias("GapAmount")]
+CT_GapAmount = GapAmountType;
+
+[Union]
+[Alias("Overlap")]
+ST_Overlap = Overlap;
+
+[Pattern(@"(-?0*(([0-9])|([1-9][0-9])|100))%")]
+[Units(new string[]{"%"})]
+[Alias("OverlapPercent")]
+ST_OverlapPercent = OverlapPercentValue;
+
+[Tag("overlap")]
+[Alias("Overlap")]
+CT_Overlap = Overlap;
+
+[Union]
+[Alias("BubbleScale")]
+ST_BubbleScale = BubbleScale;
+
+[Pattern(@"0*(([0-9])|([1-9][0-9])|([1-2][0-9][0-9])|300)%")]
+[Units(new string[]{"%"})]
+[Alias("BubbleScalePercent")]
+ST_BubbleScalePercent = BubbleScalePercentValue;
+
+[Tag("bubbleScale")]
+[Alias("BubbleScale")]
+CT_BubbleScale = BubbleScale;
+
+[Alias("SizeRepresents")]
+ST_SizeRepresents = SizeRepresentsValues;
+
+[Tag("sizeRepresents")]
+[Alias("SizeRepresents")]
+CT_SizeRepresents = SizeRepresents;
+
+[Alias("FirstSliceAng")]
+ST_FirstSliceAng = FirstSliceAngValue;
+
+[Tag("firstSliceAng")]
+[Alias("FirstSliceAng")]
+CT_FirstSliceAng = FirstSliceAngle;
+
+[Union]
+[Alias("HoleSize")]
+ST_HoleSize = HoleSize;
+
+[Pattern(@"0*([1-9]|([1-8][0-9])|90)%")]
+[Units(new string[]{"%"})]
+[Alias("HoleSizePercent")]
+ST_HoleSizePercent = HoleSizePercentValue;
+
+[Tag("holeSize")]
+[Alias("HoleSize")]
+CT_HoleSize = HoleSize;
+
+[Alias("SplitType")]
+ST_SplitType = SplitValues;
+
+[Tag("splitType")]
+[Alias("SplitType")]
+CT_SplitType = SplitType;
+
+[Tag("custSplit")]
+[Alias("CustSplit")]
+CT_CustSplit = CustomSplit;
+
+[Union]
+[Alias("SecondPieSize")]
+ST_SecondPieSize = SecondPieSize;
+
+[Pattern(@"0*(([5-9])|([1-9][0-9])|(1[0-9][0-9])|200)%")]
+[Units(new string[]{"%"})]
+[Alias("SecondPieSizePercent")]
+ST_SecondPieSizePercent = SecondPieSizePercentValue;
+
+[Tag("secondPieSize")]
+[Alias("SecondPieSize")]
+CT_SecondPieSize = SecondPieSize;
+
+[Tag("numFmt")]
+[Alias("NumFmt")]
+CT_NumFmt = NumberingFormat;
+
+[Alias("LblAlgn")]
+ST_LblAlgn = LabelAlignmentValues;
+
+[Tag("lblAlgn")]
+[Alias("LblAlgn")]
+CT_LblAlgn = LabelAlignment;
+
+[Alias("DLblPos")]
+ST_DLblPos = DataLabelPositionValues;
+
+[Tag("dLblPos")]
+[Alias("DLblPos")]
+CT_DLblPos = DataLabelPosition;
+
+[Tag("dLbl")]
+[Alias("DLbl")]
+CT_DLbl = DataLabel;
+
+[Tag("dLbls")]
+[Alias("DLbls")]
+CT_DLbls = DataLabels;
+
+[Alias("MarkerStyle")]
+ST_MarkerStyle = MarkerStyleValues;
+
+[Tag("markerStyle")]
+[Alias("MarkerStyle")]
+CT_MarkerStyle = MarkerStyle;
+
+[Alias("MarkerSize")]
+ST_MarkerSize = MarkerSizeValue;
+
+[Tag("markerSize")]
+[Alias("MarkerSize")]
+CT_MarkerSize = MarkerStyle;
+
+[Tag("marker")]
+[Alias("Marker")]
+CT_Marker = Marker;
+
+[Tag("dPt")]
+[Alias("DPt")]
+CT_DPt = DataPoint;
+
+[Alias("TrendlineType")]
+ST_TrendlineType = TrendlineValues;
+
+[Tag("trendlineType")]
+[Alias("TrendlineType")]
+CT_TrendlineType = TrendlineType;
+
+[Alias("Order")]
+ST_Order = Order;
+
+[Tag("order")]
+[Alias("Order")]
+CT_Order = Order;
+
+[Alias("Period")]
+ST_Period = Period;
+
+[Tag("period")]
+[Alias("Period")]
+CT_Period = Period;
+
+[Tag("trendlineLbl")]
+[Alias("TrendlineLbl")]
+CT_TrendlineLbl = TrendlineLabel;
+
+[Tag("trendline")]
+[Alias("Trendline")]
+CT_Trendline = TrendlineType;
+
+[Alias("ErrDir")]
+ST_ErrDir = ErrorBarDirectionValues;
+
+[Tag("errDir")]
+[Alias("ErrDir")]
+CT_ErrDir = ErrorDirection;
+
+[Alias("ErrBarType")]
+ST_ErrBarType = ErrorBarValues;
+
+[Tag("errBarType")]
+[Alias("ErrBarType")]
+CT_ErrBarType = ErrorBarType;
+
+[Alias("ErrValType")]
+ST_ErrValType = ErrorValues;
+
+[Tag("errValType")]
+[Alias("ErrValType")]
+CT_ErrValType = ErrorBarValueType;
+
+[Tag("errBars")]
+[Alias("ErrBars")]
+CT_ErrBars = ErrorBars;
+
+[Tag("upDownBar")]
+[Alias("UpDownBar")]
+CT_UpDownBar = UpDownBarType;
+
+[Tag("upDownBars")]
+[Alias("UpDownBars")]
+CT_UpDownBars = UpDownBars;
+
+[Tag("lineSer")]
+[Alias("LineSer")]
+CT_LineSer = LineChart;
+
+[Tag("scatterSer")]
+[Alias("ScatterSer")]
+CT_ScatterSer = ScatterChart;
+
+[Tag("radarSer")]
+[Alias("RadarSer")]
+CT_RadarSer = RadarChart;
+
+[Tag("barSer")]
+[Alias("BarSer")]
+CT_BarSer = ShowMarker;
+
+[Tag("areaSer")]
+[Alias("AreaSer")]
+CT_AreaSer = OddHeader;
+
+[Tag("pieSer")]
+[Alias("PieSer")]
+CT_PieSer = ShowMarker;
+
+[Tag("bubbleSer")]
+[Alias("BubbleSer")]
+CT_BubbleSer = BubbleSize;
+
+[Tag("surfaceSer")]
+[Alias("SurfaceSer")]
+CT_SurfaceSer = SurfaceChart;
+
+[Alias("Grouping")]
+ST_Grouping = GroupingValues;
+
+[Tag("grouping")]
+[Alias("Grouping")]
+CT_Grouping = Grouping;
+
+[Tag("chartLines")]
+[Alias("ChartLines")]
+CT_ChartLines = ChartLinesType;
+
+[Tag("lineChart")]
+[Alias("LineChart")]
+CT_LineChart = LineChart;
+
+[Tag("line3DChart")]
+[Alias("Line3DChart")]
+CT_Line3DChart = Line3DChart;
+
+[Tag("stockChart")]
+[Alias("StockChart")]
+CT_StockChart = StockChart;
+
+[Alias("ScatterStyle")]
+ST_ScatterStyle = ScatterStyleValues;
+
+[Tag("scatterStyle")]
+[Alias("ScatterStyle")]
+CT_ScatterStyle = ScatterStyle;
+
+[Tag("scatterChart")]
+[Alias("ScatterChart")]
+CT_ScatterChart = ScatterChart;
+
+[Alias("RadarStyle")]
+ST_RadarStyle = RadarStyleValues;
+
+[Tag("radarStyle")]
+[Alias("RadarStyle")]
+CT_RadarStyle = RadarStyle;
+
+[Tag("radarChart")]
+[Alias("RadarChart")]
+CT_RadarChart = RadarChart;
+
+[Alias("BarGrouping")]
+ST_BarGrouping = BarGroupingValues;
+
+[Tag("barGrouping")]
+[Alias("BarGrouping")]
+CT_BarGrouping = BarGrouping;
+
+[Alias("BarDir")]
+ST_BarDir = BarDirectionValues;
+
+[Tag("barDir")]
+[Alias("BarDir")]
+CT_BarDir = BarDirection;
+
+[Alias("Shape")]
+ST_Shape = ShapeValues;
+
+[Tag("shape")]
+[Alias("Shape")]
+CT_Shape = Shape;
+
+[Tag("barChart")]
+[Alias("BarChart")]
+CT_BarChart = BarChart;
+
+[Tag("bar3DChart")]
+[Alias("Bar3DChart")]
+CT_Bar3DChart = Bar3DChart;
+
+[Tag("areaChart")]
+[Alias("AreaChart")]
+CT_AreaChart = AreaChart;
+
+[Tag("area3DChart")]
+[Alias("Area3DChart")]
+CT_Area3DChart = Area3DChart;
+
+[Tag("pieChart")]
+[Alias("PieChart")]
+CT_PieChart = PieChart;
+
+[Tag("pie3DChart")]
+[Alias("Pie3DChart")]
+CT_Pie3DChart = Pie3DChart;
+
+[Tag("doughnutChart")]
+[Alias("DoughnutChart")]
+CT_DoughnutChart = DoughnutChart;
+
+[Alias("OfPieType")]
+ST_OfPieType = OfPieValues;
+
+[Tag("ofPieType")]
+[Alias("OfPieType")]
+CT_OfPieType = OfPieType;
+
+[Tag("ofPieChart")]
+[Alias("OfPieChart")]
+CT_OfPieChart = OfPieChart;
+
+[Tag("bubbleChart")]
+[Alias("BubbleChart")]
+CT_BubbleChart = BubbleChart;
+
+[Tag("bandFmt")]
+[Alias("BandFmt")]
+CT_BandFmt = BandFormat;
+
+[Tag("bandFmts")]
+[Alias("BandFmts")]
+CT_BandFmts = BandFormats;
+
+[Tag("surfaceChart")]
+[Alias("SurfaceChart")]
+CT_SurfaceChart = SurfaceChart;
+
+[Tag("surface3DChart")]
+[Alias("Surface3DChart")]
+CT_Surface3DChart = Surface3DChart;
+
+[Alias("AxPos")]
+ST_AxPos = AxisPositionValues;
+
+[Tag("axPos")]
+[Alias("AxPos")]
+CT_AxPos = AxisPosition;
+
+[Alias("Crosses")]
+ST_Crosses = CrossesValues;
+
+[Tag("crosses")]
+[Alias("Crosses")]
+CT_Crosses = Crosses;
+
+[Alias("CrossBetween")]
+ST_CrossBetween = CrossBetweenValues;
+
+[Tag("crossBetween")]
+[Alias("CrossBetween")]
+CT_CrossBetween = CrossBetween;
+
+[Alias("TickMark")]
+ST_TickMark = TickMarkValues;
+
+[Tag("tickMark")]
+[Alias("TickMark")]
+CT_TickMark = TickMarkType;
+
+[Alias("TickLblPos")]
+ST_TickLblPos = TickLabelPositionValues;
+
+[Tag("tickLblPos")]
+[Alias("TickLblPos")]
+CT_TickLblPos = TickLabelPosition;
+
+[Alias("Skip")]
+ST_Skip = SkipValue;
+
+[Tag("skip")]
+[Alias("Skip")]
+CT_Skip = SkipType;
+
+[Alias("TimeUnit")]
+ST_TimeUnit = TimeUnitValues;
+
+[Tag("timeUnit")]
+[Alias("TimeUnit")]
+CT_TimeUnit = TimeUnitType;
+
+[Alias("AxisUnit")]
+ST_AxisUnit = AxisUnitValue;
+
+[Tag("axisUnit")]
+[Alias("AxisUnit")]
+CT_AxisUnit = AxisUnitType;
+
+[Alias("BuiltInUnit")]
+ST_BuiltInUnit = BuiltInUnitValues;
+
+[Tag("builtInUnit")]
+[Alias("BuiltInUnit")]
+CT_BuiltInUnit = BuiltInUnit;
+
+[Alias("PictureFormat")]
+ST_PictureFormat = PictureFormatValues;
+
+[Tag("pictureFormat")]
+[Alias("PictureFormat")]
+CT_PictureFormat = PictureFormat;
+
+[Alias("PictureStackUnit")]
+ST_PictureStackUnit = PictureStackUnit;
+
+[Tag("pictureStackUnit")]
+[Alias("PictureStackUnit")]
+CT_PictureStackUnit = PictureStackUnit;
+
+[Tag("pictureOptions")]
+[Alias("PictureOptions")]
+CT_PictureOptions = PictureOptions;
+
+[Tag("dispUnitsLbl")]
+[Alias("DispUnitsLbl")]
+CT_DispUnitsLbl = DisplayUnitsLabel;
+
+[Tag("dispUnits")]
+[Alias("DispUnits")]
+CT_DispUnits = DisplayUnits;
+
+[Alias("Orientation")]
+ST_Orientation = OrientationValues;
+
+[Tag("orientation")]
+[Alias("Orientation")]
+CT_Orientation = Orientation;
+
+[Alias("LogBase")]
+ST_LogBase = LogBase;
+
+[Tag("logBase")]
+[Alias("LogBase")]
+CT_LogBase = LogBase;
+
+[Tag("scaling")]
+[Alias("Scaling")]
+CT_Scaling = Scaling;
+
+[Union]
+[Alias("LblOffset")]
+ST_LblOffset = LblOffsetValue;
+
+[Pattern(@"0*(([0-9])|([1-9][0-9])|([1-9][0-9][0-9])|1000)%")]
+[Units(new string[]{"%"})]
+[Alias("LblOffsetPercent")]
+ST_LblOffsetPercent = LblOffsetPercentValue;
+
+[Tag("lblOffset")]
+[Alias("LblOffset")]
+CT_LblOffset = LabelOffset;
+
+[Tag("catAx")]
+[Alias("CatAx")]
+CT_CatAx = CategoryAxis;
+
+[Tag("dateAx")]
+[Alias("DateAx")]
+CT_DateAx = DateAxis;
+
+[Tag("serAx")]
+[Alias("SerAx")]
+CT_SerAx = SeriesAxis;
+
+[Tag("valAx")]
+[Alias("ValAx")]
+CT_ValAx = ValueAxis;
+
+[Tag("plotArea")]
+[Alias("PlotArea")]
+CT_PlotArea = PlotArea;
+
+[Tag("pivotFmt")]
+[Alias("PivotFmt")]
+CT_PivotFmt = PivotFormat;
+
+[Tag("pivotFmts")]
+[Alias("PivotFmts")]
+CT_PivotFmts = PivotFormats;
+
+[Alias("LegendPos")]
+ST_LegendPos = LegendPositionValues;
+
+[Tag("legendPos")]
+[Alias("LegendPos")]
+CT_LegendPos = LegendPosition;
+
+[Tag("legendEntry")]
+[Alias("LegendEntry")]
+CT_LegendEntry = LegendEntry;
+
+[Tag("legend")]
+[Alias("Legend")]
+CT_Legend = Legend;
+
+[Alias("DispBlanksAs")]
+ST_DispBlanksAs = DisplayBlanksAsValues;
+
+[Tag("dispBlanksAs")]
+[Alias("DispBlanksAs")]
+CT_DispBlanksAs = DisplayBlanksAs;
+
+[Tag("chart")]
+[Alias("Chart")]
+CT_Chart = Chart;
+
+[Alias("Style")]
+ST_Style = Style;
+
+[Tag("style")]
+[Alias("Style")]
+CT_Style = Style;
+
+[Tag("pivotSource")]
+[Alias("PivotSource")]
+CT_PivotSource = PivotSource;
+
+[Tag("protection")]
+[Alias("Protection")]
+CT_Protection = Protection;
+
+[Tag("headerFooter")]
+[Alias("HeaderFooter")]
+CT_HeaderFooter = HeaderFooter;
+
+[Tag("pageMargins")]
+[Alias("PageMargins")]
+CT_PageMargins = PageMargins;
+
+[Alias("PageSetupOrientation")]
+ST_PageSetupOrientation = PageSetupOrientationValues;
+
+[Tag("externalData")]
+[Alias("ExternalData")]
+CT_ExternalData = ExternalData;
+
+[Tag("pageSetup")]
+[Alias("PageSetup")]
+CT_PageSetup = PageSetup;
+
+[Tag("printSettings")]
+[Alias("PrintSettings")]
+CT_PrintSettings = PrintSettings;
+
+[Tag("chartSpace")]
+[Alias("ChartSpace")]
+CT_ChartSpace = ChartSpace;
+

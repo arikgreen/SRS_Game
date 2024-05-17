@@ -1,0 +1,57 @@
+ST_Lang = Lang;
+
+[Format("X6")]
+ST_HexColorRGB = HexColorRGB;
+
+[Length(10)]
+[Format("X20")]
+ST_Panose = Panose;
+
+ST_CalendarType = CalendarValues;
+
+[Union]
+ST_OnOff = OnOff;
+
+[NCName]
+[MaxLength(255)]
+ST_XmlName = XmlName;
+
+ST_UnsignedDecimalNumber = UnsignedDecimalNumber;
+
+[Union]
+ST_TwipsMeasure = TwipsMeasure;
+
+ST_VerticalAlignRun = VerticalAlignmentRunValues;
+
+ST_Xstring = Xstring;
+
+ST_XAlign = HorizontalAlignmentValues;
+
+ST_YAlign = VerticalAlignmentValues;
+
+ST_ConformanceClass = ConformanceClassValues;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?(mm|cm|in|pt|pc|pi)")]
+[Units(new string[]{"mm","cm","in","pt","pc","pi"})]
+ST_UniversalMeasure = UniversalMeasure;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?(mm|cm|in|pt|pc|pi)")]
+[Units(new string[]{"mm","cm","in","pt","pc","pi"})]
+ST_PositiveUniversalMeasure = PositiveUniversalMeasure;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?%")]
+[Units(new string[]{"%"})]
+ST_Percentage = Percentage;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?%")]
+[Units(new string[]{"%"})]
+ST_FixedPercentage = FixedPercentage;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?%")]
+[Units(new string[]{"%"})]
+ST_PositivePercentage = PositivePercentage;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?%")]
+[Units(new string[]{"%"})]
+ST_PositiveFixedPercentage = PositiveFixedPercentage;
+

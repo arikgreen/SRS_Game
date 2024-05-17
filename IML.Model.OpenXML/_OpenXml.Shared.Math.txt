@@ -1,0 +1,337 @@
+[MinValue(1)]
+[MaxValue(255)]
+[Alias("Integer255")]
+ST_Integer255 = Integer255Value;
+
+[Tag("integer255")]
+[Alias("Integer255")]
+CT_Integer255 = Integer2;
+
+[MinValue(-2)]
+[MaxValue(2)]
+[Alias("Integer2")]
+ST_Integer2 = Integer2Value;
+
+[Tag("integer2")]
+[Alias("Integer2")]
+CT_Integer2 = Integer2;
+
+[MinValue(0)]
+[MaxValue(4)]
+[Alias("SpacingRule")]
+ST_SpacingRule = SpacingRuleValue;
+
+[Tag("spacingRule")]
+[Alias("SpacingRule")]
+CT_SpacingRule = SpacingRuleType;
+
+[Alias("UnSignedInteger")]
+ST_UnSignedInteger = UnSignedIntegerValue;
+
+[Tag("unSignedInteger")]
+[Alias("UnSignedInteger")]
+CT_UnSignedInteger = UnSignedIntegerValue;
+
+[MaxLength(1)]
+[Alias("Char")]
+ST_Char = CharValue;
+
+[Tag("char")]
+[Alias("Char")]
+CT_Char = CharType;
+
+[Tag("onOff")]
+[Alias("OnOff")]
+CT_OnOff = OnOffType;
+
+[Tag("string")]
+[Alias("String")]
+CT_String = StrikeHorizontal;
+
+[Tag("xAlign")]
+[Alias("XAlign")]
+CT_XAlign = UnSignedIntegerValue;
+
+[Tag("yAlign")]
+[Alias("YAlign")]
+CT_YAlign = UnSignedIntegerValue;
+
+[Alias("Shp")]
+ST_Shp = ShapeDelimiterValues;
+
+[Tag("shp")]
+[Alias("Shp")]
+CT_Shp = Shape;
+
+[Alias("FType")]
+ST_FType = FractionTypeValues;
+
+[Tag("fType")]
+[Alias("FType")]
+CT_FType = FType;
+
+[Alias("LimLoc")]
+ST_LimLoc = LimitLocationValues;
+
+[Tag("limLoc")]
+[Alias("LimLoc")]
+CT_LimLoc = LimitLocation;
+
+[Alias("TopBot")]
+ST_TopBot = VerticalAlignmentValues;
+
+[Tag("topBot")]
+[Alias("TopBot")]
+CT_TopBot = TopBot;
+
+[Alias("Script")]
+ST_Script = ScriptValues;
+
+[Tag("script")]
+[Alias("Script")]
+CT_Script = Script;
+
+[Alias("Style")]
+ST_Style = StyleValues;
+
+[Tag("style")]
+[Alias("Style")]
+CT_Style = Style;
+
+[Tag("manualBreak")]
+[Alias("ManualBreak")]
+CT_ManualBreak = NoBreak;
+
+[Tag("rPR")]
+[Alias("RPR")]
+CT_RPR = RunProperties;
+
+[Tag("text")]
+[Alias("Text")]
+CT_Text = Text;
+
+[Tag("r")]
+[Alias("R")]
+CT_R = Run;
+
+[Tag("ctrlPr")]
+[Alias("CtrlPr")]
+CT_CtrlPr = ControlProperties;
+
+[Tag("accPr")]
+[Alias("AccPr")]
+CT_AccPr = AccentProperties;
+
+[Tag("acc")]
+[Alias("Acc")]
+CT_Acc = Accent;
+
+[Tag("barPr")]
+[Alias("BarPr")]
+CT_BarPr = BarProperties;
+
+[Tag("bar")]
+[Alias("Bar")]
+CT_Bar = Bar;
+
+[Tag("boxPr")]
+[Alias("BoxPr")]
+CT_BoxPr = BoxProperties;
+
+[Tag("box")]
+[Alias("Box")]
+CT_Box = Box;
+
+[Tag("borderBoxPr")]
+[Alias("BorderBoxPr")]
+CT_BorderBoxPr = BorderBoxProperties;
+
+[Tag("borderBox")]
+[Alias("BorderBox")]
+CT_BorderBox = BorderBox;
+
+[Tag("dPr")]
+[Alias("DPr")]
+CT_DPr = DelimiterProperties;
+
+[Tag("d")]
+[Alias("D")]
+CT_D = Delimiter;
+
+[Tag("eqArrPr")]
+[Alias("EqArrPr")]
+CT_EqArrPr = EquationArrayProperties;
+
+[Tag("eqArr")]
+[Alias("EqArr")]
+CT_EqArr = EquationArray;
+
+[Tag("fPr")]
+[Alias("FPr")]
+CT_FPr = FractionProperties;
+
+[Tag("f")]
+[Alias("F")]
+CT_F = Fraction;
+
+[Tag("funcPr")]
+[Alias("FuncPr")]
+CT_FuncPr = FunctionProperties;
+
+[Tag("func")]
+[Alias("Func")]
+CT_Func = MathFunction;
+
+[Tag("groupChrPr")]
+[Alias("GroupChrPr")]
+CT_GroupChrPr = GroupCharProperties;
+
+[Tag("groupChr")]
+[Alias("GroupChr")]
+CT_GroupChr = GroupChar;
+
+[Tag("limLowPr")]
+[Alias("LimLowPr")]
+CT_LimLowPr = LimitLowerProperties;
+
+[Tag("limLow")]
+[Alias("LimLow")]
+CT_LimLow = LimitLower;
+
+[Tag("limUppPr")]
+[Alias("LimUppPr")]
+CT_LimUppPr = LimitUpperProperties;
+
+[Tag("limUpp")]
+[Alias("LimUpp")]
+CT_LimUpp = LimitUpper;
+
+[Tag("mCPr")]
+[Alias("MCPr")]
+CT_MCPr = MatrixColumnProperties;
+
+[Tag("mC")]
+[Alias("MC")]
+CT_MC = MCType;
+
+[Tag("mCS")]
+[Alias("MCS")]
+CT_MCS = MCSType;
+
+[Tag("mPr")]
+[Alias("MPr")]
+CT_MPr = MatrixProperties;
+
+[Tag("mR")]
+[Alias("MR")]
+CT_MR = MRType;
+
+[Tag("m")]
+[Alias("M")]
+CT_M = Matrix;
+
+[Tag("naryPr")]
+[Alias("NaryPr")]
+CT_NaryPr = NaryProperties;
+
+[Tag("nary")]
+[Alias("Nary")]
+CT_Nary = Nary;
+
+[Tag("phantPr")]
+[Alias("PhantPr")]
+CT_PhantPr = PhantomProperties;
+
+[Tag("phant")]
+[Alias("Phant")]
+CT_Phant = Phantom;
+
+[Tag("radPr")]
+[Alias("RadPr")]
+CT_RadPr = RadicalProperties;
+
+[Tag("rad")]
+[Alias("Rad")]
+CT_Rad = Radical;
+
+[Tag("sPrePr")]
+[Alias("SPrePr")]
+CT_SPrePr = PreSubSuperProperties;
+
+[Tag("sPre")]
+[Alias("SPre")]
+CT_SPre = PreSubSuper;
+
+[Tag("sSubPr")]
+[Alias("SSubPr")]
+CT_SSubPr = SubscriptProperties;
+
+[Tag("sSub")]
+[Alias("SSub")]
+CT_SSub = Subscript;
+
+[Tag("sSubSupPr")]
+[Alias("SSubSupPr")]
+CT_SSubSupPr = SubSuperscriptProperties;
+
+[Tag("sSubSup")]
+[Alias("SSubSup")]
+CT_SSubSup = SubSuperscript;
+
+[Tag("sSupPr")]
+[Alias("SSupPr")]
+CT_SSupPr = SuperscriptProperties;
+
+[Tag("sSup")]
+[Alias("SSup")]
+CT_SSup = Superscript;
+
+[Tag("oMathArgPr")]
+[Alias("OMathArgPr")]
+CT_OMathArgPr = ParagraphProperties;
+
+[Tag("oMathArg")]
+[Alias("OMathArg")]
+CT_OMathArg = Paragraph;
+
+[Alias("Jc")]
+ST_Jc = JustificationValues;
+
+[Tag("oMathJc")]
+[Alias("OMathJc")]
+CT_OMathJc = Jc;
+
+[Tag("oMathParaPr")]
+[Alias("OMathParaPr")]
+CT_OMathParaPr = ParagraphProperties;
+
+[Tag("twipsMeasure")]
+[Alias("TwipsMeasure")]
+CT_TwipsMeasure = TwipsMeasureType;
+
+[Alias("BreakBin")]
+ST_BreakBin = BreakBinaryOperatorValues;
+
+[Tag("breakBin")]
+[Alias("BreakBin")]
+CT_BreakBin = BreakBin;
+
+[Alias("BreakBinSub")]
+ST_BreakBinSub = BreakBinarySubtractionValues;
+
+[Tag("breakBinSub")]
+[Alias("BreakBinSub")]
+CT_BreakBinSub = BreakBinSub;
+
+[Tag("mathPr")]
+[Alias("MathPr")]
+CT_MathPr = MathProperties;
+
+[Tag("oMathPara")]
+[Alias("OMathPara")]
+CT_OMathPara = Paragraph;
+
+[Tag("oMath")]
+[Alias("OMath")]
+CT_OMath = OfficeMath;
+

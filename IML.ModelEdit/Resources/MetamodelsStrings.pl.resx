@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="_Metamodels" xml:space="preserve">
+    <value>Metamodele</value>
+  </data>
+	<data name="Metamodels_Description_" xml:space="preserve">
+		<value>Metamodele opisują wszystkie dostępne typy elemetów. W drzewie widoku pokazano strukturę dziedziczenia. Typy zaznaczone kursywą są abstrakcyjne.</value>
+	</data>
+	<data name="MetamodelsHint" xml:space="preserve">
+		<value>Typy zaznaczone kursywą są abstrakcyjne.</value>
+	</data>
+	<data name="Name" xml:space="preserve">
+		<value>Nazwa</value>
+	</data>
+	<data name="Description" xml:space="preserve">
+		<value>Opis:</value>
+	</data>
+	<data name="Assembly" xml:space="preserve">
+		<value>Biblioteka</value>
+	</data>
+	<data name="DisplayName" xml:space="preserve">
+		<value>Nazwa przyjazna</value>
+	</data>
+	<data name="AbstractClass" xml:space="preserve">
+		<value>Klasa abstrakcyjna</value>
+	</data>
+	<data name="MetaclassProperties" xml:space="preserve">
+		<value>Właściwości metaklasy</value>
+	</data>
+	<data name="Details" xml:space="preserve">
+		<value>Szczegóły</value>
+	</data>
+	<data name="Metaclass_Properties_Hint_" xml:space="preserve">
+		<value>Właściwości zaznaczone kursywą są odziedziczone.</value>
+	</data>
+	<data name="Metaclass_Properties_Description_" xml:space="preserve">
+		<value>Właściwości metaklasy określają jakie wartości mogą być przypisywane do elementów modelu. </value>
+	</data>
+	<data name="PropertyType" xml:space="preserve">
+		<value>Typ właściwości</value>
+	</data>
+	<data name="EnumType_Values_Hint_" xml:space="preserve">
+		<value>Wartości wyliczane</value>
+	</data>
+	<data name="EnumValuesHint" xml:space="preserve">
+		<value>Wartości wyliczane mogą mieć określone wartości całkowite.</value>
+	</data>
+	<data name="EnumType_Values_Description_" xml:space="preserve">
+		<value>Wartości wyliczane to nazwane wartości, które mogą być przypisywane do właściwości.</value>
+	</data>
+	<data name="EnumValue" xml:space="preserve">
+		<value>Wartość (całkowita)</value>
+	</data>
+	<data name="BaseType" xml:space="preserve">
+		<value>Typ bazowy</value>
+	</data>
+	<data name="ReferenceDefaultConstructorError" xml:space="preserve">
+		<value>Domyślny konstruktor referencji nie jest zaimplementowany.</value>
+	</data>
+	<data name="NewMetaclass" xml:space="preserve">
+		<value>Nowa metaklasa</value>
+	</data>
+	<data name="EditMetaclass" xml:space="preserve">
+		<value>Edycja definicji metaklasy</value>
+	</data>
+	<data name="NewMetamodel" xml:space="preserve">
+		<value>Nowy metamodel</value>
+	</data>
+	<data name="NewEnumType" xml:space="preserve">
+		<value>Nowy typ wyliczeniowy</value>
+	</data>
+	<data name="EditType" xml:space="preserve">
+		<value>Edycja definicji typu</value>
+	</data>
+	<data name="EditMetamodel" xml:space="preserve">
+		<value>Edycja właściwości metamodelu</value>
+	</data>
+	<data name="DeleteMetamodel" xml:space="preserve">
+		<value>Usuń metamodel</value>
+	</data>
+	<data name="DeleteMetaclass" xml:space="preserve">
+		<value>Usuń metaklasę</value>
+	</data>
+	<data name="DeleteType" xml:space="preserve">
+		<value>Usuń typ</value>
+	</data>
+	<data name="Namespace" xml:space="preserve">
+		<value>Przestrzeń nazw</value>
+	</data>
+	<data name="GenerateCode" xml:space="preserve">
+		<value>Generowanie kodu</value>
+	</data>
+	<data name="MetamodelCompiled_1" xml:space="preserve">
+		<value>Metamodel '{0}' skompilowany. Utworzono bibliotekę '{1}'.</value>
+	</data>
+	<data name="MetamodelCompilationErrors_1" xml:space="preserve">
+		<value>Błędy kompilacji metamodelu '{0}'</value>
+	</data>
+	<data name="NewSubclass" xml:space="preserve">
+		<value>Nowa klasa potomna</value>
+	</data>
+	<data name="EditEnumType" xml:space="preserve">
+		<value>Edycja typu wyliczeniowego</value>
+	</data>
+	<data name="DeleteEnumType" xml:space="preserve">
+		<value>Usuń typ wyliczeniowy</value>
+	</data>
+	<data name="DeleteMetaclassConfirm_1" xml:space="preserve">
+		<value>Czy na pewno usunąć metaklasę {0}?</value>
+	</data>
+	<data name="DeleteEnumTypeConfirm_1" xml:space="preserve">
+		<value>Czy na pewno usunąć typ wyliczeniowy {0}?</value>
+	</data>
+	<data name="DeleteTypeConfirm_1" xml:space="preserve">
+		<value>Czy na pewno usunąć typ {0}?</value>
+	</data>
+	<data name="NewEnumValue" xml:space="preserve">
+		<value>Nowa wartość wyliczana</value>
+	</data>
+	<data name="DeleteEnumValue" xml:space="preserve">
+		<value>Usuń wartość wyliczaną</value>
+	</data>
+	<data name="EditEnumValue" xml:space="preserve">
+		<value>Edycja wartości wyliczanej</value>
+	</data>
+	<data name="DeleteEnumValueConfirm_1" xml:space="preserve">
+		<value>Czy na pewno usunąć wartość {0}?</value>
+	</data>
+	<data name="Name_Description_" xml:space="preserve">
+		<value>Unikatowy identyfikator. Tylko litery łacińskie są akceptowane.</value>
+	</data>
+	<data name="Namespace_Description_" xml:space="preserve">
+		<value>Ciąg identyfikatorów oddzielonych kropkami. Odróżnia nazwy elementów zdefiniowanych w tym modelu od elementów zdefniniowanych w innych modelach.</value>
+	</data>
+	<data name="DisplayName_Description_" xml:space="preserve">
+		<value>Nazwa używana w dokumentach, np. w tabelkach specyfikacji. Może zawierać spacje i litery Unicode.</value>
+	</data>
+	<data name="Description_Description_" xml:space="preserve">
+		<value>Objaśnienie dla projektantów. Może zawierać znaczniki referencji do innych elementów.</value>
+	</data>
+	<data name="AssemblyName" xml:space="preserve">
+		<value>Nazwa biblioteki</value>
+	</data>
+	<data name="Assembly_Description_" xml:space="preserve">
+		<value>Biblioteka DLL zawierająca ten model.</value>
+	</data>
+	<data name="AssemblyName_Description_" xml:space="preserve">
+		<value>Nazwa biblioteki DLL zawierającej ten model.</value>
+	</data>
+	<data name="BaseType_Description_" xml:space="preserve">
+		<value>Typ, z którego dana klasa dziedziczy właściwości.</value>
+	</data>
+	<data name="AbstractClass_Description_" xml:space="preserve">
+		<value>Klasa abstrakcyjna nie może tworzyć elementów, lecz może służyć jako typ bazowy dla innych klas.</value>
+	</data>
+	<data name="PropertyType_Description_" xml:space="preserve">
+		<value>Typ danych udostępnianych przez tę właściwość.</value>
+	</data>
+	<data name="MultiProperty" xml:space="preserve">
+		<value>Lista wartości</value>
+	</data>
+	<data name="MultiProperty_Description_" xml:space="preserve">
+		<value>Właściwość akceptuje wiele wartości.</value>
+	</data>
+	<data name="EditClassProperty" xml:space="preserve">
+		<value>Edycja właściwości klasy</value>
+	</data>
+	<data name="DeleteClassProperty" xml:space="preserve">
+		<value>Usuń właściwość klasy</value>
+	</data>
+	<data name="DeleteClassPropertyConfirm_1" xml:space="preserve">
+		<value>Czy na pewno usunąć właściwość klasy '{0}'?</value>
+	</data>
+	<data name="NewClassProperty" xml:space="preserve">
+		<value>Nowa właściwość klasy</value>
+	</data>
+	<data name="EnumValue_Description_" xml:space="preserve">
+		<value>Wartość całkowita przypisana do nazwy.</value>
+	</data>
+	<data name="Modeling" xml:space="preserve">
+		<value>Modelowanie</value>
+	</data>
+</root>

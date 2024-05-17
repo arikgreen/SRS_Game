@@ -1,0 +1,1760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9C51B7E-7591-4E70-95D6-76D2AC90F1BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IML.Model.OpenXML</RootNamespace>
+    <AssemblyName>IML.Model.OpenXML</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenXML.Core\OpenXml.Core\OpenXml.Core.csproj">
+      <Project>{8f8a0443-2e29-4801-bbbd-1b9f810a4cdd}</Project>
+      <Name>OpenXml.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OpenXml\Dml\LockedCanvas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OpenXml\Dml\AdjAngleValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\AdjCoordinateValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\AdjustHandleList.cs" />
+    <Compile Include="OpenXml\Dml\AlphaBiLevel.cs" />
+    <Compile Include="OpenXml\Dml\AlphaCeiling.cs" />
+    <Compile Include="OpenXml\Dml\AlphaFloor.cs" />
+    <Compile Include="OpenXml\Dml\AlphaModulationFixed.cs" />
+    <Compile Include="OpenXml\Dml\AlphaOutset.cs" />
+    <Compile Include="OpenXml\Dml\AlphaReplace.cs" />
+    <Compile Include="OpenXml\Dml\AngleValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\AnimationBuildValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\AnimationChartBuildPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\AnimationChartBuildTypeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\AnimationChartOnlyBuildValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\AnimationDgmBuildPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\AnimationDgmBuildTypeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\AnimationDiagramOnlyBuildValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\AnimationGraphicalObjectBuildPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\ArcTo.cs" />
+    <Compile Include="OpenXml\Dml\AudioCDTimeType.cs" />
+    <Compile Include="OpenXml\Dml\AudioFromCD.cs" />
+    <Compile Include="OpenXml\Dml\AudioFromFile.cs" />
+    <Compile Include="OpenXml\Dml\Backdrop.cs" />
+    <Compile Include="OpenXml\Dml\BackgroundFillStyleList.cs" />
+    <Compile Include="OpenXml\Dml\BevelPresetValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\BevelType.cs" />
+    <Compile Include="OpenXml\Dml\BlackWhiteModeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\BlendModeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Blip.cs" />
+    <Compile Include="OpenXml\Dml\BlipCompressionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\BooleanStyleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\BulletFontText.cs" />
+    <Compile Include="OpenXml\Dml\Camera.cs" />
+    <Compile Include="OpenXml\Dml\Cell3DProperties.cs" />
+    <Compile Include="OpenXml\Dml\ChartBuildStepValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\ChartDrawing\AbsoluteAnchorSize.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\ConnectorNonVisualType.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\GraphicFrame.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\GroupShape.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\GroupShapeProperties.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\MarkerCoordinateValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\ChartDrawing\MarkerType.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\NonVisualGraphicFrameProperties.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\Picture.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\RelativeAnchorSize.cs" />
+    <Compile Include="OpenXml\Dml\ChartDrawing\Shape.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Area3DChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\AreaChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\AxisPosition.cs" />
+    <Compile Include="OpenXml\Dml\Chart\AxisPositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\AxisUnitType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\AxisUnitValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\BandFormat.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BandFormats.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Bar3DChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BarChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BarDirection.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BarDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\BarGrouping.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BarGroupingValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\BooleanType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BubbleChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BubbleScale.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\BubbleScalePercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\BubbleSize.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BuiltInUnit.cs" />
+    <Compile Include="OpenXml\Dml\Chart\BuiltInUnitValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\CategoryAxis.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Chart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ChartLinesType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ChartSpace.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ChartText.cs" />
+    <Compile Include="OpenXml\Dml\Chart\CrossBetween.cs" />
+    <Compile Include="OpenXml\Dml\Chart\CrossBetweenValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Crosses.cs" />
+    <Compile Include="OpenXml\Dml\Chart\CrossesValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\CustomSplit.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DataLabel.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DataLabelPosition.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DataLabelPositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\DataLabels.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DataPoint.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DataTable.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DateAxis.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DepthPercent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\DepthPercentWithSymbolValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\DisplayBlanksAs.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DisplayBlanksAsValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\DisplayUnits.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DisplayUnitsLabel.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DoubleType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\DoughnutChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ErrorBarDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\ErrorBars.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ErrorBarType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ErrorBarValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\ErrorBarValueType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ErrorDirection.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ErrorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Extension.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ExtensionList.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ExternalData.cs" />
+    <Compile Include="OpenXml\Dml\Chart\FirstSliceAngle.cs" />
+    <Compile Include="OpenXml\Dml\Chart\FirstSliceAngValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\FormatId.cs" />
+    <Compile Include="OpenXml\Dml\Chart\GapAmountPercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\GapAmountType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\GapAmountValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Grouping.cs" />
+    <Compile Include="OpenXml\Dml\Chart\GroupingValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\HeaderFooter.cs" />
+    <Compile Include="OpenXml\Dml\Chart\HeightPercent.cs" />
+    <Compile Include="OpenXml\Dml\Chart\HoleSize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\HoleSizePercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\HPercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\HPercentWithSymbolValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\LabelAlignment.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LabelAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\LabelOffset.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LangValue.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Layout.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LayoutModeType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LayoutModeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\LayoutTarget.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LayoutTargetValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\LblOffsetPercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\LblOffsetValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Legend.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LegendEntry.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LegendPosition.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LegendPositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Level.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Line3DChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LineChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\LogBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\ManualLayout.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Marker.cs" />
+    <Compile Include="OpenXml\Dml\Chart\MarkerSizeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\MarkerStyle.cs" />
+    <Compile Include="OpenXml\Dml\Chart\MarkerStyleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\MultiLevelStringCache.cs" />
+    <Compile Include="OpenXml\Dml\Chart\MultiLevelStringReference.cs" />
+    <Compile Include="OpenXml\Dml\Chart\NumberingFormat.cs" />
+    <Compile Include="OpenXml\Dml\Chart\NumberReference.cs" />
+    <Compile Include="OpenXml\Dml\Chart\OddHeader.cs" />
+    <Compile Include="OpenXml\Dml\Chart\OfPieChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\OfPieType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\OfPieValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Order.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Orientation.cs" />
+    <Compile Include="OpenXml\Dml\Chart\OrientationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Overlap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\OverlapPercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\PageMargins.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PageSetup.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PageSetupOrientationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Period.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Perspective.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\PictureFormat.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PictureFormatValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\PictureOptions.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PictureStackUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Pie3DChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PieChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PivotFormat.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PivotFormats.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PivotSource.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PlotArea.cs" />
+    <Compile Include="OpenXml\Dml\Chart\PrintSettings.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Protection.cs" />
+    <Compile Include="OpenXml\Dml\Chart\RadarChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\RadarStyle.cs" />
+    <Compile Include="OpenXml\Dml\Chart\RadarStyleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\RotateX.cs" />
+    <Compile Include="OpenXml\Dml\Chart\RotateY.cs" />
+    <Compile Include="OpenXml\Dml\Chart\RotXValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\RotYValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Scaling.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ScatterChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ScatterStyle.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ScatterStyleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\SecondPieSize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\SecondPieSizePercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\SeriesAxis.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Shape.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ShapeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\ShowMarker.cs" />
+    <Compile Include="OpenXml\Dml\Chart\SizeRepresents.cs" />
+    <Compile Include="OpenXml\Dml\Chart\SizeRepresentsValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\SkipType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\SkipValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\SplitType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\SplitValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\StockChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\StringLiteral.cs" />
+    <Compile Include="OpenXml\Dml\Chart\StringReference.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Style.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Surface3DChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\SurfaceChart.cs" />
+    <Compile Include="OpenXml\Dml\Chart\SurfaceType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\Thickness.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\ThicknessPercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\TickLabelPosition.cs" />
+    <Compile Include="OpenXml\Dml\Chart\TickLabelPositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\TickMarkType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\TickMarkValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\TimeUnitType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\TimeUnitValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\Title.cs" />
+    <Compile Include="OpenXml\Dml\Chart\TrendlineLabel.cs" />
+    <Compile Include="OpenXml\Dml\Chart\TrendlineType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\TrendlineValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Chart\UpDownBars.cs" />
+    <Compile Include="OpenXml\Dml\Chart\UpDownBarType.cs" />
+    <Compile Include="OpenXml\Dml\Chart\ValueAxis.cs" />
+    <Compile Include="OpenXml\Dml\Chart\View3D.cs" />
+    <Compile Include="OpenXml\Dml\Chart\YValues.cs" />
+    <Compile Include="OpenXml\Dml\ColorChange.cs" />
+    <Compile Include="OpenXml\Dml\ColorMap.cs" />
+    <Compile Include="OpenXml\Dml\ColorMappingType.cs" />
+    <Compile Include="OpenXml\Dml\ColorScheme.cs" />
+    <Compile Include="OpenXml\Dml\ColorSchemeIndexValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\ColorType.cs" />
+    <Compile Include="OpenXml\Dml\CompoundLineValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\ConnectionSite.cs" />
+    <Compile Include="OpenXml\Dml\ConnectionSiteList.cs" />
+    <Compile Include="OpenXml\Dml\ConnectionType.cs" />
+    <Compile Include="OpenXml\Dml\Coordinate32UnqualifiedValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Coordinate32Value.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\CoordinateUnqualifiedValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\CoordinateValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\CubicBezierCurveTo.cs" />
+    <Compile Include="OpenXml\Dml\CustomColor.cs" />
+    <Compile Include="OpenXml\Dml\CustomColorList.cs" />
+    <Compile Include="OpenXml\Dml\CustomGeometry.cs" />
+    <Compile Include="OpenXml\Dml\DashStop.cs" />
+    <Compile Include="OpenXml\Dml\DefaultShapeDefinitionType.cs" />
+    <Compile Include="OpenXml\Dml\DiagramBuildStepValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Adjust.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\AdjustList.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\Algorithm.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\AlgorithmValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\AnimateOneByOne.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\AnimateOneByOneValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\AnimationLevel.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\AnimationLevelStringValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ArrowheadStyleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\AutoTextRotationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\AxisValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\BendPointValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\BoolOperatorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\BreakpointValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\BulletEnabled.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\Category.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\CenterShapeMappingValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ChildAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ChildDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ChildOrderValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Choose.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ColorApplicationMethodValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ColorsDefinitionHeader.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ColorsDefinitionHeaderList.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ColorsType.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ColorTransformStyleLabel.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\Connection.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ConnectionList.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ConnectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ConnectorDimensionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ConnectorPointValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ConnectorRoutingValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Constraint.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ConstraintRelationshipValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Constraints.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ConstraintValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ContinueDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\DataModel.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\DataModelRoot.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\Description.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\Direction.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\DirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\EffectColorList.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ElementValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ExtensionList.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\FallbackDimensionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\FlowDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ForEach.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\FunctionArgumentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\FunctionOperatorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\FunctionValue.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\FunctionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\FunctionValueValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\GrowDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\HierarchyAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\HierarchyBranchStyleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\HierBranchStyle.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\HorizontalAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\HueDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Index1Value.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\LayoutNode.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\LayoutShapeTypeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\LayoutVariablePropertySetType.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\LinearDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ModelIdValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\NodeCountValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\NodeHorizontalAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\NodeVerticalAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\OffsetValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\OrganizationChart.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\OutputShapeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Parameter.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ParameterIdValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\ParameterValValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Point.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\PointList.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\PointValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\PresentationOf.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\PrSetCustValValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\PyramidAccentPositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\PyramidAccentTextMarginValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\RelationshipIds.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ResizeHandles.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\ResizeHandlesStringValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\RotationPathValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Rule.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\SampleDataType.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\SecondaryChildAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\SecondaryLinearDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\Shape.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\StartingElementValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\StyleDefinition.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\StyleDefinitionHeader.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\StyleDefinitionHeaderList.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\StyleLabel.cs" />
+    <Compile Include="OpenXml\Dml\Diagram\TextAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\TextAnchorHorizontalValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\TextAnchorVerticalValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\TextBlockDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\TextDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\VariableValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Diagram\VerticalAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\DrawingElementIdValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Duotone.cs" />
+    <Compile Include="OpenXml\Dml\Effect.cs" />
+    <Compile Include="OpenXml\Dml\EffectContainerType.cs" />
+    <Compile Include="OpenXml\Dml\EffectContainerValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\EffectList.cs" />
+    <Compile Include="OpenXml\Dml\EffectPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\EffectReference.cs" />
+    <Compile Include="OpenXml\Dml\EffectStyle.cs" />
+    <Compile Include="OpenXml\Dml\EffectStyleList.cs" />
+    <Compile Include="OpenXml\Dml\EndParagraphRunProperties.cs" />
+    <Compile Include="OpenXml\Dml\ExtraColorSchemeList.cs" />
+    <Compile Include="OpenXml\Dml\ExtrusionColor.cs" />
+    <Compile Include="OpenXml\Dml\FillOverlay.cs" />
+    <Compile Include="OpenXml\Dml\FillProperties.cs" />
+    <Compile Include="OpenXml\Dml\FillStyleList.cs" />
+    <Compile Include="OpenXml\Dml\FillToRectangle.cs" />
+    <Compile Include="OpenXml\Dml\FixedAngleValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\FixedPercentageValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\FlatText.cs" />
+    <Compile Include="OpenXml\Dml\FontCollectionIndexValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\FontCollectionType.cs" />
+    <Compile Include="OpenXml\Dml\FontReference.cs" />
+    <Compile Include="OpenXml\Dml\FontScheme.cs" />
+    <Compile Include="OpenXml\Dml\FormatScheme.cs" />
+    <Compile Include="OpenXml\Dml\FOVAngleValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\GeomGuideFormulaValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\GeomGuideNameValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\GradientStop.cs" />
+    <Compile Include="OpenXml\Dml\GradientStopList.cs" />
+    <Compile Include="OpenXml\Dml\GraphicData.cs" />
+    <Compile Include="OpenXml\Dml\GraphicFrameLocks.cs" />
+    <Compile Include="OpenXml\Dml\GroupShapeLocks.cs" />
+    <Compile Include="OpenXml\Dml\HeadEnd.cs" />
+    <Compile Include="OpenXml\Dml\HexColorRGB.cs" />
+    <Compile Include="OpenXml\Dml\HslColor.cs" />
+    <Compile Include="OpenXml\Dml\Hyperlink.cs" />
+    <Compile Include="OpenXml\Dml\HyperlinkOnMouseOver.cs" />
+    <Compile Include="OpenXml\Dml\InnerShadow.cs" />
+    <Compile Include="OpenXml\Dml\LastColumn.cs" />
+    <Compile Include="OpenXml\Dml\LightRig.cs" />
+    <Compile Include="OpenXml\Dml\LightRigDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\LightRigValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\LineCapValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\LineEndLengthValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\LineEndPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\LineEndValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\LineEndWidthValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\LineJoinBevel.cs" />
+    <Compile Include="OpenXml\Dml\LinePropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\LineStyleList.cs" />
+    <Compile Include="OpenXml\Dml\LineWidthValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\LuminanceEffect.cs" />
+    <Compile Include="OpenXml\Dml\MasterColorMapping.cs" />
+    <Compile Include="OpenXml\Dml\MinorFont.cs" />
+    <Compile Include="OpenXml\Dml\MoveTo.cs" />
+    <Compile Include="OpenXml\Dml\NoAutoFit.cs" />
+    <Compile Include="OpenXml\Dml\NonVisualConnectorPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\NonVisualContentPartPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\NonVisualGraphicFrameDrawingProperties.cs" />
+    <Compile Include="OpenXml\Dml\NonVisualGraphicFrameProperties.cs" />
+    <Compile Include="OpenXml\Dml\NonVisualGroupShapeProperties.cs" />
+    <Compile Include="OpenXml\Dml\NonVisualPictureProperties.cs" />
+    <Compile Include="OpenXml\Dml\NormalAutoFit.cs" />
+    <Compile Include="OpenXml\Dml\ObjectDefaults.cs" />
+    <Compile Include="OpenXml\Dml\OnOff.cs" />
+    <Compile Include="OpenXml\Dml\OuterShadow.cs" />
+    <Compile Include="OpenXml\Dml\OverrideColorMapping.cs" />
+    <Compile Include="OpenXml\Dml\PathFillModeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PathGradientFill.cs" />
+    <Compile Include="OpenXml\Dml\PathList.cs" />
+    <Compile Include="OpenXml\Dml\PathShadeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PatternFill.cs" />
+    <Compile Include="OpenXml\Dml\PenAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PercentageType.cs" />
+    <Compile Include="OpenXml\Dml\PercentageValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PictureLocks.cs" />
+    <Compile Include="OpenXml\Dml\Picture\Picture.cs" />
+    <Compile Include="OpenXml\Dml\Picture\PictureNonVisualType.cs" />
+    <Compile Include="OpenXml\Dml\PitchFamilyValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Point2DType.cs" />
+    <Compile Include="OpenXml\Dml\PositiveCoordinate32Value.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PositiveCoordinateValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PositiveFixedAngleValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PositiveFixedPercentageType.cs" />
+    <Compile Include="OpenXml\Dml\PositiveFixedPercentageValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PositivePercentageType.cs" />
+    <Compile Include="OpenXml\Dml\PositivePercentageValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PositiveSize2DType.cs" />
+    <Compile Include="OpenXml\Dml\PresetCameraValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PresetColor.cs" />
+    <Compile Include="OpenXml\Dml\PresetColorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PresetGeometry.cs" />
+    <Compile Include="OpenXml\Dml\PresetLineDashVal.cs" />
+    <Compile Include="OpenXml\Dml\PresetLineDashValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PresetMaterialTypeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PresetPatternValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PresetShadow.cs" />
+    <Compile Include="OpenXml\Dml\PresetShadowValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\PresetTextWrap.cs" />
+    <Compile Include="OpenXml\Dml\QuadraticBezierCurveTo.cs" />
+    <Compile Include="OpenXml\Dml\QuickTimeFromFile.cs" />
+    <Compile Include="OpenXml\Dml\RatioType.cs" />
+    <Compile Include="OpenXml\Dml\RectangleAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Reflection.cs" />
+    <Compile Include="OpenXml\Dml\RgbColorModelPercentage.cs" />
+    <Compile Include="OpenXml\Dml\Scene3DType.cs" />
+    <Compile Include="OpenXml\Dml\SchemeColor.cs" />
+    <Compile Include="OpenXml\Dml\SchemeColorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Shape3DType.cs" />
+    <Compile Include="OpenXml\Dml\ShapeIDValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\ShapeProperties.cs" />
+    <Compile Include="OpenXml\Dml\ShapeStyle.cs" />
+    <Compile Include="OpenXml\Dml\ShapeTypeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\SoftEdge.cs" />
+    <Compile Include="OpenXml\Dml\StyleMatrixColumnIndexValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\StyleMatrixReferenceType.cs" />
+    <Compile Include="OpenXml\Dml\SupplementalFont.cs" />
+    <Compile Include="OpenXml\Dml\SystemColor.cs" />
+    <Compile Include="OpenXml\Dml\SystemColorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\Table.cs" />
+    <Compile Include="OpenXml\Dml\TableCell.cs" />
+    <Compile Include="OpenXml\Dml\TableCellProperties.cs" />
+    <Compile Include="OpenXml\Dml\TableGrid.cs" />
+    <Compile Include="OpenXml\Dml\TablePartStyleType.cs" />
+    <Compile Include="OpenXml\Dml\TableProperties.cs" />
+    <Compile Include="OpenXml\Dml\TableRow.cs" />
+    <Compile Include="OpenXml\Dml\TableStyle.cs" />
+    <Compile Include="OpenXml\Dml\TableStyleId.cs" />
+    <Compile Include="OpenXml\Dml\TableStyleList.cs" />
+    <Compile Include="OpenXml\Dml\TableStyleType.cs" />
+    <Compile Include="OpenXml\Dml\TextAlignmentTypeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextAnchoringTypeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextAutoNumberSchemeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextBody.cs" />
+    <Compile Include="OpenXml\Dml\TextBulletSizePercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextBulletSizeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextBulletStartAtNumValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextCapsValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextCharacterPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\TextColumnCountValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextFontAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextFontScalePercentOrPercentStringValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextFontSize.cs" />
+    <Compile Include="OpenXml\Dml\TextFontSizeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextFontType.cs" />
+    <Compile Include="OpenXml\Dml\TextHorizontalOverflowValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextIndentLevelTypeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextIndentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextMarginValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextNonNegativePointValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextParagraphPropertiesType.cs" />
+    <Compile Include="OpenXml\Dml\TextPointUnqualifiedValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextPointValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextShapeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextSpacingPercentOrPercentStringValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextSpacingPointValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextSpacingType.cs" />
+    <Compile Include="OpenXml\Dml\TextStrikeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextTabAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextTypefaceValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextUnderlineValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextVerticalOverflowValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextVerticalValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TextWrappingValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\ThemeableLineStyleType.cs" />
+    <Compile Include="OpenXml\Dml\ThemeElements.cs" />
+    <Compile Include="OpenXml\Dml\ThemeManager.cs" />
+    <Compile Include="OpenXml\Dml\ThemeOverride.cs" />
+    <Compile Include="OpenXml\Dml\TileFlipValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\TileRectangle.cs" />
+    <Compile Include="OpenXml\Dml\TintEffect.cs" />
+    <Compile Include="OpenXml\Dml\Transform2D.cs" />
+    <Compile Include="OpenXml\Dml\TransformEffect.cs" />
+    <Compile Include="OpenXml\Dml\UseShapeRectangle.cs" />
+    <Compile Include="OpenXml\Dml\Vector3DType.cs" />
+    <Compile Include="OpenXml\Dml\VideoFromFile.cs" />
+    <Compile Include="OpenXml\Dml\WaveAudioFile.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\Anchor.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\DocProperties.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\EffectExtent.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\Extent.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\HorizontalAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\HorizontalRelativePositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\Inline.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\NonVisualGraphicFrameDrawingProperties.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\PositionOffset.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\VerticalAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\VerticalRelativePositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\WordprocessingContentPartNonVisualType.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\WrapDistanceValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\WrapNone.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\WrapSquare.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\WrapTextValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\WrapThrough.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\WrapTight.cs" />
+    <Compile Include="OpenXml\Dml\WordprocessingDrawing\WrapTopBottom.cs" />
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\FileFormatVersions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\FixedPercentageValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\HexColorRGBValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\LangValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\OnOffValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\PanoseValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\PercentageValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\PositiveFixedPercentageValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\PositivePercentageValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\PositiveUniversalMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\PresentationDocumentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\SpaceProcessingModeValues.cs" />
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\TwipsMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\UniversalMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\UnsignedDecimalNumberValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\WordprocessingDocumentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\XmlNameValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CommonSimpleTypes\XstringValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\CustomXmlSchemaProperties\Schema.cs" />
+    <Compile Include="OpenXml\Shared\CustomXmlSchemaProperties\SchemaLibrary.cs" />
+    <Compile Include="OpenXml\Shared\Math\Accent.cs" />
+    <Compile Include="OpenXml\Shared\Math\AccentProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Bar.cs" />
+    <Compile Include="OpenXml\Shared\Math\BarProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\BorderBox.cs" />
+    <Compile Include="OpenXml\Shared\Math\BorderBoxProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Box.cs" />
+    <Compile Include="OpenXml\Shared\Math\BoxProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\BreakBin.cs" />
+    <Compile Include="OpenXml\Shared\Math\BreakBinaryOperatorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\BreakBinarySubtractionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\BreakBinSub.cs" />
+    <Compile Include="OpenXml\Shared\Math\CharType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\CharValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\ControlProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Delimiter.cs" />
+    <Compile Include="OpenXml\Shared\Math\DelimiterProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\EquationArray.cs" />
+    <Compile Include="OpenXml\Shared\Math\EquationArrayProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Fraction.cs" />
+    <Compile Include="OpenXml\Shared\Math\FractionProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\FractionTypeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\FType.cs" />
+    <Compile Include="OpenXml\Shared\Math\FunctionProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\GroupChar.cs" />
+    <Compile Include="OpenXml\Shared\Math\GroupCharProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Integer255Value.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\Integer2Value.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\Jc.cs" />
+    <Compile Include="OpenXml\Shared\Math\JustificationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\LimitLocation.cs" />
+    <Compile Include="OpenXml\Shared\Math\LimitLocationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\LimitLower.cs" />
+    <Compile Include="OpenXml\Shared\Math\LimitLowerProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\LimitUpper.cs" />
+    <Compile Include="OpenXml\Shared\Math\LimitUpperProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\MathFunction.cs" />
+    <Compile Include="OpenXml\Shared\Math\MathProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Matrix.cs" />
+    <Compile Include="OpenXml\Shared\Math\MatrixColumnProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\MatrixProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\MCSType.cs" />
+    <Compile Include="OpenXml\Shared\Math\MCType.cs" />
+    <Compile Include="OpenXml\Shared\Math\MRType.cs" />
+    <Compile Include="OpenXml\Shared\Math\Nary.cs" />
+    <Compile Include="OpenXml\Shared\Math\NaryProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\NoBreak.cs" />
+    <Compile Include="OpenXml\Shared\Math\OfficeMath.cs" />
+    <Compile Include="OpenXml\Shared\Math\OnOffType.cs" />
+    <Compile Include="OpenXml\Shared\Math\Paragraph.cs" />
+    <Compile Include="OpenXml\Shared\Math\ParagraphProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Phantom.cs" />
+    <Compile Include="OpenXml\Shared\Math\PhantomProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\PreSubSuper.cs" />
+    <Compile Include="OpenXml\Shared\Math\PreSubSuperProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Radical.cs" />
+    <Compile Include="OpenXml\Shared\Math\RadicalProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Run.cs" />
+    <Compile Include="OpenXml\Shared\Math\RunProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Script.cs" />
+    <Compile Include="OpenXml\Shared\Math\ScriptValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\Shape.cs" />
+    <Compile Include="OpenXml\Shared\Math\ShapeDelimiterValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\SpacingRuleType.cs" />
+    <Compile Include="OpenXml\Shared\Math\SpacingRuleValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\StrikeHorizontal.cs" />
+    <Compile Include="OpenXml\Shared\Math\Style.cs" />
+    <Compile Include="OpenXml\Shared\Math\StyleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\Subscript.cs" />
+    <Compile Include="OpenXml\Shared\Math\SubscriptProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\SubSuperscript.cs" />
+    <Compile Include="OpenXml\Shared\Math\SubSuperscriptProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Superscript.cs" />
+    <Compile Include="OpenXml\Shared\Math\SuperscriptProperties.cs" />
+    <Compile Include="OpenXml\Shared\Math\Text.cs" />
+    <Compile Include="OpenXml\Shared\Math\TopBot.cs" />
+    <Compile Include="OpenXml\Shared\Math\TwipsMeasureType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\UnSignedIntegerValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\VerticalAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\XAlign.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\Math\YAlign.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Shared\RelationshipReference\RelationshipIdValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\AbsolutePositionTabLeaderCharValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\AbsolutePositionTabPositioningBaseValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\AbstractNum.cs" />
+    <Compile Include="OpenXml\Wml\ActiveWritingStyle.cs" />
+    <Compile Include="OpenXml\Wml\AltChunk.cs" />
+    <Compile Include="OpenXml\Wml\AltChunkProperties.cs" />
+    <Compile Include="OpenXml\Wml\AutoCaption.cs" />
+    <Compile Include="OpenXml\Wml\AutoCaptions.cs" />
+    <Compile Include="OpenXml\Wml\AutomaticColorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\BasedOn.cs" />
+    <Compile Include="OpenXml\Wml\BodyType.cs" />
+    <Compile Include="OpenXml\Wml\BookmarkEnd.cs" />
+    <Compile Include="OpenXml\Wml\BorderType.cs" />
+    <Compile Include="OpenXml\Wml\BorderValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Break.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\BreakTextRestartLocationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\BreakValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\CalendarType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Caption.cs" />
+    <Compile Include="OpenXml\Wml\CaptionPositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Captions.cs" />
+    <Compile Include="OpenXml\Wml\ChapterSeparatorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\CharacterSpacing.cs" />
+    <Compile Include="OpenXml\Wml\CharacterSpacingValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\CheckBox.cs" />
+    <Compile Include="OpenXml\Wml\Color.cs" />
+    <Compile Include="OpenXml\Wml\ColorSchemeIndexValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\ColorSchemeMapping.cs" />
+    <Compile Include="OpenXml\Wml\Column.cs" />
+    <Compile Include="OpenXml\Wml\Columns.cs" />
+    <Compile Include="OpenXml\Wml\CombineBracketValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Comment.cs" />
+    <Compile Include="OpenXml\Wml\Comments.cs" />
+    <Compile Include="OpenXml\Wml\Compatibility.cs" />
+    <Compile Include="OpenXml\Wml\CompatibilitySetting.cs" />
+    <Compile Include="OpenXml\Wml\Control.cs" />
+    <Compile Include="OpenXml\Wml\CustomXmlAttribute.cs" />
+    <Compile Include="OpenXml\Wml\CustomXmlBlock.cs" />
+    <Compile Include="OpenXml\Wml\CustomXmlCell.cs" />
+    <Compile Include="OpenXml\Wml\CustomXmlPlaceholder.cs" />
+    <Compile Include="OpenXml\Wml\CustomXmlProperties.cs" />
+    <Compile Include="OpenXml\Wml\CustomXmlRow.cs" />
+    <Compile Include="OpenXml\Wml\CustomXmlRun.cs" />
+    <Compile Include="OpenXml\Wml\DataBinding.cs" />
+    <Compile Include="OpenXml\Wml\DataSourceObject.cs" />
+    <Compile Include="OpenXml\Wml\DataType.cs" />
+    <Compile Include="OpenXml\Wml\DateFormatValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\DecimalNumberOrPercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\DecimalNumberType.cs" />
+    <Compile Include="OpenXml\Wml\DecimalNumberValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Deleted.cs" />
+    <Compile Include="OpenXml\Wml\Direction.cs" />
+    <Compile Include="OpenXml\Wml\DirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Dirty.cs" />
+    <Compile Include="OpenXml\Wml\DisplacedByCustomXmlValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Div.cs" />
+    <Compile Include="OpenXml\Wml\DivBorder.cs" />
+    <Compile Include="OpenXml\Wml\DivsType.cs" />
+    <Compile Include="OpenXml\Wml\DocDefaults.cs" />
+    <Compile Include="OpenXml\Wml\DocGrid.cs" />
+    <Compile Include="OpenXml\Wml\DocGridValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\DocPartBehavior.cs" />
+    <Compile Include="OpenXml\Wml\DocPartBehaviorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\DocPartCategory.cs" />
+    <Compile Include="OpenXml\Wml\DocPartGallery.cs" />
+    <Compile Include="OpenXml\Wml\DocPartGalleryValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\DocPartId.cs" />
+    <Compile Include="OpenXml\Wml\DocPartName.cs" />
+    <Compile Include="OpenXml\Wml\DocPartProperties.cs" />
+    <Compile Include="OpenXml\Wml\DocParts.cs" />
+    <Compile Include="OpenXml\Wml\DocPartType.cs" />
+    <Compile Include="OpenXml\Wml\DocPartTypes.cs" />
+    <Compile Include="OpenXml\Wml\DocPartValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\DocTypeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Document.cs" />
+    <Compile Include="OpenXml\Wml\DocumentBackground.cs" />
+    <Compile Include="OpenXml\Wml\DocumentProtectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\DocumentType.cs" />
+    <Compile Include="OpenXml\Wml\DocumentVariable.cs" />
+    <Compile Include="OpenXml\Wml\DocumentVariables.cs" />
+    <Compile Include="OpenXml\Wml\DoNotOrganizeInFolder.cs" />
+    <Compile Include="OpenXml\Wml\Drawing.cs" />
+    <Compile Include="OpenXml\Wml\DropCapLocationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\DropDownListFormField.cs" />
+    <Compile Include="OpenXml\Wml\EastAsianLayout.cs" />
+    <Compile Include="OpenXml\Wml\EdnPos.cs" />
+    <Compile Include="OpenXml\Wml\EighthPointMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\EmbeddedObject.cs" />
+    <Compile Include="OpenXml\Wml\Emphasis.cs" />
+    <Compile Include="OpenXml\Wml\EmphasisMarkValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\EmptyType.cs" />
+    <Compile Include="OpenXml\Wml\EndnotePositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\EndnoteReferenceMark.cs" />
+    <Compile Include="OpenXml\Wml\Endnotes.cs" />
+    <Compile Include="OpenXml\Wml\FFHelpTextValValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FFNameValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FFStatusTextValValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FFTextType.cs" />
+    <Compile Include="OpenXml\Wml\FieldChar.cs" />
+    <Compile Include="OpenXml\Wml\FieldCharValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FieldMapData.cs" />
+    <Compile Include="OpenXml\Wml\FitText.cs" />
+    <Compile Include="OpenXml\Wml\Font.cs" />
+    <Compile Include="OpenXml\Wml\FontCharSet.cs" />
+    <Compile Include="OpenXml\Wml\FontFamily.cs" />
+    <Compile Include="OpenXml\Wml\FontFamilyValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FontPitchValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Fonts.cs" />
+    <Compile Include="OpenXml\Wml\FontTypeHintValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FootnoteEndnoteValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FootnotePositionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FootnoteReferenceMark.cs" />
+    <Compile Include="OpenXml\Wml\Footnotes.cs" />
+    <Compile Include="OpenXml\Wml\FormFieldData.cs" />
+    <Compile Include="OpenXml\Wml\Frame.cs" />
+    <Compile Include="OpenXml\Wml\FrameLayout.cs" />
+    <Compile Include="OpenXml\Wml\FrameLayoutValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\FrameProperties.cs" />
+    <Compile Include="OpenXml\Wml\FrameScrollbar.cs" />
+    <Compile Include="OpenXml\Wml\FrameScrollbarVisibilityValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Frameset.cs" />
+    <Compile Include="OpenXml\Wml\FramesetSplitbar.cs" />
+    <Compile Include="OpenXml\Wml\FtnPos.cs" />
+    <Compile Include="OpenXml\Wml\GlossaryDocument.cs" />
+    <Compile Include="OpenXml\Wml\GridColumn.cs" />
+    <Compile Include="OpenXml\Wml\HeaderFooterValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\HeightRuleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\HexColorValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Highlight.cs" />
+    <Compile Include="OpenXml\Wml\HighlightColorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\HorizontalAnchorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\HpsMeasureType.cs" />
+    <Compile Include="OpenXml\Wml\HpsMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Hyperlink.cs" />
+    <Compile Include="OpenXml\Wml\Indentation.cs" />
+    <Compile Include="OpenXml\Wml\InfoTextValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Inserted.cs" />
+    <Compile Include="OpenXml\Wml\JcTable.cs" />
+    <Compile Include="OpenXml\Wml\Justification.cs" />
+    <Compile Include="OpenXml\Wml\JustificationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Kern.cs" />
+    <Compile Include="OpenXml\Wml\Kinsoku.cs" />
+    <Compile Include="OpenXml\Wml\Languages.cs" />
+    <Compile Include="OpenXml\Wml\LanguageType.cs" />
+    <Compile Include="OpenXml\Wml\LatentStyleExceptionInfo.cs" />
+    <Compile Include="OpenXml\Wml\LatentStyles.cs" />
+    <Compile Include="OpenXml\Wml\Level.cs" />
+    <Compile Include="OpenXml\Wml\LevelJustificationValues.cs" />
+    <Compile Include="OpenXml\Wml\LevelSuffix.cs" />
+    <Compile Include="OpenXml\Wml\LevelSuffixValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\LevelText.cs" />
+    <Compile Include="OpenXml\Wml\LineNumberRestartValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\LineNumberType.cs" />
+    <Compile Include="OpenXml\Wml\LineSpacingRuleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\ListItem.cs" />
+    <Compile Include="OpenXml\Wml\Lock.cs" />
+    <Compile Include="OpenXml\Wml\LockingValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\LongHexNumberType.cs" />
+    <Compile Include="OpenXml\Wml\LongHexNumberValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MacroNameType.cs" />
+    <Compile Include="OpenXml\Wml\MacroNameValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MailMerge.cs" />
+    <Compile Include="OpenXml\Wml\MailMergeDataTypeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MailMergeDest.cs" />
+    <Compile Include="OpenXml\Wml\MailMergeDestinationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MailMergeDocType.cs" />
+    <Compile Include="OpenXml\Wml\MailMergeDocumentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MailMergeOdsoFieldValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MailMergeOdsoFMDFieldType.cs" />
+    <Compile Include="OpenXml\Wml\MailMergeSourceType.cs" />
+    <Compile Include="OpenXml\Wml\MailMergeSourceValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MarkupRangeType.cs" />
+    <Compile Include="OpenXml\Wml\MarkupType.cs" />
+    <Compile Include="OpenXml\Wml\MeasurementOrPercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MergedCellValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\MirrorMargins.cs" />
+    <Compile Include="OpenXml\Wml\MonthLong.cs" />
+    <Compile Include="OpenXml\Wml\MoveBookmarkType.cs" />
+    <Compile Include="OpenXml\Wml\MultiLevelType.cs" />
+    <Compile Include="OpenXml\Wml\MultiLevelValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\NoProof.cs" />
+    <Compile Include="OpenXml\Wml\NumberFormatValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Numbering.cs" />
+    <Compile Include="OpenXml\Wml\NumberingChange.cs" />
+    <Compile Include="OpenXml\Wml\NumberingFormat.cs" />
+    <Compile Include="OpenXml\Wml\NumberingInstance.cs" />
+    <Compile Include="OpenXml\Wml\NumberingPictureBullet.cs" />
+    <Compile Include="OpenXml\Wml\NumberingProperties.cs" />
+    <Compile Include="OpenXml\Wml\NumberingRestart.cs" />
+    <Compile Include="OpenXml\Wml\ObjectDrawAspect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\ObjectEmbed.cs" />
+    <Compile Include="OpenXml\Wml\ObjectLink.cs" />
+    <Compile Include="OpenXml\Wml\ObjectUpdateMode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\OnOffType.cs" />
+    <Compile Include="OpenXml\Wml\OptimizeForBrowser.cs" />
+    <Compile Include="OpenXml\Wml\PageBorderDisplayValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\PageBorderOffsetValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\PageBorders.cs" />
+    <Compile Include="OpenXml\Wml\PageBorderZOrderValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\PageMargin.cs" />
+    <Compile Include="OpenXml\Wml\PageNumber.cs" />
+    <Compile Include="OpenXml\Wml\PageOrientationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\PageSize.cs" />
+    <Compile Include="OpenXml\Wml\Panose.cs" />
+    <Compile Include="OpenXml\Wml\PaperSource.cs" />
+    <Compile Include="OpenXml\Wml\Paragraph.cs" />
+    <Compile Include="OpenXml\Wml\ParagraphBorders.cs" />
+    <Compile Include="OpenXml\Wml\ParagraphPropertiesChange.cs" />
+    <Compile Include="OpenXml\Wml\ParagraphPropertiesDefault.cs" />
+    <Compile Include="OpenXml\Wml\ParagraphPropertiesExtended.cs" />
+    <Compile Include="OpenXml\Wml\PermStart.cs" />
+    <Compile Include="OpenXml\Wml\Personal.cs" />
+    <Compile Include="OpenXml\Wml\Pitch.cs" />
+    <Compile Include="OpenXml\Wml\PixelsMeasureType.cs" />
+    <Compile Include="OpenXml\Wml\PixelsMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\PointMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\PositionalTab.cs" />
+    <Compile Include="OpenXml\Wml\PresetZoomValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\PreviousSectionProperties.cs" />
+    <Compile Include="OpenXml\Wml\PreviousTableCellProperties.cs" />
+    <Compile Include="OpenXml\Wml\PreviousTableProperties.cs" />
+    <Compile Include="OpenXml\Wml\PreviousTablePropertyExceptions.cs" />
+    <Compile Include="OpenXml\Wml\PreviousTableRowProperties.cs" />
+    <Compile Include="OpenXml\Wml\ProofError.cs" />
+    <Compile Include="OpenXml\Wml\ProofingErrorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\ProofingStateValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\RangePermissionEditingGroupValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\ReadModeInkLockDown.cs" />
+    <Compile Include="OpenXml\Wml\RecipientData.cs" />
+    <Compile Include="OpenXml\Wml\Recipients.cs" />
+    <Compile Include="OpenXml\Wml\RestartNumberValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\RightMarginDiv.cs" />
+    <Compile Include="OpenXml\Wml\Ruby.cs" />
+    <Compile Include="OpenXml\Wml\RubyAlign.cs" />
+    <Compile Include="OpenXml\Wml\RubyAlignValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\RubyBase.cs" />
+    <Compile Include="OpenXml\Wml\RubyContentType.cs" />
+    <Compile Include="OpenXml\Wml\RubyProperties.cs" />
+    <Compile Include="OpenXml\Wml\Run.cs" />
+    <Compile Include="OpenXml\Wml\RunProperties.cs" />
+    <Compile Include="OpenXml\Wml\RunPropertiesChange.cs" />
+    <Compile Include="OpenXml\Wml\RunPropertiesDefault.cs" />
+    <Compile Include="OpenXml\Wml\RunTrackChangeType.cs" />
+    <Compile Include="OpenXml\Wml\SaveThroughXslt.cs" />
+    <Compile Include="OpenXml\Wml\SdtBlock.cs" />
+    <Compile Include="OpenXml\Wml\SdtCell.cs" />
+    <Compile Include="OpenXml\Wml\SdtContentBlock.cs" />
+    <Compile Include="OpenXml\Wml\SdtContentCell.cs" />
+    <Compile Include="OpenXml\Wml\SdtContentComboBox.cs" />
+    <Compile Include="OpenXml\Wml\SdtContentDate.cs" />
+    <Compile Include="OpenXml\Wml\SdtContentDocPartList.cs" />
+    <Compile Include="OpenXml\Wml\SdtContentDropDownList.cs" />
+    <Compile Include="OpenXml\Wml\SdtContentRow.cs" />
+    <Compile Include="OpenXml\Wml\SdtContentRun.cs" />
+    <Compile Include="OpenXml\Wml\SdtDateMappingType.cs" />
+    <Compile Include="OpenXml\Wml\SdtDocPartType.cs" />
+    <Compile Include="OpenXml\Wml\SdtEndCharProperties.cs" />
+    <Compile Include="OpenXml\Wml\SdtProperties.cs" />
+    <Compile Include="OpenXml\Wml\SdtRow.cs" />
+    <Compile Include="OpenXml\Wml\SdtRun.cs" />
+    <Compile Include="OpenXml\Wml\SectionMark.cs" />
+    <Compile Include="OpenXml\Wml\SectionMarkValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\SectionPropertiesChange.cs" />
+    <Compile Include="OpenXml\Wml\Settings.cs" />
+    <Compile Include="OpenXml\Wml\Shading.cs" />
+    <Compile Include="OpenXml\Wml\ShadingPatternValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\ShortHexNumberValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\SignedHpsMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\SignedTwipsMeasureType.cs" />
+    <Compile Include="OpenXml\Wml\SignedTwipsMeasureValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\SimpleField.cs" />
+    <Compile Include="OpenXml\Wml\Spacing.cs" />
+    <Compile Include="OpenXml\Wml\StringType.cs" />
+    <Compile Include="OpenXml\Wml\Style.cs" />
+    <Compile Include="OpenXml\Wml\StylePaneFormatFilter.cs" />
+    <Compile Include="OpenXml\Wml\StylePaneSortMethodsValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Styles.cs" />
+    <Compile Include="OpenXml\Wml\StyleSort.cs" />
+    <Compile Include="OpenXml\Wml\StyleValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\SymbolChar.cs" />
+    <Compile Include="OpenXml\Wml\Table.cs" />
+    <Compile Include="OpenXml\Wml\TableBorders.cs" />
+    <Compile Include="OpenXml\Wml\TableCell.cs" />
+    <Compile Include="OpenXml\Wml\TableCellBorders.cs" />
+    <Compile Include="OpenXml\Wml\TableCellMargin.cs" />
+    <Compile Include="OpenXml\Wml\TableCellMarginDefault.cs" />
+    <Compile Include="OpenXml\Wml\TableCellPropertiesChange.cs" />
+    <Compile Include="OpenXml\Wml\TableGrid.cs" />
+    <Compile Include="OpenXml\Wml\TableGridChange.cs" />
+    <Compile Include="OpenXml\Wml\TableHeader.cs" />
+    <Compile Include="OpenXml\Wml\TableLayout.cs" />
+    <Compile Include="OpenXml\Wml\TableLayoutValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TableLook.cs" />
+    <Compile Include="OpenXml\Wml\TableOverlap.cs" />
+    <Compile Include="OpenXml\Wml\TableOverlapValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TablePositionProperties.cs" />
+    <Compile Include="OpenXml\Wml\TablePropertiesChange.cs" />
+    <Compile Include="OpenXml\Wml\TablePropertyExceptionsChange.cs" />
+    <Compile Include="OpenXml\Wml\TableRowAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TableRowPropertiesChange.cs" />
+    <Compile Include="OpenXml\Wml\TableStyleOverrideValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TableStyleProperties.cs" />
+    <Compile Include="OpenXml\Wml\TableWidthUnitValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Tabs.cs" />
+    <Compile Include="OpenXml\Wml\TabStop.cs" />
+    <Compile Include="OpenXml\Wml\TabStopLeaderCharValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TabStopValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TargetScreenSize.cs" />
+    <Compile Include="OpenXml\Wml\TargetScreenSizeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TemporarySdt.cs" />
+    <Compile Include="OpenXml\Wml\TextAlignment.cs" />
+    <Compile Include="OpenXml\Wml\TextBoxFormFieldValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TextBoxTightWrap.cs" />
+    <Compile Include="OpenXml\Wml\TextBoxTightWrapValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TextDirection.cs" />
+    <Compile Include="OpenXml\Wml\TextDirectionValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TextEffect.cs" />
+    <Compile Include="OpenXml\Wml\TextEffectValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TextInput.cs" />
+    <Compile Include="OpenXml\Wml\TextScalePercentValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TextScaleValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TextType.cs" />
+    <Compile Include="OpenXml\Wml\TextWrappingValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\ThemeColorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\ThemeFontValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\TopBorder.cs" />
+    <Compile Include="OpenXml\Wml\TrackChangeType.cs" />
+    <Compile Include="OpenXml\Wml\TwipsMeasure.cs" />
+    <Compile Include="OpenXml\Wml\TwipsMeasureType.cs" />
+    <Compile Include="OpenXml\Wml\UcharHexNumberValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\Underline.cs" />
+    <Compile Include="OpenXml\Wml\UnderlineValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\UnsignedDecimalNumberType.cs" />
+    <Compile Include="OpenXml\Wml\VerticalAlignRun.cs" />
+    <Compile Include="OpenXml\Wml\VerticalAnchorValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\VerticalJc.cs" />
+    <Compile Include="OpenXml\Wml\VerticalJustificationValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\VerticalMerge.cs" />
+    <Compile Include="OpenXml\Wml\VerticalTextAlignmentValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\View.cs" />
+    <Compile Include="OpenXml\Wml\ViewValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OpenXml\Wml\WebSettings.cs" />
+    <Compile Include="OpenXml\Wml\WriteProtection.cs" />
+    <Compile Include="OpenXml\Wml\Zoom.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

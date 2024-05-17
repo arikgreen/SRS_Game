@@ -1,0 +1,59 @@
+[Tag("shapeNonVisual")]
+[Alias("ShapeNonVisual")]
+CT_ShapeNonVisual = GraphicFrame;
+
+[Tag("shape")]
+[Alias("Shape")]
+CT_Shape = Shape;
+
+[Tag("connectorNonVisual")]
+[Alias("ConnectorNonVisual")]
+CT_ConnectorNonVisual = ConnectorNonVisualType;
+
+[Tag("connector")]
+[Alias("Connector")]
+CT_Connector = RelativeAnchorSize;
+
+[Tag("pictureNonVisual")]
+[Alias("PictureNonVisual")]
+CT_PictureNonVisual = RelativeAnchorSize;
+
+[Tag("picture")]
+[Alias("Picture")]
+CT_Picture = Picture;
+
+[Tag("graphicFrameNonVisual")]
+[Alias("GraphicFrameNonVisual")]
+CT_GraphicFrameNonVisual = NonVisualGraphicFrameProperties;
+
+[Tag("graphicFrame")]
+[Alias("GraphicFrame")]
+CT_GraphicFrame = GraphicFrame;
+
+[Tag("groupShapeNonVisual")]
+[Alias("GroupShapeNonVisual")]
+CT_GroupShapeNonVisual = RelativeAnchorSize;
+
+[Tag("groupShape")]
+[Alias("GroupShape")]
+CT_GroupShape = GroupShape;
+
+[Alias("MarkerCoordinate")]
+ST_MarkerCoordinate = MarkerCoordinateValue;
+
+[Tag("marker")]
+[Alias("Marker")]
+CT_Marker = MarkerType;
+
+[Tag("relSizeAnchor")]
+[Alias("RelSizeAnchor")]
+CT_RelSizeAnchor = RelativeAnchorSize;
+
+[Tag("absSizeAnchor")]
+[Alias("AbsSizeAnchor")]
+CT_AbsSizeAnchor = AbsoluteAnchorSize;
+
+[Tag("drawing")]
+[Alias("Drawing")]
+CT_Drawing = GroupShapeProperties;
+

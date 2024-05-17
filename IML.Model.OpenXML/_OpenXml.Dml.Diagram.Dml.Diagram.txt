@@ -1,0 +1,431 @@
+[Tag("cTName")]
+[Alias("CTName")]
+CT_CTName = Parameter;
+
+[Tag("cTDescription")]
+[Alias("CTDescription")]
+CT_CTDescription = EffectColorList;
+
+[Tag("cTCategory")]
+[Alias("CTCategory")]
+CT_CTCategory = DataModelRoot;
+
+[Tag("cTCategories")]
+[Alias("CTCategories")]
+CT_CTCategories = DataModelRoot;
+
+[Alias("ClrAppMethod")]
+ST_ClrAppMethod = ColorApplicationMethodValues;
+
+[Alias("HueDir")]
+ST_HueDir = FlowDirectionValues;
+
+[Tag("colors")]
+[Alias("Colors")]
+CT_Colors = ColorsType;
+
+[Tag("cTStyleLabel")]
+[Alias("CTStyleLabel")]
+CT_CTStyleLabel = ColorTransformStyleLabel;
+
+[Tag("colorTransform")]
+[Alias("ColorTransform")]
+CT_ColorTransform = ColorsDefinitionHeader;
+
+[Tag("colorTransformHeader")]
+[Alias("ColorTransformHeader")]
+CT_ColorTransformHeader = ColorsDefinitionHeader;
+
+[Tag("colorTransformHeaderLst")]
+[Alias("ColorTransformHeaderLst")]
+CT_ColorTransformHeaderLst = ColorsDefinitionHeaderList;
+
+[Alias("PtType")]
+ST_PtType = PointValues;
+
+[Tag("pt")]
+[Alias("Pt")]
+CT_Pt = Point;
+
+[Tag("ptList")]
+[Alias("PtList")]
+CT_PtList = PointList;
+
+[Alias("CxnType")]
+ST_CxnType = ConnectionValues;
+
+[Tag("cxn")]
+[Alias("Cxn")]
+CT_Cxn = Connection;
+
+[Tag("cxnList")]
+[Alias("CxnList")]
+CT_CxnList = ConnectionList;
+
+[Tag("dataModel")]
+[Alias("DataModel")]
+CT_DataModel = DataModel;
+
+[Tag("constraint")]
+[Alias("Constraint")]
+CT_Constraint = Constraint;
+
+[Tag("constraints")]
+[Alias("Constraints")]
+CT_Constraints = Constraints;
+
+[Tag("numericRule")]
+[Alias("NumericRule")]
+CT_NumericRule = BulletEnabled;
+
+[Tag("rules")]
+[Alias("Rules")]
+CT_Rules = Rule;
+
+[Tag("presentationOf")]
+[Alias("PresentationOf")]
+CT_PresentationOf = PresentationOf;
+
+[Union]
+[Alias("LayoutShapeType")]
+ST_LayoutShapeType = LayoutShapeTypeValue;
+
+[Alias("Index1")]
+ST_Index1 = Index1Value;
+
+[Tag("adj")]
+[Alias("Adj")]
+CT_Adj = Adjust;
+
+[Tag("adjLst")]
+[Alias("AdjLst")]
+CT_AdjLst = AdjustList;
+
+[Tag("shape")]
+[Alias("Shape")]
+CT_Shape = Shape;
+
+[Tag("parameter")]
+[Alias("Parameter")]
+CT_Parameter = Parameter;
+
+[Tag("algorithm")]
+[Alias("Algorithm")]
+CT_Algorithm = Algorithm;
+
+[Tag("layoutNode")]
+[Alias("LayoutNode")]
+CT_LayoutNode = LayoutNode;
+
+[Tag("forEach")]
+[Alias("ForEach")]
+CT_ForEach = ForEach;
+
+[Tag("when")]
+[Alias("When")]
+CT_When = FunctionType;
+
+[Tag("otherwise")]
+[Alias("Otherwise")]
+CT_Otherwise = Choose;
+
+[Tag("choose")]
+[Alias("Choose")]
+CT_Choose = Choose;
+
+[Tag("sampleData")]
+[Alias("SampleData")]
+CT_SampleData = SampleDataType;
+
+[Tag("category")]
+[Alias("Category")]
+CT_Category = Category;
+
+[Tag("categories")]
+[Alias("Categories")]
+CT_Categories = DataModelRoot;
+
+[Tag("name")]
+[Alias("Name")]
+CT_Name = Shape;
+
+[Tag("description")]
+[Alias("Description")]
+CT_Description = Description;
+
+[Tag("diagramDefinition")]
+[Alias("DiagramDefinition")]
+CT_DiagramDefinition = ColorsDefinitionHeaderList;
+
+[Tag("diagramDefinitionHeader")]
+[Alias("DiagramDefinitionHeader")]
+CT_DiagramDefinitionHeader = ColorsDefinitionHeader;
+
+[Tag("diagramDefinitionHeaderLst")]
+[Alias("DiagramDefinitionHeaderLst")]
+CT_DiagramDefinitionHeaderLst = ColorsDefinitionHeaderList;
+
+[Tag("relIds")]
+[Alias("RelIds")]
+CT_RelIds = RelationshipIds;
+
+[Union]
+[Alias("ParameterVal")]
+ST_ParameterVal = ParameterValValue;
+
+[Union]
+[Alias("ModelId")]
+ST_ModelId = ModelIdValue;
+
+[Union]
+[Alias("PrSetCustVal")]
+ST_PrSetCustVal = PrSetCustValValue;
+
+[Tag("elemPropSet")]
+[Alias("ElemPropSet")]
+CT_ElemPropSet = BulletEnabled;
+
+[Alias("Direction")]
+ST_Direction = DirectionValues;
+
+[Alias("HierBranchStyle")]
+ST_HierBranchStyle = HierarchyBranchStyleValues;
+
+[Alias("AnimOneStr")]
+ST_AnimOneStr = AnimateOneByOneValues;
+
+[Alias("AnimLvlStr")]
+ST_AnimLvlStr = AnimationLevelStringValues;
+
+[Tag("orgChart")]
+[Alias("OrgChart")]
+CT_OrgChart = OrganizationChart;
+
+[Alias("NodeCount")]
+ST_NodeCount = NodeCountValue;
+
+[Tag("childMax")]
+[Alias("ChildMax")]
+CT_ChildMax = NodeCountValue;
+
+[Tag("childPref")]
+[Alias("ChildPref")]
+CT_ChildPref = NodeCountValue;
+
+[Tag("bulletEnabled")]
+[Alias("BulletEnabled")]
+CT_BulletEnabled = BulletEnabled;
+
+[Tag("direction")]
+[Alias("Direction")]
+CT_Direction = Direction;
+
+[Tag("hierBranchStyle")]
+[Alias("HierBranchStyle")]
+CT_HierBranchStyle = HierBranchStyle;
+
+[Tag("animOne")]
+[Alias("AnimOne")]
+CT_AnimOne = AnimateOneByOne;
+
+[Tag("animLvl")]
+[Alias("AnimLvl")]
+CT_AnimLvl = AnimationLevel;
+
+[Alias("ResizeHandlesStr")]
+ST_ResizeHandlesStr = ResizeHandlesStringValues;
+
+[Tag("resizeHandles")]
+[Alias("ResizeHandles")]
+CT_ResizeHandles = ResizeHandles;
+
+[Tag("layoutVariablePropertySet")]
+[Alias("LayoutVariablePropertySet")]
+CT_LayoutVariablePropertySet = LayoutVariablePropertySetType;
+
+[Tag("sDName")]
+[Alias("SDName")]
+CT_SDName = Parameter;
+
+[Tag("sDDescription")]
+[Alias("SDDescription")]
+CT_SDDescription = EffectColorList;
+
+[Tag("sDCategory")]
+[Alias("SDCategory")]
+CT_SDCategory = DataModelRoot;
+
+[Tag("sDCategories")]
+[Alias("SDCategories")]
+CT_SDCategories = DataModelRoot;
+
+[Tag("textProps")]
+[Alias("TextProps")]
+CT_TextProps = ExtensionList;
+
+[Tag("styleLabel")]
+[Alias("StyleLabel")]
+CT_StyleLabel = StyleLabel;
+
+[Tag("styleDefinition")]
+[Alias("StyleDefinition")]
+CT_StyleDefinition = StyleDefinition;
+
+[Tag("styleDefinitionHeader")]
+[Alias("StyleDefinitionHeader")]
+CT_StyleDefinitionHeader = StyleDefinitionHeader;
+
+[Tag("styleDefinitionHeaderLst")]
+[Alias("StyleDefinitionHeaderLst")]
+CT_StyleDefinitionHeaderLst = StyleDefinitionHeaderList;
+
+[Alias("AlgorithmType")]
+ST_AlgorithmType = AlgorithmValues;
+
+[Alias("AxisType")]
+ST_AxisType = AxisValues;
+
+ST_AxisTypes = ST_AxisTypes;
+
+[Alias("BoolOperator")]
+ST_BoolOperator = BoolOperatorValues;
+
+[Alias("ChildOrderType")]
+ST_ChildOrderType = ChildOrderValues;
+
+[Alias("ConstraintType")]
+ST_ConstraintType = ConstraintValues;
+
+[Alias("ConstraintRelationship")]
+ST_ConstraintRelationship = ConstraintRelationshipValues;
+
+[Alias("ElementType")]
+ST_ElementType = ElementValues;
+
+ST_ElementTypes = ST_ElementTypes;
+
+[Alias("ParameterId")]
+ST_ParameterId = ParameterIdValues;
+
+ST_Ints = Int32;
+
+ST_UnsignedInts = UInt32;
+
+ST_Booleans = Boolean;
+
+[Alias("FunctionType")]
+ST_FunctionType = FunctionValues;
+
+[Alias("FunctionOperator")]
+ST_FunctionOperator = FunctionOperatorValues;
+
+[Alias("DiagramHorizontalAlignment")]
+ST_DiagramHorizontalAlignment = HorizontalAlignmentValues;
+
+[Alias("VerticalAlignment")]
+ST_VerticalAlignment = VerticalAlignmentValues;
+
+[Alias("ChildDirection")]
+ST_ChildDirection = ChildDirectionValues;
+
+[Alias("ChildAlignment")]
+ST_ChildAlignment = ChildAlignmentValues;
+
+[Alias("SecondaryChildAlignment")]
+ST_SecondaryChildAlignment = SecondaryChildAlignmentValues;
+
+[Alias("LinearDirection")]
+ST_LinearDirection = LinearDirectionValues;
+
+[Alias("SecondaryLinearDirection")]
+ST_SecondaryLinearDirection = SecondaryLinearDirectionValues;
+
+[Alias("StartingElement")]
+ST_StartingElement = StartingElementValues;
+
+[Alias("RotationPath")]
+ST_RotationPath = RotationPathValues;
+
+[Alias("CenterShapeMapping")]
+ST_CenterShapeMapping = CenterShapeMappingValues;
+
+[Alias("BendPoint")]
+ST_BendPoint = BendPointValues;
+
+[Alias("ConnectorRouting")]
+ST_ConnectorRouting = ConnectorRoutingValues;
+
+[Alias("ArrowheadStyle")]
+ST_ArrowheadStyle = ArrowheadStyleValues;
+
+[Alias("ConnectorDimension")]
+ST_ConnectorDimension = ConnectorDimensionValues;
+
+[Alias("ConnectorPoint")]
+ST_ConnectorPoint = ConnectorPointValues;
+
+[Alias("NodeHorizontalAlignment")]
+ST_NodeHorizontalAlignment = NodeHorizontalAlignmentValues;
+
+[Alias("NodeVerticalAlignment")]
+ST_NodeVerticalAlignment = NodeVerticalAlignmentValues;
+
+[Alias("FallbackDimension")]
+ST_FallbackDimension = FallbackDimensionValues;
+
+[Alias("TextDirection")]
+ST_TextDirection = TextDirectionValues;
+
+[Alias("PyramidAccentPosition")]
+ST_PyramidAccentPosition = PyramidAccentPositionValues;
+
+[Alias("PyramidAccentTextMargin")]
+ST_PyramidAccentTextMargin = PyramidAccentTextMarginValues;
+
+[Alias("TextBlockDirection")]
+ST_TextBlockDirection = TextBlockDirectionValues;
+
+[Alias("TextAnchorHorizontal")]
+ST_TextAnchorHorizontal = TextAnchorHorizontalValues;
+
+[Alias("TextAnchorVertical")]
+ST_TextAnchorVertical = TextAnchorVerticalValues;
+
+[Alias("DiagramTextAlignment")]
+ST_DiagramTextAlignment = TextAlignmentValues;
+
+[Alias("AutoTextRotation")]
+ST_AutoTextRotation = AutoTextRotationValues;
+
+[Alias("GrowDirection")]
+ST_GrowDirection = GrowDirectionValues;
+
+[Alias("FlowDirection")]
+ST_FlowDirection = FlowDirectionValues;
+
+[Alias("ContinueDirection")]
+ST_ContinueDirection = ContinueDirectionValues;
+
+[Alias("Breakpoint")]
+ST_Breakpoint = BreakpointValues;
+
+[Alias("Offset")]
+ST_Offset = OffsetValues;
+
+[Alias("HierarchyAlignment")]
+ST_HierarchyAlignment = HierarchyAlignmentValues;
+
+[Union]
+[Alias("FunctionValue")]
+ST_FunctionValue = FunctionValueValue;
+
+[Alias("VariableType")]
+ST_VariableType = VariableValues;
+
+[Union]
+[Alias("FunctionArgument")]
+ST_FunctionArgument = FunctionArgumentValue;
+
+[Alias("OutputShapeType")]
+ST_OutputShapeType = OutputShapeValues;
+

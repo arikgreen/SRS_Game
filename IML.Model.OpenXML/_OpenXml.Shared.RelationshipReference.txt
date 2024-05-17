@@ -1,0 +1,3 @@
+[Alias("RelationshipId")]
+ST_RelationshipId = RelationshipIdValue;
+

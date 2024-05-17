@@ -1,0 +1,1216 @@
+[Tag("audioFile")]
+[Alias("AudioFile")]
+CT_AudioFile = AudioFromFile;
+
+[Tag("videoFile")]
+[Alias("VideoFile")]
+CT_VideoFile = VideoFromFile;
+
+[Tag("quickTimeFile")]
+[Alias("QuickTimeFile")]
+CT_QuickTimeFile = QuickTimeFromFile;
+
+[Tag("audioCDTime")]
+[Alias("AudioCDTime")]
+CT_AudioCDTime = AudioCDTimeType;
+
+[Tag("audioCD")]
+[Alias("AudioCD")]
+CT_AudioCD = AudioFromCD;
+
+[Alias("StyleMatrixColumnIndex")]
+ST_StyleMatrixColumnIndex = StyleMatrixColumnIndexValue;
+
+[Alias("FontCollectionIndex")]
+ST_FontCollectionIndex = FontCollectionIndexValues;
+
+[Alias("ColorSchemeIndex")]
+ST_ColorSchemeIndex = ColorSchemeIndexValues;
+
+[Tag("colorScheme")]
+[Alias("ColorScheme")]
+CT_ColorScheme = ColorScheme;
+
+[Tag("customColor")]
+[Alias("CustomColor")]
+CT_CustomColor = CustomColor;
+
+[Tag("supplementalFont")]
+[Alias("SupplementalFont")]
+CT_SupplementalFont = SupplementalFont;
+
+[Tag("customColorList")]
+[Alias("CustomColorList")]
+CT_CustomColorList = CustomColorList;
+
+[Tag("fontCollection")]
+[Alias("FontCollection")]
+CT_FontCollection = FontCollectionType;
+
+[Tag("effectStyleItem")]
+[Alias("EffectStyleItem")]
+CT_EffectStyleItem = EffectStyleList;
+
+[Tag("fontScheme")]
+[Alias("FontScheme")]
+CT_FontScheme = FontScheme;
+
+[Tag("fillStyleList")]
+[Alias("FillStyleList")]
+CT_FillStyleList = FillStyleList;
+
+[Tag("lineStyleList")]
+[Alias("LineStyleList")]
+CT_LineStyleList = LineStyleList;
+
+[Tag("effectStyleList")]
+[Alias("EffectStyleList")]
+CT_EffectStyleList = EffectStyleList;
+
+[Tag("backgroundFillStyleList")]
+[Alias("BackgroundFillStyleList")]
+CT_BackgroundFillStyleList = BackgroundFillStyleList;
+
+[Tag("styleMatrix")]
+[Alias("StyleMatrix")]
+CT_StyleMatrix = LineStyleList;
+
+[Tag("baseStyles")]
+[Alias("BaseStyles")]
+CT_BaseStyles = TableStyle;
+
+[Tag("officeArtExtension")]
+[Alias("OfficeArtExtension")]
+CT_OfficeArtExtension = EffectStyleList;
+
+[Union]
+[Alias("Coordinate")]
+ST_Coordinate = CoordinateValue;
+
+[Alias("CoordinateUnqualified")]
+ST_CoordinateUnqualified = CoordinateUnqualifiedValue;
+
+[Union]
+[Alias("Coordinate32")]
+ST_Coordinate32 = Coordinate32Value;
+
+[Alias("Coordinate32Unqualified")]
+ST_Coordinate32Unqualified = Coordinate32UnqualifiedValue;
+
+[Alias("PositiveCoordinate")]
+ST_PositiveCoordinate = PositiveCoordinateValue;
+
+[MinValue(0)]
+[Alias("PositiveCoordinate32")]
+ST_PositiveCoordinate32 = PositiveCoordinate32Value;
+
+[Alias("Angle")]
+ST_Angle = AngleValue;
+
+[Tag("angle")]
+[Alias("Angle")]
+CT_Angle = FOVAngle;
+
+[MinValue(-5399999)]
+[MaxValue(5399999)]
+[Alias("FixedAngle")]
+ST_FixedAngle = FixedAngleValue;
+
+[MinValue(0)]
+[MaxValue(21599999)]
+[Alias("PositiveFixedAngle")]
+ST_PositiveFixedAngle = PositiveFixedAngleValue;
+
+[Tag("positiveFixedAngle")]
+[Alias("PositiveFixedAngle")]
+CT_PositiveFixedAngle = PositiveFixedAngleValue;
+
+[Union]
+[Alias("Percentage")]
+ST_Percentage = PercentageValue;
+
+[Tag("percentage")]
+[Alias("Percentage")]
+CT_Percentage = PercentageType;
+
+[Union]
+[Alias("PositivePercentage")]
+ST_PositivePercentage = PositivePercentageValue;
+
+[Tag("positivePercentage")]
+[Alias("PositivePercentage")]
+CT_PositivePercentage = PositivePercentageType;
+
+[Union]
+[Alias("FixedPercentage")]
+ST_FixedPercentage = FixedPercentageValue;
+
+[Tag("fixedPercentage")]
+[Alias("FixedPercentage")]
+CT_FixedPercentage = FixedPercentageValue;
+
+[Union]
+[Alias("PositiveFixedPercentage")]
+ST_PositiveFixedPercentage = PositiveFixedPercentageValue;
+
+[Tag("positiveFixedPercentage")]
+[Alias("PositiveFixedPercentage")]
+CT_PositiveFixedPercentage = PositiveFixedPercentageType;
+
+[Tag("ratio")]
+[Alias("Ratio")]
+CT_Ratio = RatioType;
+
+[Tag("point2D")]
+[Alias("Point2D")]
+CT_Point2D = Point2DType;
+
+[Tag("positiveSize2D")]
+[Alias("PositiveSize2D")]
+CT_PositiveSize2D = PositiveSize2DType;
+
+[Tag("complementTransform")]
+[Alias("ComplementTransform")]
+CT_ComplementTransform = ThemeElements;
+
+[Tag("inverseTransform")]
+[Alias("InverseTransform")]
+CT_InverseTransform = ThemeManager;
+
+[Tag("grayscaleTransform")]
+[Alias("GrayscaleTransform")]
+CT_GrayscaleTransform = GraphicFrameLocks;
+
+[Tag("gammaTransform")]
+[Alias("GammaTransform")]
+CT_GammaTransform = ThemeManager;
+
+[Tag("inverseGammaTransform")]
+[Alias("InverseGammaTransform")]
+CT_InverseGammaTransform = NonVisualGraphicFrameProperties;
+
+[Tag("scRgbColor")]
+[Alias("ScRgbColor")]
+CT_ScRgbColor = RgbColorModelPercentage;
+
+[Tag("sRgbColor")]
+[Alias("SRgbColor")]
+CT_SRgbColor = HslColor;
+
+[Tag("hslColor")]
+[Alias("HslColor")]
+CT_HslColor = HslColor;
+
+[Alias("SystemColorVal")]
+ST_SystemColorVal = SystemColorValues;
+
+[Tag("systemColor")]
+[Alias("SystemColor")]
+CT_SystemColor = SystemColor;
+
+[Alias("SchemeColorVal")]
+ST_SchemeColorVal = SchemeColorValues;
+
+[Tag("schemeColor")]
+[Alias("SchemeColor")]
+CT_SchemeColor = SchemeColor;
+
+[Alias("PresetColorVal")]
+ST_PresetColorVal = PresetColorValues;
+
+[Tag("presetColor")]
+[Alias("PresetColor")]
+CT_PresetColor = PresetColor;
+
+[Tag("officeArtExtensionList")]
+[Alias("OfficeArtExtensionList")]
+CT_OfficeArtExtensionList = EffectStyleList;
+
+[Tag("scale2D")]
+[Alias("Scale2D")]
+CT_Scale2D = Camera;
+
+[Tag("transform2D")]
+[Alias("Transform2D")]
+CT_Transform2D = Transform2D;
+
+[Tag("groupTransform2D")]
+[Alias("GroupTransform2D")]
+CT_GroupTransform2D = GraphicFrameLocks;
+
+[Tag("point3D")]
+[Alias("Point3D")]
+CT_Point3D = FontReference;
+
+[Tag("vector3D")]
+[Alias("Vector3D")]
+CT_Vector3D = Vector3DType;
+
+[Tag("sphereCoords")]
+[Alias("SphereCoords")]
+CT_SphereCoords = SchemeColor;
+
+[Tag("relativeRect")]
+[Alias("RelativeRect")]
+CT_RelativeRect = TileRectangle;
+
+[Alias("RectAlignment")]
+ST_RectAlignment = RectangleAlignmentValues;
+
+[Tag("color")]
+[Alias("Color")]
+CT_Color = ColorType;
+
+[Tag("colorMRU")]
+[Alias("ColorMRU")]
+CT_ColorMRU = ColorMap;
+
+[Alias("BlackWhiteMode")]
+ST_BlackWhiteMode = BlackWhiteModeValues;
+
+[Tag("embeddedWAVAudioFile")]
+[Alias("EmbeddedWAVAudioFile")]
+CT_EmbeddedWAVAudioFile = WaveAudioFile;
+
+[Tag("hyperlink")]
+[Alias("Hyperlink")]
+CT_Hyperlink = Hyperlink;
+
+[Alias("DrawingElementId")]
+ST_DrawingElementId = DrawingElementIdValue;
+
+[Tag("connectorLocking")]
+[Alias("ConnectorLocking")]
+CT_ConnectorLocking = MasterColorMapping;
+
+[Tag("shapeLocking")]
+[Alias("ShapeLocking")]
+CT_ShapeLocking = AlphaCeiling;
+
+[Tag("pictureLocking")]
+[Alias("PictureLocking")]
+CT_PictureLocking = PictureLocks;
+
+[Tag("groupLocking")]
+[Alias("GroupLocking")]
+CT_GroupLocking = GroupShapeLocks;
+
+[Tag("graphicalObjectFrameLocking")]
+[Alias("GraphicalObjectFrameLocking")]
+CT_GraphicalObjectFrameLocking = GraphicFrameLocks;
+
+[Tag("contentPartLocking")]
+[Alias("ContentPartLocking")]
+CT_ContentPartLocking = MasterColorMapping;
+
+[Tag("nonVisualDrawingProps")]
+[Alias("NonVisualDrawingProps")]
+CT_NonVisualDrawingProps = OverrideColorMapping;
+
+[Tag("nonVisualDrawingShapeProps")]
+[Alias("NonVisualDrawingShapeProps")]
+CT_NonVisualDrawingShapeProps = NonVisualGraphicFrameProperties;
+
+[Tag("nonVisualConnectorProperties")]
+[Alias("NonVisualConnectorProperties")]
+CT_NonVisualConnectorProperties = NonVisualConnectorPropertiesType;
+
+[Tag("nonVisualPictureProperties")]
+[Alias("NonVisualPictureProperties")]
+CT_NonVisualPictureProperties = NonVisualPictureProperties;
+
+[Tag("nonVisualGroupDrawingShapeProps")]
+[Alias("NonVisualGroupDrawingShapeProps")]
+CT_NonVisualGroupDrawingShapeProps = NonVisualGraphicFrameProperties;
+
+[Tag("nonVisualGraphicFrameProperties")]
+[Alias("NonVisualGraphicFrameProperties")]
+CT_NonVisualGraphicFrameProperties = NonVisualGraphicFrameProperties;
+
+[Tag("nonVisualContentPartProperties")]
+[Alias("NonVisualContentPartProperties")]
+CT_NonVisualContentPartProperties = NonVisualContentPartPropertiesType;
+
+[Tag("graphicalObjectData")]
+[Alias("GraphicalObjectData")]
+CT_GraphicalObjectData = GraphicData;
+
+[Tag("graphicalObject")]
+[Alias("GraphicalObject")]
+CT_GraphicalObject = NonVisualGraphicFrameProperties;
+
+[Alias("ChartBuildStep")]
+ST_ChartBuildStep = ChartBuildStepValues;
+
+[Alias("DgmBuildStep")]
+ST_DgmBuildStep = DiagramBuildStepValues;
+
+[Tag("animationDgmElement")]
+[Alias("AnimationDgmElement")]
+CT_AnimationDgmElement = ThemeElements;
+
+[Tag("animationChartElement")]
+[Alias("AnimationChartElement")]
+CT_AnimationChartElement = ThemeElements;
+
+[Tag("animationElementChoice")]
+[Alias("AnimationElementChoice")]
+CT_AnimationElementChoice = ThemeElements;
+
+[Alias("AnimationBuildType")]
+ST_AnimationBuildType = AnimationBuildValues;
+
+[Alias("AnimationDgmOnlyBuildType")]
+ST_AnimationDgmOnlyBuildType = AnimationDiagramOnlyBuildValues;
+
+[Union]
+[Alias("AnimationDgmBuildType")]
+ST_AnimationDgmBuildType = AnimationDgmBuildTypeValue;
+
+[Tag("animationDgmBuildProperties")]
+[Alias("AnimationDgmBuildProperties")]
+CT_AnimationDgmBuildProperties = AnimationDgmBuildPropertiesType;
+
+[Alias("AnimationChartOnlyBuildType")]
+ST_AnimationChartOnlyBuildType = AnimationChartOnlyBuildValues;
+
+[Union]
+[Alias("AnimationChartBuildType")]
+ST_AnimationChartBuildType = AnimationChartBuildTypeValue;
+
+[Tag("animationChartBuildProperties")]
+[Alias("AnimationChartBuildProperties")]
+CT_AnimationChartBuildProperties = AnimationChartBuildPropertiesType;
+
+[Tag("animationGraphicalObjectBuildProperties")]
+[Alias("AnimationGraphicalObjectBuildProperties")]
+CT_AnimationGraphicalObjectBuildProperties = AnimationGraphicalObjectBuildPropertiesType;
+
+[Tag("backgroundFormatting")]
+[Alias("BackgroundFormatting")]
+CT_BackgroundFormatting = MasterColorMapping;
+
+[Tag("wholeE2oFormatting")]
+[Alias("WholeE2oFormatting")]
+CT_WholeE2oFormatting = MasterColorMapping;
+
+[Tag("gvmlUseShapeRectangle")]
+[Alias("GvmlUseShapeRectangle")]
+CT_GvmlUseShapeRectangle = UseShapeRectangle;
+
+[Tag("gvmlTextShape")]
+[Alias("GvmlTextShape")]
+CT_GvmlTextShape = EffectStyle;
+
+[Tag("gvmlShapeNonVisual")]
+[Alias("GvmlShapeNonVisual")]
+CT_GvmlShapeNonVisual = AlphaCeiling;
+
+[Tag("gvmlShape")]
+[Alias("GvmlShape")]
+CT_GvmlShape = FormatScheme;
+
+[Tag("gvmlConnectorNonVisual")]
+[Alias("GvmlConnectorNonVisual")]
+CT_GvmlConnectorNonVisual = OverrideColorMapping;
+
+[Tag("gvmlConnector")]
+[Alias("GvmlConnector")]
+CT_GvmlConnector = FillToRectangle;
+
+[Tag("gvmlPictureNonVisual")]
+[Alias("GvmlPictureNonVisual")]
+CT_GvmlPictureNonVisual = GraphicFrameLocks;
+
+[Tag("gvmlPicture")]
+[Alias("GvmlPicture")]
+CT_GvmlPicture = NonVisualPictureProperties;
+
+[Tag("gvmlGraphicFrameNonVisual")]
+[Alias("GvmlGraphicFrameNonVisual")]
+CT_GvmlGraphicFrameNonVisual = GraphicFrameLocks;
+
+[Tag("gvmlGraphicalObjectFrame")]
+[Alias("GvmlGraphicalObjectFrame")]
+CT_GvmlGraphicalObjectFrame = NonVisualGraphicFrameProperties;
+
+[Tag("gvmlGroupShapeNonVisual")]
+[Alias("GvmlGroupShapeNonVisual")]
+CT_GvmlGroupShapeNonVisual = NonVisualGraphicFrameProperties;
+
+[Tag("gvmlGroupShape")]
+[Alias("GvmlGroupShape")]
+CT_GvmlGroupShape = NonVisualGroupShapeProperties;
+
+[Alias("PresetCameraType")]
+ST_PresetCameraType = PresetCameraValues;
+
+[MinValue(0)]
+[MaxValue(10800000)]
+[Alias("FOVAngle")]
+ST_FOVAngle = FOVAngleValue;
+
+[Tag("camera")]
+[Alias("Camera")]
+CT_Camera = Camera;
+
+[Alias("LightRigDirection")]
+ST_LightRigDirection = LightRigDirectionValues;
+
+[Alias("LightRigType")]
+ST_LightRigType = LightRigValues;
+
+[Tag("lightRig")]
+[Alias("LightRig")]
+CT_LightRig = LightRig;
+
+[Tag("scene3D")]
+[Alias("Scene3D")]
+CT_Scene3D = Scene3DType;
+
+[Tag("backdrop")]
+[Alias("Backdrop")]
+CT_Backdrop = Backdrop;
+
+[Alias("BevelPresetType")]
+ST_BevelPresetType = BevelPresetValues;
+
+[Tag("bevel")]
+[Alias("Bevel")]
+CT_Bevel = BevelType;
+
+[Alias("PresetMaterialType")]
+ST_PresetMaterialType = PresetMaterialTypeValues;
+
+[Tag("shape3D")]
+[Alias("Shape3D")]
+CT_Shape3D = Shape3DType;
+
+[Tag("flatText")]
+[Alias("FlatText")]
+CT_FlatText = FlatText;
+
+[Tag("alphaBiLevelEffect")]
+[Alias("AlphaBiLevelEffect")]
+CT_AlphaBiLevelEffect = AlphaBiLevel;
+
+[Tag("alphaCeilingEffect")]
+[Alias("AlphaCeilingEffect")]
+CT_AlphaCeilingEffect = AlphaCeiling;
+
+[Tag("alphaFloorEffect")]
+[Alias("AlphaFloorEffect")]
+CT_AlphaFloorEffect = AlphaFloor;
+
+[Tag("alphaInverseEffect")]
+[Alias("AlphaInverseEffect")]
+CT_AlphaInverseEffect = AlphaOutset;
+
+[Tag("alphaModulateFixedEffect")]
+[Alias("AlphaModulateFixedEffect")]
+CT_AlphaModulateFixedEffect = AlphaModulationFixed;
+
+[Tag("alphaOutsetEffect")]
+[Alias("AlphaOutsetEffect")]
+CT_AlphaOutsetEffect = AlphaOutset;
+
+[Tag("alphaReplaceEffect")]
+[Alias("AlphaReplaceEffect")]
+CT_AlphaReplaceEffect = AlphaReplace;
+
+[Tag("biLevelEffect")]
+[Alias("BiLevelEffect")]
+CT_BiLevelEffect = FillToRectangle;
+
+[Tag("blurEffect")]
+[Alias("BlurEffect")]
+CT_BlurEffect = Effect;
+
+[Tag("colorChangeEffect")]
+[Alias("ColorChangeEffect")]
+CT_ColorChangeEffect = ColorChange;
+
+[Tag("colorReplaceEffect")]
+[Alias("ColorReplaceEffect")]
+CT_ColorReplaceEffect = NonVisualGraphicFrameDrawingProperties;
+
+[Tag("duotoneEffect")]
+[Alias("DuotoneEffect")]
+CT_DuotoneEffect = Duotone;
+
+[Tag("glowEffect")]
+[Alias("GlowEffect")]
+CT_GlowEffect = Effect;
+
+[Tag("grayscaleEffect")]
+[Alias("GrayscaleEffect")]
+CT_GrayscaleEffect = GraphicFrameLocks;
+
+[Tag("hSLEffect")]
+[Alias("HSLEffect")]
+CT_HSLEffect = Effect;
+
+[Tag("innerShadowEffect")]
+[Alias("InnerShadowEffect")]
+CT_InnerShadowEffect = InnerShadow;
+
+[Tag("luminanceEffect")]
+[Alias("LuminanceEffect")]
+CT_LuminanceEffect = LuminanceEffect;
+
+[Tag("outerShadowEffect")]
+[Alias("OuterShadowEffect")]
+CT_OuterShadowEffect = OuterShadow;
+
+[Alias("PresetShadowVal")]
+ST_PresetShadowVal = PresetShadowValues;
+
+[Tag("presetShadowEffect")]
+[Alias("PresetShadowEffect")]
+CT_PresetShadowEffect = PresetShadow;
+
+[Tag("reflectionEffect")]
+[Alias("ReflectionEffect")]
+CT_ReflectionEffect = Reflection;
+
+[Tag("relativeOffsetEffect")]
+[Alias("RelativeOffsetEffect")]
+CT_RelativeOffsetEffect = HyperlinkOnMouseOver;
+
+[Tag("softEdgesEffect")]
+[Alias("SoftEdgesEffect")]
+CT_SoftEdgesEffect = SoftEdge;
+
+[Tag("tintEffect")]
+[Alias("TintEffect")]
+CT_TintEffect = TintEffect;
+
+[Tag("transformEffect")]
+[Alias("TransformEffect")]
+CT_TransformEffect = TransformEffect;
+
+[Tag("noFillProperties")]
+[Alias("NoFillProperties")]
+CT_NoFillProperties = BackgroundFillStyleList;
+
+[Tag("solidColorFillProperties")]
+[Alias("SolidColorFillProperties")]
+CT_SolidColorFillProperties = OverrideColorMapping;
+
+[Tag("linearShadeProperties")]
+[Alias("LinearShadeProperties")]
+CT_LinearShadeProperties = OverrideColorMapping;
+
+[Alias("PathShadeType")]
+ST_PathShadeType = PathShadeValues;
+
+[Tag("pathShadeProperties")]
+[Alias("PathShadeProperties")]
+CT_PathShadeProperties = ThemeOverride;
+
+[Alias("TileFlipMode")]
+ST_TileFlipMode = TileFlipValues;
+
+[Tag("gradientStop")]
+[Alias("GradientStop")]
+CT_GradientStop = GradientStop;
+
+[Tag("gradientStopList")]
+[Alias("GradientStopList")]
+CT_GradientStopList = GradientStopList;
+
+[Tag("gradientFillProperties")]
+[Alias("GradientFillProperties")]
+CT_GradientFillProperties = GraphicFrameLocks;
+
+[Tag("tileInfoProperties")]
+[Alias("TileInfoProperties")]
+CT_TileInfoProperties = GraphicFrameLocks;
+
+[Tag("stretchInfoProperties")]
+[Alias("StretchInfoProperties")]
+CT_StretchInfoProperties = GraphicFrameLocks;
+
+[Alias("BlipCompression")]
+ST_BlipCompression = BlipCompressionValues;
+
+[Tag("blip")]
+[Alias("Blip")]
+CT_Blip = Blip;
+
+[Tag("blipFillProperties")]
+[Alias("BlipFillProperties")]
+CT_BlipFillProperties = GraphicFrameLocks;
+
+[Alias("PresetPatternVal")]
+ST_PresetPatternVal = PresetPatternValues;
+
+[Tag("patternFillProperties")]
+[Alias("PatternFillProperties")]
+CT_PatternFillProperties = MasterColorMapping;
+
+[Tag("groupFillProperties")]
+[Alias("GroupFillProperties")]
+CT_GroupFillProperties = GraphicFrameLocks;
+
+[Tag("fillProperties")]
+[Alias("FillProperties")]
+CT_FillProperties = FillProperties;
+
+[Tag("fillEffect")]
+[Alias("FillEffect")]
+CT_FillEffect = FillToRectangle;
+
+[Alias("BlendMode")]
+ST_BlendMode = BlendModeValues;
+
+[Tag("fillOverlayEffect")]
+[Alias("FillOverlayEffect")]
+CT_FillOverlayEffect = FillOverlay;
+
+[Tag("effectReference")]
+[Alias("EffectReference")]
+CT_EffectReference = EffectReference;
+
+[Alias("EffectContainerType")]
+ST_EffectContainerType = EffectContainerValues;
+
+[Tag("effectContainer")]
+[Alias("EffectContainer")]
+CT_EffectContainer = EffectContainerType;
+
+[Tag("alphaModulateEffect")]
+[Alias("AlphaModulateEffect")]
+CT_AlphaModulateEffect = AlphaOutset;
+
+[Tag("blendEffect")]
+[Alias("BlendEffect")]
+CT_BlendEffect = Effect;
+
+[Tag("effectList")]
+[Alias("EffectList")]
+CT_EffectList = EffectList;
+
+[Tag("effectProperties")]
+[Alias("EffectProperties")]
+CT_EffectProperties = EffectPropertiesType;
+
+[Alias("ShapeType")]
+ST_ShapeType = ShapeTypeValues;
+
+[Alias("TextShapeType")]
+ST_TextShapeType = TextShapeValues;
+
+[Token]
+[Alias("GeomGuideName")]
+ST_GeomGuideName = GeomGuideNameValue;
+
+[Alias("GeomGuideFormula")]
+ST_GeomGuideFormula = GeomGuideFormulaValue;
+
+[Tag("geomGuide")]
+[Alias("GeomGuide")]
+CT_GeomGuide = TableGrid;
+
+[Tag("geomGuideList")]
+[Alias("GeomGuideList")]
+CT_GeomGuideList = FillStyleList;
+
+[Union]
+[Alias("AdjCoordinate")]
+ST_AdjCoordinate = AdjCoordinateValue;
+
+[Union]
+[Alias("AdjAngle")]
+ST_AdjAngle = AdjAngleValue;
+
+[Tag("adjPoint2D")]
+[Alias("AdjPoint2D")]
+CT_AdjPoint2D = BulletFontText;
+
+[Tag("geomRect")]
+[Alias("GeomRect")]
+CT_GeomRect = UseShapeRectangle;
+
+[Tag("xYAdjustHandle")]
+[Alias("XYAdjustHandle")]
+CT_XYAdjustHandle = ExtrusionColor;
+
+[Tag("polarAdjustHandle")]
+[Alias("PolarAdjustHandle")]
+CT_PolarAdjustHandle = WaveAudioFile;
+
+[Tag("connectionSite")]
+[Alias("ConnectionSite")]
+CT_ConnectionSite = ConnectionSite;
+
+[Tag("adjustHandleList")]
+[Alias("AdjustHandleList")]
+CT_AdjustHandleList = AdjustHandleList;
+
+[Tag("connectionSiteList")]
+[Alias("ConnectionSiteList")]
+CT_ConnectionSiteList = ConnectionSiteList;
+
+[Tag("connection")]
+[Alias("Connection")]
+CT_Connection = ConnectionType;
+
+[Tag("path2DMoveTo")]
+[Alias("Path2DMoveTo")]
+CT_Path2DMoveTo = MoveTo;
+
+[Tag("path2DLineTo")]
+[Alias("Path2DLineTo")]
+CT_Path2DLineTo = AlphaBiLevel;
+
+[Tag("path2DArcTo")]
+[Alias("Path2DArcTo")]
+CT_Path2DArcTo = ArcTo;
+
+[Tag("path2DQuadBezierTo")]
+[Alias("Path2DQuadBezierTo")]
+CT_Path2DQuadBezierTo = QuadraticBezierCurveTo;
+
+[Tag("path2DCubicBezierTo")]
+[Alias("Path2DCubicBezierTo")]
+CT_Path2DCubicBezierTo = CubicBezierCurveTo;
+
+[Tag("path2DClose")]
+[Alias("Path2DClose")]
+CT_Path2DClose = AlphaFloor;
+
+[Alias("PathFillMode")]
+ST_PathFillMode = PathFillModeValues;
+
+[Tag("path2D")]
+[Alias("Path2D")]
+CT_Path2D = PathGradientFill;
+
+[Tag("path2DList")]
+[Alias("Path2DList")]
+CT_Path2DList = PathList;
+
+[Tag("presetGeometry2D")]
+[Alias("PresetGeometry2D")]
+CT_PresetGeometry2D = PresetGeometry;
+
+[Tag("presetTextShape")]
+[Alias("PresetTextShape")]
+CT_PresetTextShape = PresetTextWrap;
+
+[Tag("customGeometry2D")]
+[Alias("CustomGeometry2D")]
+CT_CustomGeometry2D = CustomGeometry;
+
+[Alias("LineEndType")]
+ST_LineEndType = LineEndValues;
+
+[Alias("LineEndWidth")]
+ST_LineEndWidth = LineEndWidthValues;
+
+[Alias("LineEndLength")]
+ST_LineEndLength = LineEndLengthValues;
+
+[Tag("lineEndProperties")]
+[Alias("LineEndProperties")]
+CT_LineEndProperties = LineEndPropertiesType;
+
+[Tag("lineJoinBevel")]
+[Alias("LineJoinBevel")]
+CT_LineJoinBevel = LineJoinBevel;
+
+[Tag("lineJoinRound")]
+[Alias("LineJoinRound")]
+CT_LineJoinRound = MinorFont;
+
+[Tag("lineJoinMiterProperties")]
+[Alias("LineJoinMiterProperties")]
+CT_LineJoinMiterProperties = OverrideColorMapping;
+
+[Alias("PresetLineDashVal")]
+ST_PresetLineDashVal = PresetLineDashValues;
+
+[Tag("presetLineDashProperties")]
+[Alias("PresetLineDashProperties")]
+CT_PresetLineDashProperties = PresetLineDashVal;
+
+[Tag("dashStop")]
+[Alias("DashStop")]
+CT_DashStop = DashStop;
+
+[Tag("dashStopList")]
+[Alias("DashStopList")]
+CT_DashStopList = FillStyleList;
+
+[Alias("LineCap")]
+ST_LineCap = LineCapValues;
+
+[MinValue(0)]
+[MaxValue(20116800)]
+[Alias("LineWidth")]
+ST_LineWidth = LineWidthValue;
+
+[Alias("PenAlignment")]
+ST_PenAlignment = PenAlignmentValues;
+
+[Alias("CompoundLine")]
+ST_CompoundLine = CompoundLineValues;
+
+[Tag("lineProperties")]
+[Alias("LineProperties")]
+CT_LineProperties = LinePropertiesType;
+
+[Token]
+[Alias("ShapeID")]
+ST_ShapeID = ShapeIDValue;
+
+[Tag("shapeProperties")]
+[Alias("ShapeProperties")]
+CT_ShapeProperties = ShapeProperties;
+
+[Tag("groupShapeProperties")]
+[Alias("GroupShapeProperties")]
+CT_GroupShapeProperties = GraphicFrameLocks;
+
+[Tag("styleMatrixReference")]
+[Alias("StyleMatrixReference")]
+CT_StyleMatrixReference = StyleMatrixReferenceType;
+
+[Tag("fontReference")]
+[Alias("FontReference")]
+CT_FontReference = FontReference;
+
+[Tag("shapeStyle")]
+[Alias("ShapeStyle")]
+CT_ShapeStyle = ShapeStyle;
+
+[Tag("defaultShapeDefinition")]
+[Alias("DefaultShapeDefinition")]
+CT_DefaultShapeDefinition = DefaultShapeDefinitionType;
+
+[Tag("objectStyleDefaults")]
+[Alias("ObjectStyleDefaults")]
+CT_ObjectStyleDefaults = ObjectDefaults;
+
+[Tag("emptyElement")]
+[Alias("EmptyElement")]
+CT_EmptyElement = ThemeElements;
+
+[Tag("colorMapping")]
+[Alias("ColorMapping")]
+CT_ColorMapping = ColorMappingType;
+
+[Tag("colorMappingOverride")]
+[Alias("ColorMappingOverride")]
+CT_ColorMappingOverride = ThemeOverride;
+
+[Tag("colorSchemeAndMapping")]
+[Alias("ColorSchemeAndMapping")]
+CT_ColorSchemeAndMapping = OverrideColorMapping;
+
+[Tag("colorSchemeList")]
+[Alias("ColorSchemeList")]
+CT_ColorSchemeList = ExtraColorSchemeList;
+
+[Tag("officeStyleSheet")]
+[Alias("OfficeStyleSheet")]
+CT_OfficeStyleSheet = EffectStyleList;
+
+[Tag("baseStylesOverride")]
+[Alias("BaseStylesOverride")]
+CT_BaseStylesOverride = ThemeOverride;
+
+[Tag("clipboardStyleSheet")]
+[Alias("ClipboardStyleSheet")]
+CT_ClipboardStyleSheet = FillStyleList;
+
+[Tag("tableCellProperties")]
+[Alias("TableCellProperties")]
+CT_TableCellProperties = TableCellProperties;
+
+[Tag("headers")]
+[Alias("Headers")]
+CT_Headers = HeadEnd;
+
+[Tag("tableCol")]
+[Alias("TableCol")]
+CT_TableCol = LastColumn;
+
+[Tag("tableGrid")]
+[Alias("TableGrid")]
+CT_TableGrid = TableGrid;
+
+[Tag("tableCell")]
+[Alias("TableCell")]
+CT_TableCell = TableCell;
+
+[Tag("tableRow")]
+[Alias("TableRow")]
+CT_TableRow = TableRow;
+
+[Tag("tableProperties")]
+[Alias("TableProperties")]
+CT_TableProperties = TableProperties;
+
+[Tag("table")]
+[Alias("Table")]
+CT_Table = Table;
+
+[Tag("cell3D")]
+[Alias("Cell3D")]
+CT_Cell3D = Cell3DProperties;
+
+[Tag("themeableLineStyle")]
+[Alias("ThemeableLineStyle")]
+CT_ThemeableLineStyle = ThemeableLineStyleType;
+
+[Alias("OnOffStyleType")]
+ST_OnOffStyleType = BooleanStyleValues;
+
+[Tag("tableStyleTextStyle")]
+[Alias("TableStyleTextStyle")]
+CT_TableStyleTextStyle = TableStyleId;
+
+[Tag("tableCellBorderStyle")]
+[Alias("TableCellBorderStyle")]
+CT_TableCellBorderStyle = TableStyle;
+
+[Tag("tableBackgroundStyle")]
+[Alias("TableBackgroundStyle")]
+CT_TableBackgroundStyle = TableStyle;
+
+[Tag("tableStyleCellStyle")]
+[Alias("TableStyleCellStyle")]
+CT_TableStyleCellStyle = TableStyleId;
+
+[Tag("tablePartStyle")]
+[Alias("TablePartStyle")]
+CT_TablePartStyle = TablePartStyleType;
+
+[Tag("tableStyle")]
+[Alias("TableStyle")]
+CT_TableStyle = TableStyleType;
+
+[Tag("tableStyleList")]
+[Alias("TableStyleList")]
+CT_TableStyleList = TableStyleList;
+
+[Tag("textParagraph")]
+[Alias("TextParagraph")]
+CT_TextParagraph = EndParagraphRunProperties;
+
+[Alias("TextAnchoringType")]
+ST_TextAnchoringType = TextAnchoringTypeValues;
+
+[Alias("TextVertOverflowType")]
+ST_TextVertOverflowType = TextVerticalOverflowValues;
+
+[Alias("TextHorzOverflowType")]
+ST_TextHorzOverflowType = TextHorizontalOverflowValues;
+
+[Alias("TextVerticalType")]
+ST_TextVerticalType = TextVerticalValues;
+
+[Alias("TextWrappingType")]
+ST_TextWrappingType = TextWrappingValues;
+
+[Alias("TextColumnCount")]
+ST_TextColumnCount = TextColumnCountValue;
+
+[Tag("textListStyle")]
+[Alias("TextListStyle")]
+CT_TextListStyle = EffectStyle;
+
+[Union]
+[Alias("TextFontScalePercentOrPercentString")]
+ST_TextFontScalePercentOrPercentString = TextFontScalePercentOrPercentStringValue;
+
+[Tag("textNormalAutofit")]
+[Alias("TextNormalAutofit")]
+CT_TextNormalAutofit = NormalAutoFit;
+
+[Tag("textShapeAutofit")]
+[Alias("TextShapeAutofit")]
+CT_TextShapeAutofit = NormalAutoFit;
+
+[Tag("textNoAutofit")]
+[Alias("TextNoAutofit")]
+CT_TextNoAutofit = NoAutoFit;
+
+[Tag("textBodyProperties")]
+[Alias("TextBodyProperties")]
+CT_TextBodyProperties = ExtraColorSchemeList;
+
+[Tag("textBody")]
+[Alias("TextBody")]
+CT_TextBody = TextBody;
+
+[Alias("TextBulletStartAtNum")]
+ST_TextBulletStartAtNum = TextBulletStartAtNumValue;
+
+[Alias("TextAutonumberScheme")]
+ST_TextAutonumberScheme = TextAutoNumberSchemeValues;
+
+[Tag("textBulletColorFollowText")]
+[Alias("TextBulletColorFollowText")]
+CT_TextBulletColorFollowText = ExtraColorSchemeList;
+
+[Union]
+[Alias("TextBulletSize")]
+ST_TextBulletSize = TextBulletSizeValue;
+
+[Pattern(@"0*((2[5-9])|([3-9][0-9])|([1-3][0-9][0-9])|400)%")]
+[Units(new string[]{"%"})]
+[Alias("TextBulletSizePercent")]
+ST_TextBulletSizePercent = TextBulletSizePercentValue;
+
+[Tag("textBulletSizeFollowText")]
+[Alias("TextBulletSizeFollowText")]
+CT_TextBulletSizeFollowText = ExtraColorSchemeList;
+
+[Tag("textBulletSizePercent")]
+[Alias("TextBulletSizePercent")]
+CT_TextBulletSizePercent = TextBulletSizePoint;
+
+[Tag("textBulletSizePoint")]
+[Alias("TextBulletSizePoint")]
+CT_TextBulletSizePoint = TextFontSize;
+
+[Tag("textBulletTypefaceFollowText")]
+[Alias("TextBulletTypefaceFollowText")]
+CT_TextBulletTypefaceFollowText = ExtraColorSchemeList;
+
+[Tag("textAutonumberBullet")]
+[Alias("TextAutonumberBullet")]
+CT_TextAutonumberBullet = ExtraColorSchemeList;
+
+[Tag("textCharBullet")]
+[Alias("TextCharBullet")]
+CT_TextCharBullet = AlphaOutset;
+
+[Tag("textBlipBullet")]
+[Alias("TextBlipBullet")]
+CT_TextBlipBullet = ExtrusionColor;
+
+[Tag("textNoBullet")]
+[Alias("TextNoBullet")]
+CT_TextNoBullet = AlphaOutset;
+
+[Union]
+[Alias("TextPoint")]
+ST_TextPoint = TextPointValue;
+
+[Alias("TextPointUnqualified")]
+ST_TextPointUnqualified = TextPointUnqualifiedValue;
+
+[Alias("TextNonNegativePoint")]
+ST_TextNonNegativePoint = TextNonNegativePointValue;
+
+[Alias("TextFontSize")]
+ST_TextFontSize = TextFontSizeValue;
+
+[Alias("TextTypeface")]
+ST_TextTypeface = TextTypefaceValue;
+
+[Alias("PitchFamily")]
+ST_PitchFamily = PitchFamilyValue;
+
+[Tag("textFont")]
+[Alias("TextFont")]
+CT_TextFont = TextFontType;
+
+[Alias("TextUnderlineType")]
+ST_TextUnderlineType = TextUnderlineValues;
+
+[Tag("textUnderlineLineFollowText")]
+[Alias("TextUnderlineLineFollowText")]
+CT_TextUnderlineLineFollowText = ExtraColorSchemeList;
+
+[Tag("textUnderlineFillFollowText")]
+[Alias("TextUnderlineFillFollowText")]
+CT_TextUnderlineFillFollowText = ExtraColorSchemeList;
+
+[Tag("textUnderlineFillGroupWrapper")]
+[Alias("TextUnderlineFillGroupWrapper")]
+CT_TextUnderlineFillGroupWrapper = OverrideColorMapping;
+
+[Alias("TextStrikeType")]
+ST_TextStrikeType = TextStrikeValues;
+
+[Alias("TextCapsType")]
+ST_TextCapsType = TextCapsValues;
+
+[Tag("textCharacterProperties")]
+[Alias("TextCharacterProperties")]
+CT_TextCharacterProperties = TextCharacterPropertiesType;
+
+[Tag("boolean")]
+[Alias("Boolean")]
+CT_Boolean = FOVAngle;
+
+[Alias("TextSpacingPoint")]
+ST_TextSpacingPoint = TextSpacingPointValue;
+
+[Union]
+[Alias("TextSpacingPercentOrPercentString")]
+ST_TextSpacingPercentOrPercentString = TextSpacingPercentOrPercentStringValue;
+
+[Tag("textSpacingPercent")]
+[Alias("TextSpacingPercent")]
+CT_TextSpacingPercent = TextSpacingPercentOrPercentStringValue;
+
+[Tag("textSpacingPoint")]
+[Alias("TextSpacingPoint")]
+CT_TextSpacingPoint = TextSpacingPointValue;
+
+[MinValue(0)]
+[MaxValue(51206400)]
+[Alias("TextMargin")]
+ST_TextMargin = TextMarginValue;
+
+[MinValue(-51206400)]
+[MaxValue(51206400)]
+[Alias("TextIndent")]
+ST_TextIndent = TextIndentValue;
+
+[Alias("TextTabAlignType")]
+ST_TextTabAlignType = TextTabAlignmentValues;
+
+[Tag("textTabStop")]
+[Alias("TextTabStop")]
+CT_TextTabStop = PresetTextWrap;
+
+[Tag("textTabStopList")]
+[Alias("TextTabStopList")]
+CT_TextTabStopList = ExtraColorSchemeList;
+
+[Tag("textLineBreak")]
+[Alias("TextLineBreak")]
+CT_TextLineBreak = ExtrusionColor;
+
+[Tag("textSpacing")]
+[Alias("TextSpacing")]
+CT_TextSpacing = TextSpacingType;
+
+[Alias("TextAlignType")]
+ST_TextAlignType = TextAlignmentTypeValues;
+
+[Alias("TextFontAlignType")]
+ST_TextFontAlignType = TextFontAlignmentValues;
+
+[Alias("TextIndentLevelType")]
+ST_TextIndentLevelType = TextIndentLevelTypeValue;
+
+[Tag("textParagraphProperties")]
+[Alias("TextParagraphProperties")]
+CT_TextParagraphProperties = TextParagraphPropertiesType;
+
+[Tag("textField")]
+[Alias("TextField")]
+CT_TextField = PatternFill;
+
+[Tag("regularTextRun")]
+[Alias("RegularTextRun")]
+CT_RegularTextRun = Reflection;
+

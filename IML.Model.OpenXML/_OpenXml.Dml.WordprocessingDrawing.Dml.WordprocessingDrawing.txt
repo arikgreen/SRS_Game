@@ -1,0 +1,101 @@
+[Tag("effectExtent")]
+[Alias("EffectExtent")]
+CT_EffectExtent = EffectExtent;
+
+[Alias("WrapDistance")]
+ST_WrapDistance = WrapDistanceValue;
+
+[Tag("inline")]
+[Alias("Inline")]
+CT_Inline = Inline;
+
+[Alias("WrapText")]
+ST_WrapText = WrapTextValues;
+
+[Tag("wrapPath")]
+[Alias("WrapPath")]
+CT_WrapPath = WrapTight;
+
+[Tag("wrapNone")]
+[Alias("WrapNone")]
+CT_WrapNone = WrapNone;
+
+[Tag("wrapSquare")]
+[Alias("WrapSquare")]
+CT_WrapSquare = WrapSquare;
+
+[Tag("wrapTight")]
+[Alias("WrapTight")]
+CT_WrapTight = WrapTight;
+
+[Tag("wrapThrough")]
+[Alias("WrapThrough")]
+CT_WrapThrough = WrapThrough;
+
+[Tag("wrapTopBottom")]
+[Alias("WrapTopBottom")]
+CT_WrapTopBottom = WrapTopBottom;
+
+[Alias("PositionOffset")]
+ST_PositionOffset = PositionOffset;
+
+[Alias("AlignH")]
+ST_AlignH = HorizontalAlignmentValues;
+
+[Alias("RelFromH")]
+ST_RelFromH = HorizontalRelativePositionValues;
+
+[Tag("posH")]
+[Alias("PosH")]
+CT_PosH = DocProperties;
+
+[Alias("AlignV")]
+ST_AlignV = VerticalAlignmentValues;
+
+[Alias("RelFromV")]
+ST_RelFromV = VerticalRelativePositionValues;
+
+[Tag("posV")]
+[Alias("PosV")]
+CT_PosV = DocProperties;
+
+[Tag("anchor")]
+[Alias("Anchor")]
+CT_Anchor = Anchor;
+
+[Tag("txbxContent")]
+[Alias("TxbxContent")]
+CT_TxbxContent = EffectExtent;
+
+[Tag("textboxInfo")]
+[Alias("TextboxInfo")]
+CT_TextboxInfo = Extent;
+
+[Tag("linkedTextboxInformation")]
+[Alias("LinkedTextboxInformation")]
+CT_LinkedTextboxInformation = WrapTopBottom;
+
+[Tag("wordprocessingShape")]
+[Alias("WordprocessingShape")]
+CT_WordprocessingShape = WrapTopBottom;
+
+[Tag("graphicFrame")]
+[Alias("GraphicFrame")]
+CT_GraphicFrame = NonVisualGraphicFrameDrawingProperties;
+
+[Tag("wordprocessingContentPartNonVisual")]
+[Alias("WordprocessingContentPartNonVisual")]
+CT_WordprocessingContentPartNonVisual = WordprocessingContentPartNonVisualType;
+
+[Tag("wordprocessingContentPart")]
+[Alias("WordprocessingContentPart")]
+CT_WordprocessingContentPart = WrapTopBottom;
+
+[Tag("wordprocessingGroup")]
+[Alias("WordprocessingGroup")]
+CT_WordprocessingGroup = WrapTopBottom;
+
+[Tag("wordprocessingCanvas")]
+[Alias("WordprocessingCanvas")]
+CT_WordprocessingCanvas = WrapTopBottom;
+

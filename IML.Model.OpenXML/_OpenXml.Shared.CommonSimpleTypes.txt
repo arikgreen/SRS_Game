@@ -1,0 +1,76 @@
+[Alias("Lang")]
+ST_Lang = LangValue;
+
+[Format("X6")]
+[Alias("HexColorRGB")]
+ST_HexColorRGB = HexColorRGBValue;
+
+[Length(10)]
+[Format("X20")]
+[Alias("Panose")]
+ST_Panose = PanoseValue;
+
+[Alias("CalendarType")]
+ST_CalendarType = PresentationDocumentType;
+
+[Union]
+[Alias("OnOff")]
+ST_OnOff = OnOffValue;
+
+[NCName]
+[MaxLength(255)]
+[Alias("XmlName")]
+ST_XmlName = XmlNameValue;
+
+[Alias("UnsignedDecimalNumber")]
+ST_UnsignedDecimalNumber = UnsignedDecimalNumberValue;
+
+[Union]
+[Alias("TwipsMeasure")]
+ST_TwipsMeasure = TwipsMeasureValue;
+
+[Alias("VerticalAlignRun")]
+ST_VerticalAlignRun = SpaceProcessingModeValues;
+
+[Alias("Xstring")]
+ST_Xstring = XstringValue;
+
+[Alias("XAlign")]
+ST_XAlign = FileFormatVersions;
+
+[Alias("YAlign")]
+ST_YAlign = FileFormatVersions;
+
+[Alias("ConformanceClass")]
+ST_ConformanceClass = FileFormatVersions;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?(mm|cm|in|pt|pc|pi)")]
+[Units(new string[]{"mm","cm","in","pt","pc","pi"})]
+[Alias("UniversalMeasure")]
+ST_UniversalMeasure = UniversalMeasureValue;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?(mm|cm|in|pt|pc|pi)")]
+[Units(new string[]{"mm","cm","in","pt","pc","pi"})]
+[Alias("PositiveUniversalMeasure")]
+ST_PositiveUniversalMeasure = PositiveUniversalMeasureValue;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?%")]
+[Units(new string[]{"%"})]
+[Alias("Percentage")]
+ST_Percentage = PercentageValue;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?%")]
+[Units(new string[]{"%"})]
+[Alias("FixedPercentage")]
+ST_FixedPercentage = FixedPercentageValue;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?%")]
+[Units(new string[]{"%"})]
+[Alias("PositivePercentage")]
+ST_PositivePercentage = PositivePercentageValue;
+
+[Pattern(@"-?[0-9]+(\.[0-9]+)?%")]
+[Units(new string[]{"%"})]
+[Alias("PositiveFixedPercentage")]
+ST_PositiveFixedPercentage = PositiveFixedPercentageValue;
+
