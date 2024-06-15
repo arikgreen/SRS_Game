@@ -1,14 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SRS Game</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    @* <link rel="stylesheet" href="~/SRS_Game.styles.css" asp-append-version="true" /> *@
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
@@ -26,30 +28,31 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Documents" asp-action="Index">Dokumenty</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Documents" asp-action="Index">@Localizer["Documents"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Użytkownicy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">@Localizer["Users"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Teams" asp-action="Index">Zespoły</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Teams" asp-action="Index">@Localizer["Teams"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">Projekty</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">@Localizer["Projects"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Attachements" asp-action="Index">Załączniki</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Attachements" asp-action="Index">@Localizer["Attachements"]</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Chat">Chat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Help">Pomoc</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Help">@Localizer["Help"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Prywatność</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Localizer["Privacy"]</a>
                         </li>
                     </ul>
+                    <partial name="_LanguagesPartial" />
                     <partial name="_LoginPartial" />
                 </div>
             </div>
@@ -63,12 +66,11 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - SRS Game - <a asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
+            &copy; 2024 - SRS Game - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Localizer["Privacy"]</a>
         </div>
     </footer>
     <script src="~/lib/jquery/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
-
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

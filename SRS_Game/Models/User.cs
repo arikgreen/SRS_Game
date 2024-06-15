@@ -15,6 +15,7 @@ namespace SRS_Game.Models
         /// </summary>
         [Required]
         [StringLength(50)]
+        [DisplayName("First name")]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -22,7 +23,8 @@ namespace SRS_Game.Models
         /// </summary>
         [Required]
         [StringLength(50)]
-        public string SecondName { get; set; }
+        [DisplayName("Last name")]
+        public string LastName { get; set; }
 
         /// <summary>
         /// Company name
@@ -37,6 +39,7 @@ namespace SRS_Game.Models
         public string Email { get; set; }
 
         [StringLength(15)]
+        [DisplayName("Phone number")]
         public string? PhoneNumber { get; set; }
 
         [StringLength(300)]
@@ -48,6 +51,7 @@ namespace SRS_Game.Models
         
         [Required]
         [ForeignKey("Type")]
+        [DisplayName("Type")]
         public int TypeId { get; set; }
 
         [Required]
@@ -59,7 +63,7 @@ namespace SRS_Game.Models
             string? name, string? phoneNumber, string? address, bool isExternal = false)
         {
             FirstName = fname;
-            SecondName = sname;
+            LastName = sname;
             Email = email;
             TypeId = type;
             Password = password;

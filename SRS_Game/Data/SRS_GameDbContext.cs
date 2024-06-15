@@ -23,7 +23,7 @@ namespace SRS_Game.Data
         public DbSet<Team> Teams { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
-        public DbSet<ChatHistoryFile> Files { get; set; }
+        public DbSet<MeetingHistoryFile> Files { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -43,7 +43,7 @@ namespace SRS_Game.Data
                 .IsUnique();
 
             modelBuilder.Entity<User>()
-                .HasIndex(a => new { a.Email, a.FirstName, a.SecondName })
+                .HasIndex(a => new { a.Email, a.FirstName, a.LastName })
                 .IsUnique();
 
             modelBuilder.Entity<Project>()
@@ -58,7 +58,7 @@ namespace SRS_Game.Data
                 .HasIndex(e => new { e.Name })
                 .IsUnique();
 
-            modelBuilder.Entity<ChatHistoryFile>()
+            modelBuilder.Entity<MeetingHistoryFile>()
                 .HasIndex(e => new { e.Id })
                 .IsUnique();
         }

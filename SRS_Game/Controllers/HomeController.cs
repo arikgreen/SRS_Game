@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using SRS_Game.Data;
 using SRS_Game.Models;
@@ -21,7 +22,9 @@ namespace SRS_Game.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var redirectUrl = Url.Action("UploadFile", "Home");
+            
+            return LocalRedirect(redirectUrl);
         }
 
         public IActionResult Privacy()
@@ -39,8 +42,13 @@ namespace SRS_Game.Controllers
             return View();
         }
 
+        public ActionResult UploadFile()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult UploadFile(IFormFile file)
+        public ActionResult UploadFilePost(IFormFile file)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("No file selected for upload...");
@@ -71,7 +79,24 @@ namespace SRS_Game.Controllers
                 });
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Attachements");
+        }
+
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
+
+            if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
+            {
+                return RedirectToAction("UploadFile", "Home");
+            }
+
+            return LocalRedirect(returnUrl);
         }
 
         [AllowAnonymous]

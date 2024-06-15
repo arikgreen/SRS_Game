@@ -57,35 +57,6 @@ namespace SRS_Game.Migrations
                     b.ToTable("Attachements");
                 });
 
-            modelBuilder.Entity("SRS_Game.Models.ChatHistoryFile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("DocumentId")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("FileData")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<int>("FileSourceType")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Id")
-                        .IsUnique();
-
-                    b.ToTable("Files");
-                });
-
             modelBuilder.Entity("SRS_Game.Models.Document", b =>
                 {
                     b.Property<int>("Id")
@@ -175,6 +146,35 @@ namespace SRS_Game.Migrations
                     b.ToTable("DocumentHistories");
                 });
 
+            modelBuilder.Entity("SRS_Game.Models.MeetingHistoryFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DocumentId")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("FileData")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<int>("FileSourceType")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.ToTable("Files");
+                });
+
             modelBuilder.Entity("SRS_Game.Models.Project", b =>
                 {
                     b.Property<int>("Id")
@@ -261,6 +261,11 @@ namespace SRS_Game.Migrations
                     b.Property<bool>("IsExternal")
                         .HasColumnType("bit");
 
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -273,17 +278,12 @@ namespace SRS_Game.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<string>("SecondName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Email", "FirstName", "SecondName")
+                    b.HasIndex("Email", "FirstName", "LastName")
                         .IsUnique();
 
                     b.ToTable("Users");

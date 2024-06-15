@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    var cultureCookie = HttpContextAccessor.HttpContext.Request.Cookies[CookieRequestCultureProvider.DefaultCookieName];
+    var currentCulture = cultureCookie != null
+        ? CookieRequestCultureProvider.ParseCookieValue(cultureCookie).UICultures.FirstOrDefault().Value
+        : "en"; // Default to English if the cookie is not set
+
+    bool IsSelected(string culture) => currentCulture == culture;
+}
+
+<div>
+    <form asp-controller="Home" asp-action="SetLanguage" method="post">
+        <input type="hidden" name="returnUrl" value="@HttpContextAccessor.HttpContext.Request.Path" />
+        <select name="culture" onchange="this.form.submit();">
+            <option value="en" selected="@(IsSelected("en") ? "selected" : null)">English</option>
+            <option value="pl" selected="@(IsSelected("pl") ? "selected" : null)">Polski</option>
+        </select>
+    </form>
+</div>

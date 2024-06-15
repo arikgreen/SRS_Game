@@ -23,6 +23,7 @@ namespace SRS_Game.Models
 
         [Required]
         [ForeignKey("User")]
+        [DisplayName("Author")]
         public int AuthorId { get; set; }
         
         /// <summary>
@@ -35,6 +36,7 @@ namespace SRS_Game.Models
         public int? TeamLeaderId { get; set; }
 
         [ForeignKey("Project")]
+        [DisplayName("Project")]
         public int? ProjectId { get; set; }
 
         [Required]
@@ -49,6 +51,7 @@ namespace SRS_Game.Models
         /// Wersja dokumentu
         /// </summary>
         [Required]
+        [DisplayName("Version")]
         public int VersionId { get; set; }
 
         [DisplayName("File name")]
