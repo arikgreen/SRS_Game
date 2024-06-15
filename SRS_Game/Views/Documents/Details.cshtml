@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model SRS_Game.Models.Document
+
+@{
+    ViewData["Title"] = @Localizer["Details"];
+}
+
+<h1>@Localizer["Document"]</h1>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Localizer[Html.DisplayNameFor(model => model.Id)]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Localizer[Html.DisplayNameFor(model => model.Description)]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Localizer[Html.DisplayNameFor(model => model.CreateDate)]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Localizer[Html.DisplayNameFor(model => model.VersionId)]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VersionId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Localizer[Html.DisplayNameFor(model => model.FileName)]
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+    <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
+</div>
