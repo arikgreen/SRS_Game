@@ -1,0 +1,49 @@
+﻿@model ChatHistoryFile
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/chat.css" asp-append-version="true" />
+}
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card chat-app p-3">
+                <h2>Upload File</h2>
+                @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "was-validated" }))
+                {
+                    <div class="input-group mb-3">
+                        <div class="form-check form-check-inline m-">
+                            @Html.RadioButtonFor(m => m.FileSourceType, 0, new { @class = "form-check-input" })
+                            @Html.Label("FileSourceType", "MS Teams", new { @class = "form-check-label", @checked = "checked" })
+                        </div>
+                        <div class="form-check form-check-inline m-">
+                            @Html.RadioButtonFor(m => m.FileSourceType, 1, new { @class = "form-check-input" })
+                            @Html.Label("FileSourceType", "Zoom", new { @class = "form-check-label" })
+                        </div>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        @Html.TextBox("file", "", new { type = "file", @class = "form-control", @required = "required" })
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                        @ViewBag.Message
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                }
+            </div>
+            <div class="card chat-app p-3">
+                <a href="https://support.microsoft.com/en-us/office/view-live-transcription-in-microsoft-teams-meetings-dc1a8f23-2e20-4684-885e-2152e06a4a8b">
+                    View live transcription in Microsoft Teams meetings
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+} 
