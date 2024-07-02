@@ -1,0 +1,423 @@
+﻿<mvvm:BaseTreeViewControl 
+  x:Class="IML.ModelEdit.MetamodelsControl"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:this="clr-namespace:IML.ModelEdit"
+  xmlns:mylib="clr-namespace:MyLib.Controls;assembly=MyLib.Controls"
+  xmlns:sys="clr-namespace:System;assembly=mscorlib"
+  xmlns:VM="clr-namespace:IML.ModelEdit"
+  xmlns:mvvm="clr-namespace:MVVM;assembly=MVVM"
+  xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  x:Name="This"
+  mc:Ignorable="d"
+  d:DesignHeight="300" d:DesignWith="250"
+  >
+  <mvvm:BaseTreeViewControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/MVVM;component/Resources/CommonResources.xaml"/>
+        <ResourceDictionary Source="/MyLib.Controls;component/Panels/ToolTipStyle.xaml"/>
+      </ResourceDictionary.MergedDictionaries>
+      <this:ModelEditResources x:Key="MetamodelingResources"/>
+      <DataTemplate x:Key="DefaultDataExplorerControl">
+        <mvvm:DataExplorerControl
+                  BaseViewModel="{Binding ItemViewModel, RelativeSource={RelativeSource AncestorType=this:MetamodelsControl}}"
+                  IconsSource="/IML.ModelEdit;component/Resources/Images/"
+                  LabelPath="Instance.MetamodelsStrings"
+                  LabelSource="{StaticResource MetamodelingResources}"
+                  />
+      </DataTemplate>
+    </ResourceDictionary>
+
+
+  </mvvm:BaseTreeViewControl.Resources>
+
+  <mvvm:BaseTreeViewControl.CommandBindings>    
+    <CommandBinding Command="{x:Static this:MetamodelsControl.GenerateCodeCommand}"
+                    Executed="GenerateCodeCommandExecute"
+                    CanExecute="GenerateCodeCommandCanExecute" />
+    <!--<CommandBinding Command="{x:Static mvvm:BaseViewModelControlButtonPanel.EndNewItemCommand}"
+                    Executed="EndNewItemCommandExecute"
+                    CanExecute="EndNewItemCommandCanExecute" />
+    <CommandBinding Command="{x:Static mvvm:BaseViewModelControlButtonPanel.EndEditItemCommand}"
+                    Executed="EndEditItemCommandExecute"
+                    CanExecute="EndEditItemCommandCanExecute" />
+    <CommandBinding Command="{x:Static mvvm:BaseViewModelControlButtonPanel.CancelEditOrNewItemCommand}"
+                    Executed="CancelEditOrNewItemCommandExecute"
+                    CanExecute="CancelEditOrNewItemCommandCanExecute" />-->
+  </mvvm:BaseTreeViewControl.CommandBindings>
+
+  <mvvm:BaseTreeViewControl.Title>
+    <Binding Source="{StaticResource MetamodelingResources}" Path="Instance.MetamodelsStrings._Metamodels"/>
+  </mvvm:BaseTreeViewControl.Title>
+  
+  <!-- Główna siatka z dwoma kolumnami. Prawa kolumna przeznaczona na widok szczegółów -->
+  <Grid x:Name="MainGrid">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" MinWidth="210"/>
+      <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    
+    <!-- Lewa kolumna - widok główny -->
+    <Grid x:Name="LeftColumn">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <!-- Panel tytułowy: tytuł, przycisk odświeżania i przycisk pomocy -->
+      <mvvm:TitlePanel 
+        Grid.Row="0"
+        Title="{Binding Source={StaticResource MetamodelingResources}, 
+                        Path=Instance.MetamodelsStrings._Metamodels}"
+        RefreshedCollection="{Binding Metamodels, 
+                              RelativeSource={RelativeSource AncestorType=this:MetamodelsControl}}"
+        HelpHint="{Binding Source={StaticResource MetamodelingResources},
+                           Path=Instance.MetamodelsStrings.MetamodelsHint}" 
+        HelpText="{Binding Source={StaticResource MetamodelingResources}, 
+                           Path=Instance.MetamodelsStrings.Metamodels_Description_}" 
+        />
+
+      <!-- 
+        Górna część widoku głównego - główny widok drzewa elementów. 
+        Pierwszy poziom - metamodele, drugi - klasy główne i typy wyliczane, trzeci i kolejne - podklasy.
+      -->
+      <TreeView x:Name="MainTreeView" Grid.Row="1"
+                ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type this:MetamodelsControl}}, 
+                                      Path=Metamodels}"
+                SelectedItemChanged="MainTreeView_SelectedItemChanged"
+                PreviewMouseLeftButtonDown="MainTreeView_PreviewMouseLeftButtonDown"
+                MouseMove="MainTreeView_MouseMove"
+                MouseDoubleClick="MainTreeView_MouseDoubleClick"
+                AllowDrop="True"
+                Drop="OnDragDrop">
+        <TreeView.Resources>
+          <HierarchicalDataTemplate DataType="{x:Type VM:Metamodel}" ItemsSource="{Binding Path=RootTypes}">
+            <mvvm:ListItemView x:Name="ListItemView"
+              Text="{Binding Name}"
+              Icon="/IML.ModelEdit;component/Resources/Images/Model.png"
+              IsItalic="{Binding IsProtected}"
+              />
+            <HierarchicalDataTemplate.Triggers>
+              <DataTrigger Binding="{Binding NeedsRecompilation}" Value="True">
+                <Setter TargetName="ListItemView" Property="Icon" 
+                        Value="/IML.ModelEdit;component/Resources/Images/Model+Modified.png"/>
+              </DataTrigger>
+            </HierarchicalDataTemplate.Triggers>
+          </HierarchicalDataTemplate>
+          <HierarchicalDataTemplate DataType="{x:Type VM:Metaclass}" ItemsSource="{Binding Path=Subclasses}">
+            <mvvm:ListItemView 
+              Text="{Binding Name}"
+              Icon="/IML.ModelEdit;component/Resources/Images/Class.png"
+              >
+              <mvvm:ListItemView.IsItalic>
+                <MultiBinding Converter="{StaticResource MultiOrConverter}">
+                  <Binding Path="IsProtected"/>
+                  <Binding Path="IsAbstract"/>
+                </MultiBinding>
+              </mvvm:ListItemView.IsItalic>
+            </mvvm:ListItemView>
+          </HierarchicalDataTemplate>
+          <HierarchicalDataTemplate DataType="{x:Type VM:EnumType}">
+            <mvvm:ListItemView 
+              Text="{Binding Name}"
+              Icon="/IML.ModelEdit;component/Resources/Images/EnumType.png"
+              IsItalic="{Binding IsProtected}"
+              />
+          </HierarchicalDataTemplate>
+          <HierarchicalDataTemplate DataType="{x:Type VM:Metatype}">
+            <mvvm:ListItemView 
+              Text="{Binding Name}"
+              Icon="/IML.ModelEdit;component/Resources/Images/SomeType.png"
+              IsItalic="{Binding IsProtected}"
+              />
+          </HierarchicalDataTemplate>
+        </TreeView.Resources>
+      </TreeView>
+
+      <!-- 
+        Dolna część widoku głównego. Składa się z dwóch rozwijanych paneli.
+        Górny panel - panel akcji, dolny panel - panel edycji wybranego elementu.
+        Zawartość obu paneli zależy od typu wybranego elementu.
+      -->
+      <StackPanel x:Name="LowerMainPanel"  Grid.Row="2" >       
+        <!-- Górny panel - rozwijany panel akcji -->
+        <mylib:ExpandablePanel x:Name="ExpandableActionPanel"
+          Header="{Binding Source={StaticResource CommonResources}, Path=Instance.CommonStrings.Actions}"
+          Margin="0,3,0,0"
+          >
+          <!-- 
+            Zawartość panelu akcji jest widoczna tylko wtedy, gdy kontrolka jest w trybie przeglądania.
+            Jeśli jest w trybie edycji lub wstawiania, to jest ukrywana, 
+            by rozwinięty dolny panel edycji nie zmniejszył do zera głównego widoku drzewa.
+          -->
+          <mylib:ExpandablePanel.ContentVisibility>
+            <Binding Path="ItemViewModel.ViewMode" 
+                     RelativeSource="{RelativeSource AncestorType=this:MetamodelsControl}">
+              <Binding.Converter>
+                <mylib:CascadeConverter>
+                  <mylib:IsEqualConverter Parameter="{x:Static mvvm:ViewMode.Browse}"/>
+                  <mylib:VisibilityValueConverter/>
+                </mylib:CascadeConverter>
+              </Binding.Converter>
+            </Binding>
+          </mylib:ExpandablePanel.ContentVisibility>
+          <!-- 
+            Panel akcji. Jego zawartość zależy od typu wybranego elementu.
+          -->
+          <mylib:ActionPanel x:Name="ActionPanel"
+                Margin="10,0,0,0"
+                Content="{Binding Path=ItemViewModel, 
+                                  RelativeSource={RelativeSource AncestorType=this:MetamodelsControl}}"                             
+                >
+              <mylib:ActionPanel.Resources>
+              <!-- akcje wyświetlane, gdy nic nie jest wybrane -->
+              <DataTemplate DataType="{x:Type VM:Metamodels}">
+                <StackPanel  x:Name="EmptyListActions" 
+                             DataContext="{Binding Path=ItemViewModel, 
+                             RelativeSource={RelativeSource AncestorType=this:MetamodelsControl}}">
+                  <mylib:ActionPanelItem x:Name="NewMetamodel"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.NewMetamodel}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.NewItemCommand}"
+                    Tag="{Binding}"
+                    />
+                </StackPanel>
+              </DataTemplate>
+              <!-- akcje wyświetlane, gdy wybrany jest metamodel -->
+              <DataTemplate DataType="{x:Type VM:Metamodel}">
+                <StackPanel  x:Name="MetamodelActions" DataContext="{Binding}">
+                  <mylib:ActionPanelItem x:Name="NewMetamodel"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.NewMetamodel}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.NewItemCommand}"
+                    Tag="{Binding Collection}"
+                    />
+                  <mylib:ActionPanelItem x:Name="EditMetamodel"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.EditMetamodel}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.EditItemCommand}"
+                    CommandParameter="{Binding}"
+                    Tag="{Binding Collection}"
+                    />
+                  <mylib:ActionPanelItem x:Name="DeleteMetamodel"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.DeleteMetamodel}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.DeleteItemCommand}"
+                    CommandParameter="{Binding}"
+                    />
+                  <mylib:ActionPanelItem x:Name="GenerateCode"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.GenerateCode}"
+                    Command="{x:Static this:MetamodelsControl.GenerateCodeCommand}"
+                    CommandParameter="{Binding}"
+                    />                      
+                  <mylib:ActionPanelItem x:Name="NewMetaclass"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.NewMetaclass}"
+                    Style="{mylib:StyleRef HyperlinkButtonStyle}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.NewItemCommand}"
+                    CommandParameter="{x:Type VM:Metaclass}"
+                    Tag="{Binding Path=Metatypes}"
+                    >
+                  </mylib:ActionPanelItem>
+                  <mylib:ActionPanelItem x:Name="NewEnumType"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.NewEnumType}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.NewItemCommand}"
+                    CommandParameter="{x:Type VM:EnumType}"
+                    Tag="{Binding Path=Metatypes}"                        
+                    >
+                  </mylib:ActionPanelItem>                 
+                </StackPanel>
+              </DataTemplate>
+              <!-- akcje wyświetlane, gdy wybrana jest metaklasa -->
+              <DataTemplate DataType="{x:Type VM:Metaclass}">
+                <StackPanel  x:Name="MetaclassActions" DataContext="{Binding}">
+                  <mylib:ActionPanelItem x:Name="NewMetaclass"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.NewMetaclass}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.NewItemCommand}"
+                    CommandParameter="{x:Type VM:Metaclass}"
+                    Tag="{Binding Collection}"
+                    />
+                  <mylib:ActionPanelItem x:Name="NewSubclass"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.NewSubclass}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.NewItemCommand}"
+                    CommandParameter="{x:Type VM:Metaclass}"
+                    Tag="{Binding Subclasses}"
+                    />                      
+                  <mylib:ActionPanelItem x:Name="EditMetaclass"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.EditMetaclass}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.EditItemCommand}"
+                    CommandParameter="{Binding}"
+                    />
+                  <mylib:ActionPanelItem x:Name="DeleteMetaclass"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.DeleteMetaclass}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.DeleteItemCommand}"
+                    CommandParameter="{Binding}"
+                    />
+                </StackPanel>
+              </DataTemplate>
+              <!-- akcje wyświetlane, gdy wybrany jest typ wyliczeniowy -->
+              <DataTemplate DataType="{x:Type VM:EnumType}">
+                <StackPanel  x:Name="EnumTypeActions" DataContext="{Binding}">
+                  <mylib:ActionPanelItem x:Name="NewEnumType"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.NewEnumType}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.NewItemCommand}"
+                    CommandParameter="{x:Type VM:EnumType}"
+                    Tag="{Binding Collection}"
+                    />
+                  <mylib:ActionPanelItem x:Name="EditEnumType"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.EditEnumType}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.EditItemCommand}"
+                    CommandParameter="{Binding}"
+                    />
+                  <mylib:ActionPanelItem x:Name="DeleteEnumType"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.DeleteEnumType}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.DeleteItemCommand}"
+                    CommandParameter="{Binding}"
+                    />
+                </StackPanel>
+              </DataTemplate>
+              <!-- akcje wyświetlane, gdy wybrany jest każdy inny metatyp -->
+              <DataTemplate DataType="{x:Type VM:Metatype}">
+                <StackPanel  x:Name="MetatypeActions" DataContext="{Binding}">
+                  <mylib:ActionPanelItem x:Name="EditMetatype"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.EditMetatype}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.EditItemCommand}"
+                    CommandParameter="{Binding}"
+                    />
+                  <mylib:ActionPanelItem x:Name="DeleteMetatype"
+                    Content="{Binding Source={StaticResource MetamodelingResources}, 
+                                      Path=Instance.MetamodelsStrings.DeleteMetatype}"
+                    Command="{x:Static mvvm:BaseViewModelListControl.DeleteItemCommand}"
+                    CommandParameter="{Binding}"
+                    />
+                </StackPanel>
+              </DataTemplate>
+            </mylib:ActionPanel.Resources>
+          </mylib:ActionPanel>
+        </mylib:ExpandablePanel>
+
+        <!-- 
+          Rozwijany panel edycji. Jego zawartość tworzy kontrolka edycji wybranego elementu,
+          a typ kontrolki zależy od typy elementu.
+        -->
+        <mylib:ExpandablePanel x:Name="EditPanel" 
+            Content="{Binding Path=ItemViewModel, 
+                              RelativeSource={RelativeSource AncestorType=this:MetamodelsControl}}"  
+            DataContext="{Binding Path=ItemViewModel, 
+                                  RelativeSource={RelativeSource AncestorType=this:MetamodelsControl}}"
+            Margin="0,3,0,0"  
+            Padding="0,10,0,0"
+            >
+          <mylib:ExpandablePanel.Header>
+            <mvvm:ViewModeMonitor
+               ViewMode="{Binding Path=ItemViewModel.ViewMode, 
+                                  RelativeSource={RelativeSource AncestorType=this:MetamodelsControl},  
+                                  NotifyOnTargetUpdated=True}"
+               Margin="5,0,2,0"
+               />
+          </mylib:ExpandablePanel.Header>
+          <!-- 
+            Zawartość panelu edycji jest widoczna tylko wtedy, gdy cała kontrolka jest w trybie edycji lub wstawiania.
+            Jeśli jest w trybie przeglądania, to jest ukrywana, 
+            by rozwinięty dolny panel edycji nie zmniejszył do zera głównego widoku drzewa.
+          -->          
+          <mylib:ExpandablePanel.ContentVisibility>
+            <Binding Path="ItemViewModel.ViewMode" 
+                     RelativeSource="{RelativeSource AncestorType=this:MetamodelsControl}">
+              <Binding.Converter>
+                <mylib:CascadeConverter>
+                  <mylib:IsEqualConverter Parameter="{x:Static mvvm:ViewMode.Browse}"/>
+                  <mylib:LogicalNotConverter/>
+                  <mylib:VisibilityValueConverter/>
+                </mylib:CascadeConverter>
+              </Binding.Converter>
+            </Binding>
+          </mylib:ExpandablePanel.ContentVisibility>
+          <mylib:ExpandablePanel.Resources>
+            <!-- kontrolka edycji danych metamodelu -->
+            <DataTemplate DataType="{x:Type VM:Metamodel}">
+              <mvvm:BufferedBorder>
+                <this:MetamodelControl x:Name="MetamodelControl" />
+              </mvvm:BufferedBorder>
+            </DataTemplate>
+            <!-- kontrolka edycji danych metaklasy -->
+            <DataTemplate DataType="{x:Type VM:Metaclass}">
+              <mvvm:BufferedBorder>
+                <this:MetaclassControl  x:Name="MetaclassControl" />
+              </mvvm:BufferedBorder>
+            </DataTemplate>
+            <!-- kontrolka edycji danych typu wyliczeniowego -->
+            <DataTemplate DataType="{x:Type VM:EnumType}">
+              <mvvm:BufferedBorder>
+                <this:EnumTypeControl x:Name="MetatypeControl" />
+              </mvvm:BufferedBorder>
+            </DataTemplate>
+            <!-- kontrolka edycji danych dowolnego innego metatypu -->
+            <DataTemplate DataType="{x:Type VM:Metatype}">
+              <mvvm:BufferedBorder>
+                <this:EnumTypeControl x:Name="MetatypeControl" />
+              </mvvm:BufferedBorder>
+            </DataTemplate>
+            <!-- pusta zawartość - gdy nic nie jest wybrane -->
+            <DataTemplate DataType="{x:Type VM:Metamodels}">
+              <!-- empty content -->
+            </DataTemplate>
+          </mylib:ExpandablePanel.Resources>
+        </mylib:ExpandablePanel>
+      </StackPanel>
+
+      <!-- 
+        Przycisk rozwijający prawą część widoku - widok szczegółów w prawej kolumnie
+        - znajduje się w kontrolce edycji pojedynczego elementu.
+      -->
+      <!--<mvvm:DetailsButton Grid.Row="3"
+        DetailsPanel="{Binding ElementName=DetailsPanel}" />-->
+    </Grid>
+
+    <!-- 
+      Prawa kolumna głównego widoku - rozwijana przez przycisk szczegółów.
+    -->
+    <Grid x:Name="RightColumn" Grid.Column="1" Width="Auto">
+      <mylib:Border3D 
+        x:Name="DetailsPanel" 
+        Visibility="Collapsed"
+        Width="250" 
+        Layout3D="Engraved"
+        Content="{Binding Path=ItemViewModel, RelativeSource={RelativeSource AncestorType=this:MetamodelsControl}}"
+        mvvm:CustomTemplateSelector.TemplateSelected="DetailsPanel_TemplateSelected"
+        >
+        <mylib:Border3D.Resources>
+          <DataTemplate DataType="{x:Type VM:Metatype}">
+            <mvvm:DataExplorerControl
+              BaseViewModel="{Binding ItemViewModel, RelativeSource={RelativeSource AncestorType=this:MetamodelsControl}}"
+              IconsSource="/IML.ModelEdit;component/Resources/Images/"
+              LabelPath="Instance.MetamodelsStrings"
+              LabelSource="{StaticResource MetamodelingResources}"
+              />
+          </DataTemplate>
+          <DataTemplate DataType="{x:Type VM:MetamodelingElement}">
+            <TextBlock Text="invalidType"/>
+          </DataTemplate>
+        </mylib:Border3D.Resources>
+        <mylib:Border3D.ContentTemplateSelector>
+          <mvvm:CustomTemplateSelector/>
+        </mylib:Border3D.ContentTemplateSelector>
+      </mylib:Border3D>
+    </Grid>
+  </Grid>
+</mvvm:BaseTreeViewControl>

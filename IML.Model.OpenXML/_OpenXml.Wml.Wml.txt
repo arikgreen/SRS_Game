@@ -1,0 +1,1450 @@
+[Tag("empty")]
+[Alias("Empty")]
+CT_Empty = EmptyType;
+
+[Tag("onOff")]
+[Alias("OnOff")]
+CT_OnOff = OnOffType;
+
+[Format("X8")]
+[Alias("LongHexNumber")]
+ST_LongHexNumber = LongHexNumberValue;
+
+[Tag("longHexNumber")]
+[Alias("LongHexNumber")]
+CT_LongHexNumber = LongHexNumberType;
+
+[Format("X4")]
+[Alias("ShortHexNumber")]
+ST_ShortHexNumber = ShortHexNumberValue;
+
+[Format("X2")]
+[Alias("UcharHexNumber")]
+ST_UcharHexNumber = UcharHexNumberValue;
+
+[Tag("charset")]
+[Alias("Charset")]
+CT_Charset = FontCharSet;
+
+[Union]
+[Alias("DecimalNumberOrPercent")]
+ST_DecimalNumberOrPercent = DecimalNumberOrPercentValue;
+
+[Alias("DecimalNumber")]
+ST_DecimalNumber = DecimalNumberValue;
+
+[Tag("decimalNumber")]
+[Alias("DecimalNumber")]
+CT_DecimalNumber = DecimalNumberType;
+
+[Tag("unsignedDecimalNumber")]
+[Alias("UnsignedDecimalNumber")]
+CT_UnsignedDecimalNumber = UnsignedDecimalNumberType;
+
+[Tag("decimalNumberOrPrecent")]
+[Alias("DecimalNumberOrPrecent")]
+CT_DecimalNumberOrPrecent = DecimalNumberOrPercentValue;
+
+[Tag("twipsMeasure")]
+[Alias("TwipsMeasure")]
+CT_TwipsMeasure = TwipsMeasureType;
+
+[Union]
+[Alias("SignedTwipsMeasure")]
+ST_SignedTwipsMeasure = SignedTwipsMeasureValue;
+
+[Tag("signedTwipsMeasure")]
+[Alias("SignedTwipsMeasure")]
+CT_SignedTwipsMeasure = SignedTwipsMeasureType;
+
+[Alias("PixelsMeasure")]
+ST_PixelsMeasure = PixelsMeasureValue;
+
+[Tag("pixelsMeasure")]
+[Alias("PixelsMeasure")]
+CT_PixelsMeasure = PixelsMeasureType;
+
+[Union]
+[Alias("HpsMeasure")]
+ST_HpsMeasure = HpsMeasureValue;
+
+[Tag("hpsMeasure")]
+[Alias("HpsMeasure")]
+CT_HpsMeasure = HpsMeasureType;
+
+[Union]
+[Alias("SignedHpsMeasure")]
+ST_SignedHpsMeasure = SignedHpsMeasureValue;
+
+[Tag("signedHpsMeasure")]
+[Alias("SignedHpsMeasure")]
+CT_SignedHpsMeasure = SignedHpsMeasureValue;
+
+[MaxLength(33)]
+[Alias("MacroName")]
+ST_MacroName = MacroNameValue;
+
+[Tag("macroName")]
+[Alias("MacroName")]
+CT_MacroName = MacroNameType;
+
+[Alias("EighthPointMeasure")]
+ST_EighthPointMeasure = EighthPointMeasureValue;
+
+[Alias("PointMeasure")]
+ST_PointMeasure = PointMeasureValue;
+
+[Tag("string")]
+[Alias("String")]
+CT_String = StringType;
+
+[Union]
+[Alias("TextScale")]
+ST_TextScale = TextScaleValue;
+
+[Pattern(@"0*(600|([0-5]?[0-9]?[0-9]))%")]
+[Units(new string[]{"%"})]
+[Alias("TextScalePercent")]
+ST_TextScalePercent = TextScalePercentValue;
+
+[Tag("textScale")]
+[Alias("TextScale")]
+CT_TextScale = TextScaleValue;
+
+[Alias("HighlightColor")]
+ST_HighlightColor = HighlightColorValues;
+
+[Tag("highlight")]
+[Alias("Highlight")]
+CT_Highlight = Highlight;
+
+[Alias("HexColorAuto")]
+ST_HexColorAuto = AutomaticColorValues;
+
+[Union]
+[Alias("HexColor")]
+ST_HexColor = HexColorValue;
+
+[Tag("color")]
+[Alias("Color")]
+CT_Color = Color;
+
+[Tag("lang")]
+[Alias("Lang")]
+CT_Lang = Languages;
+
+[Tag("guid")]
+[Alias("Guid")]
+CT_Guid = DocPartId;
+
+[Alias("Underline")]
+ST_Underline = UnderlineValues;
+
+[Tag("underline")]
+[Alias("Underline")]
+CT_Underline = Underline;
+
+[Alias("TextEffect")]
+ST_TextEffect = TextEffectValues;
+
+[Tag("textEffect")]
+[Alias("TextEffect")]
+CT_TextEffect = TextEffect;
+
+[Alias("Border")]
+ST_Border = BorderValues;
+
+[Tag("border")]
+[Alias("Border")]
+CT_Border = BorderType;
+
+[Alias("Shd")]
+ST_Shd = ShadingPatternValues;
+
+[Tag("shd")]
+[Alias("Shd")]
+CT_Shd = Shading;
+
+[Tag("verticalAlignRun")]
+[Alias("VerticalAlignRun")]
+CT_VerticalAlignRun = VerticalJc;
+
+[Tag("fitText")]
+[Alias("FitText")]
+CT_FitText = FitText;
+
+[Alias("Em")]
+ST_Em = EmphasisMarkValues;
+
+[Tag("em")]
+[Alias("Em")]
+CT_Em = Emphasis;
+
+[Tag("language")]
+[Alias("Language")]
+CT_Language = LanguageType;
+
+[Alias("CombineBrackets")]
+ST_CombineBrackets = CombineBracketValues;
+
+[Tag("eastAsianLayout")]
+[Alias("EastAsianLayout")]
+CT_EastAsianLayout = EastAsianLayout;
+
+[Alias("HeightRule")]
+ST_HeightRule = HeightRuleValues;
+
+[Alias("Wrap")]
+ST_Wrap = TextWrappingValues;
+
+[Alias("VAnchor")]
+ST_VAnchor = VerticalAnchorValues;
+
+[Alias("HAnchor")]
+ST_HAnchor = HorizontalAnchorValues;
+
+[Alias("DropCap")]
+ST_DropCap = DropCapLocationValues;
+
+[Tag("framePr")]
+[Alias("FramePr")]
+CT_FramePr = FrameProperties;
+
+[Alias("TabJc")]
+ST_TabJc = TabStopValues;
+
+[Alias("TabTlc")]
+ST_TabTlc = TabStopLeaderCharValues;
+
+[Tag("tabStop")]
+[Alias("TabStop")]
+CT_TabStop = TabStop;
+
+[Alias("LineSpacingRule")]
+ST_LineSpacingRule = LineSpacingRuleValues;
+
+[Tag("spacing")]
+[Alias("Spacing")]
+CT_Spacing = Spacing;
+
+[Tag("ind")]
+[Alias("Ind")]
+CT_Ind = Indentation;
+
+[Alias("Jc")]
+ST_Jc = JustificationValues;
+
+[Alias("JcTable")]
+ST_JcTable = TabStopValues;
+
+[Tag("jc")]
+[Alias("Jc")]
+CT_Jc = Justification;
+
+[Tag("jcTable")]
+[Alias("JcTable")]
+CT_JcTable = JcTable;
+
+[Alias("View")]
+ST_View = ViewValues;
+
+[Tag("view")]
+[Alias("View")]
+CT_View = View;
+
+[Alias("Zoom")]
+ST_Zoom = PresetZoomValues;
+
+[Tag("zoom")]
+[Alias("Zoom")]
+CT_Zoom = Zoom;
+
+[Tag("writingStyle")]
+[Alias("WritingStyle")]
+CT_WritingStyle = ActiveWritingStyle;
+
+[Alias("Proof")]
+ST_Proof = ProofingStateValues;
+
+[Tag("proof")]
+[Alias("Proof")]
+CT_Proof = NoProof;
+
+[Alias("DocType")]
+ST_DocType = DocTypeValue;
+
+[Tag("docType")]
+[Alias("DocType")]
+CT_DocType = SectType;
+
+[Alias("DocProtect")]
+ST_DocProtect = DocumentProtectionValues;
+
+[Tag("docProtect")]
+[Alias("DocProtect")]
+CT_DocProtect = SdtContentDocPartList;
+
+[Alias("MailMergeDocType")]
+ST_MailMergeDocType = MailMergeDocumentValues;
+
+[Tag("mailMergeDocType")]
+[Alias("MailMergeDocType")]
+CT_MailMergeDocType = MailMergeDocType;
+
+[Alias("MailMergeDataType")]
+ST_MailMergeDataType = MailMergeDataTypeValue;
+
+[Tag("mailMergeDataType")]
+[Alias("MailMergeDataType")]
+CT_MailMergeDataType = MailMergeDocType;
+
+[Alias("MailMergeDest")]
+ST_MailMergeDest = MailMergeDestinationValues;
+
+[Tag("mailMergeDest")]
+[Alias("MailMergeDest")]
+CT_MailMergeDest = MailMergeDest;
+
+[Alias("MailMergeOdsoFMDFieldType")]
+ST_MailMergeOdsoFMDFieldType = MailMergeOdsoFieldValues;
+
+[Tag("mailMergeOdsoFMDFieldType")]
+[Alias("MailMergeOdsoFMDFieldType")]
+CT_MailMergeOdsoFMDFieldType = MailMergeOdsoFMDFieldType;
+
+[Tag("trackChangesView")]
+[Alias("TrackChangesView")]
+CT_TrackChangesView = TableRowPropertiesChange;
+
+[Tag("kinsoku")]
+[Alias("Kinsoku")]
+CT_Kinsoku = Kinsoku;
+
+[Alias("TextDirection")]
+ST_TextDirection = TextDirectionValues;
+
+[Tag("textDirection")]
+[Alias("TextDirection")]
+CT_TextDirection = TextDirection;
+
+[Alias("TextAlignment")]
+ST_TextAlignment = VerticalTextAlignmentValues;
+
+[Tag("textAlignment")]
+[Alias("TextAlignment")]
+CT_TextAlignment = TextAlignment;
+
+[Alias("DisplacedByCustomXml")]
+ST_DisplacedByCustomXml = DisplacedByCustomXmlValues;
+
+[Alias("AnnotationVMerge")]
+ST_AnnotationVMerge = LevelJustificationValues;
+
+[Tag("markup")]
+[Alias("Markup")]
+CT_Markup = MarkupType;
+
+[Tag("trackChange")]
+[Alias("TrackChange")]
+CT_TrackChange = TrackChangeType;
+
+[Tag("cellMergeTrackChange")]
+[Alias("CellMergeTrackChange")]
+CT_CellMergeTrackChange = NumberingChange;
+
+[Tag("trackChangeRange")]
+[Alias("TrackChangeRange")]
+CT_TrackChangeRange = NumberingChange;
+
+[Tag("markupRange")]
+[Alias("MarkupRange")]
+CT_MarkupRange = MarkupRangeType;
+
+[Tag("bookmarkRange")]
+[Alias("BookmarkRange")]
+CT_BookmarkRange = BookmarkEnd;
+
+[Tag("bookmark")]
+[Alias("Bookmark")]
+CT_Bookmark = BookmarkEnd;
+
+[Tag("moveBookmark")]
+[Alias("MoveBookmark")]
+CT_MoveBookmark = MoveBookmarkType;
+
+[Tag("comment")]
+[Alias("Comment")]
+CT_Comment = Comment;
+
+[Tag("tblPrExChange")]
+[Alias("TblPrExChange")]
+CT_TblPrExChange = TablePropertyExceptionsChange;
+
+[Tag("tcPrChange")]
+[Alias("TcPrChange")]
+CT_TcPrChange = TableCellPropertiesChange;
+
+[Tag("trPrChange")]
+[Alias("TrPrChange")]
+CT_TrPrChange = TableRowPropertiesChange;
+
+[Tag("tblGridChange")]
+[Alias("TblGridChange")]
+CT_TblGridChange = TableGridChange;
+
+[Tag("tblPrChange")]
+[Alias("TblPrChange")]
+CT_TblPrChange = TablePropertiesChange;
+
+[Tag("sectPrChange")]
+[Alias("SectPrChange")]
+CT_SectPrChange = SectionPropertiesChange;
+
+[Tag("pPrChange")]
+[Alias("PPrChange")]
+CT_PPrChange = ParagraphPropertiesChange;
+
+[Tag("rPrChange")]
+[Alias("RPrChange")]
+CT_RPrChange = RunPropertiesChange;
+
+[Tag("paraRPrChange")]
+[Alias("ParaRPrChange")]
+CT_ParaRPrChange = TableRowPropertiesChange;
+
+[Tag("runTrackChange")]
+[Alias("RunTrackChange")]
+CT_RunTrackChange = RunTrackChangeType;
+
+[Tag("numPr")]
+[Alias("NumPr")]
+CT_NumPr = NumberingProperties;
+
+[Tag("pBdr")]
+[Alias("PBdr")]
+CT_PBdr = ParagraphBorders;
+
+[Tag("tabs")]
+[Alias("Tabs")]
+CT_Tabs = Tabs;
+
+[Alias("TextboxTightWrap")]
+ST_TextboxTightWrap = TextBoxTightWrapValues;
+
+[Tag("textboxTightWrap")]
+[Alias("TextboxTightWrap")]
+CT_TextboxTightWrap = TextBoxTightWrap;
+
+[Tag("pPr")]
+[Alias("PPr")]
+CT_PPr = ParagraphPropertiesExtended;
+
+[Tag("pPrBase")]
+[Alias("PPrBase")]
+CT_PPrBase = RubyBase;
+
+[Tag("pPrGeneral")]
+[Alias("PPrGeneral")]
+CT_PPrGeneral = Personal;
+
+[Tag("control")]
+[Alias("Control")]
+CT_Control = Control;
+
+[Tag("background")]
+[Alias("Background")]
+CT_Background = DocumentBackground;
+
+[Tag("rel")]
+[Alias("Rel")]
+CT_Rel = Deleted;
+
+[Tag("object")]
+[Alias("Object")]
+CT_Object = EmbeddedObject;
+
+[Tag("objectEmbed")]
+[Alias("ObjectEmbed")]
+CT_ObjectEmbed = ObjectEmbed;
+
+[Alias("ObjectDrawAspect")]
+ST_ObjectDrawAspect = ObjectDrawAspect;
+
+[Tag("objectLink")]
+[Alias("ObjectLink")]
+CT_ObjectLink = ObjectLink;
+
+[Alias("ObjectUpdateMode")]
+ST_ObjectUpdateMode = ObjectUpdateMode;
+
+[Tag("drawing")]
+[Alias("Drawing")]
+CT_Drawing = Drawing;
+
+[Tag("simpleField")]
+[Alias("SimpleField")]
+CT_SimpleField = SimpleField;
+
+[Alias("FldCharType")]
+ST_FldCharType = FieldCharValues;
+
+[Alias("InfoTextType")]
+ST_InfoTextType = InfoTextValues;
+
+[MaxLength(256)]
+[Alias("FFHelpTextVal")]
+ST_FFHelpTextVal = FFHelpTextValValue;
+
+[MaxLength(140)]
+[Alias("FFStatusTextVal")]
+ST_FFStatusTextVal = FFStatusTextValValue;
+
+[MaxLength(65)]
+[Alias("FFName")]
+ST_FFName = FFNameValue;
+
+[Alias("FFTextType")]
+ST_FFTextType = TextBoxFormFieldValues;
+
+[Tag("fFTextType")]
+[Alias("FFTextType")]
+CT_FFTextType = FFTextType;
+
+[Tag("fFName")]
+[Alias("FFName")]
+CT_FFName = Frame;
+
+[Tag("fldChar")]
+[Alias("FldChar")]
+CT_FldChar = FieldChar;
+
+[Tag("hyperlink")]
+[Alias("Hyperlink")]
+CT_Hyperlink = Hyperlink;
+
+[Tag("fFData")]
+[Alias("FFData")]
+CT_FFData = FormFieldData;
+
+[Tag("fFHelpText")]
+[Alias("FFHelpText")]
+CT_FFHelpText = FFHelpTextValValue;
+
+[Tag("fFStatusText")]
+[Alias("FFStatusText")]
+CT_FFStatusText = FFStatusTextValValue;
+
+[Tag("fFCheckBox")]
+[Alias("FFCheckBox")]
+CT_FFCheckBox = CheckBox;
+
+[Tag("fFDDList")]
+[Alias("FFDDList")]
+CT_FFDDList = DropDownListFormField;
+
+[Tag("fFTextInput")]
+[Alias("FFTextInput")]
+CT_FFTextInput = TextInput;
+
+[Alias("SectionMark")]
+ST_SectionMark = SectionMarkValues;
+
+[Tag("sectType")]
+[Alias("SectType")]
+CT_SectType = SectionMark;
+
+[Tag("paperSource")]
+[Alias("PaperSource")]
+CT_PaperSource = PaperSource;
+
+[Alias("NumberFormat")]
+ST_NumberFormat = NumberFormatValues;
+
+[Alias("PageOrientation")]
+ST_PageOrientation = PageOrientationValues;
+
+[Tag("pageSz")]
+[Alias("PageSz")]
+CT_PageSz = PageSize;
+
+[Tag("pageMar")]
+[Alias("PageMar")]
+CT_PageMar = PageMargin;
+
+[Alias("PageBorderZOrder")]
+ST_PageBorderZOrder = PageBorderZOrderValues;
+
+[Alias("PageBorderDisplay")]
+ST_PageBorderDisplay = PageBorderDisplayValues;
+
+[Alias("PageBorderOffset")]
+ST_PageBorderOffset = PageBorderOffsetValues;
+
+[Tag("pageBorders")]
+[Alias("PageBorders")]
+CT_PageBorders = PageBorders;
+
+[Tag("pageBorder")]
+[Alias("PageBorder")]
+CT_PageBorder = PageBorders;
+
+[Tag("bottomPageBorder")]
+[Alias("BottomPageBorder")]
+CT_BottomPageBorder = DoNotOrganizeInFolder;
+
+[Tag("topPageBorder")]
+[Alias("TopPageBorder")]
+CT_TopPageBorder = CustomXmlPlaceholder;
+
+[Alias("ChapterSep")]
+ST_ChapterSep = ChapterSeparatorValues;
+
+[Alias("LineNumberRestart")]
+ST_LineNumberRestart = LineNumberRestartValues;
+
+[Tag("lineNumber")]
+[Alias("LineNumber")]
+CT_LineNumber = LineNumberType;
+
+[Tag("pageNumber")]
+[Alias("PageNumber")]
+CT_PageNumber = PageNumber;
+
+[Tag("column")]
+[Alias("Column")]
+CT_Column = Column;
+
+[Tag("columns")]
+[Alias("Columns")]
+CT_Columns = Columns;
+
+[Alias("VerticalJc")]
+ST_VerticalJc = VerticalJustificationValues;
+
+[Tag("verticalJc")]
+[Alias("VerticalJc")]
+CT_VerticalJc = VerticalJc;
+
+[Alias("DocGrid")]
+ST_DocGrid = DocGridValues;
+
+[Tag("docGrid")]
+[Alias("DocGrid")]
+CT_DocGrid = DocGrid;
+
+[Alias("HdrFtr")]
+ST_HdrFtr = HeaderFooterValues;
+
+[Alias("FtnEdn")]
+ST_FtnEdn = FootnoteEndnoteValues;
+
+[Tag("hdrFtrRef")]
+[Alias("HdrFtrRef")]
+CT_HdrFtrRef = EndnoteReferenceMark;
+
+[Tag("hdrFtr")]
+[Alias("HdrFtr")]
+CT_HdrFtr = Dirty;
+
+[Tag("sectPrBase")]
+[Alias("SectPrBase")]
+CT_SectPrBase = SectionPropertiesChange;
+
+[Tag("sectPr")]
+[Alias("SectPr")]
+CT_SectPr = PreviousSectionProperties;
+
+[Alias("BrType")]
+ST_BrType = BreakValues;
+
+[Alias("BrClear")]
+ST_BrClear = BreakTextRestartLocationValues;
+
+[Tag("br")]
+[Alias("Br")]
+CT_Br = Break;
+
+[Alias("PTabAlignment")]
+ST_PTabAlignment = TableRowAlignmentValues;
+
+[Alias("PTabRelativeTo")]
+ST_PTabRelativeTo = AbsolutePositionTabPositioningBaseValues;
+
+[Alias("PTabLeader")]
+ST_PTabLeader = AbsolutePositionTabLeaderCharValues;
+
+[Tag("pTab")]
+[Alias("PTab")]
+CT_PTab = PositionalTab;
+
+[Tag("sym")]
+[Alias("Sym")]
+CT_Sym = SymbolChar;
+
+[Alias("ProofErr")]
+ST_ProofErr = ProofingErrorValues;
+
+[Tag("proofErr")]
+[Alias("ProofErr")]
+CT_ProofErr = ProofError;
+
+[Alias("EdGrp")]
+ST_EdGrp = RangePermissionEditingGroupValues;
+
+[Tag("perm")]
+[Alias("Perm")]
+CT_Perm = Kern;
+
+[Tag("permStart")]
+[Alias("PermStart")]
+CT_PermStart = PermStart;
+
+[Tag("text")]
+[Alias("Text")]
+CT_Text = TextType;
+
+[Tag("r")]
+[Alias("R")]
+CT_R = Run;
+
+[Alias("Hint")]
+ST_Hint = FontTypeHintValues;
+
+[Alias("Theme")]
+ST_Theme = ThemeFontValues;
+
+[Tag("fonts")]
+[Alias("Fonts")]
+CT_Fonts = Fonts;
+
+[Tag("rPr")]
+[Alias("RPr")]
+CT_RPr = RunProperties;
+
+[Tag("mathCtrlIns")]
+[Alias("MathCtrlIns")]
+CT_MathCtrlIns = LatentStyles;
+
+[Tag("mathCtrlDel")]
+[Alias("MathCtrlDel")]
+CT_MathCtrlDel = LatentStyles;
+
+[Tag("rPrOriginal")]
+[Alias("RPrOriginal")]
+CT_RPrOriginal = Personal;
+
+[Tag("paraRPrOriginal")]
+[Alias("ParaRPrOriginal")]
+CT_ParaRPrOriginal = MirrorMargins;
+
+[Tag("paraRPr")]
+[Alias("ParaRPr")]
+CT_ParaRPr = FrameProperties;
+
+[Tag("altChunk")]
+[Alias("AltChunk")]
+CT_AltChunk = AltChunk;
+
+[Tag("altChunkPr")]
+[Alias("AltChunkPr")]
+CT_AltChunkPr = AltChunkProperties;
+
+[Alias("RubyAlign")]
+ST_RubyAlign = RubyAlignValues;
+
+[Tag("rubyAlign")]
+[Alias("RubyAlign")]
+CT_RubyAlign = RubyAlign;
+
+[Tag("rubyPr")]
+[Alias("RubyPr")]
+CT_RubyPr = RubyProperties;
+
+[Tag("rubyContent")]
+[Alias("RubyContent")]
+CT_RubyContent = RubyContentType;
+
+[Tag("ruby")]
+[Alias("Ruby")]
+CT_Ruby = Ruby;
+
+[Alias("Lock")]
+ST_Lock = LockingValues;
+
+[Tag("lock")]
+[Alias("Lock")]
+CT_Lock = Lock;
+
+[Tag("sdtListItem")]
+[Alias("SdtListItem")]
+CT_SdtListItem = ListItem;
+
+[Alias("SdtDateMappingType")]
+ST_SdtDateMappingType = DateFormatValues;
+
+[Tag("sdtDateMappingType")]
+[Alias("SdtDateMappingType")]
+CT_SdtDateMappingType = SdtDateMappingType;
+
+[Tag("calendarType")]
+[Alias("CalendarType")]
+CT_CalendarType = FldCharType;
+
+[Tag("sdtDate")]
+[Alias("SdtDate")]
+CT_SdtDate = SdtContentDate;
+
+[Tag("sdtComboBox")]
+[Alias("SdtComboBox")]
+CT_SdtComboBox = SdtContentComboBox;
+
+[Tag("sdtDocPart")]
+[Alias("SdtDocPart")]
+CT_SdtDocPart = SdtDocPartType;
+
+[Tag("sdtDropDownList")]
+[Alias("SdtDropDownList")]
+CT_SdtDropDownList = SdtContentDropDownList;
+
+[Tag("placeholder")]
+[Alias("Placeholder")]
+CT_Placeholder = CustomXmlPlaceholder;
+
+[Tag("sdtText")]
+[Alias("SdtText")]
+CT_SdtText = FitText;
+
+[Tag("dataBinding")]
+[Alias("DataBinding")]
+CT_DataBinding = DataBinding;
+
+[Tag("sdtPr")]
+[Alias("SdtPr")]
+CT_SdtPr = SdtProperties;
+
+[Tag("sdtEndPr")]
+[Alias("SdtEndPr")]
+CT_SdtEndPr = SdtEndCharProperties;
+
+[Tag("dirContentRun")]
+[Alias("DirContentRun")]
+CT_DirContentRun = Direction;
+
+[Tag("bdoContentRun")]
+[Alias("BdoContentRun")]
+CT_BdoContentRun = Direction;
+
+[Alias("Direction")]
+ST_Direction = DirectionValues;
+
+[Tag("sdtContentRun")]
+[Alias("SdtContentRun")]
+CT_SdtContentRun = SdtContentRun;
+
+[Tag("sdtContentBlock")]
+[Alias("SdtContentBlock")]
+CT_SdtContentBlock = SdtContentBlock;
+
+[Tag("sdtContentRow")]
+[Alias("SdtContentRow")]
+CT_SdtContentRow = SdtContentRow;
+
+[Tag("sdtContentCell")]
+[Alias("SdtContentCell")]
+CT_SdtContentCell = SdtContentCell;
+
+[Tag("sdtBlock")]
+[Alias("SdtBlock")]
+CT_SdtBlock = SdtBlock;
+
+[Tag("sdtRun")]
+[Alias("SdtRun")]
+CT_SdtRun = SdtRun;
+
+[Tag("sdtCell")]
+[Alias("SdtCell")]
+CT_SdtCell = SdtCell;
+
+[Tag("sdtRow")]
+[Alias("SdtRow")]
+CT_SdtRow = SdtRow;
+
+[Tag("attr")]
+[Alias("Attr")]
+CT_Attr = CustomXmlAttribute;
+
+[Tag("customXmlRun")]
+[Alias("CustomXmlRun")]
+CT_CustomXmlRun = CustomXmlRun;
+
+[Tag("smartTagRun")]
+[Alias("SmartTagRun")]
+CT_SmartTagRun = FrameLayout;
+
+[Tag("customXmlBlock")]
+[Alias("CustomXmlBlock")]
+CT_CustomXmlBlock = CustomXmlBlock;
+
+[Tag("customXmlPr")]
+[Alias("CustomXmlPr")]
+CT_CustomXmlPr = CustomXmlProperties;
+
+[Tag("customXmlRow")]
+[Alias("CustomXmlRow")]
+CT_CustomXmlRow = CustomXmlRow;
+
+[Tag("customXmlCell")]
+[Alias("CustomXmlCell")]
+CT_CustomXmlCell = CustomXmlCell;
+
+[Tag("smartTagPr")]
+[Alias("SmartTagPr")]
+CT_SmartTagPr = RightMarginDiv;
+
+[Tag("p")]
+[Alias("P")]
+CT_P = Paragraph;
+
+[Alias("TblWidth")]
+ST_TblWidth = TableWidthUnitValues;
+
+[Tag("height")]
+[Alias("Height")]
+CT_Height = TwipsMeasureType;
+
+[Union]
+[Alias("MeasurementOrPercent")]
+ST_MeasurementOrPercent = MeasurementOrPercentValue;
+
+[Tag("tblWidth")]
+[Alias("TblWidth")]
+CT_TblWidth = TableGrid;
+
+[Tag("tblGridCol")]
+[Alias("TblGridCol")]
+CT_TblGridCol = GridColumn;
+
+[Tag("tblGridBase")]
+[Alias("TblGridBase")]
+CT_TblGridBase = TableGridChange;
+
+[Tag("tblGrid")]
+[Alias("TblGrid")]
+CT_TblGrid = TableGrid;
+
+[Tag("tcBorders")]
+[Alias("TcBorders")]
+CT_TcBorders = TableCellBorders;
+
+[Tag("tcMar")]
+[Alias("TcMar")]
+CT_TcMar = TableCellMargin;
+
+[Alias("Merge")]
+ST_Merge = MergedCellValues;
+
+[Tag("vMerge")]
+[Alias("VMerge")]
+CT_VMerge = VerticalMerge;
+
+[Tag("tcPrBase")]
+[Alias("TcPrBase")]
+CT_TcPrBase = RubyBase;
+
+[Tag("tcPr")]
+[Alias("TcPr")]
+CT_TcPr = PreviousTableCellProperties;
+
+[Tag("tcPrInner")]
+[Alias("TcPrInner")]
+CT_TcPrInner = TableCellPropertiesChange;
+
+[Tag("tc")]
+[Alias("Tc")]
+CT_Tc = TableCell;
+
+[Tag("cnf")]
+[Alias("Cnf")]
+CT_Cnf = Inserted;
+
+[Tag("headers")]
+[Alias("Headers")]
+CT_Headers = TableHeader;
+
+[Tag("trPrBase")]
+[Alias("TrPrBase")]
+CT_TrPrBase = RubyBase;
+
+[Tag("trPr")]
+[Alias("TrPr")]
+CT_TrPr = PreviousTableRowProperties;
+
+[Tag("row")]
+[Alias("Row")]
+CT_Row = TopBorder;
+
+[Alias("TblLayoutType")]
+ST_TblLayoutType = TableLayoutValues;
+
+[Tag("tblLayoutType")]
+[Alias("TblLayoutType")]
+CT_TblLayoutType = TableLayout;
+
+[Alias("TblOverlap")]
+ST_TblOverlap = TableOverlapValues;
+
+[Tag("tblOverlap")]
+[Alias("TblOverlap")]
+CT_TblOverlap = TableOverlap;
+
+[Tag("tblPPr")]
+[Alias("TblPPr")]
+CT_TblPPr = TablePositionProperties;
+
+[Tag("tblCellMar")]
+[Alias("TblCellMar")]
+CT_TblCellMar = TableCellMarginDefault;
+
+[Tag("tblBorders")]
+[Alias("TblBorders")]
+CT_TblBorders = TableBorders;
+
+[Tag("tblPrBase")]
+[Alias("TblPrBase")]
+CT_TblPrBase = TablePropertiesChange;
+
+[Tag("tblPr")]
+[Alias("TblPr")]
+CT_TblPr = PreviousTableProperties;
+
+[Tag("tblPrExBase")]
+[Alias("TblPrExBase")]
+CT_TblPrExBase = TablePropertyExceptionsChange;
+
+[Tag("tblPrEx")]
+[Alias("TblPrEx")]
+CT_TblPrEx = PreviousTablePropertyExceptions;
+
+[Tag("tbl")]
+[Alias("Tbl")]
+CT_Tbl = Table;
+
+[Tag("tblLook")]
+[Alias("TblLook")]
+CT_TblLook = TableLook;
+
+[Alias("FtnPos")]
+ST_FtnPos = FootnotePositionValues;
+
+[Tag("ftnPos")]
+[Alias("FtnPos")]
+CT_FtnPos = FtnPos;
+
+[Alias("EdnPos")]
+ST_EdnPos = EndnotePositionValues;
+
+[Tag("ednPos")]
+[Alias("EdnPos")]
+CT_EdnPos = EdnPos;
+
+[Tag("numFmt")]
+[Alias("NumFmt")]
+CT_NumFmt = NumberingFormat;
+
+[Alias("RestartNumber")]
+ST_RestartNumber = RestartNumberValues;
+
+[Tag("numRestart")]
+[Alias("NumRestart")]
+CT_NumRestart = NumberingRestart;
+
+[Tag("ftnEdnRef")]
+[Alias("FtnEdnRef")]
+CT_FtnEdnRef = FootnoteReferenceMark;
+
+[Tag("ftnEdnSepRef")]
+[Alias("FtnEdnSepRef")]
+CT_FtnEdnSepRef = EndnoteReferenceMark;
+
+[Tag("ftnEdn")]
+[Alias("FtnEdn")]
+CT_FtnEdn = BasedOn;
+
+[Tag("ftnProps")]
+[Alias("FtnProps")]
+CT_FtnProps = NoProof;
+
+[Tag("ednProps")]
+[Alias("EdnProps")]
+CT_EdnProps = NoProof;
+
+[Tag("ftnDocProps")]
+[Alias("FtnDocProps")]
+CT_FtnDocProps = NoProof;
+
+[Tag("ednDocProps")]
+[Alias("EdnDocProps")]
+CT_EdnDocProps = DocParts;
+
+[Tag("recipientData")]
+[Alias("RecipientData")]
+CT_RecipientData = RecipientData;
+
+[Tag("base64Binary")]
+[Alias("Base64Binary")]
+CT_Base64Binary = TemporarySdt;
+
+[Tag("recipients")]
+[Alias("Recipients")]
+CT_Recipients = Recipients;
+
+[Tag("odsoFieldMapData")]
+[Alias("OdsoFieldMapData")]
+CT_OdsoFieldMapData = FieldMapData;
+
+[Alias("MailMergeSourceType")]
+ST_MailMergeSourceType = MailMergeSourceValues;
+
+[Tag("mailMergeSourceType")]
+[Alias("MailMergeSourceType")]
+CT_MailMergeSourceType = MailMergeSourceType;
+
+[Tag("odso")]
+[Alias("Odso")]
+CT_Odso = DataSourceObject;
+
+[Tag("mailMerge")]
+[Alias("MailMerge")]
+CT_MailMerge = MailMerge;
+
+[Alias("TargetScreenSz")]
+ST_TargetScreenSz = TargetScreenSizeValues;
+
+[Tag("targetScreenSz")]
+[Alias("TargetScreenSz")]
+CT_TargetScreenSz = TargetScreenSize;
+
+[Tag("compat")]
+[Alias("Compat")]
+CT_Compat = Compatibility;
+
+[Tag("compatSetting")]
+[Alias("CompatSetting")]
+CT_CompatSetting = CompatibilitySetting;
+
+[Tag("docVar")]
+[Alias("DocVar")]
+CT_DocVar = DocumentVariable;
+
+[Tag("docVars")]
+[Alias("DocVars")]
+CT_DocVars = DocumentVariables;
+
+[Tag("docRsids")]
+[Alias("DocRsids")]
+CT_DocRsids = DocGrid;
+
+[Alias("CharacterSpacing")]
+ST_CharacterSpacing = CharacterSpacingValues;
+
+[Tag("characterSpacing")]
+[Alias("CharacterSpacing")]
+CT_CharacterSpacing = CharacterSpacing;
+
+[Tag("saveThroughXslt")]
+[Alias("SaveThroughXslt")]
+CT_SaveThroughXslt = SaveThroughXslt;
+
+[Tag("rPrDefault")]
+[Alias("RPrDefault")]
+CT_RPrDefault = RunPropertiesDefault;
+
+[Tag("pPrDefault")]
+[Alias("PPrDefault")]
+CT_PPrDefault = ParagraphPropertiesDefault;
+
+[Tag("docDefaults")]
+[Alias("DocDefaults")]
+CT_DocDefaults = DocDefaults;
+
+[Alias("WmlColorSchemeIndex")]
+ST_WmlColorSchemeIndex = ColorSchemeIndexValues;
+
+[Tag("colorSchemeMapping")]
+[Alias("ColorSchemeMapping")]
+CT_ColorSchemeMapping = ColorSchemeMapping;
+
+[Tag("readingModeInkLockDown")]
+[Alias("ReadingModeInkLockDown")]
+CT_ReadingModeInkLockDown = ReadModeInkLockDown;
+
+[Tag("writeProtection")]
+[Alias("WriteProtection")]
+CT_WriteProtection = WriteProtection;
+
+[Tag("settings")]
+[Alias("Settings")]
+CT_Settings = Settings;
+
+[Tag("styleSort")]
+[Alias("StyleSort")]
+CT_StyleSort = StyleSort;
+
+[Tag("stylePaneFilter")]
+[Alias("StylePaneFilter")]
+CT_StylePaneFilter = StylePaneFormatFilter;
+
+[Alias("StyleSort")]
+ST_StyleSort = StylePaneSortMethodsValues;
+
+[Tag("webSettings")]
+[Alias("WebSettings")]
+CT_WebSettings = WebSettings;
+
+[Alias("FrameScrollbar")]
+ST_FrameScrollbar = FrameScrollbarVisibilityValues;
+
+[Tag("frameScrollbar")]
+[Alias("FrameScrollbar")]
+CT_FrameScrollbar = FrameScrollbar;
+
+[Tag("optimizeForBrowser")]
+[Alias("OptimizeForBrowser")]
+CT_OptimizeForBrowser = OptimizeForBrowser;
+
+[Tag("frame")]
+[Alias("Frame")]
+CT_Frame = Frame;
+
+[Alias("FrameLayout")]
+ST_FrameLayout = FrameLayoutValues;
+
+[Tag("frameLayout")]
+[Alias("FrameLayout")]
+CT_FrameLayout = FrameLayout;
+
+[Tag("framesetSplitbar")]
+[Alias("FramesetSplitbar")]
+CT_FramesetSplitbar = FramesetSplitbar;
+
+[Tag("frameset")]
+[Alias("Frameset")]
+CT_Frameset = Frameset;
+
+[Tag("numPicBullet")]
+[Alias("NumPicBullet")]
+CT_NumPicBullet = NumberingPictureBullet;
+
+[Alias("LevelSuffix")]
+ST_LevelSuffix = LevelSuffixValues;
+
+[Tag("levelSuffix")]
+[Alias("LevelSuffix")]
+CT_LevelSuffix = LevelSuffix;
+
+[Tag("levelText")]
+[Alias("LevelText")]
+CT_LevelText = LevelText;
+
+[Tag("lvl")]
+[Alias("Lvl")]
+CT_Lvl = Level;
+
+[Alias("MultiLevelType")]
+ST_MultiLevelType = MultiLevelValues;
+
+[Tag("multiLevelType")]
+[Alias("MultiLevelType")]
+CT_MultiLevelType = MultiLevelType;
+
+[Tag("abstractNum")]
+[Alias("AbstractNum")]
+CT_AbstractNum = AbstractNum;
+
+[Tag("numLvl")]
+[Alias("NumLvl")]
+CT_NumLvl = NumberingFormat;
+
+[Tag("num")]
+[Alias("Num")]
+CT_Num = NumberingInstance;
+
+[Tag("numbering")]
+[Alias("Numbering")]
+CT_Numbering = Numbering;
+
+[Alias("TblStyleOverrideType")]
+ST_TblStyleOverrideType = TableStyleOverrideValues;
+
+[Tag("tblStylePr")]
+[Alias("TblStylePr")]
+CT_TblStylePr = TableStyleProperties;
+
+[Alias("StyleType")]
+ST_StyleType = StyleValues;
+
+[Tag("style")]
+[Alias("Style")]
+CT_Style = Style;
+
+[Tag("lsdException")]
+[Alias("LsdException")]
+CT_LsdException = LatentStyleExceptionInfo;
+
+[Tag("latentStyles")]
+[Alias("LatentStyles")]
+CT_LatentStyles = LatentStyles;
+
+[Tag("styles")]
+[Alias("Styles")]
+CT_Styles = Styles;
+
+[Tag("panose")]
+[Alias("Panose")]
+CT_Panose = FtnPos;
+
+[Alias("FontFamily")]
+ST_FontFamily = FontFamilyValues;
+
+[Tag("fontFamily")]
+[Alias("FontFamily")]
+CT_FontFamily = FontFamily;
+
+[Alias("Pitch")]
+ST_Pitch = FontPitchValues;
+
+[Tag("pitch")]
+[Alias("Pitch")]
+CT_Pitch = Pitch;
+
+[Tag("fontSig")]
+[Alias("FontSig")]
+CT_FontSig = Control;
+
+[Tag("fontRel")]
+[Alias("FontRel")]
+CT_FontRel = Control;
+
+[Tag("font")]
+[Alias("Font")]
+CT_Font = Font;
+
+[Tag("fontsList")]
+[Alias("FontsList")]
+CT_FontsList = MonthLong;
+
+[Tag("divBdr")]
+[Alias("DivBdr")]
+CT_DivBdr = DivBorder;
+
+[Tag("div")]
+[Alias("Div")]
+CT_Div = Div;
+
+[Tag("divs")]
+[Alias("Divs")]
+CT_Divs = DivsType;
+
+[Tag("body")]
+[Alias("Body")]
+CT_Body = BodyType;
+
+[Tag("comments")]
+[Alias("Comments")]
+CT_Comments = Comments;
+
+[Tag("footnotes")]
+[Alias("Footnotes")]
+CT_Footnotes = Footnotes;
+
+[Tag("endnotes")]
+[Alias("Endnotes")]
+CT_Endnotes = Endnotes;
+
+[Tag("smartTagType")]
+[Alias("SmartTagType")]
+CT_SmartTagType = DataType;
+
+[Alias("ThemeColor")]
+ST_ThemeColor = ThemeColorValues;
+
+[Alias("DocPartBehavior")]
+ST_DocPartBehavior = DocPartBehaviorValues;
+
+[Tag("docPartBehavior")]
+[Alias("DocPartBehavior")]
+CT_DocPartBehavior = DocPartBehavior;
+
+[Tag("docPartBehaviors")]
+[Alias("DocPartBehaviors")]
+CT_DocPartBehaviors = DocPartCategory;
+
+[Alias("DocPartType")]
+ST_DocPartType = DocPartValues;
+
+[Tag("docPartType")]
+[Alias("DocPartType")]
+CT_DocPartType = DocPartType;
+
+[Tag("docPartTypes")]
+[Alias("DocPartTypes")]
+CT_DocPartTypes = DocPartTypes;
+
+[Alias("DocPartGallery")]
+ST_DocPartGallery = DocPartGalleryValues;
+
+[Tag("docPartGallery")]
+[Alias("DocPartGallery")]
+CT_DocPartGallery = DocPartGallery;
+
+[Tag("docPartCategory")]
+[Alias("DocPartCategory")]
+CT_DocPartCategory = DocPartCategory;
+
+[Tag("docPartName")]
+[Alias("DocPartName")]
+CT_DocPartName = DocPartName;
+
+[Tag("docPartPr")]
+[Alias("DocPartPr")]
+CT_DocPartPr = DocPartProperties;
+
+[Tag("docPart")]
+[Alias("DocPart")]
+CT_DocPart = DocPartType;
+
+[Tag("docParts")]
+[Alias("DocParts")]
+CT_DocParts = DocParts;
+
+[Alias("CaptionPos")]
+ST_CaptionPos = CaptionPositionValues;
+
+[Tag("caption")]
+[Alias("Caption")]
+CT_Caption = Caption;
+
+[Tag("autoCaption")]
+[Alias("AutoCaption")]
+CT_AutoCaption = AutoCaption;
+
+[Tag("autoCaptions")]
+[Alias("AutoCaptions")]
+CT_AutoCaptions = AutoCaptions;
+
+[Tag("captions")]
+[Alias("Captions")]
+CT_Captions = Captions;
+
+[Tag("documentBase")]
+[Alias("DocumentBase")]
+CT_DocumentBase = DocumentType;
+
+[Tag("document")]
+[Alias("Document")]
+CT_Document = Document;
+
+[Tag("glossaryDocument")]
+[Alias("GlossaryDocument")]
+CT_GlossaryDocument = GlossaryDocument;
+

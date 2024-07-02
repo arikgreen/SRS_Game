@@ -1,0 +1,8 @@
+[Tag("schema")]
+[Alias("Schema")]
+CT_Schema = Schema;
+
+[Tag("schemaLibrary")]
+[Alias("SchemaLibrary")]
+CT_SchemaLibrary = SchemaLibrary;
+

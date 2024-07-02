@@ -1,0 +1,35 @@
+[MinValue(1)]
+[MaxValue(255)]
+ST_Integer255 = Integer255;
+
+[MinValue(-2)]
+[MaxValue(2)]
+ST_Integer2 = Integer2;
+
+[MinValue(0)]
+[MaxValue(4)]
+ST_SpacingRule = SpacingRule;
+
+ST_UnSignedInteger = UnSignedInteger;
+
+[MaxLength(1)]
+ST_Char = Char;
+
+ST_Shp = ShapeDelimiterValues;
+
+ST_FType = FractionTypeValues;
+
+ST_LimLoc = LimitLocationValues;
+
+ST_TopBot = VerticalJustificationValues;
+
+ST_Script = ScriptValues;
+
+ST_Style = StyleValues;
+
+ST_Jc = JustificationValues;
+
+ST_BreakBin = BreakBinaryOperatorValues;
+
+ST_BreakBinSub = BreakBinarySubtractionValues;
+

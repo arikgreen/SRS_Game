@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Iml.Documentation.Document" Collapsed="true">
+    <Position X="3.25" Y="2" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="History" Type="Iml.Documentation.HistoryItem" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="2.691" />
+        <Point X="4.75" Y="4.346" />
+        <Point X="6.75" Y="4.346" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Sections" Type="Iml.Documentation.Section" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.125" Y="2.691" />
+        <Point X="4.125" Y="5.438" />
+        <Point X="4.5" Y="5.438" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.423" Y="0.142" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Authors" Type="Iml.Documentation.Author" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.083" Y="2.691" />
+        <Point X="5.083" Y="3.379" />
+        <Point X="6.75" Y="3.379" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IAKADokBgCAQSFQYCCAREgAaBcBkQAQAREACBJAqBgU=</HashCode>
+      <FileName>Documentation\Document.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Properties" />
+      <Property Name="History" />
+      <Property Name="Styles" />
+      <Property Name="Sections" />
+      <Property Name="Authors" />
+      <Property Name="Body" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Iml.Foundation.ProjectElement" Collapsed="true">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAQAABAAjAAwAAAAAAAAABEAAAABAAAAAAAAAAACAA=</HashCode>
+      <FileName>Foundation\ProjectElement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Iml.Documentation.DocumentProperty" Collapsed="true">
+    <Position X="6.75" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Documentation\DocumentProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Documentation.HistoryItem" Collapsed="true">
+    <Position X="6.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAAAAAAAAAAgAAAAgAAQAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Documentation\HistoryItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Documentation.Style" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAEAAAAAAAAEAgAAAAAAAAAAABAAAAAAAAIA=</HashCode>
+      <FileName>Documentation\Style.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Documentation.Section" Collapsed="true">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAiAEwAAAAAAABAAACAQAgAAACCABAAIAAQAA=</HashCode>
+      <FileName>Documentation\Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Iml.Documentation.Author" Collapsed="true">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAIAEAAAgAAACACQAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Documentation\Author.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Documentation.Block" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAAAAQgAAAAAAA=</HashCode>
+      <FileName>Documentation\Block.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

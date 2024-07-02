@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Iml.Model.Requirements.Requirement" Collapsed="true">
+    <Position X="9.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Requirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.AcceptationCriterium" Collapsed="true">
+    <Position X="7" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AcceptationCriterium.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.DataRequirement" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.FunctionalRequirement" Collapsed="true">
+    <Position X="7.75" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FunctionalRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.HardwareRequirement" Collapsed="true">
+    <Position X="9.25" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HardwareRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.QualityRequirement" Collapsed="true">
+    <Position X="12.5" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>QualityRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Iml.Model.Requirements.SoftwareRequirement" Collapsed="true">
+    <Position X="11.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SoftwareRequirement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
