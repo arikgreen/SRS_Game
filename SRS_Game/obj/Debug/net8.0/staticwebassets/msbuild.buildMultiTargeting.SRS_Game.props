@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SRS_Game.props" />
+</Project>
