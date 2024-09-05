@@ -2,10 +2,10 @@
 
 namespace SRS_Game.Models
 {
-    public enum FileSourceTypes
-    {
-        MSTEAMS, ZOOM
-    }
+    //public enum FileSourceTypes
+    //{
+    //    MSTEAMS, ZOOM
+    //}
     
     public class MeetingHistoryFile
     {
