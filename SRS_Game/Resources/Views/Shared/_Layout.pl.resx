@@ -141,4 +141,7 @@
   <data name="Users" xml:space="preserve">
     <value>Użytkownicy</value>
   </data>
+  <data name="Participants" xml:space="preserve">
+    <value>Interesariusze</value>
+  </data>
 </root>

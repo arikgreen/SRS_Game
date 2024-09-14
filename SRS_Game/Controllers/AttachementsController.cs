@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -23,7 +24,11 @@ namespace SRS_Game.Controllers
         // GET: Attachements
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Attachements.ToListAsync());
+            var orderedAttachements = _context.Attachements
+                .OrderByDescending(d => d.CreateDate)
+                .ToListAsync();
+
+            return View(await orderedAttachements);
         }
 
         // GET: Attachements/Details/5
@@ -36,12 +41,14 @@ namespace SRS_Game.Controllers
 
             var attachement = await _context.Attachements
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (attachement == null)
+            
+            if (attachement == null || attachement.FileContent == null)
             {
                 return NotFound();
             }
 
-            ViewData["fileContent"] = attachement.FileContent == null ? "" : Encoding.UTF8.GetString(attachement.FileContent);
+            string fileContent = attachement.FileContent == null ? "" : Encoding.ASCII.GetString(attachement.FileContent);
+            ViewData["fileContent"] = Regex.Replace(fileContent, @"((\r)?\n|\u0010)", "<br />");
 
             return View(attachement);
         }
@@ -49,7 +56,7 @@ namespace SRS_Game.Controllers
         // GET: Attachements/Create
         public IActionResult Create()
         {
-            return View();
+            return View("UploadFile");
         }
 
         // POST: Attachements/Create
@@ -64,8 +71,49 @@ namespace SRS_Game.Controllers
                 _context.Add(attachement);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
+                //var redirectUrl = Url.Action("Details", "Home");
+
+                //return LocalRedirect(redirectUrl);
             }
             return View(attachement);
+        }
+
+        [HttpPost]
+        public ActionResult UploadFilePost(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("No file selected for upload...");
+
+            string fileName = Path.GetFileName(file.FileName);
+            string contentType = file.ContentType;
+
+            try
+            {
+                using (MemoryStream memoryStream = new())
+                {
+                    file.CopyToAsync(memoryStream);
+
+                    //byte[] fileContent = new byte[Encoding.GetByteCount(memoryStream)];
+
+                    var attachement = new Attachement[]
+                    {
+                        new(1, fileName, DateTime.Now, DateTime.Now, memoryStream.ToArray(), contentType)
+                    };
+
+                    _context.Attachements.AddRange(attachement);
+                    _context.SaveChanges();
+                }
+            }
+            catch
+            {
+                return BadRequest(new
+                {
+                    message = "Error saving file to the database."
+                });
+            }
+
+            return RedirectToAction("Index", "Attachements");
         }
 
         // GET: Attachements/Edit/5

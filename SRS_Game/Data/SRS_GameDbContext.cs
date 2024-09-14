@@ -11,7 +11,7 @@ namespace SRS_Game.Data
 {
     public class SRS_GameDbContext : DbContext
     {
-        public SRS_GameDbContext (DbContextOptions<SRS_GameDbContext> options)
+        public SRS_GameDbContext(DbContextOptions<SRS_GameDbContext> options)
             : base(options)
         {
         }
@@ -21,9 +21,12 @@ namespace SRS_Game.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<DocumentHistory> DocumentHistories { get; set; }
         public DbSet<Team> Teams { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserType> UserTypes { get; set; }
+        public DbSet<ParticipantType> ParticipantTypes { get; set; }
+        public DbSet<Participant> Participants { get; set; }
+        public DbSet<TeamParticipants> TeamParticipants { get; set; }
         public DbSet<MeetingHistoryFile> Files { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,10 +42,10 @@ namespace SRS_Game.Data
                 .IsUnique();
 
             modelBuilder.Entity<DocumentHistory>()
-                .HasIndex(e => new { e.DocId, e.AuthorId, e.Version })
+                .HasIndex(e => new { e.DocumentId, e.AuthorId, e.Version })
                 .IsUnique();
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<Participant>()
                 .HasIndex(a => new { a.Email, a.FirstName, a.LastName })
                 .IsUnique();
 
@@ -50,7 +53,7 @@ namespace SRS_Game.Data
                 .HasIndex(a => new { a.Name })
                 .IsUnique();
 
-            modelBuilder.Entity<UserType>()
+            modelBuilder.Entity<ParticipantType>()
                 .HasIndex(b => new { b.Name })
                 .IsUnique();
 
@@ -61,6 +64,17 @@ namespace SRS_Game.Data
             modelBuilder.Entity<MeetingHistoryFile>()
                 .HasIndex(e => new { e.Id })
                 .IsUnique();
+
+            modelBuilder.Entity<User>()
+                .HasIndex(a => new { a.Login, a.Email })
+                .IsUnique();
+
+            modelBuilder.Entity<UserRole>()
+                .HasIndex(b => new { b.Name })
+                .IsUnique();
+
+            modelBuilder.Entity<TeamParticipants>()
+                .HasKey(p => new { p.ParticipantId, p.TeamId });
         }
     }
 }

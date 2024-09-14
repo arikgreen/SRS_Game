@@ -9,16 +9,14 @@
     var currentCulture = cultureCookie != null
         ? CookieRequestCultureProvider.ParseCookieValue(cultureCookie).UICultures.FirstOrDefault().Value
         : "en"; // Default to English if the cookie is not set
-
-    bool IsSelected(string culture) => currentCulture == culture;
 }
 
-<div>
-    <form asp-controller="Home" asp-action="SetLanguage" method="post">
-        <input type="hidden" name="returnUrl" value="@HttpContextAccessor.HttpContext.Request.Path" />
-        <select name="culture" onchange="this.form.submit();">
-            <option value="en" selected="@(IsSelected("en") ? "selected" : null)">English</option>
-            <option value="pl" selected="@(IsSelected("pl") ? "selected" : null)">Polski</option>
-        </select>
-    </form>
+<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        @currentCulture
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" asp-controller="Home" asp-action="SetLanguage" asp-route-culture="en" asp-route-returnUrl="@HttpContextAccessor.HttpContext.Request.Path" method="post">English</a>
+        <a class="dropdown-item" asp-controller="Home" asp-action="SetLanguage" asp-route-culture="pl" asp-route-returnUrl="@HttpContextAccessor.HttpContext.Request.Path" method="post">Polski</a>
+    </div>
 </div>

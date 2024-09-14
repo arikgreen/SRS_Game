@@ -17,11 +17,11 @@ namespace ContosoUniversity.Data
             context.Database.EnsureCreated();
 
             // Look for any records.
-            if (context.UserTypes.Any())
+            if (context.ParticipantTypes.Any())
             {
                 //return;   // DB has been seeded
-                context.UserTypes.ExecuteDelete();
-                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('UserTypes', RESEED, 0)");
+                context.ParticipantTypes.ExecuteDelete();
+                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('ParticipantTypes', RESEED, 0)");
                 context.SaveChanges();
             }
 
@@ -32,10 +32,16 @@ namespace ContosoUniversity.Data
                 context.SaveChanges();
             }
 
-            if (context.Users.Any())
+            if (context.Participants.Any())
             {
-                context.Users.ExecuteDelete();
-                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('Users', RESEED, 0)");
+                context.Participants.ExecuteDelete();
+                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('Participants', RESEED, 0)");
+                context.SaveChanges();
+            }
+
+            if (context.TeamParticipants.Any())
+            {
+                context.TeamParticipants.ExecuteDelete();
                 context.SaveChanges();
             }
 
@@ -67,6 +73,34 @@ namespace ContosoUniversity.Data
                 context.SaveChanges();
             }
 
+            if (context.UserRoles.Any())
+            {
+                context.UserRoles.ExecuteDelete();
+                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('UserRoles', RESEED, 0)");
+                context.SaveChanges();
+            }
+
+            if (context.Users.Any())
+            {
+                context.Users.ExecuteDelete();
+                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('Users', RESEED, 0)");
+                context.SaveChanges();
+            }
+
+            var userRoles = new UserRole[]
+            {
+                new ("Administrator", "Administrator"),
+                new ("Owner", "Teacher"),
+                new ("User", "Student")
+            };
+            context.UserRoles.AddRange(userRoles);
+            context.SaveChanges();
+
+            var users = new User[]
+            {
+                new ("s94089", "", "s94089@student.pg.edu.pl", 3, "Artur", "Wilczak", "")
+            };
+
             var teams = new Team[]
             {
                 new ("Zespół A", "001"),
@@ -92,30 +126,47 @@ namespace ContosoUniversity.Data
             context.Projects.AddRange(projects);
             context.SaveChanges();
 
-            var userTypes = new UserType[]
+            var participantTypes = new ParticipantType[]
             {
                 new ("Opiekun", "Opiekun projektu"),
                 new ("Kierownik", "Kierownik projektu"),
                 new ("Student", "Student"),
                 new ("Klient", "Klient")
             };
-            context.UserTypes.AddRange(userTypes);
+            context.ParticipantTypes.AddRange(participantTypes);
             context.SaveChanges();
 
-            var users = new User[]
+            var participants = new Participant[]
             {
-                new ("Artur", "Wilczak", "s94089@student.pg.edu.pl", 3, "1234", null, null, null),
-                new ("Jan", "Kowalski", "jan.kowalski@example.com", 1, "password1", null, null, null),
-                new ("Anna", "Nowak", "anna.nowak@example.com", 2, "password2", null, null, null),
-                new ("Piotr", "Wiśniewski", "piotr.wisniewski@example.com", 1, "password3", null, null, null),
-                new ("Katarzyna", "Wójcik", "katarzyna.wojcik@example.com", 2, "password4", null, null, null),
-                new ("Tomasz", "Kowalczyk", "tomasz.kowalczyk@example.com", 1, "password5", null, null, null),
-                new ("Agnieszka", "Zielińska", "agnieszka.zielinska@example.com", 2, "password6", null, null, null),
-                new ("Marek", "Szymański", "marek.szymanski@example.com", 1, "password7", null, null, null),
-                new ("Magdalena", "Lewandowska", "magdalena.lewandowska@example.com", 2, "password8", null, null, null),
-                new ("Paweł", "Kamiński", "pawel.kaminski@example.com", 1, "password9", null, null, null)
+                new ("Artur", "Wilczak", "s94089@student.pg.edu.pl", 3, null, null, null),
+                new ("Jan", "Kowalski", "jan.kowalski@example.com", 1, null, null, null),
+                new ("Anna", "Nowak", "anna.nowak@example.com", 2, null, null, null),
+                new ("Piotr", "Wiśniewski", "piotr.wisniewski@example.com", 1, null, null, null),
+                new ("Katarzyna", "Wójcik", "katarzyna.wojcik@example.com", 2, null, null, null),
+                new ("Tomasz", "Kowalczyk", "tomasz.kowalczyk@example.com", 1, null, null, null),
+                new ("Agnieszka", "Zielińska", "agnieszka.zielinska@example.com", 2, null, null, null),
+                new ("Marek", "Szymański", "marek.szymanski@example.com", 1, null, null, null),
+                new ("Magdalena", "Lewandowska", "magdalena.lewandowska@example.com", 2, null, null, null),
+                new ("Paweł", "Kamiński", "pawel.kaminski@example.com", 1, null, null, null)
             };
-            context.Users.AddRange(users);
+            context.Participants.AddRange(participants);
+            context.SaveChanges();
+
+            var teamParticipants = new TeamParticipants[]
+            {
+                new (1, 1),
+                new (2, 2),
+                new (2, 3),
+                new (4, 4),
+                new (4, 5),
+                new (4, 6),
+                new (1, 7),
+                new (3, 8),
+                new (1, 9),
+                new (2, 10),
+                new (3, 2)
+            };
+            context.TeamParticipants.AddRange(teamParticipants);
             context.SaveChanges();
 
             // Document(string name, string? description, int authorId, int? teamId, int? teamLeaderId, int? projectId,
@@ -146,31 +197,31 @@ namespace ContosoUniversity.Data
 
             var attachements = new Attachement[]
             {
-                new (1, "Załącznik 1", DateTime.Parse("2023-01-10"), DateTime.Parse("2023-01-10"), null, null),
-                new (1, "Załącznik 2", DateTime.Parse("2023-01-15"), DateTime.Parse("2023-01-15"), null, null),
-                new (2, "Załącznik 3", DateTime.Parse("2023-02-20"), DateTime.Parse("2023-02-20"), null, null),
-                new (3, "Załącznik 4", DateTime.Parse("2023-03-05"), DateTime.Parse("2023-03-05"), null, null),
-                new (3, "Załącznik 5", DateTime.Parse("2023-03-10"), DateTime.Parse("2023-03-10"), null, null),
-                new (4, "Załącznik 6", DateTime.Parse("2023-04-01"), DateTime.Parse("2023-04-01"), null, null),
-                new (5, "Załącznik 7", DateTime.Parse("2023-05-15"), DateTime.Parse("2023-05-15"), null, null),
-                new (5, "Załącznik 8", DateTime.Parse("2023-05-20"), DateTime.Parse("2023-05-20"), null, null),
-                new (6, "Załącznik 9", DateTime.Parse("2023-06-05"), DateTime.Parse("2023-06-05"), null, null),
-                new (6, "Załącznik 10", DateTime.Parse("2023-06-10"), DateTime.Parse("2023-06-10"), null, null),
-                new (7, "Załącznik 11", DateTime.Parse("2023-07-01"), DateTime.Parse("2023-07-01"), null, null),
-                new (8, "Załącznik 12", DateTime.Parse("2023-08-10"), DateTime.Parse("2023-08-10"), null, null),
-                new (8, "Załącznik 13", DateTime.Parse("2023-08-15"), DateTime.Parse("2023-08-15"), null, null),
-                new (9, "Załącznik 14", DateTime.Parse("2023-09-01"), DateTime.Parse("2023-09-01"), null, null),
-                new (9, "Załącznik 15", DateTime.Parse("2023-09-05"), DateTime.Parse("2023-09-05"), null, null),
-                new (10, "Załącznik 16", DateTime.Parse("2023-10-01"), DateTime.Parse("2023-10-01"), null, null),
-                new (10, "Załącznik 17", DateTime.Parse("2023-10-05"), DateTime.Parse("2023-10-05"), null, null),
-                new (11, "Załącznik 18", DateTime.Parse("2023-11-01"), DateTime.Parse("2023-11-01"), null, null),
-                new (12, "Załącznik 19", DateTime.Parse("2023-12-10"), DateTime.Parse("2023-12-10"), null, null),
-                new (13, "Załącznik 20", DateTime.Parse("2024-01-10"), DateTime.Parse("2024-01-10"), null, null),
-                new (13, "Załącznik 21", DateTime.Parse("2024-01-15"), DateTime.Parse("2024-01-15"), null, null),
-                new (14, "Załącznik 22", DateTime.Parse("2024-02-05"), DateTime.Parse("2024-02-05"), null, null),
-                new (15, "Załącznik 23", DateTime.Parse("2024-03-01"), DateTime.Parse("2024-03-01"), null, null),
-                new (16, "Załącznik 24", DateTime.Parse("2024-04-10"), DateTime.Parse("2024-04-10"), null, null),
-                new (17, "Załącznik 25", DateTime.Parse("2024-05-05"), DateTime.Parse("2024-05-05"), null, null)
+                new (1, "Załącznik 1", DateTime.Parse("2023-01-10"), DateTime.Parse("2023-01-10"), [ 0x74, 0x65, 0x61, 0x6D, 0x73, 0x20, 0x74, 0x72, 0x61, 0x6E, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x0D, 0x0A, 0x6D, 0x65, 0x65, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x31 ], "text/plain"),
+                new (1, "Załącznik 2", DateTime.Parse("2023-01-15"), DateTime.Parse("2023-01-15"), [ 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x2c, 0x20, 0x77, 0x6f, 0x72, 0x6C, 0x64, 0x21, 0x10, 0x48, 0x6F, 0x77, 0x20, 0x61, 0x72, 0x65, 0x20, 0x79, 0x6F, 0x75, 0x3F ], "text/plain"),
+                new (2, "Załącznik 3", DateTime.Parse("2023-02-20"), DateTime.Parse("2023-02-20"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (3, "Załącznik 4", DateTime.Parse("2023-03-05"), DateTime.Parse("2023-03-05"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (3, "Załącznik 5", DateTime.Parse("2023-03-10"), DateTime.Parse("2023-03-10"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (4, "Załącznik 6", DateTime.Parse("2023-04-01"), DateTime.Parse("2023-04-01"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (5, "Załącznik 7", DateTime.Parse("2023-05-15"), DateTime.Parse("2023-05-15"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (5, "Załącznik 8", DateTime.Parse("2023-05-20"), DateTime.Parse("2023-05-20"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (6, "Załącznik 9", DateTime.Parse("2023-06-05"), DateTime.Parse("2023-06-05"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (6, "Załącznik 10", DateTime.Parse("2023-06-10"), DateTime.Parse("2023-06-10"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (7, "Załącznik 11", DateTime.Parse("2023-07-01"), DateTime.Parse("2023-07-01"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (8, "Załącznik 12", DateTime.Parse("2023-08-10"), DateTime.Parse("2023-08-10"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (8, "Załącznik 13", DateTime.Parse("2023-08-15"), DateTime.Parse("2023-08-15"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (9, "Załącznik 14", DateTime.Parse("2023-09-01"), DateTime.Parse("2023-09-01"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (9, "Załącznik 15", DateTime.Parse("2023-09-05"), DateTime.Parse("2023-09-05"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (10, "Załącznik 16", DateTime.Parse("2023-10-01"), DateTime.Parse("2023-10-01"), [ 0x01, 0x02, 0x03 ], "text/plain"),
+                new (10, "Załącznik 17", DateTime.Parse("2023-10-05"), DateTime.Parse("2023-10-05"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (11, "Załącznik 18", DateTime.Parse("2023-11-01"), DateTime.Parse("2023-11-01"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (12, "Załącznik 19", DateTime.Parse("2023-12-10"), DateTime.Parse("2023-12-10"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (13, "Załącznik 20", DateTime.Parse("2024-01-10"), DateTime.Parse("2024-01-10"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (13, "Załącznik 21", DateTime.Parse("2024-01-15"), DateTime.Parse("2024-01-15"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (14, "Załącznik 22", DateTime.Parse("2024-02-05"), DateTime.Parse("2024-02-05"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (15, "Załącznik 23", DateTime.Parse("2024-03-01"), DateTime.Parse("2024-03-01"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (16, "Załącznik 24", DateTime.Parse("2024-04-10"), DateTime.Parse("2024-04-10"), [ 0x61, 0x77, 0x65 ], "text/plain"),
+                new (17, "Załącznik 25", DateTime.Parse("2024-05-05"), DateTime.Parse("2024-05-05"), [ 0x61, 0x77, 0x65 ], "text/plain")
             };
             context.Attachements.AddRange(attachements);
             context.SaveChanges();

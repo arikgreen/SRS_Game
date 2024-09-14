@@ -121,7 +121,10 @@
     <value>Wróc do listy</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+    <value>Edycja</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
@@ -134,5 +137,11 @@
   </data>
   <data name="Team" xml:space="preserve">
     <value>Zespół</value>
+  </data>
+  <data name="Team members" xml:space="preserve">
+    <value>Członkowie zespołu</value>
+  </data>
+  <data name="Participant Name" xml:space="preserve">
+    <value>Imię i Nazwisko</value>
   </data>
 </root>

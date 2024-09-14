@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,30 +23,26 @@ namespace SRS_Game.Controllers
         // GET: Documents
         public async Task<IActionResult> Index()
         {
-            //var documents = await _context.Documents
-            //    .Include(d => d.AuthorId)
-            //    .Include(d => d.TeamId)
-            //    .Include(d => d.ProjectId)
-            //    .Select(d => new
-            //        {
-            //            d.Id,
-            //            d.Name,
-            //            ProjectName = d.Project.Name,
-            //            AuthorName = d.Author.FirstName + " " + d.Author.SecondName,
-            //            TeamName = d.Team.Name,
-            //            d.CreateDate,
-            //            d.UpdateDate,
-            //            d.VersionId
-            //        })
-            //    .ToListAsync();
+            var documents = await (from document in _context.Documents
+                        join author in _context.Participants
+                        on document.AuthorId equals author.Id
+                        join project in _context.Projects
+                        on document.ProjectId equals project.Id
+                        select new DocumentsViewModel
+                        {
+                            Id = document.Id,
+                            Name = document.Name,
+                            Project = project.Name,
+                            Version = document.VersionId,
+                            UpdateDate = document.UpdateDate,
+                            Author = author.FirstName + " " + author.LastName
+                        }).ToListAsync();
 
-            //ViewData["Document"] = await _context.Documents.ToListAsync();
-            //ViewData["Project"] = await _context.Projects.ToListAsync();
-            //ViewData["User"] = await _context.Users.ToListAsync();
-            
-            //return View();
+            if (documents == null || documents.Count == 0)
+            { 
+                return NotFound();
+            }
 
-            var documents = await _context.Documents.ToListAsync();
             return View(documents);
         }
 
@@ -57,14 +54,30 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var document = await _context.Documents
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var document = await _context.Documents.FirstOrDefaultAsync(m => m.Id == id);
+
+            var attachements = await _context.Attachements.Where(m => m.DocumentId == id)
+                .OrderByDescending(d => d.FileName)
+                .ToListAsync();
+
+            var docHistory = await _context.DocumentHistories.Where(m => m.DocumentId == id)
+                .OrderByDescending(d => d.Created)
+                .ToListAsync();
+            
             if (document == null)
             {
                 return NotFound();
             }
 
-            return View(document);
+            // Create the ViewModel
+            var viewModel = new DocumentViewModel
+            {
+                Document = document,
+                Attachements = attachements,
+                History = docHistory
+            };
+
+            return View(viewModel);
         }
 
         // GET: Documents/Create

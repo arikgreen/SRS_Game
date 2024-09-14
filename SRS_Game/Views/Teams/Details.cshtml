@@ -1,31 +1,49 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
 
-@model SRS_Game.Models.Team
+@model SRS_Game.Models.TeamParticipantsViewModel;
 
 @{
     ViewData["Title"] = @Localizer["Details"];
 }
 
 <div>
-    <h4>@Localizer["Team"] - @Localizer["Details"]</h4>
+    <h4>@Localizer["Team"] - @Html.DisplayFor(model => model.Team.Name) (@Html.DisplayFor(model => model.Team.Number))</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.Name)]
+            @Localizer[Html.DisplayNameFor(model => model.Team.Name)]
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Team.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.Number)]
+            @Localizer[Html.DisplayNameFor(model => model.Team.Number)]
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Number)
+            @Html.DisplayFor(model => model.Team.Number)
         </dd>
     </dl>
+    <h5>@Localizer["Team members"]</h5>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>@Localizer[Html.DisplayNameFor(model => model.Team.Name)]</th>
+            <th>@Localizer["Participant Name"]</th>
+            <th>@Localizer["Email"]</th>
+        </tr>
+        @foreach (var member in Model.Members)
+        {
+            <tr>
+                <td scope="col">@member.Id</td>
+                <td scope="col">@member.Name</td>
+                <td scope="col">@member.FirstName @member.LastName</td>
+                <td scope="col">@member.Email</td>
+            </tr>
+        }
+    </table>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+    <a asp-action="Edit" asp-route-id="@Model.Team.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
     <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
 </div>

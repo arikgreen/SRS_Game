@@ -16,20 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20240529072600_Initial.cs" />
-    <Compile Remove="Migrations\20240529072600_Initial.Designer.cs" />
-    <Compile Remove="Migrations\20240609134359_updateDb.cs" />
-    <Compile Remove="Migrations\20240609134359_updateDb.Designer.cs" />
-    <Compile Remove="Migrations\20240609140009_updateDb.cs" />
-    <Compile Remove="Migrations\20240609140009_updateDb.Designer.cs" />
-    <Compile Remove="Migrations\SRS_GameDbContextModelSnapshot.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="Microsoft.AspNet.Web.Optimization" Version="1.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.8" NoWarn="NU1605" />
-    <PackageReference Include="Microsoft.AspNetCore.Localization" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Localization" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
@@ -39,12 +30,18 @@
     <PackageReference Include="Microsoft.Identity.Web" Version="3.1.0" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="3.1.0" />
     <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="3.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Views\Participants\Create.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

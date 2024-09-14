@@ -22,9 +22,7 @@ namespace SRS_Game.Controllers
 
         public IActionResult Index()
         {
-            var redirectUrl = Url.Action("UploadFile", "Home");
-            
-            return LocalRedirect(redirectUrl);
+            return View();
         }
 
         public IActionResult Privacy()
@@ -42,47 +40,7 @@ namespace SRS_Game.Controllers
             return View();
         }
 
-        public ActionResult UploadFile()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult UploadFilePost(IFormFile file)
-        {
-            if (file == null || file.Length == 0)
-                return BadRequest("No file selected for upload...");
-
-            string fileName = Path.GetFileName(file.FileName);
-            string contentType = file.ContentType;
-
-            try
-            {
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    file.CopyToAsync(memoryStream);
-
-                    var attachement = new Attachement[]
-                    { 
-                        new(1, fileName, DateTime.Now, DateTime.Now, memoryStream.ToArray(), contentType)
-                    };
-
-                    _context.Attachements.AddRange(attachement);
-                    _context.SaveChanges();
-                }
-            }
-            catch
-            {
-                return BadRequest(new
-                {
-                    message = "Error saving file to the database."
-                });
-            }
-
-            return RedirectToAction("Index", "Attachements");
-        }
-
-        [HttpPost]
+        [HttpGet]
         public IActionResult SetLanguage(string culture, string returnUrl)
         {
             Response.Cookies.Append(
@@ -93,7 +51,7 @@ namespace SRS_Game.Controllers
 
             if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
             {
-                return RedirectToAction("UploadFile", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
             return LocalRedirect(returnUrl);

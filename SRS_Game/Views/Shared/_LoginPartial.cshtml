@@ -2,18 +2,14 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
-<ul class="navbar-nav">
+<div class="btn-group py-2 ms-lg-2" role="group">
 @if (User.Identity?.IsAuthenticated == true)
 {
-        <span class="navbar-text text-dark p-2">@Localizer["Hello"] @User.Identity?.Name</span>
-        <li class="nav-item">
-            <a class="btn btn-primary" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">@Localizer["Logout"]</a>
-        </li>
+        <div class="btn btn-outline-primary disabled">@Localizer["Hello"] @User.Identity?.Name</div>
+        <a class="btn btn-primary" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">@Localizer["Logout"]</a>
 }
 else
 {
-        <li class="nav-item">
-            <a class="btn btn-primary" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">@Localizer["Sign in"]</a>
-        </li>
+        <a class="btn btn-primary" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">@Localizer["Logout"]</a>
 }
-</ul>
+</div>

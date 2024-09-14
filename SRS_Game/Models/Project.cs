@@ -38,4 +38,11 @@ namespace SRS_Game.Models
             ProjectManagerId = projectManagerId;
         }
     }
+
+    public class ProjectsViewModel : Project
+    {
+        [DisplayName("Project manager")]
+        public string ProjectManager { get; set; }
+
+    }
 }

@@ -12,8 +12,8 @@ using SRS_Game.Data;
 namespace SRS_Game.Migrations
 {
     [DbContext(typeof(SRS_GameDbContext))]
-    [Migration("20240905230213_2024-09-06_Initial")]
-    partial class _20240906_Initial
+    [Migration("20240914194229_ChangeColumnName")]
+    partial class ChangeColumnName
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,7 @@ namespace SRS_Game.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ContentType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateDate")
@@ -43,11 +44,13 @@ namespace SRS_Game.Migrations
                         .HasColumnType("int");
 
                     b.Property<byte[]>("FileContent")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("FileName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -131,7 +134,7 @@ namespace SRS_Game.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("DocId")
+                    b.Property<int>("DocumentId")
                         .HasColumnType("int");
 
                     b.Property<int>("Page")
@@ -143,7 +146,7 @@ namespace SRS_Game.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DocId", "AuthorId", "Version")
+                    b.HasIndex("DocumentId", "AuthorId", "Version")
                         .IsUnique();
 
                     b.ToTable("DocumentHistories");
@@ -176,6 +179,78 @@ namespace SRS_Game.Migrations
                         .IsUnique();
 
                     b.ToTable("Files");
+                });
+
+            modelBuilder.Entity("SRS_Game.Models.Participant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsExternal")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Email", "FirstName", "LastName")
+                        .IsUnique();
+
+                    b.ToTable("Participants");
+                });
+
+            modelBuilder.Entity("SRS_Game.Models.ParticipantType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("ParticipantTypes");
                 });
 
             modelBuilder.Entity("SRS_Game.Models.Project", b =>
@@ -239,6 +314,19 @@ namespace SRS_Game.Migrations
                     b.ToTable("Teams");
                 });
 
+            modelBuilder.Entity("SRS_Game.Models.TeamParticipants", b =>
+                {
+                    b.Property<int>("ParticipantId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ParticipantId", "TeamId");
+
+                    b.ToTable("TeamParticipants");
+                });
+
             modelBuilder.Entity("SRS_Game.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -246,10 +334,6 @@ namespace SRS_Game.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -261,17 +345,15 @@ namespace SRS_Game.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool>("IsExternal")
-                        .HasColumnType("bit");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -281,18 +363,18 @@ namespace SRS_Game.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<int>("TypeId")
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Email", "FirstName", "LastName")
+                    b.HasIndex("Login", "Email")
                         .IsUnique();
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SRS_Game.Models.UserType", b =>
+            modelBuilder.Entity("SRS_Game.Models.UserRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -312,7 +394,7 @@ namespace SRS_Game.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("UserTypes");
+                    b.ToTable("UserRoles");
                 });
 #pragma warning restore 612, 618
         }

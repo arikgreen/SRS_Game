@@ -33,7 +33,7 @@
             @Localizer[Html.DisplayNameFor(model => model.FileContent)]
         </dt>
         <dd class = "col-sm-10">
-            @ViewData["fileContent"]
+            @Html.Raw(ViewData["fileContent"])
         </dd>
         <dt class = "col-sm-2">
             @Localizer[Html.DisplayNameFor(model => model.CreateDate)]

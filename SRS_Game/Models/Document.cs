@@ -22,7 +22,7 @@ namespace SRS_Game.Models
         public string? Description { get; set; }
 
         [Required]
-        [ForeignKey("User")]
+        [ForeignKey("Participant")]
         [DisplayName("Author")]
         public int AuthorId { get; set; }
         
@@ -32,7 +32,8 @@ namespace SRS_Game.Models
         [ForeignKey("Team")]
         public int? TeamId { get; set; }
 
-        [ForeignKey("User")]
+        [ForeignKey("Participant")]
+        [DisplayName("Team Leader")]
         public int? TeamLeaderId { get; set; }
 
         [ForeignKey("Project")]
@@ -73,5 +74,22 @@ namespace SRS_Game.Models
             VersionId = versionId;
             FileName = fileName;
         }
+    }
+
+    public class DocumentsViewModel : Document
+    {
+
+        public string Project {  get; set; } = string.Empty;
+        
+        public string Author { get; set; } = string.Empty;
+
+        public int Version { get; set; }
+    }
+
+    public class DocumentViewModel
+    {
+        public required Document Document { get; set; }
+        public IEnumerable<Attachement> Attachements { get; set; } = [];
+        public IEnumerable<DocumentHistory> History { get; set; } = [];
     }
 }

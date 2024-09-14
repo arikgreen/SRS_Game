@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SRS_Game.Migrations
 {
     /// <inheritdoc />
-    public partial class _20240906_Initial : Migration
+    public partial class AddTeamMembersTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,9 +18,9 @@ namespace SRS_Game.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DocumentId = table.Column<int>(type: "int", nullable: false),
-                    FileName = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ContentType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileContent = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    FileName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ContentType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FileContent = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -87,6 +87,40 @@ namespace SRS_Game.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Participants",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
+                    TypeId = table.Column<int>(type: "int", nullable: false),
+                    IsExternal = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Participants", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ParticipantTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ParticipantTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Projects",
                 columns: table => new
                 {
@@ -104,6 +138,18 @@ namespace SRS_Game.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TeamParticipants",
+                columns: table => new
+                {
+                    TeamId = table.Column<int>(type: "int", nullable: false),
+                    ParticipantId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeamParticipants", x => new { x.ParticipantId, x.TeamId });
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Teams",
                 columns: table => new
                 {
@@ -118,28 +164,7 @@ namespace SRS_Game.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypeId = table.Column<int>(type: "int", nullable: false),
-                    IsExternal = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserTypes",
+                name: "UserRoles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -149,7 +174,26 @@ namespace SRS_Game.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserTypes", x => x.Id);
+                    table.PrimaryKey("PK_UserRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Login = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
@@ -178,6 +222,18 @@ namespace SRS_Game.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Participants_Email_FirstName_LastName",
+                table: "Participants",
+                columns: new[] { "Email", "FirstName", "LastName" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ParticipantTypes_Name",
+                table: "ParticipantTypes",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Projects_Name",
                 table: "Projects",
                 column: "Name",
@@ -190,15 +246,15 @@ namespace SRS_Game.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_Email_FirstName_LastName",
-                table: "Users",
-                columns: new[] { "Email", "FirstName", "LastName" },
+                name: "IX_UserRoles_Name",
+                table: "UserRoles",
+                column: "Name",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserTypes_Name",
-                table: "UserTypes",
-                column: "Name",
+                name: "IX_Users_Login_Email",
+                table: "Users",
+                columns: new[] { "Login", "Email" },
                 unique: true);
         }
 
@@ -218,16 +274,25 @@ namespace SRS_Game.Migrations
                 name: "Files");
 
             migrationBuilder.DropTable(
+                name: "Participants");
+
+            migrationBuilder.DropTable(
+                name: "ParticipantTypes");
+
+            migrationBuilder.DropTable(
                 name: "Projects");
+
+            migrationBuilder.DropTable(
+                name: "TeamParticipants");
 
             migrationBuilder.DropTable(
                 name: "Teams");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "UserRoles");
 
             migrationBuilder.DropTable(
-                name: "UserTypes");
+                name: "Users");
         }
     }
 }

@@ -11,14 +11,13 @@ namespace SRS_Game.Models
 
         [Required]
         [ForeignKey(nameof(Document))]
-        public int DocId { get; set; }
+        public int DocumentId { get; set; }
 
         [Required]
         [StringLength(100)]
         public string Description { get; set; }
         
         [Required]
-        [ForeignKey("User")]
         public string Version { get; set; }
         
         [Required]
@@ -28,7 +27,7 @@ namespace SRS_Game.Models
         public int Page {  get; set; }
 
         [Required]
-        [ForeignKey("User")]
+        [ForeignKey("Principal")]
         [DisplayName("Author")]
         public int AuthorId { get; set; }
         
@@ -39,7 +38,7 @@ namespace SRS_Game.Models
 
         public DocumentHistory(int docId, string description, string version, string chapter, int page, int authorId, DateTime created)
         {
-            DocId = docId;
+            DocumentId = docId;
             Description = description;
             Version = version;
             Chapter = chapter;

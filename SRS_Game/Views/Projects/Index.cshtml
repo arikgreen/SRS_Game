@@ -1,7 +1,7 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
 
-@model IEnumerable<SRS_Game.Models.Project>
+@model IEnumerable<SRS_Game.Models.ProjectsViewModel>;
 
 @{
     ViewData["Title"] = Localizer["Projects"];
@@ -12,7 +12,7 @@
 <p>
     <a asp-action="Create">@Localizer["Create New"]</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -21,20 +21,20 @@
             <th>
                 @Localizer[Html.DisplayNameFor(model => model.Number)]
             </th>
-            <th>
+            <th class="text-center">
                 @Localizer[Html.DisplayNameFor(model => model.CreatedDate)]
             </th>
-            <th>
+            <th class="text-center">
                 @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
             </th>
             <th>
-                @Localizer[Html.DisplayNameFor(model => model.ProjectManagerId)]
+                @Localizer[Html.DisplayNameFor(model => model.ProjectManager)]
             </th>
-            <th></th>
+            <th>@Localizer["Actions"]</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -42,21 +42,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Number)
             </td>
-            <td>
+            <td class="text-end">
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
-            <td>
+            <td class="text-end">
                 @Html.DisplayFor(modelItem => item.UpdateDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProjectManagerId)
+                @Html.DisplayFor(modelItem => item.ProjectManager)
             </td>
-            <td>
+            <td class="text-center">
                 <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">@Localizer["Delete"]</a>
+                <a asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">@Localizer["Delete"]</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

@@ -1,13 +1,7 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
 
-@model IEnumerable<SRS_Game.Models.Document>
-
-@{
-    // var documents = ViewData["Document"] as SRS_Game.Models.Document;
-    // var projects = ViewData["Project"] as SRS_Game.Models.Project;
-    // var user = ViewData["User"] as SRS_Game.Models.User;
-}
+@model IEnumerable<SRS_Game.Models.DocumentsViewModel>;
 
 @{
     ViewData["Title"] = Localizer["Documents"];
@@ -18,63 +12,53 @@
 <p>
     <a asp-action="Create">@Localizer["Create New Document"]</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
                 @Localizer[Html.DisplayNameFor(model => model.Name)]
             </th>
             <th>
-                @Localizer[Html.DisplayNameFor(model => model.ProjectId)]
+                @Localizer[Html.DisplayNameFor(model => model.Project)]
             </th>
             <th>
-                @Localizer[Html.DisplayNameFor(model => model.Description)]
+                @Localizer[Html.DisplayNameFor(model => model.Version)]
             </th>
-            <th>
-                @Localizer[Html.DisplayNameFor(model => model.VersionId)]
-            </th>
-            <th>
+            <th class="text-center">
                 @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
             </th>
             <th>
-                @Localizer[Html.DisplayNameFor(model => model.AuthorId)]
+                @Localizer[Html.DisplayNameFor(model => model.Author)]
             </th>
-            <th>
-                @Localizer[Html.DisplayNameFor(model => model.FileName)]
+            <th class="text-center">
+                @Localizer["Actions"]
             </th>
-            <th>@Localizer["Actions"]</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProjectId)
+                @Html.DisplayFor(modelItem => item.Project)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Version)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
+            <td class="text-end">
                 @Html.DisplayFor(modelItem => item.UpdateDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.VersionId)
+                @Html.DisplayFor(modelItem => item.Author)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FileName)
-            </td>
-            <td>
+            <td class="text-center">
                 <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">@Localizer["Delete"]</a>
+                <a asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">@Localizer["Delete"]</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

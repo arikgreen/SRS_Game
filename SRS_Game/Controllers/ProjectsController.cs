@@ -22,7 +22,20 @@ namespace SRS_Game.Controllers
         // GET: Projects
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Projects.ToListAsync());
+            var projects = await (from p in _context.Projects
+                                   join pm in _context.Participants
+                                   on p.ProjectManagerId equals pm.Id
+                                   select new ProjectsViewModel
+                                   {
+                                       Id = p.Id,
+                                       Name = p.Name,
+                                       Number = p.Number,
+                                       ProjectManager = pm.FirstName + " " + pm.LastName,
+                                       CreatedDate = p.CreatedDate,
+                                       UpdateDate = p.UpdateDate,
+                                   }).ToListAsync();
+
+            return View(projects);
         }
 
         // GET: Projects/Details/5

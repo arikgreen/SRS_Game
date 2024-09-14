@@ -1,57 +1,113 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
-@model SRS_Game.Models.Document
+@model SRS_Game.Models.DocumentViewModel
 
 @{
     ViewData["Title"] = @Localizer["Details"];
 }
 
-<h1>@Localizer["Document"]</h1>
-
-<div>
-    <h4>@Html.DisplayFor(model => model.Name)</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.Id)]
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.Description)]
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.CreateDate)]
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreateDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdateDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.VersionId)]
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VersionId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.FileName)]
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FileName)
-        </dd>
-    </dl>
+<h1>@Localizer["Document"]: @Html.DisplayFor(model => model.Document.Name) - @Localizer["Details"]</h1>
+<hr />
+<div class="row">
+    <div class="col">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Localizer[Html.DisplayNameFor(model => model.Document.FileName)]
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Document.FileName)
+            </dd>
+            <dt class="col-sm-2">
+                @Localizer[Html.DisplayNameFor(model => model.Document.VersionId)]
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Document.VersionId)
+            </dd>
+            <dt class = "col-sm-2">
+                @Localizer[Html.DisplayNameFor(model => model.Document.Description)]
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Document.Description)
+            </dd>
+            <dt class = "col-sm-2">
+                @Localizer[Html.DisplayNameFor(model => model.Document.CreateDate)]
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Document.CreateDate)
+            </dd>
+            <dt class = "col-sm-2">
+                @Localizer[Html.DisplayNameFor(model => model.Document.UpdateDate)]
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Document.UpdateDate)
+            </dd>
+        </dl>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model?.Document.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+            <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
-    <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
+<div class="row mt-4">
+    <div class="col card">
+        <div class="card-header">
+            <h4>@Localizer["Document history"]</h4>
+        </div>
+        <div class="card-body">
+            @if (Model.History == null)
+            {
+                @Localizer["There are no more version of this document."]
+            }
+            else
+            {
+            <table class="table table-striped">
+                <tr>
+                    <th>@Localizer["Description"]</th>
+                    <th>@Localizer["Created"]</th>
+                    <th>@Localizer["Author"]</th>
+                </tr>
+                @foreach(var docVer in Model.History)
+                {
+                    <tr>
+                        <td>@docVer.Description</td>
+                        <td>@docVer.Created</td>
+                        <td>@docVer.AuthorId</td>
+                    </tr>
+                }
+            </table>
+            }
+        </div>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col card">
+        <div class="card-header">
+            <h4>@Localizer["Attachements"]</h4>
+        </div>
+        <div class="card-body">
+            @if (Model.History == null)
+            {
+                @Localizer["There are no attachements for this document."]
+            }
+            else
+            {
+            <table class="table table-striped">
+                <tr>
+                    <th>@Localizer["File name"]</th>
+                    <th>@Localizer["Content type"]</th>
+                    <th>@Localizer["Created"]</th>
+                </tr>
+                @foreach(var attachement in Model.Attachements)
+                {
+                    <tr>
+                        <td>@attachement.FileName</td>
+                        <td>@attachement.ContentType</td>
+                        <td>@attachement.CreateDate</td>
+                    </tr>
+                }
+            </table>
+            }
+        </div>
+    </div>
 </div>

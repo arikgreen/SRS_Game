@@ -11,30 +11,29 @@ namespace SRS_Game.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// First name of the User or company representative
+        /// First name of the user
         /// </summary>
-        [Required]
         [StringLength(50)]
         [DisplayName("First name")]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Surname of the User or company representative
+        /// Surname of the user
         /// </summary>
-        [Required]
         [StringLength(50)]
         [DisplayName("Last name")]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Company name
+        /// Login
         /// </summary>
-        [StringLength(100)]
-        public string? Name { get; set; }
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Login is required")]
+        [StringLength(20)]
+        public string Login { get; set; }
         
         [EmailAddress]
         [StringLength(50)]
-        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Email is required")]
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
         public string Email { get; set; }
 
@@ -42,35 +41,26 @@ namespace SRS_Game.Models
         [DisplayName("Phone number")]
         public string? PhoneNumber { get; set; }
 
-        [StringLength(300)]
-        public string? Address { get; set; }
-        
         [Required]
         [PasswordPropertyText]
         public string Password { get; set; }
         
         [Required]
-        [ForeignKey("Type")]
-        [DisplayName("Type")]
-        public int TypeId { get; set; }
+        [ForeignKey("Role")]
+        [DisplayName("Role")]
+        public int RoleId { get; set; }
 
-        [Required]
-        public bool IsExternal { get; set; }
+        public User() { }  // Parameterless constructor required by EF Core
 
-        public User() { }
-
-        public User(string fname, string sname, string email, int type, string password, 
-            string? name, string? phoneNumber, string? address, bool isExternal = false)
+        public User(string login, string password, string email, int roleId, string fname, string lname, string? phoneNumber)
         {
+            Login = login;
             FirstName = fname;
-            LastName = sname;
+            LastName = lname;
             Email = email;
-            TypeId = type;
             Password = password;
-            IsExternal = isExternal;
-            Name = name;
             PhoneNumber = phoneNumber;
-            Address = address;
+            RoleId = roleId;
         }
     }
 }
