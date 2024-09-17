@@ -153,4 +153,19 @@
   <data name="Version" xml:space="preserve">
     <value>Wersja</value>
   </data>
+  <data name="Document history" xml:space="preserve">
+    <value>Historia zmian</value>
+  </data>
+  <data name="Attachements" xml:space="preserve">
+    <value>Załączniki</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Utworzony</value>
+  </data>
+  <data name="Content type" xml:space="preserve">
+    <value>Typ pliku</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
 </root>
