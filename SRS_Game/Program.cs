@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using SRS_Game.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,9 @@ builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI();
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+//builder.Services.AddControllersWithViews()
+//        .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+//        .AddDataAnnotationsLocalization();
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -57,6 +61,11 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // Register IHttpContextAccessor
+
+// Register the ParticipantService
+builder.Services.AddScoped<IReadableParticipant, ParticipantService>();
+builder.Services.AddScoped<IWritableParticipant, ParticipantService>();
+builder.Services.AddScoped<IReadableProject, ProjectService>();
 
 builder.Services.AddDbContext<SRS_GameDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SRS_GameDbContext") ?? throw new InvalidOperationException("Connection string 'SRS_GameDbContext' not found.")));

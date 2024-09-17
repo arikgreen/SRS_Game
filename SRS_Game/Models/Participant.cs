@@ -1,4 +1,5 @@
 ﻿using Elfie.Serialization;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -34,7 +35,7 @@ namespace SRS_Game.Models
         
         [EmailAddress]
         [StringLength(50)]
-        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired ")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
         public string Email { get; set; }
 

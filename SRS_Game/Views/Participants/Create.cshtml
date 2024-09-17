@@ -1,12 +1,13 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
-@model SRS_Game.Models.Participant
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+@model SRS_Game.Models.Participant;
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = @Localizer["Add a new participant"];
 }
 
-<h1>@Localizer["Add a new participant"]</h1>
+<h1>ViewData["Title"]</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -49,18 +50,15 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsExternal" /> @Html.DisplayNameFor(model => model.IsExternal)
+                    <input class="form-check-input" asp-for="IsExternal" />@Html.DisplayNameFor(model => model.IsExternal)
                 </label>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group mt-3">
+                <input type="submit" value="@Localizer["Add"]" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">@Localizer["Back to List"]</a>
 </div>
 
 @section Scripts {

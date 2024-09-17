@@ -1,10 +1,14 @@
 ﻿using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SRS_Game.Models
 {
     public class TeamParticipants
     {
+        [ForeignKey("Team")]
         public int TeamId { get; set; }
+        
+        [ForeignKey("Participant")]
         public int ParticipantId { get; set; }
 
         public TeamParticipants() { }
@@ -19,7 +23,7 @@ namespace SRS_Game.Models
     public class TeamParticipantsViewModel
     {
         [Required]
-        public Team Team { get; set; }
-        public IEnumerable<Participant> Members { get; set; }
+        public required Team Team { get; set; }
+        public IEnumerable<Participant> Members { get; set; } = [];
     }
 }

@@ -30,6 +30,12 @@
             <dd class = "col-sm-10">
                 @Html.DisplayFor(model => model.Document.Description)
             </dd>
+            <dt class="col-sm-2">
+                @Localizer[Html.DisplayNameFor(model => model.Document.ProjectId)]
+            </dt>
+            <dd class="col-sm-10">
+                @ViewBag.Project
+            </dd>
             <dt class = "col-sm-2">
                 @Localizer[Html.DisplayNameFor(model => model.Document.CreateDate)]
             </dt>
@@ -41,6 +47,12 @@
             </dt>
             <dd class = "col-sm-10">
                 @Html.DisplayFor(model => model.Document.UpdateDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Localizer[Html.DisplayNameFor(model => model.Document.AuthorId)]
+            </dt>
+            <dd class="col-sm-10">
+                @ViewBag.Author
             </dd>
         </dl>
         <div>

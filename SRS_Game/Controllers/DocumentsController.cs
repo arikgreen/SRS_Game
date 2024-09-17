@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SRS_Game.Data;
+using SRS_Game.Interfaces;
 using SRS_Game.Models;
 
 namespace SRS_Game.Controllers
@@ -14,10 +15,14 @@ namespace SRS_Game.Controllers
     public class DocumentsController : Controller
     {
         private readonly SRS_GameDbContext _context;
+        private readonly IReadableParticipant _readableParticipant;
+        private readonly IReadableProject _readableProject;
 
-        public DocumentsController(SRS_GameDbContext context)
+        public DocumentsController(SRS_GameDbContext context, IReadableParticipant readableParticipant, IReadableProject readableProject)
         {
             _context = context;
+            _readableParticipant = readableParticipant;
+            _readableProject = readableProject;
         }
 
         // GET: Documents
@@ -69,6 +74,12 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
+            var author = await _readableParticipant.GetParticipantByIdAsync(document.AuthorId);
+            ViewBag.Author = author != null ? String.Format("{0} {1}", author.FirstName, author.LastName) : "not set";
+
+            var project = await _readableProject.GetProjectByIdAsync((int)document.ProjectId);
+            ViewBag.Project = project != null ? String.Format("{0} ({1})", project.Name, project.Number) : "not set";
+
             // Create the ViewModel
             var viewModel = new DocumentViewModel
             {
@@ -81,8 +92,11 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Documents/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+            ViewBag.Projects = await _readableProject.GetProjectsForSelectListAsync();
+
             return View();
         }
 
@@ -115,6 +129,10 @@ namespace SRS_Game.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+            ViewBag.Projects = await _readableProject.GetProjectsForSelectListAsync();
+
             return View(document);
         }
 

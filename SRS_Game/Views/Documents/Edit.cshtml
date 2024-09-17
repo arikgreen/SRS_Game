@@ -6,7 +6,9 @@
 @{
     ViewData["Title"] = Localizer["Edit"];
 }
-<h4>@Localizer["Document"] - @Localizer["Edit"]</h4>
+
+<h1>@Localizer["Document"] - @Localizer["Edit"]</h1>
+<h4>@Html.DisplayFor(model => model.Name)</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProjectId" class="control-label">@Localizer["Project"]</label>
-                <input asp-for="ProjectId" class="form-control" />
+                <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.Projects" onselect="@Model.ProjectId"></select>
                 <span asp-validation-for="ProjectId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -29,14 +31,9 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreateDate" class="control-label">@Localizer["Create date"]</label>
-                <input asp-for="CreateDate" class="form-control" />
-                <span asp-validation-for="CreateDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdateDate" class="control-label">@Localizer["Update date"]</label>
-                <input asp-for="UpdateDate" class="form-control" />
-                <span asp-validation-for="UpdateDate" class="text-danger"></span>
+                <label asp-for="AuthorId" class="control-label">@Localizer["Autor"]</label>
+                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Participants" onselect="@Model.AuthorId"></select>
+                <span asp-validation-for="AuthorId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="VersionId" class="control-label">@Localizer["Version"]</label>

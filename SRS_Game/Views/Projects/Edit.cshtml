@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProjectManagerId" class="control-label">@Localizer["Project manager"]</label>
-                <input asp-for="ProjectManagerId" class="form-control" />
+                <select asp-for="ProjectManagerId" class="form-control" asp-items="ViewBag.Participants" onselect="@Model.ProjectManagerId"></select>
                 <span asp-validation-for="ProjectManagerId" class="text-danger"></span>
             </div>
             <div class="form-group mt-3">

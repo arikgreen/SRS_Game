@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SRS_Game.Data;
+using SRS_Game.Interfaces;
 using SRS_Game.Models;
 
 namespace SRS_Game.Controllers
@@ -14,9 +15,12 @@ namespace SRS_Game.Controllers
     {
         private readonly SRS_GameDbContext _context;
 
-        public ProjectsController(SRS_GameDbContext context)
+        private readonly IReadableParticipant _readableParticipant;
+
+        public ProjectsController(SRS_GameDbContext context, IReadableParticipant readableParticipant)
         {
             _context = context;
+            _readableParticipant = readableParticipant;
         }
 
         // GET: Projects
@@ -57,8 +61,10 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Projects/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+
             return View();
         }
 
@@ -91,6 +97,9 @@ namespace SRS_Game.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+
             return View(project);
         }
 

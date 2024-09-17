@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Elfie.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using SRS_Game.Data;
@@ -24,6 +25,7 @@ namespace SRS_Game.Controllers
                 t => t.Id,                      // key from ParticipantTypes table
                 (p, t) => new ParticipantViewModel
                 {
+                    Id = p.Id,
                     Name = p.Name,
                     FirstName = p.FirstName,
                     LastName = p.LastName,
@@ -64,15 +66,16 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] Participant document)
+        public async Task<IActionResult> Create([Bind("Id,Name,FirstName,LastName,Email,PhoneNumber,Address,TypeId")] Participant participant)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(document);
+                _context.Add(participant);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(document);
+            
+            return View(participant);
         }
 
         // GET: Participant/Edit/5
@@ -83,12 +86,12 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var document = await _context.Participants.FindAsync(id);
-            if (document == null)
+            var participant = await _context.Participants.FindAsync(id);
+            if (participant == null)
             {
                 return NotFound();
             }
-            return View(document);
+            return View(participant);
         }
 
         // POST: Participant/Edit/5
@@ -96,9 +99,9 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] Participant document)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] Participant participant)
         {
-            if (id != document.Id)
+            if (id != participant.Id)
             {
                 return NotFound();
             }
@@ -107,12 +110,12 @@ namespace SRS_Game.Controllers
             {
                 try
                 {
-                    _context.Update(document);
+                    _context.Update(participant);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(document.Id))
+                    if (!UserExists(participant.Id))
                     {
                         return NotFound();
                     }
@@ -123,7 +126,7 @@ namespace SRS_Game.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(document);
+            return View(participant);
         }
 
         // GET: Participant/Delete/5
@@ -134,14 +137,14 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var document = await _context.Participants
+            var participant = await _context.Participants
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (document == null)
+            if (participant == null)
             {
                 return NotFound();
             }
 
-            return View(document);
+            return View(participant);
         }
 
         // POST: Participant/Delete/5
@@ -149,10 +152,10 @@ namespace SRS_Game.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var document = await _context.Participants.FindAsync(id);
-            if (document != null)
+            var participant = await _context.Participants.FindAsync(id);
+            if (participant != null)
             {
-                _context.Participants.Remove(document);
+                _context.Participants.Remove(participant);
             }
 
             await _context.SaveChangesAsync();

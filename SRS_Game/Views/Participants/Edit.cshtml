@@ -1,13 +1,13 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
-@model SRS_Game.Models.Participant
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+@model SRS_Game.Models.Participant;
 
 @{
-    ViewData["Title"] = Localizer["User"] + "-" + Localizer["Edit"];
+    ViewData["Title"] = Localizer["Participant"] + "-" + Localizer["Edit"];
 }
 
-<h4>@Localizer["User"] - @Localizer["Edit"]</h4>
-
+<h4>@ViewData["Title"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">

@@ -29,23 +29,23 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ContentType)
         </dd>
+        <dt class="col-sm-2">
+            @Localizer[Html.DisplayNameFor(model => model.CreateDate)]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
         <dt class = "col-sm-2">
             @Localizer[Html.DisplayNameFor(model => model.FileContent)]
         </dt>
         <dd class = "col-sm-10">
             @Html.Raw(ViewData["fileContent"])
-        </dd>
-        <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.CreateDate)]
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreateDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdateDate)
         </dd>
     </dl>
 </div>
