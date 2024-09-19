@@ -42,7 +42,7 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            // Get members of the team 
+            // Get members of the team
             var members = await (from participants in _context.Participants
                                  join teamParticipants in _context.TeamParticipants
                                  on participants.Id equals teamParticipants.ParticipantId
@@ -52,7 +52,9 @@ namespace SRS_Game.Controllers
             // Create the ViewModel
             var viewModel = new TeamParticipantsViewModel
             {
-                Team = team,
+                Id = team.Id,
+                Name = team.Name,
+                Number = team.Number,
                 Members = members
             };
 
@@ -107,7 +109,9 @@ namespace SRS_Game.Controllers
             // Create the ViewModel
             var viewModel = new TeamParticipantsViewModel
             {
-                Team = team,
+                Id = team.Id,
+                Name = team.Name,
+                Number = team.Number,
                 Members = members
             };
 

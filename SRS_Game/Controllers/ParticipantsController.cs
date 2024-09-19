@@ -23,7 +23,7 @@ namespace SRS_Game.Controllers
                 .Join(_context.ParticipantTypes, 
                 p => p.TypeId,                  // key from Participants table
                 t => t.Id,                      // key from ParticipantTypes table
-                (p, t) => new ParticipantViewModel
+                static (p, t) => new ParticipantViewModel
                 {
                     Id = p.Id,
                     Name = p.Name,
@@ -45,14 +45,30 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var document = await _context.Participants
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (document == null)
+            var participant = await _context.Participants
+                .Join(_context.ParticipantTypes, 
+                p => p.TypeId, 
+                t => t.Id, 
+                (p, t) => new ParticipantViewModel 
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    FirstName = p.FirstName,
+                    LastName = p.LastName,
+                    Email = p.Email,
+                    PhoneNumber = p.PhoneNumber,
+                    Type = t.Name,
+                    Address = p.GetAddress()
+                })
+                .Where(r => r.Id == id)
+                .FirstOrDefaultAsync();
+            
+            if (participant == null)
             {
                 return NotFound();
             }
 
-            return View(document);
+            return View(participant);
         }
 
         // GET: Participant/Create

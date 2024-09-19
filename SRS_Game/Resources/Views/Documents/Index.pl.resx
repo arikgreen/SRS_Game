@@ -123,8 +123,8 @@
   <data name="Author" xml:space="preserve">
     <value>Autor</value>
   </data>
-  <data name="Create New Document" xml:space="preserve">
-    <value>Dodaj nowy dokument</value>
+  <data name="Add New" xml:space="preserve">
+    <value>Dodaj nowy</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
@@ -134,6 +134,9 @@
   </data>
   <data name="Details" xml:space="preserve">
     <value>Wyświetl</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Dokument</value>
   </data>
   <data name="Documents" xml:space="preserve">
     <value>Dokumenty</value>

@@ -120,8 +120,8 @@
   <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
   </data>
-  <data name="Create New" xml:space="preserve">
-    <value>Dodaj interesariusza</value>
+  <data name="Add New Participant" xml:space="preserve">
+    <value>Dodaj nowego interesariusza</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
@@ -147,7 +147,7 @@
   <data name="Phone number" xml:space="preserve">
     <value>Numer telefonu</value>
   </data>
-  <data name="Type" xml:space="preserve">
+  <data name="Participant Type" xml:space="preserve">
     <value>Rola</value>
   </data>
   <data name="Participants" xml:space="preserve">

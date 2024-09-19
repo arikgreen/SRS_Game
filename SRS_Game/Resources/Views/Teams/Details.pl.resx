@@ -138,4 +138,7 @@
   <data name="Team members" xml:space="preserve">
     <value>Członkowie zespołu</value>
   </data>
+  <data name="Participant Name" xml:space="preserve">
+    <value>Nazwa Interesariusza</value>
+  </data>
 </root>

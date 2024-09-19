@@ -45,4 +45,10 @@ namespace SRS_Game.Models
         public string ProjectManager { get; set; }
 
     }
+
+    public class ProjectViewModel
+    {
+        public required Project Project { get; set; }
+        public Participant Manager { get; set; }
+    }
 }

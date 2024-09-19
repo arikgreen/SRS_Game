@@ -136,7 +136,7 @@
     <value>Dokument</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+    <value>Zmień</value>
   </data>
   <data name="File content" xml:space="preserve">
     <value>Zawartość</value>
@@ -144,10 +144,16 @@
   <data name="File name" xml:space="preserve">
     <value>Nazwa pliku</value>
   </data>
+  <data name="Update date" xml:space="preserve">
+    <value>Zmiana</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Zapisz</value>
   </data>
-  <data name="Update date" xml:space="preserve">
-    <value>Zmiana</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
   </data>
 </root>

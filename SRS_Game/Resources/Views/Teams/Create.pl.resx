@@ -132,4 +132,7 @@
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
   </data>
+  <data name="Participant Name" xml:space="preserve">
+    <value>Nazwa Interesariusza</value>
+  </data>
 </root>

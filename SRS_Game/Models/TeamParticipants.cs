@@ -19,11 +19,4 @@ namespace SRS_Game.Models
             ParticipantId = participantId;
         }
     }
-
-    public class TeamParticipantsViewModel
-    {
-        [Required]
-        public required Team Team { get; set; }
-        public IEnumerable<Participant> Members { get; set; } = [];
-    }
 }

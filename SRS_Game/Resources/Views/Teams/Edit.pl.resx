@@ -121,19 +121,13 @@
     <value>Wróc do listy</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edycja</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+    <value>Zmień</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
   </data>
   <data name="Number" xml:space="preserve">
     <value>Numer</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
   </data>
   <data name="Team" xml:space="preserve">
     <value>Zespół</value>
@@ -142,6 +136,15 @@
     <value>Członkowie zespołu</value>
   </data>
   <data name="Participant Name" xml:space="preserve">
-    <value>Imię i Nazwisko</value>
+    <value>Nazwa Interesariusza</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
   </data>
 </root>

@@ -104,10 +104,10 @@
   <data name="Add a new participant" xml:space="preserve">
     <value>Dodaj nowego interesariusza</value>
   </data>
-  <data name="FirstName" xml:space="preserve">
+  <data name="First Name" xml:space="preserve">
     <value>Imię</value>
   </data>
-  <data name="LastName" xml:space="preserve">
+  <data name="Last Name" xml:space="preserve">
     <value>Nazwisko</value>
   </data>
   <data name="Add" xml:space="preserve">
@@ -116,10 +116,10 @@
   <data name="Address" xml:space="preserve">
     <value>Adres</value>
   </data>
-  <data name="TypeId" xml:space="preserve">
+  <data name="Participant Type" xml:space="preserve">
     <value>Rola</value>
   </data>
-  <data name="PhoneNumber" xml:space="preserve">
+  <data name="Phone Number" xml:space="preserve">
     <value>Telefon</value>
   </data>
   <data name="Name" xml:space="preserve">

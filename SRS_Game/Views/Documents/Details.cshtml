@@ -64,41 +64,10 @@
 <div class="row mt-4">
     <div class="col card">
         <div class="card-header">
-            <h4>@Localizer["Document history"]</h4>
-        </div>
-        <div class="card-body">
-            @if (Model.History == null)
-            {
-                @Localizer["There are no more version of this document."]
-            }
-            else
-            {
-            <table class="table table-striped">
-                <tr>
-                    <th>@Localizer["Description"]</th>
-                    <th>@Localizer["Created"]</th>
-                    <th>@Localizer["Author"]</th>
-                </tr>
-                @foreach(var docVer in Model.History)
-                {
-                    <tr>
-                        <td>@docVer.Description</td>
-                        <td>@docVer.Created</td>
-                        <td>@docVer.AuthorId</td>
-                    </tr>
-                }
-            </table>
-            }
-        </div>
-    </div>
-</div>
-<div class="row mt-2">
-    <div class="col card">
-        <div class="card-header">
             <h4>@Localizer["Attachements"]</h4>
         </div>
         <div class="card-body">
-            @if (Model.History == null)
+            @if (Model == null || Model.Attachements == null)
             {
                 @Localizer["There are no attachements for this document."]
             }
@@ -119,6 +88,37 @@
                     </tr>
                 }
             </table>
+            }
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col card">
+        <div class="card-header">
+            <h4>@Localizer["Document history"]</h4>
+        </div>
+        <div class="card-body">
+            @if (Model == null || Model.History == null)
+            {
+                @Localizer["There are no more version of this document."]
+            }
+            else
+            {
+                <table class="table table-striped">
+                    <tr>
+                        <th>@Localizer["Description"]</th>
+                        <th>@Localizer["Created"]</th>
+                        <th>@Localizer["Author"]</th>
+                    </tr>
+                    @foreach (var docVer in Model.History)
+                    {
+                        <tr>
+                            <td>@docVer.Description</td>
+                            <td>@docVer.Created</td>
+                            <td>@docVer.AuthorId</td>
+                        </tr>
+                    }
+                </table>
             }
         </div>
     </div>

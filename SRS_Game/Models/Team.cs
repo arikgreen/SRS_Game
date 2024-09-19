@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace SRS_Game.Models
 {
@@ -22,5 +23,11 @@ namespace SRS_Game.Models
             Name = name;
             Number = number;
         }
+    }
+
+    public class TeamParticipantsViewModel : Team
+    {
+        [DisplayName("Team members")]
+        public IEnumerable<Participant> Members { get; set; } = [];
     }
 }

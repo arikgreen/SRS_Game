@@ -1,7 +1,7 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
 
-@model IEnumerable<SRS_Game.Models.Attachement>
+@model IEnumerable<SRS_Game.Models.Attachement>;
 
 @{
     ViewData["Title"] = Localizer["Attachements"];
@@ -9,9 +9,8 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">@Localizer["Add New"]</a>
-</p>
+<p><a asp-action="Create">@Localizer["Add New"] @Localizer["Document"]</a></p>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -24,10 +23,10 @@
             <th>
                 @Localizer[Html.DisplayNameFor(model => model.ContentType)]
             </th>
-            <th class="text-center">
+            <th class="text-end">
                 @Localizer[Html.DisplayNameFor(model => model.CreateDate)]
             </th>
-            <th class="text-center">
+            <th class="text-end">
                 @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
             </th>
             <th class="text-center">@Localizer["Actions"]</th>
@@ -52,9 +51,9 @@
                 @Html.DisplayFor(modelItem => item.UpdateDate)
             </td>
             <td class="text-center">
-                <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">@Localizer["Delete"]</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary mr-3">@Localizer["Edit"]</a>
+                <a asp-action="Details" asp-route-id="@item.Id" nt="@item.Id" class="btn btn-sm btn-primary mr-3">@Localizer["Details"]</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" nt="@item.Id" class="btn btn-sm btn-primary mr-3">@Localizer["Delete"]</a>
             </td>
         </tr>
 }

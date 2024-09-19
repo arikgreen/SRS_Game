@@ -1,51 +1,50 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
-@model SRS_Game.Models.Project
+@model SRS_Game.Models.ProjectViewModel
 
 @{
     ViewData["Title"] = Localizer["Details"];
 }
 
-<h1>Details</h1>
+<h1>@Localizer["Project"] - @Localizer["Details"]</h1>
 
 <div>
-    <h4>@Localizer["Project"]</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.Name)]
+            @Localizer[Html.DisplayNameFor(model => model.Project.Name)]
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Project.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.Number)]
+            @Localizer[Html.DisplayNameFor(model => model.Project.Number)]
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Number)
+            @Html.DisplayFor(model => model.Project.Number)
         </dd>
         <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.CreatedDate)]
+            @Localizer[Html.DisplayNameFor(model => model.Project.CreatedDate)]
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)]
+            @Html.DisplayFor(model => model.Project.CreatedDate)
         </dd>
         <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
+            @Localizer[Html.DisplayNameFor(model => model.Project.UpdateDate)]
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdateDate)
+            @Html.DisplayFor(model => model.Project.UpdateDate)
         </dd>
         <dt class = "col-sm-2">
-            @Localizer[Html.DisplayNameFor(model => model.ProjectManagerId)]
+            @Localizer[Html.DisplayNameFor(model => model.Project.ProjectManagerId)]
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProjectManagerId)
+            @Html.DisplayFor(model => model.Manager.FirstName) @Html.DisplayFor(model => model.Manager.LastName)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+    <a asp-action="Edit" asp-route-id="@Model.Project.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
     <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
 </div>

@@ -139,11 +139,11 @@ namespace ContosoUniversity.Data
 
             var participants = new Participant[]
             {
-                new ("Artur", "Wilczak", "s94089@student.pg.edu.pl", 3, null, null, null),
+                new ("Artur", "Wilczak", "s94089@student.pg.edu.pl", 3, null, "123 456 789", null),
                 new ("Jan", "Kowalski", "jan.kowalski@example.com", 1, null, null, null),
                 new ("Anna", "Nowak", "anna.nowak@example.com", 2, null, null, null),
                 new ("Piotr", "Wiśniewski", "piotr.wisniewski@example.com", 1, null, null, null),
-                new ("Katarzyna", "Wójcik", "katarzyna.wojcik@example.com", 2, null, null, null),
+                new ("Katarzyna", "Wójcik", "katarzyna.wojcik@external.com", 4, "Xternal", "147 258 369", "Łużycka 3c\nGdynia 81-573\nPoland", true),
                 new ("Tomasz", "Kowalczyk", "tomasz.kowalczyk@example.com", 1, null, null, null),
                 new ("Agnieszka", "Zielińska", "agnieszka.zielinska@example.com", 2, null, null, null),
                 new ("Marek", "Szymański", "marek.szymanski@example.com", 1, null, null, null),

@@ -120,8 +120,8 @@
   <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
   </data>
-  <data name="Create New Team" xml:space="preserve">
-    <value>Dodaj nowy zespół</value>
+  <data name="Add New" xml:space="preserve">
+    <value>Dodaj nowy</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>

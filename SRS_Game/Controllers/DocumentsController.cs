@@ -40,7 +40,7 @@ namespace SRS_Game.Controllers
                             Project = project.Name,
                             Version = document.VersionId,
                             UpdateDate = document.UpdateDate,
-                            Author = author.FirstName + " " + author.LastName
+                            Author = author.GetName()
                         }).ToListAsync();
 
             if (documents == null || documents.Count == 0)
@@ -75,7 +75,7 @@ namespace SRS_Game.Controllers
             }
 
             var author = await _readableParticipant.GetParticipantByIdAsync(document.AuthorId);
-            ViewBag.Author = author != null ? String.Format("{0} {1}", author.FirstName, author.LastName) : "not set";
+            ViewBag.Author = author != null ? author.GetName() : "not set";
 
             var project = await _readableProject.GetProjectByIdAsync((int)document.ProjectId);
             ViewBag.Project = project != null ? String.Format("{0} ({1})", project.Name, project.Number) : "not set";

@@ -51,7 +51,14 @@ namespace SRS_Game.Controllers
             }
 
             var project = await _context.Projects
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Join(_context.Participants,
+                p => p.ProjectManagerId,
+                m => m.Id,
+                (p, m) => new ProjectViewModel { Project = p, Manager = m })
+                .Where(r => r.Project.Id == id)
+                .FirstOrDefaultAsync();
+                //.FirstOrDefaultAsync(r => r.Project.Id == id);
+
             if (project == null)
             {
                 return NotFound();
