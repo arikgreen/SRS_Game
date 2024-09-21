@@ -126,9 +126,6 @@
   <data name="Create date" xml:space="preserve">
     <value>Utworzony</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Opis</value>
   </data>
