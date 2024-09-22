@@ -76,20 +76,12 @@ namespace SRS_Game.Models
         }
     }
 
-    public class DocumentsViewModel : Document
+    public class DocumentViewModel : Document
     {
-
         public string Project {  get; set; } = string.Empty;
         
         public string Author { get; set; } = string.Empty;
 
         public int Version { get; set; }
-    }
-
-    public class DocumentViewModel
-    {
-        public required Document Document { get; set; }
-        public IEnumerable<Attachement> Attachements { get; set; } = [];
-        public IEnumerable<DocumentHistory> History { get; set; } = [];
     }
 }

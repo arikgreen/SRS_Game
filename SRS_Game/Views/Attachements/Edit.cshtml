@@ -15,15 +15,15 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="mb-3 row">
-                <label asp-for="DocumentId" class="col-sm-4 col-form-label">@Localizer["Document"]</label>
-                <div class="col-sm-8">
-                    <input asp-for="DocumentId" class="form-control" />
+                <label asp-for="DocumentId" class="col-sm-3 col-form-label">@Localizer["Document"]</label>
+                <div class="col-sm-9">
+                    <select asp-for="DocumentId" class="form-select" asp-items="ViewBag.Documents"></select>
                 </div>
                 <span asp-validation-for="DocumentId" class="text-danger"></span>
             </div>
             <div class="mb-3 row">
-                <label asp-for="FileName" class="col-sm-4 col-form-label">@Localizer["File name"]</label>
-                    <div class="col-sm-8">
+                <label asp-for="FileName" class="col-sm-3 col-form-label">@Localizer["File name"]</label>
+                    <div class="col-sm-9">
                         <input asp-for="FileName" class="form-control" />
                     </div>
                 <span asp-validation-for="FileName" class="text-danger"></span>

@@ -22,6 +22,14 @@ namespace SRS_Game.Controllers
 
         public IActionResult Index()
         {
+            var projectsCount = _context.Projects.Count();
+            var documentsCount = _context.Documents.Count();
+            var participantsCount = _context.Participants.Count();
+
+            ViewBag.ProjectsCount = projectsCount;
+            ViewBag.DocumentsCount = documentsCount;
+            ViewBag.ParticipantsCount = participantsCount;
+            
             return View();
         }
 

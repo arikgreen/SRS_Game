@@ -65,7 +65,14 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // R
 // Register the ParticipantService
 builder.Services.AddScoped<IReadableParticipant, ParticipantService>();
 builder.Services.AddScoped<IWritableParticipant, ParticipantService>();
+
+builder.Services.AddScoped<IReadableParticipantType, ParticipantTypeService>();
+
 builder.Services.AddScoped<IReadableProject, ProjectService>();
+builder.Services.AddScoped<IWritableProject, ProjectService>();
+
+builder.Services.AddScoped<IReadableDocument, DocumentService>();
+builder.Services.AddScoped<IWritableDocument, DocumentService>();
 
 builder.Services.AddDbContext<SRS_GameDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SRS_GameDbContext") ?? throw new InvalidOperationException("Connection string 'SRS_GameDbContext' not found.")));

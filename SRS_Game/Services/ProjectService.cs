@@ -60,6 +60,8 @@ namespace SRS_Game.Services
                  })
                 .ToListAsync();
 
+            projects.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
+
             return new SelectList(projects, "Value", "Text");
         }
     }

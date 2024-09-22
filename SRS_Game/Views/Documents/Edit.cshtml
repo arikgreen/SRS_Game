@@ -41,8 +41,9 @@
             </div>
             <div class="mb-3 row">
                 <label asp-for="VersionId" class="col-sm-3 col-form-label">@Localizer["Version"]</label>
-                <div class="col-sm-9"><input asp-for="VersionId" class="form-control" /></div>
-                <span asp-validation-for="VersionId" class="text-danger"></span>
+                <div class="col-sm-9 align-content-center">
+                    <label class="col-form-label">@Html.DisplayFor(model => model.VersionId)</label>
+                </div>
             </div>
             <div class="mb-3 row">
                 <label asp-for="FileName" class="col-sm-3 col-form-label">@Localizer["File name"]</label>

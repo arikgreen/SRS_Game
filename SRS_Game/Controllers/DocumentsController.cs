@@ -33,7 +33,7 @@ namespace SRS_Game.Controllers
                         on document.AuthorId equals author.Id
                         join project in _context.Projects
                         on document.ProjectId equals project.Id
-                        select new DocumentsViewModel
+                        select new DocumentViewModel
                         {
                             Id = document.Id,
                             Name = document.Name,
@@ -59,36 +59,66 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var document = await _context.Documents.FirstOrDefaultAsync(m => m.Id == id);
+            var document = await _context.Documents
+                .Join(_context.Projects,
+                d => d.ProjectId,
+                p => p.Id,
+                (d, p) => new {
+                    d.Id,
+                    d.Name,
+                    d.VersionId,
+                    d.Description,
+                    d.CreateDate,
+                    d.UpdateDate,
+                    d.AuthorId,
+                    d.FileName,
+                    Project = p.Name
+                })
+                .Join(_context.Participants,
+                d => d.AuthorId,
+                a => a.Id,
+                (d, a) => new DocumentViewModel
+                {
+                    Id = d.Id,
+                    Name = d.Name,
+                    VersionId = d.VersionId,
+                    Description = d.Description,
+                    CreateDate = d.CreateDate,
+                    UpdateDate = d.UpdateDate,
+                    FileName = d.FileName,
+                    Project = d.Project,
+                    Author = a.FirstName + " " + a.LastName
+                })
+                .FirstOrDefaultAsync(m => m.Id == id);
 
-            var attachements = await _context.Attachements.Where(m => m.DocumentId == id)
-                .OrderByDescending(d => d.FileName)
-                .ToListAsync();
-
-            var docHistory = await _context.DocumentHistories.Where(m => m.DocumentId == id)
-                .OrderByDescending(d => d.Created)
-                .ToListAsync();
-            
             if (document == null)
             {
                 return NotFound();
             }
 
-            var author = await _readableParticipant.GetParticipantByIdAsync(document.AuthorId);
-            ViewBag.Author = author != null ? author.GetName() : "not set";
+            var attachements = await _context.Attachements.Where(m => m.DocumentId == id)
+                .OrderByDescending(d => d.FileName)
+                .ToListAsync();
 
-            var project = await _readableProject.GetProjectByIdAsync((int)document.ProjectId);
-            ViewBag.Project = project != null ? String.Format("{0} ({1})", project.Name, project.Number) : "not set";
+            var docHistory = await _context.DocumentHistories
+                .Join(_context.Participants,
+                h => h.AuthorId,
+                a => a.Id,
+                (h, a) => new
+                {
+                    h.DocumentId,
+                    h.Description,
+                    h.Created,
+                    Author = a.FirstName + " " + a.LastName,
+                })
+                .Where(m => m.DocumentId == id)
+                .OrderByDescending(d => d.Created)
+                .ToListAsync();
 
-            // Create the ViewModel
-            var viewModel = new DocumentViewModel
-            {
-                Document = document,
-                Attachements = attachements,
-                History = docHistory
-            };
+            ViewBag.Attachements = attachements;
+            ViewBag.History = docHistory;
 
-            return View(viewModel);
+            return View(document);
         }
 
         // GET: Documents/Create

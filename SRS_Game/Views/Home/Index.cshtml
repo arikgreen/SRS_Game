@@ -8,24 +8,33 @@
 <div class="container">
     <div class="row pb-lg-3">
         <div class="col-lg-6">
-            <div class="card p-3">
-                @Localizer["Projects"] - @Localizer["Statistics"]
+            <div class="card p-3 h-100">
+                <h3>@Localizer["Projects"] - @Localizer["Statistics"]</h3>
+                <div class="display-4">
+                    @ViewBag.ProjectsCount
+                </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="card p-3">
-                @Localizer["Documents"] - @Localizer["Statistics"]
+            <div class="card p-3 h-100">
+                <h3>@Localizer["Documents"] - @Localizer["Statistics"]</h3>
+                <div class="align-content-end">
+                    <p class="display-4">@ViewBag.DocumentsCount</p>
+                </div>
             </div>
         </div>
     </div>
     <div class="row clearfix">
         <div class="col-lg-6">
-            <div class="card p-3">
-                @Localizer["Users"] - @Localizer["Statistics"]
+            <div class="card p-3 h-100">
+                <h3>@Localizer["Participants"] - @Localizer["Statistics"]</h3>
+                    <div class="align-content-end">
+                        <p class="display-4">@ViewBag.ParticipantsCount</p>
+                    </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="card p-3">
+            <div class="card p-3 h-100">
                 <a href="https://support.microsoft.com/en-us/office/view-live-transcription-in-microsoft-teams-meetings-dc1a8f23-2e20-4684-885e-2152e06a4a8b">
                     @Localizer["View live transcription in Microsoft Teams meetings"]
                 </a>

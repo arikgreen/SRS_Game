@@ -6,9 +6,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 using SRS_Game.Data;
+using SRS_Game.Interfaces;
 using SRS_Game.Models;
+using IFormFile = Microsoft.AspNetCore.Http.IFormFile;
 
 namespace SRS_Game.Controllers
 {
@@ -16,15 +19,30 @@ namespace SRS_Game.Controllers
     {
         private readonly SRS_GameDbContext _context;
 
-        public AttachementsController(SRS_GameDbContext context)
+        private readonly IReadableDocument _readableDocument;
+
+        public AttachementsController(SRS_GameDbContext context, IReadableDocument readableDocument)
         {
             _context = context;
+            _readableDocument = readableDocument;
         }
 
         // GET: Attachements
         public async Task<IActionResult> Index()
         {
             var orderedAttachements = _context.Attachements
+                .Join(_context.Documents,
+                a => a.DocumentId,
+                d => d.Id,
+                (a, d) => new AttachementViewModel {
+                    Document = d.Name,
+                    Id = a.Id,
+                    FileName = a.FileName,
+                    ContentType = a.ContentType,
+                    CreateDate = a.CreateDate,
+                    UpdateDate = a.UpdateDate
+                }
+                )
                 .OrderByDescending(d => d.CreateDate)
                 .ToListAsync();
 
@@ -40,6 +58,19 @@ namespace SRS_Game.Controllers
             }
 
             var attachement = await _context.Attachements
+                .Join(_context.Documents, 
+                a => a.DocumentId,
+                d => d.Id,
+                (a, d) => new AttachementViewModel 
+                { 
+                    Document = d.Name,
+                    Id = a.Id,
+                    FileName = a.FileName,
+                    ContentType = a.ContentType,
+                    CreateDate = a.CreateDate,
+                    UpdateDate = a.UpdateDate,
+                    FileContent = a.FileContent
+                })
                 .FirstOrDefaultAsync(m => m.Id == id);
             
             if (attachement == null || attachement.FileContent == null)
@@ -54,8 +85,10 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Attachements/Create
-        public IActionResult Create()
+        public async Task <IActionResult> Create()
         {
+            ViewBag.Documents = await _readableDocument.GetDocumentsForSelectListAsync();
+
             return View("UploadFile");
         }
 
@@ -129,6 +162,9 @@ namespace SRS_Game.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.Documents = await _readableDocument.GetDocumentsForSelectListAsync();
+
             return View(attachement);
         }
 

@@ -45,4 +45,9 @@ namespace SRS_Game.Models
             FileContent = fileContent;
         }
     }
+
+    public class AttachementViewModel : Attachement
+    { 
+        public required string Document { get; set; }
+    }
 }

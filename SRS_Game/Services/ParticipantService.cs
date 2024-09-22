@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SRS_Game.Data;
-using SRS_Game.Models;
 using SRS_Game.Interfaces;
+using SRS_Game.Models;
 
 namespace SRS_Game.Services
 {
@@ -17,7 +17,7 @@ namespace SRS_Game.Services
 
         public IEnumerable<Participant> GetAllParticipants()
         {
-            return _context.Participants.ToList();
+            return [.. _context.Participants];
         }
 
         public async Task<Participant?> GetParticipantByIdAsync(int id)
@@ -59,6 +59,8 @@ namespace SRS_Game.Services
                     Text = p.FirstName + " " + p.LastName
                 })
                 .ToListAsync();
+
+            participants.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
 
             return new SelectList(participants, "Value", "Text");
         }

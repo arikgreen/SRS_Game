@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer Localizer;
 
-@model IEnumerable<SRS_Game.Models.Attachement>;
+@model IEnumerable<SRS_Game.Models.AttachementViewModel>;
 
 @{
     ViewData["Title"] = Localizer["Attachements"];
@@ -15,7 +15,7 @@
     <thead>
         <tr>
             <th>
-                @Localizer[Html.DisplayNameFor(model => model.DocumentId)]
+                @Localizer[Html.DisplayNameFor(model => model.Document)]
             </th>
             <th>
                 @Localizer[Html.DisplayNameFor(model => model.FileName)]
@@ -36,7 +36,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DocumentId)
+                @Html.DisplayFor(modelItem => item.Document)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FileName)

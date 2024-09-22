@@ -36,8 +36,8 @@ namespace SRS_Game.Models
         
         [EmailAddress]
         [StringLength(50)]
-        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
-        [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
+        //[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
+        //[RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
         public string Email { get; set; }
 
         [StringLength(15)]
@@ -52,6 +52,7 @@ namespace SRS_Game.Models
         public int TypeId { get; set; }
 
         [Required]
+        [DisplayName("External participant")]
         public bool IsExternal { get; set; }
 
         // Parameterless constructor required by EF Core

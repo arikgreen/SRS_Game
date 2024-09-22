@@ -1,38 +1,43 @@
 ﻿using SRS_Game.Data;
-using System.Data.Entity;
-using System.Reflection.Metadata;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using SRS_Game.Interfaces;
+using SRS_Game.Models;
 
 namespace SRS_Game.Services
 {
-    public interface IReadableDocument
+    public class DocumentService : IReadableDocument, IWritableDocument
     {
-        IEnumerable<Document?> GetAll();
-        Task<Document> GetAsync(int? id);
-        
-    }
-    public interface IWritableDocument
-    {
-        Task AddAsync(Document document);
-        Task UpdateAsync(Document document);
-        Task DeleteAsync(int id);
-    }
+        private readonly SRS_GameDbContext _context;
 
-    public class DocumentService(SRS_GameDbContext context) : IReadableDocument, IWritableDocument
-    {
-        private readonly SRS_GameDbContext _context = context;
-
-        public IEnumerable<Document?> GetAll()
+        public DocumentService(SRS_GameDbContext context)
         {
-            var documents = _context.Documents;
+            _context = context;
+        }
 
-            return (IEnumerable<Document?>)documents;
+        public IEnumerable<Document> GetAll()
+        {
+            return [.. _context.Documents];
         }
         
-        public Task<Document> GetAsync(int? id)
+        public async Task<Document?> GetAsync(int id)
         {
-            /* Code to read specyfication */
-            throw new NotImplementedException();
+            return await _context.Documents.FindAsync(id);
+        }
+
+        public async Task<SelectList> GetDocumentsForSelectListAsync()
+        {
+            var documents = await _context.Documents
+                .Select(p => new SelectListItem
+                {
+                    Value = p.Id.ToString(),
+                    Text = p.Name
+                })
+                .ToListAsync();
+
+            documents.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
+
+            return new SelectList(documents, "Value", "Text");
         }
 
         public Task AddAsync(Document document)

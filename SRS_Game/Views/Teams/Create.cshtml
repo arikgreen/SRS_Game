@@ -10,18 +10,22 @@
 <h1>@ViewData["Title"]</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-sm-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label">@Localizer["Name"]</label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+            <div class="mb-3 row">
+                <label asp-for="Name" class="col-sm-4">@Localizer["Name"]</label>
+                <div class="col-sm-8">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Number" class="control-label">@Localizer["Number"]</label>
-                <input asp-for="Number" class="form-control" />
-                <span asp-validation-for="Number" class="text-danger"></span>
+            <div class="mb-3 row">
+                <label asp-for="Number" class="col-sm-4">@Localizer["Number"]</label>
+                <div class="col-sm-8">
+                    <input asp-for="Number" class="form-control" />
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group mt-3">
                 <input type="submit" value="@Localizer["Add"]" class="btn btn-primary" />

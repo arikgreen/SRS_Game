@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using SRS_Game.Data;
+using SRS_Game.Interfaces;
 using SRS_Game.Models;
 
 namespace SRS_Game.Controllers
@@ -10,10 +11,12 @@ namespace SRS_Game.Controllers
     public class ParticipantsController : Controller
     {
         private readonly SRS_GameDbContext _context;
+        private readonly IReadableParticipantType _readableParticipantType;
 
-        public ParticipantsController(SRS_GameDbContext context)
+        public ParticipantsController(SRS_GameDbContext context, IReadableParticipantType readableParticipantType)
         {
             _context = context;
+            _readableParticipantType = readableParticipantType;
         }
 
         // GET: Participant
@@ -72,8 +75,12 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Participant/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var participantTypes = await _readableParticipantType.GetParticipantTypesForSelectListAsync();
+
+            ViewBag.ParticipantTypes = participantTypes;
+
             return View();
         }
 

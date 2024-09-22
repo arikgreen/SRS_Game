@@ -8,7 +8,6 @@ namespace SRS_Game.Interfaces
         IEnumerable<Participant> GetAllParticipants();
         Task<Participant?> GetParticipantByIdAsync(int id);
         Task<SelectList> GetParticipantsForSelectListAsync();
-
     }
 
     public interface IWritableParticipant

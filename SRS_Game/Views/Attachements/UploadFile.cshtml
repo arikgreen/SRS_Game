@@ -13,20 +13,15 @@
 }
 
 <div class="container">
-    <div class="row clearfix">
-        <div class="col-lg-12">
+    <div class="row">
+        <div class="col-sm-6">
             <div class="card p-3">
                 <div class="message">@ViewBag.Message</div>
                 <h2>@ViewData["Title"]</h2>
                 @using (Html.BeginForm("UploadFilePost", "Attachements", FormMethod.Post, new { enctype = "multipart/form-data", @class = "was-validated" }))
                 {
                     <label asp-for="DocumentId" class="control-label">@Localizer["Document name"]</label>
-                    <select class="form-select" name="docId" aria-label="@Localizer["Select document for this attachement"]">
-                        <option selected>Document Four</option>
-                        <option value="1">Document One</option>
-                        <option value="2">Document Two</option>
-                        <option value="3">Document Three</option>
-                    </select>
+                    <select asp-for="DocumentId" class="form-select" asp-items="ViewBag.Documents" aria-label="@Localizer["Select document for this attachement"]"></select>
                     <div class="input-group my-3 border border-info p-2 rounded">
                         <div class="form-check-inline">@Localizer["Source (if uploading transcript)"]:</div>
                         <div class="form-check form-check-inline">
