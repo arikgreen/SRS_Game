@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNetCore.Mvc;
@@ -17,12 +18,20 @@ namespace SRS_Game.Controllers
         private readonly SRS_GameDbContext _context;
         private readonly IReadableParticipant _readableParticipant;
         private readonly IReadableProject _readableProject;
+        private readonly IReadableAttachement _readableAttachement;
+        private readonly IReadableDocument _readableDocument;
 
-        public DocumentsController(SRS_GameDbContext context, IReadableParticipant readableParticipant, IReadableProject readableProject)
+        public DocumentsController(SRS_GameDbContext context
+            , IReadableParticipant readableParticipant
+            , IReadableProject readableProject
+            , IReadableAttachement readableAttachement
+            , IReadableDocument readableDocument)
         {
             _context = context;
             _readableParticipant = readableParticipant;
             _readableProject = readableProject;
+            _readableAttachement = readableAttachement;
+            _readableDocument = readableDocument;
         }
 
         // GET: Documents
@@ -147,13 +156,8 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Documents/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var document = await _context.Documents.FindAsync(id);
             if (document == null)
             {
@@ -162,6 +166,23 @@ namespace SRS_Game.Controllers
 
             ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
             ViewBag.Projects = await _readableProject.GetProjectsForSelectListAsync();
+
+
+            var transcriptFileId = await _readableDocument.GetAttachements(id, transcriptsOnly: true);
+
+            if (transcriptFileId != null)
+            {
+                var fileContent = await _readableAttachement.GetContentAsync(transcriptFileId[0]);
+                if (fileContent != null)
+                {
+                    var meetingTranscript = new TranscriptParser(fileContent);
+
+                    ViewData["TopicS"] = meetingTranscript.Topic;
+                    ViewData["MeetingDateS"] = meetingTranscript.MeetingDate;
+                    ViewData["ParticipantsS"] = Regex.Replace(meetingTranscript.Participants, @"((\r)?\n|\u0010)", "<br />");
+                    ViewData["ContentS"] = Regex.Replace(meetingTranscript.MeetingContent, @"((\r)?\n|\u0010)", "<br />");
+                }
+            }
 
             return View(document);
         }

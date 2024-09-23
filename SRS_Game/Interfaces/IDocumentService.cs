@@ -8,6 +8,10 @@ namespace SRS_Game.Interfaces
         IEnumerable<Document> GetAll();
         Task<Document?> GetAsync(int id);
         Task<SelectList> GetDocumentsForSelectListAsync();
+
+        Task<string> GetTranscriptSourceContent(int id);
+
+        Task<List<int>> GetAttachements(int id, bool transcriptsOnly);
     }
     public interface IWritableDocument
     {

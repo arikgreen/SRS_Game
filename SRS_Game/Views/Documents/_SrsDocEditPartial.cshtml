@@ -1,0 +1,829 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+<ol class="list-group list-group-numbered">
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Introduction"]</span>
+        <div class="ms-2 me-auto">
+            <textarea class="form-control" id="introduction" rows="3" placeholder="Tu się podaje krótkie wprowadzenie: co to jest za projekt, na czym polega, jaka jest jego główna idea." ></textarea>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Requirements sources"]</span>
+        <div class="ms-2 me-auto">
+            <i>W tym rozdziale identyfikuje się źródła wymagań. Jest to potrzebne, aby zorientować się, skąd pozyskiwać wymagania do projektu.</i>
+            <ol class="list-group list-group-numbered">
+                <li id="stkh-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Participants of project"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Tu identyfikuje się wszystkie osoby (fizyczne i prawne), które są zainteresowane realizacją projektu bezpośrednio lub pośrednio.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">STKH_001</th>
+                                    <td class="">
+                                        <input class="form-control fw-bold" id="stkh-001-name" placeholder="Zleceniodawca">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Desription"]</th>
+                                    <td><input class="form-control" id="stkh-001-desc" placeholder="Organizacja zamawiająca realizację projektu"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Type"]</th>
+                                    <td><input class="form-control" id="stkh-001-type" placeholder="osoba prawna"></td>
+                                    <!--<td colspan="2">Larry the Bird</td>-->
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Full name"]</th>
+                                    <td><input class="form-control" id="stkh-001-fname" placeholder="dla typu instytucjonalnego"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Address"]</th>
+                                    <td><input class="form-control" id="stkh-001-address" placeholder="adres pocztowy do korespondencji"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Representative"]</th>
+                                    <td>
+                                        <input class="form-control" id="stkh-001-represent" placeholder="imię i nazwisko, kontakt albo referencja do osobnego rekordu, np.: STKH_002 Przedstawiciel zleceniodawcy">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]</th>
+                                    <td>
+                                        <input class="form-control" id="stkh-001-priority" list="priority-datalist" placeholder="Type to search ...">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="rsrc-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Personless sources"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Tu wymienia się akty prawne,  standardy i inne dokumenty stanowiące źródła wymagań dla projektu. Często wymienia się rozporządzenie o ochronie danych osobowych. Podaje się znane dane bibliograficzne publikacji: tytuł, wydawcę etc. – tyle ile potrzeba dla jednoznacznej identyfikacji dokumentu. Jeśli dokument jest dostępny w Internecie, to można podać jego URL.
+                        </i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">RSRC_001</th>
+                                    <td class="fw-bold">RODO</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Desription"]</th>
+                                    <td>Rozporządzenie o Ochronie Danych Osobowych</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Title"]</th>
+                                    <td>pełny tytuł dokumentu</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Publisher"]</th>
+                                    <td>nazwa organizacji publikującej dokument</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Publishing place"]</th>
+                                        <td>miejsce publikacji (np. kraj, miasto)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Publishing date"]</th>
+                                    <td>data pełna lub skrócona (np. rok) wydania</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Version"]</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["URL"]</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]</th>
+                                    <td>Organizacja zamawiająca realizację projektu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Purposes"]</span>
+        <div class="ms-2 me-auto">
+            <i>W tym miejscu precyzuje się cele systemu z podziałem na cele biznesowe i cele funkcjonalne. Zdarza się tak, że zleceniodawca początkowo wymienia tylko cele funkcjonalne zachowując do swojej wiadomości cele biznesowe. Aby jednak właściwie rozumieć te funkcje w odpowiednim kontekście, zespół projektowy musi poznać motywacje biznesowe klienta.</i>
+            <ol class="list-group list-group-numbered">
+                <li id="bsgl-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Busines purposes"]</span>
+                    <div class="ms-2 me-auto">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">BSGL_001</th>
+                                    <td class="fw-bold">Otwarcie nowego kanału sprzedaży</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="fngl-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Functionality purposes"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Cele funkcjonalne wymieniają główne funkcjonalności, które ma spełniać system.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">FNGL_001</th>
+                                    <td class="fw-bold">Umożliwienie sprzedaży przez Internet</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Busines purpose"]:</th>
+                                    <td>BSGL_001 Otwarcie nowego kanału sprzedaży</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["System environment"]</span>
+        <div class="ms-2 me-auto">
+            <i>Zespół projektowy musi poznać otoczenie (kontekst), w jakim ma pracować system. Z rozmów z klientem powinno dać się wyszczególnić użytkowników oraz systemy zewnętrzne. Jeśli się nie da, to otoczenie systemu trzeba będzie zdefiniować w trakcie analizy funkcjonalnej.</i>
+            <ol class="list-group list-group-numbered">
+                <li id="user-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Users"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Trzeba odróżnić użytkowników wypisanych w tym punkcie od grup użytkowników wymienionych wśród interesariuszy projektu. Tam są oni zidentyfikowani jako źródło wymagań, a tu stanowią podmiot tych wymagań.</i>
+                        <table  class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">USER_001</th>
+                                    <td class="fw-bold">Klient</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td>Tu pod pojęciem klienta rozumie się klienta sklepu internetowego.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Needs"]:</th>
+                                    <td>
+                                        1.	Wybór towaru
+                                        2.	Wyszukanie towarów podobnych i powiązanych
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Tasks"]:</th>
+                                    <td>1.	Określenie preferencji dla wyszukania towaru</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="xsys-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Outside systems"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>System zewnętrzny wymieniany w specyfikacji wymagań to taki system, z którym projektowany system współdziała bezpośrednio, np. wysyła dane, odbiera i przetwarza informacje.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">XSYS_001</th>
+                                    <td class="fw-bold">System finansowo-księgowy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td>System, do którego nasz system będzie wysyłał dzienne raporty.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Needs"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Tasks"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Interfaces"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Expected system components"]</span>
+        <div class="ms-2 me-auto">
+            <ol class="list-group list-group-numbered">
+                <li id="ssys-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Subsystems"]</span>
+                    <div class="ms-2 me-auto">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">SSYS_001</th>
+                                    <td class="fw-bold">Podsystem sprzedaży</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Location"]:</th>
+                                    <td>
+                                        HCMP_001 Serwer główny
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Components"]:</th>
+                                    <td>
+                                        SCMP_001 Sklep internetowy
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>Referencje do innych podsystemów</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="hcmp-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Hardware components"]</span>
+                    <div class="ms-2 me-auto">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">HCMP_001</th>
+                                    <td class="fw-bold">Serwer główny</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>Referencje do innych komponentów sprzętowych</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="scmp-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Software components"]</span>
+                    <div class="ms-2 me-auto">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">SCMP_001</th>
+                                    <td class="fw-bold">Sklep internetowy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td>System, do którego nasz system będzie wysyłał dzienne raporty.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Location"]:</th>
+                                    <td>
+                                        HCMP_001 Serwer główny
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>Referencje do innych komponentów sprzętowych</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </li>
+    <li id="fnrq-table" class="list-group-item">
+        <span class="fw-bold">@Localizer["Functionality requirements"]</span>
+        <div class="ms-2 me-auto">
+            <i>Każde wymaganie funkcjonalne musi być przypisane do określonego użytkownika lub systemu zewnętrznego (pole „dotyczy”). Może być oparte o potrzeby lub zadania tego użytkownika. Wyjątek stanowią wymagania funkcjonalne wykonywane automatycznie, które mogą być przypisane do któregoś z komponentów. systemu.</i>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">FNRQ_001</th>
+                        <td class="fw-bold">Złożenie zamówienia</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Description"]:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Refers to"]:</th>
+                        <td>
+                            USER_001 Klient
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Support for"]:</th>
+                        <td>
+                            BSGL_001 Otwarcie nowego kanału sprzedaży
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Relations"]:</th>
+                        <td>Referencje do innych podsystemów</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Source"]:</th>
+                        <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Priority"]:</th>
+                        <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+    <li id="dtrq-table" class="list-group-item">
+        <span class="fw-bold">@Localizer["Data requirements"]</span>
+        <div class="ms-2 me-auto">
+            <i>Wymagania na dane pomagają w określeniu, jakie dane będą przetwarzane w systemie. Nie trzeba precyzować wszystkich danych. Szczegóły znajdą się w projekcie bazy danych.</i>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">DTRQ_001</th>
+                        <td class="fw-bold">Cennik</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Description"]:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Relations"]:</th>
+                        <td>Referencje do innych podsystemów</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Source"]:</th>
+                        <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Priority"]:</th>
+                        <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Quality requirements"]</span>
+        <div class="ms-2 me-auto">
+            <i>Określenie wymagań jakościowych ułatwia późniejsze uzyskanie wysokiej jakości systemu. Podział wymagań jakościowych na kategorie jest związany z drzewem jakości (dotyczy wszystkich gałęzi drzewa za wyjątkiem funkcjonalności). Wymagania jakościowe powinny być powiązane z wymaganiami funkcjonalnymi, których dotyczą.</i>
+            <ol class="list-group list-group-numbered">
+                <li id="rlrq-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Credibility requirements"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Wymagania w zakresie wiarygodności będą rozszerzały wymagania funkcjonalne.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">RLRQ_001</th>
+                                    <td class="fw-bold">Ochrona danych klienta</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>Referencje do innych podsystemów</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="pfrq-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Performance requirements"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Wymagania w zakresie wydajności będą miały zastosowanie w czasie projektowania architektury systemu.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">PFRQ_001</th>
+                                    <td class="fw-bold">Obsługa do 10 tys. klientów dziennie</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>FNRQ_001 Złożenie zamówienia</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="flrq-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Flexibility requirements"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Wymagania w zakresie elastyczności będą miały zastosowanie w czasie wyboru koncepcji systemu.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">FLRQ_001</th>
+                                    <td class="fw-bold">Uruchamianie na dowolnym sprzęcie po stronie klienta</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>SCMP_001 Sklep internetowy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="strq-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Usability requirements"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Wymagania w zakresie użyteczności będą brane pod uwagę głównie w czasie projektowania interfejsu użytkownika.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">STRQ_001</th>
+                                    <td class="fw-bold">Łatwość wyszukania towaru</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>FNRQ_001 Złożenie zamówienia</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Emergency situations"]</span>
+        <div class="ms-2 me-auto">
+            <i>Sytuacje wyjątkowe stanowią dalsze rozszerzenie wymagań funkcjonalnych i dotyczących wiarygodności. Każda sytuacja wyjątkowa musi być wspierana przez przynajmniej jedną funkcjonalność, która rozwiązuje problem, zapobiega awarii lub pozwala odzyskać sprawność po awarii.</i>
+            <ol class="list-group list-group-numbered">
+                <li id="excp-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Exceptions"]</span>
+                    <div class="ms-2 me-auto">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">EXCP_001</th>
+                                    <td class="fw-bold">Brak towaru w magazynie</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>FNRQ_001 Złożenie zamówienia</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Supported for"]:</th>
+                                    <td>FNRQ_002 Uzgodnienie terminu dostawy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="cris-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Critical situations"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Sytuacje krytyczne to takie scenariusze, które mogą doprowadzić do awarii. Funkcjonalność wpierająca zapobiega załamaniu systemu.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">CRIS_001</th>
+                                    <td class="fw-bold">Masowe zamówienia brakującego towaru</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>FNRQ_001 Złożenie zamówienia</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Supported for"]:</th>
+                                    <td>FNRQ_003 Awaryjne wycofanie towaru z oferty</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="emrg-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Emergancy situations"]</span>
+                    <div class="ms-2 me-auto">
+                        <i>Sytuacje awaryjne to takie, w których szkoda już nastąpiła. Funkcjonalność wpierająca pomaga systemowi odzyskać pełną sprawność.</i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">EMRG_001</th>
+                                    <td class="fw-bold">Utrata towaru w czasie dostawy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Relations"]:</th>
+                                    <td>FNRQ_004 Realizacja zamówienia</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Supported for"]:</th>
+                                    <td>FNRQ_005 Wpisanie towaru w straty</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Extras requirements"]</span>
+        <div class="ms-2 me-auto">
+            <i>W tym miejscu podaje się te wymagania, które nie mieszczą się w zakresie poprzednich kategorii wymagań.</i>
+            <ol class="list-group list-group-numbered">
+                <li id="xhrq-table" class="list-group-item">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">@Localizer["Hardware requirements"]</div>
+                        <i></i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">XHRQ_001</th>
+                                    <td class="fw-bold">Konfiguracja serwera</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td>Podać konfigurację uzgodnioną z klientem</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Refers to"]:</th>
+                                    <td>
+                                        HCMP_001 Serwer główny
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td>STKH_002 Przedstawiciel zleceniodawcy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="xsrq-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Software requirements"]</span>
+                    <div class="ms-2 me-auto">
+                        <i></i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">XSRQ_001</th>
+                                    <td class="fw-bold">Wykorzystanie gotowego sklepu internetowego</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Refers to"]:</th>
+                                    <td>
+                                        SSYS_001 Sklep internetowy
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li id="xxrq-table" class="list-group-item">
+                    <span class="fw-bold">@Localizer["Other requirements"]</span>
+                    <div class="ms-2 me-auto">
+                        <i></i>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">XXRQ_001</th>
+                                    <td class="fw-bold"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Description"]:</th>
+                                    <td>Te wymagania, które nie można umieścić w żadnej innej kategorii</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Refers to"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Source"]:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">@Localizer["Priority"]:</th>
+                                    <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Acceptance criteria"]</span>
+        <div class="ms-2 me-auto">
+            <i>Tu podać kryteria, jakim zostanie poddany gotowy system przed ostatecznym jego przyjęciem. Określa się warunki np. przeprowadzania testów albo okres próbnej eksploatacji. Nie podaje się takich oczywistych kryteriów jak spełnienie wymagań o priorytecie krytycznym.</i>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">ACPT_001</th>
+                        <td class="fw-bold">Testy akceptacyjne u klienta</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Description"]:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Refers to"]:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Source"]:</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Priority"]:</th>
+                        <td>opcjonalny / niski / średni / wysoki / krytyczny</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Dictionary"]</span>
+        <div class="ms-2 me-auto">
+            <i>Znaczenia specyficznych pojęć, skrótów. Może być umieszczony w osobnym dokumencie.</i>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <span class="fw-bold">@Localizer["Attachements"]</span>
+        <div class="ms-2 me-auto">
+            <i>Tu wyszczególnić dokumenty, do których trzeba się będzie odwoływać w całym projekcie.</i>
+        </div>
+    </li>
+</ol>
+<datalist id="priority-datalist">
+    <option>@Localizer["optional"]</option>
+    <option>@Localizer["low"]</option>
+    <option>@Localizer["medium"]</option>
+    <option>@Localizer["high"]</option>
+    <option>@Localizer["critical"]</option>
+</datalist>

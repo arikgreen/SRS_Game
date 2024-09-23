@@ -74,6 +74,8 @@ builder.Services.AddScoped<IWritableProject, ProjectService>();
 builder.Services.AddScoped<IReadableDocument, DocumentService>();
 builder.Services.AddScoped<IWritableDocument, DocumentService>();
 
+builder.Services.AddScoped<IReadableAttachement, AttachementService>();
+
 builder.Services.AddDbContext<SRS_GameDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SRS_GameDbContext") ?? throw new InvalidOperationException("Connection string 'SRS_GameDbContext' not found.")));
 

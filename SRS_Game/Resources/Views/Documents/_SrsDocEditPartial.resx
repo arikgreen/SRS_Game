@@ -120,15 +120,6 @@
   <data name="Author" xml:space="preserve">
     <value>Autor</value>
   </data>
-  <data name="Back to List" xml:space="preserve">
-    <value>Wróc do listy</value>
-  </data>
-  <data name="Create date" xml:space="preserve">
-    <value>Utworzony</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Opis</value>
-  </data>
   <data name="Document" xml:space="preserve">
     <value>Dokument</value>
   </data>
@@ -150,20 +141,44 @@
   <data name="Version" xml:space="preserve">
     <value>Wersja</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
+  <data name="optional" xml:space="preserve">
+    <value>opcjonalny</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Anuluj</value>
+  <data name="low" xml:space="preserve">
+    <value>niski</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+  <data name="medium" xml:space="preserve">
+    <value>średni</value>
   </data>
-  
-  <data name="Summary" xml:space="preserve">
-    <value>Podsumowanie</value>
+  <data name="high" xml:space="preserve">
+    <value>wysoki</value>
   </data>
-  <data name="Sources" xml:space="preserve">
-    <value>Źródła</value>
+  <data name="critical" xml:space="preserve">
+    <value>krytyczny</value>
+  </data>
+  <data name="Desription" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Full name" xml:space="preserve">
+    <value>Pełna nazwa</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adres</value>
+  </data>	
+  <data name="Representative" xml:space="preserve">
+    <value>Reprezentuje</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priorytet</value>
+  </data>
+
+  <data name="Introduction" xml:space="preserve">
+    <value>Wprowadzenie</value>
+  </data>
+  <data name="Requirements sources" xml:space="preserve">
+    <value>Żródła wymagań</value>
   </data>
 </root>

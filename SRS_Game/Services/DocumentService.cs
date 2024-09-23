@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SRS_Game.Interfaces;
 using SRS_Game.Models;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
+using System.Text;
 
 namespace SRS_Game.Services
 {
@@ -54,6 +57,41 @@ namespace SRS_Game.Services
         {
             /* Code to delete document */
             throw new NotImplementedException();
+        }
+
+        public async Task<string> GetTranscriptSourceContent(int id)
+        { 
+            var fileContent = await _context.Attachements
+                .Where(d => d.DocumentId == id)
+                .Where(o => o.FileName.Contains("transcript"))
+                .Select(c => c.FileContent)
+                .FirstOrDefaultAsync();
+
+            string fileContentStr = fileContent == null ? "" : Encoding.ASCII.GetString(fileContent);
+            fileContentStr = Regex.Replace(fileContentStr, @"((\r)?\n|\u0010)", "<br />");
+
+            return fileContentStr;
+        }
+
+        public async Task<List<int>> GetAttachements(int id, bool transcriptsOnly)
+        {
+            List<int> attachementsIdList = [];
+
+            if (transcriptsOnly)
+            {
+                attachementsIdList = await _context.Attachements
+                    .Where (d => d.DocumentId == id)
+                    .Where (t => t.IsTranscript)
+                    .Select(i => i.Id).ToListAsync();
+
+                return attachementsIdList;
+            }
+
+            attachementsIdList = await _context.Attachements
+                    .Where(d => d.DocumentId == id)
+                    .Select(i => i.Id).ToListAsync();
+
+            return attachementsIdList;
         }
     }
 }

@@ -10,57 +10,90 @@
 <h1>@Localizer["Document"] - @Localizer["Edit"]</h1>
 <h4>@Html.DisplayFor(model => model.Name)</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="mb-3 row">
-                <label asp-for="Name" class="col-sm-3 col-form-label">@Localizer["Name"]</label>
-                <div class="col-sm-9"><input asp-for="Name" class="form-control" /></div>
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="mb-3 row">
-                <label asp-for="ProjectId" class="col-sm-3 col-form-label">@Localizer["Project"]</label>
-                <div class="col-sm-9">
-                    <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.Projects" onselect="@Model.ProjectId"></select>
-                </div>
-                <span asp-validation-for="ProjectId" class="text-danger"></span>
-            </div>
-            <div class="mb-3 row">
-                <label asp-for="Description" class="col-sm-3 col-form-label">@Localizer["Description"]</label>
-                <div class="col-sm-9"><input asp-for="Description" class="form-control" /></div>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="mb-3 row">
-                <label asp-for="AuthorId" class="col-sm-3 col-form-label">@Localizer["Autor"]</label>
-                <div class="col-sm-9">
-                    <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Participants" onselect="@Model.AuthorId"></select>
-                </div>
-                <span asp-validation-for="AuthorId" class="text-danger"></span>
-            </div>
-            <div class="mb-3 row">
-                <label asp-for="VersionId" class="col-sm-3 col-form-label">@Localizer["Version"]</label>
-                <div class="col-sm-9 align-content-center">
-                    <label class="col-form-label">@Html.DisplayFor(model => model.VersionId)</label>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label asp-for="FileName" class="col-sm-3 col-form-label">@Localizer["File name"]</label>
-                <div class="col-sm-9"><input asp-for="FileName" class="form-control" /></div>
-                <span asp-validation-for="FileName" class="text-danger"></span>
-            </div>
-            <div class="form-group mt-3">
-                <input type="submit" value=@Localizer["Save"] class="btn btn-primary mr-3" />
-                <button asp-action="Details" class="btn btn-primary">@Localizer["Cancel"]</button>
-                <button asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</button>
-            </div>
-        </form>
+<div class="card">
+    <div class="card-header text-center">
+        <ul class="nav nav-tabs card-header-tabs" data-bs-tabs="tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" aria-current="true" href="#summary">@Localizer["Summary"]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#srs-doc">SRS @Localizer["Document"]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#srs-sources">@Localizer["Source"]</a>
+            </li>
+        </ul>
     </div>
-</div>
-
-<div>
-    
+    <div class="card-body tab-content">
+        <div class="tab-pane active" id="summary">
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="mb-3 row">
+                            <label asp-for="Name" class="col-sm-3 col-form-label">@Localizer["Name"]</label>
+                            <div class="col-sm-9"><input asp-for="Name" class="form-control" /></div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="ProjectId" class="col-sm-3 col-form-label">@Localizer["Project"]</label>
+                            <div class="col-sm-9">
+                                <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.Projects" onselect="@Model.ProjectId"></select>
+                            </div>
+                            <span asp-validation-for="ProjectId" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Description" class="col-sm-3 col-form-label">@Localizer["Description"]</label>
+                            <div class="col-sm-9"><input asp-for="Description" class="form-control" /></div>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="AuthorId" class="col-sm-3 col-form-label">@Localizer["Autor"]</label>
+                            <div class="col-sm-9">
+                                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Participants" onselect="@Model.AuthorId"></select>
+                            </div>
+                            <span asp-validation-for="AuthorId" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="VersionId" class="col-sm-3 col-form-label">@Localizer["Version"]</label>
+                            <div class="col-sm-9 align-content-center">
+                                <label class="col-form-label">@Html.DisplayFor(model => model.VersionId)</label>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="FileName" class="col-sm-3 col-form-label">@Localizer["File name"]</label>
+                            <div class="col-sm-9"><input asp-for="FileName" class="form-control" /></div>
+                            <span asp-validation-for="FileName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="submit" value=@Localizer["Save"] class="btn btn-primary mr-3" />
+                            <button asp-action="Details" class="btn btn-primary">@Localizer["Cancel"]</button>
+                            <button asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="srs-doc">
+            <partial name="_SrsDocEditPartial" />
+        </div>
+        <div class="tab-pane" id="srs-sources">
+            <div class="row">
+                <div class="col card">
+                    <div class="card-header">
+                        <h4>@Localizer["Meeting Transcript"]</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>@Html.Raw(ViewData["TopicS"])</h5>
+                        <p>@Html.Raw(ViewData["MeetingDateS"])</p>
+                        <p>@Html.Raw(ViewData["ParticipantsS"])</p>
+                        <p>@Html.Raw(ViewData["ContentS"])</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
