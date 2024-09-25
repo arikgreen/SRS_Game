@@ -9,13 +9,13 @@ namespace SRS_Game.Models
     {
         [Key]
         public int Id { get; set; }
-        
+
         /// <summary>
         /// Nazwa dokumentu
         /// </summary>
         [Required]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Przeznaczenie
         /// </summary>
@@ -25,7 +25,7 @@ namespace SRS_Game.Models
         [ForeignKey("Participant")]
         [DisplayName("Author")]
         public int AuthorId { get; set; }
-        
+
         /// <summary>
         /// Nr zespołu
         /// </summary>
@@ -43,7 +43,7 @@ namespace SRS_Game.Models
         [Required]
         [DisplayName("Create date")]
         public DateTime CreateDate { get; set; }
-        
+
         [Required]
         [DisplayName("Update date")]
         public DateTime UpdateDate { get; set; } = DateTime.Now;
@@ -57,10 +57,10 @@ namespace SRS_Game.Models
 
         [DisplayName("File name")]
         public string? FileName { get; set; }
-        
+
         public Document() { }
 
-        public Document(string name, string? description, int authorId, int? team, int? teamLeaderId, 
+        public Document(string name, string? description, int authorId, int? team, int? teamLeaderId,
             int? projectId, DateTime createDate, DateTime updateDate, int versionId, string? fileName)
         {
             Name = name;
@@ -78,10 +78,24 @@ namespace SRS_Game.Models
 
     public class DocumentViewModel : Document
     {
-        public string Project {  get; set; } = string.Empty;
-        
+        public string Project { get; set; } = string.Empty;
+
         public string Author { get; set; } = string.Empty;
 
         public int Version { get; set; }
+    }
+
+    public class DocumentEditViewModel : Document
+    {
+        public List<Srs.Stakeholder> stakeholders = [];
+    }
+
+    public class DocumentStakeholderRel
+    {
+        [ForeignKey(nameof(Document))]
+        public required int DocumentId { get; set; }
+
+        [ForeignKey(nameof(Participant))]
+        public required int StakeholderId { get; set; }
     }
 }

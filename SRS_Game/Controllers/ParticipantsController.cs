@@ -5,37 +5,23 @@ using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pag
 using SRS_Game.Data;
 using SRS_Game.Interfaces;
 using SRS_Game.Models;
+using SRS_Game.Models.Srs;
 
 namespace SRS_Game.Controllers
 {
     public class ParticipantsController : Controller
     {
         private readonly SRS_GameDbContext _context;
-        private readonly IReadableParticipantType _readableParticipantType;
 
-        public ParticipantsController(SRS_GameDbContext context, IReadableParticipantType readableParticipantType)
+        public ParticipantsController(SRS_GameDbContext context)
         {
             _context = context;
-            _readableParticipantType = readableParticipantType;
         }
 
         // GET: Participant
         public async Task<IActionResult> Index()
         {
-            var participants = await _context.Participants
-                .Join(_context.ParticipantTypes, 
-                p => p.TypeId,                  // key from Participants table
-                t => t.Id,                      // key from ParticipantTypes table
-                static (p, t) => new ParticipantViewModel
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    FirstName = p.FirstName,
-                    LastName = p.LastName,
-                    Email = p.Email,
-                    PhoneNumber = p.PhoneNumber,
-                    Type = t.Name
-                }).ToListAsync();
+            var participants = await _context.Participants.ToListAsync();
             
             return View(participants);
         }
@@ -49,20 +35,6 @@ namespace SRS_Game.Controllers
             }
 
             var participant = await _context.Participants
-                .Join(_context.ParticipantTypes, 
-                p => p.TypeId, 
-                t => t.Id, 
-                (p, t) => new ParticipantViewModel 
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    FirstName = p.FirstName,
-                    LastName = p.LastName,
-                    Email = p.Email,
-                    PhoneNumber = p.PhoneNumber,
-                    Type = t.Name,
-                    Address = p.GetAddress()
-                })
                 .Where(r => r.Id == id)
                 .FirstOrDefaultAsync();
             
@@ -75,12 +47,8 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Participant/Create
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            var participantTypes = await _readableParticipantType.GetParticipantTypesForSelectListAsync();
-
-            ViewBag.ParticipantTypes = participantTypes;
-
             return View();
         }
 
@@ -110,6 +78,7 @@ namespace SRS_Game.Controllers
             }
 
             var participant = await _context.Participants.FindAsync(id);
+            
             if (participant == null)
             {
                 return NotFound();

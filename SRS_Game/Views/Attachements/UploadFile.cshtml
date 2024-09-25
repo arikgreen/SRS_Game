@@ -25,11 +25,11 @@
                     <div class="input-group my-3 border border-info p-2 rounded">
                         <div class="form-check-inline">@Localizer["Source (if uploading transcript)"]:</div>
                         <div class="form-check form-check-inline">
-                            @Html.RadioButtonFor(m => m.FileSourceType, 0, new { @class = "form-check-input" })
-                            @Html.Label("FileSourceType", "MS Teams", new { @class = "form-check-label", @checked = "checked" })
+                            @Html.RadioButtonFor(m => m.FileSourceType, 0, new { @class = "form-check-input", @Checked = "checked" })
+                            @Html.Label("FileSourceType", "MS Teams", new { @class = "form-check-label" })
                         </div>
                         <div class="form-check form-check-inline">
-                            @Html.RadioButtonFor(m => m.FileSourceType, 1, new { @class = "form-check-input" })
+                            @Html.RadioButtonFor(m => m.FileSourceType, 1, new { @class = "form-check-input", disabled = "disabled" })
                             @Html.Label("FileSourceType", "Zoom", new { @class = "form-check-label" })
                         </div>
                     </div>

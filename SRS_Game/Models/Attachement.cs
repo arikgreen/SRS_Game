@@ -15,7 +15,7 @@ namespace SRS_Game.Models
         [ForeignKey("Document")]
         [DisplayName("Document")]
         public int DocumentId { get; set; }
-        
+
         [Required]
         [StringLength(50)]
         [DisplayName("File name")]
@@ -25,7 +25,7 @@ namespace SRS_Game.Models
         public string ContentType { get; set; }
 
         [DisplayName("File content")]
-        public byte[] FileContent { get; set; }
+        public byte[] FileContent { get; set; } = [];
 
         [Required]
         [DisplayName("Create date")]

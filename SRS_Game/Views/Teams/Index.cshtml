@@ -34,11 +34,16 @@
                 @Html.DisplayFor(modelItem => item.Number)
             </td>
             <td class="text-center">
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary mr-3">@Localizer["Edit"]</a>
-                <a asp-action="Details" asp-route-id="@item.Id" nt="@item.Id" class="btn btn-sm btn-primary mr-3">@Localizer["Details"]</a>
-                <a asp-action="Delete" asp-route-id="@item.Id" nt="@item.Id" class="btn btn-sm btn-primary mr-3">@Localizer["Delete"]</a>
+                <a asp-action="Details" asp-route-id="@item.Id" nt="@item.Id" class="mr-3" title="View"><i class="bi bi-book"></i></a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="mr-3"><i class="bi bi-pen" title="Edit"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.Id" nt="@item.Id" class="mr-3" title="Delete"><i class="bi bi-trash"></i></a>
             </td>
         </tr>
     }
     </tbody>
 </table>
+
+@section Styles {
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+}

@@ -1,0 +1,626 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+<div class="d-none">
+    <table id="stkh-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row"></th>
+                <td class="">
+                    <input class="form-control fw-bold" id="name" name="name" placeholder="@Localizer["stakeholder name"]">
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Desription"]</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder="Organizacja zamawiająca realizację projektu"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Type"]</th>
+                <td><input class="form-control" id="type" name="type" placeholder="osoba prawna"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Full name"]</th>
+                <td><input class="form-control" id="fname" name="fname" placeholder="dla typu instytucjonalnego"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Address"]</th>
+                <td><input class="form-control" id="address" name="address" placeholder="adres pocztowy do korespondencji"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Representative"]</th>
+                <td>
+                    <input class="form-control" id="represent" name="represent" placeholder="imię i nazwisko, kontakt albo referencja do osobnego rekordu, np.: STKH_002 Przedstawiciel zleceniodawcy">
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]</th>
+                <td>
+                    <input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ...">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="rsrc-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row"></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder="Personless source name"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Desription"]</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder="Rozporządzenie o Ochronie Danych Osobowych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Title"]</th>
+                <td><input class="form-control" id="title" name="title" placeholder="pełny tytuł dokumentu"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Publisher"]</th>
+                <td><input class="form-control" id="publisher" name="publisher" placeholder="nazwa organizacji publikującej dokument"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Publishing place"]</th>
+                <td><input class="form-control" id="place" name="place" placeholder="miejsce publikacji (np. kraj, miasto)"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Publishing date"]</th>
+                <td><input class="form-control" id="date" name="date" placeholder="data pełna lub skrócona (np. rok) wydania"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Version"]</th>
+                <td><input class="form-control" id="version" name="version" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["URL"]</th>
+                <td><input class="form-control" id="url" name="url" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="bsgl-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">BSGL_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+    <table id="fngl-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">FNGL_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Busines purpose"]:</th>
+                <td><input class="form-control" id="purpose" name="purpose" placeholder="referencja do celu biznesowego"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="user-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">USER_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder="Tu pod pojęciem klienta rozumie się klienta sklepu internetowego."></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Needs"]:</th>
+                <td>
+                    1.	Wybór towaru
+                    2.	Wyszukanie towarów podobnych i powiązanych
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Tasks"]:</th>
+                <td>1.	Określenie preferencji dla wyszukania towaru</td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="xsys-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">XSYS_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder="System, do którego nasz system będzie wysyłał dzienne raporty."></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Needs"]:</th>
+                <td><input class="form-control" id="" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Tasks"]:</th>
+                <td><input class="form-control" id="" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Interfaces"]:</th>
+                <td><input class="form-control" id="" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="ssys-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">SSYS_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Location"]:</th>
+                <td><input class="form-control" id="location" name="location" placeholder="referencja do komponentu sprzetowego"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Components"]:</th>
+                <td><input class="form-control" id="components" name="components" placeholder="referencja do komponentu programowego"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych podsystemów"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="hcmp-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">HCMP_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych komponentów sprzętowych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="scmp-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">SCMP_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder="System, do którego nasz system będzie wysyłał dzienne raporty."></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Location"]:</th>
+                <td><input class="form-control" id="location" name="location" placeholder="referencja do komponentu sprzetowego"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych komponentów sprzętowych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="fnrq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">FNRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Refers to"]:</th>
+                <td><input class="form-control" id="refers-to" placeholder="referencja do użytkownika systemu"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Support for"]:</th>
+                <td><input class="form-control" id="support-for" placeholder="referencja do celu biznesowego"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych podsystemów"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="dtrq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">DTRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych podsystemów"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="rlrq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">RLRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych podsystemów"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="pfrq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">PFRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="flrq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">FLRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do komponentu programowego"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="strq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">STRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="excp-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">EXCP_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Supported for"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="cris-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">CRIS_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Supported for"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="emrg-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">EMRG_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Relations"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Supported for"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="xhrq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">XHRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder="Podać konfigurację uzgodnioną z klientem."></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Refers to"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do komponentu programowego"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="xsrq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">XSRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Refers to"]:</th>
+                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do podsystemu"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="xxrq-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">XXRQ_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder="Te wymagania, które nie można umieścić w żadnej innej kategorii."></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Refers to"]:</th>
+                <td><input class="form-control" id="refers-to" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="acpt-000" class="table table-bordered">
+        <tbody>
+            <tr>
+                <th class="ref w-15" scope="row">ACPT_001</th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Description"]:</th>
+                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Refers to"]:</th>
+                <td><input class="form-control" id="refers-to" placeholder=""></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Source"]:</th>
+                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+            </tr>
+            <tr>
+                <th scope="row">@Localizer["Priority"]:</th>
+                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

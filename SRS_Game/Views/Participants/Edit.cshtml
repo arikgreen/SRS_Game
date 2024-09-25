@@ -35,9 +35,9 @@
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="mb-3 row">
-                <label asp-for="TypeId" class="col-sm-4 col-form-label">@Localizer["Type"]</label>
-                <div class="col-sm-8"><input asp-for="TypeId" class="form-control" /></div>
-                <span asp-validation-for="TypeId" class="text-danger"></span>
+                <label asp-for="IsExternal" class="col-sm-4 col-form-label">@Localizer["Is external"]</label>
+                <div class="col-sm-8 text-center"><input asp-for="IsExternal" class="form-check-input" type="checkbox" /></div>
+                <span asp-validation-for="IsExternal" class="text-danger"></span>
             </div>
             <div class="mb-3 row">
                 <label asp-for="Address" class="col-sm-4 col-form-label">@Localizer["Address"]</label>

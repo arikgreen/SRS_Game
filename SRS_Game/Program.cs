@@ -66,8 +66,6 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // R
 builder.Services.AddScoped<IReadableParticipant, ParticipantService>();
 builder.Services.AddScoped<IWritableParticipant, ParticipantService>();
 
-builder.Services.AddScoped<IReadableParticipantType, ParticipantTypeService>();
-
 builder.Services.AddScoped<IReadableProject, ProjectService>();
 builder.Services.AddScoped<IWritableProject, ProjectService>();
 

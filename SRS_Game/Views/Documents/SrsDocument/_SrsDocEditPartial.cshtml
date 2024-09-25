@@ -1,6 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer Localizer;
 
+@model SRS_Game.Models.DocumentEditViewModel;
+
+@{
+    var addressOrContactHeader = "";
+}
+
 <ol class="list-group list-group-numbered">
     <li class="list-group-item">
         <span class="fw-bold">@Localizer["Introduction"]</span>
@@ -13,60 +19,82 @@
         <div class="ms-2 me-auto">
             <i>W tym rozdziale identyfikuje się źródła wymagań. Jest to potrzebne, aby zorientować się, skąd pozyskiwać wymagania do projektu.</i>
             <ol class="list-group list-group-numbered">
-                <li id="stkh-table" class="list-group-item">
-                    <span class="fw-bold">@Localizer["Participants of project"]</span>
-                    <div class="ms-2 me-auto">
+                <li id="stkh" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=0 id="add-stkh" onclick="addSection('stkh')">@Localizer["Add new"]</button>
+                    <span class="fw-bold d-inline-block">@Localizer["Stakeholders of project"]</span>
+                    <div class="tables ms-2 me-auto">
                         <i>Tu identyfikuje się wszystkie osoby (fizyczne i prawne), które są zainteresowane realizacją projektu bezpośrednio lub pośrednio.</i>
-                        <table class="table table-bordered">
-                            <tbody>
+                        @foreach (var stackholder in Model.stakeholders)
+                        {
+                            var reference = stackholder.Reference.ToLower();
+                            <table id="@reference" class="table table-bordered">
+                                <tbody>
                                 <tr>
-                                    <th scope="row">STKH_001</th>
-                                    <td class="">
-                                        <input class="form-control fw-bold" id="stkh-001-name" placeholder="Zleceniodawca">
-                                    </td>
+                                    <th class="w-15 ref" scope="row">@stackholder.Reference</th>
+                                    <td class=""><input class="form-control fw-bold" id="@reference-name" placeholder="@Localizer["name"]"></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">@Localizer["Desription"]</th>
-                                    <td><input class="form-control" id="stkh-001-desc" placeholder="Organizacja zamawiająca realizację projektu"></td>
+                                    <td><input class="form-control" id="@reference-desc" placeholder="Organizacja zamawiająca realizację projektu" value="@stackholder.Description"></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">@Localizer["Type"]</th>
-                                    <td><input class="form-control" id="stkh-001-type" placeholder="osoba prawna"></td>
-                                    <!--<td colspan="2">Larry the Bird</td>-->
+                                    <td><input class="form-control" id="@reference-type" placeholder="osoba prawna" value="@stackholder.Type"></td>
+                                </tr>
+                                @if (stackholder.FullName.Length > 0)
+                                {
+                                    <tr>
+                                        <th scope="row">@Localizer["Full name"]</th>
+                                        <td><input class="form-control" id="@reference-fname" placeholder="dla typu instytucjonalnego" value="@stackholder.FullName"></td>
+                                    </tr>
+                                    addressOrContactHeader = @Localizer["Address"].ToString();
+                                }
+                                else
+                                {
+                                    addressOrContactHeader = Localizer["Contact"].ToString();
+                                }
+                                <tr>
+                                    <th scope="row">@addressOrContactHeader</th>
+                                    <td><input class="form-control" id="@reference-address" placeholder="adres pocztowy do korespondencji" value="@stackholder.AddressOrContact"></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">@Localizer["Full name"]</th>
-                                    <td><input class="form-control" id="stkh-001-fname" placeholder="dla typu instytucjonalnego"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">@Localizer["Address"]</th>
-                                    <td><input class="form-control" id="stkh-001-address" placeholder="adres pocztowy do korespondencji"></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">@Localizer["Representative"]</th>
-                                    <td>
-                                        <input class="form-control" id="stkh-001-represent" placeholder="imię i nazwisko, kontakt albo referencja do osobnego rekordu, np.: STKH_002 Przedstawiciel zleceniodawcy">
-                                    </td>
-                                </tr>
+                                    @if (stackholder.FullName.Length > 0)
+                                    {
+                                        @* dla typu instytucjonalnego *@
+                                        <th scope="row">@Localizer["Representative"]</th>
+                                        <td>
+                                            <input class="form-control" id="@reference-representative" placeholder="imię i nazwisko, kontakt albo referencja do osobnego rekordu, np.: STKH_002 Przedstawiciel zleceniodawcy" value="@stackholder.Representative">
+                                        </td>
+                                    } else
+                                    {
+                                        @* osoba fizyczna *@
+                                        <th scope="row">@Localizer["Represent"]</th>
+                                        <td>
+                                            <input class="form-control" id="@reference-represent" placeholder="referencja do interesariusza" value="@stackholder.Represent">
+                                        </td>
+                                    }
+                                    </tr>
                                 <tr>
                                     <th scope="row">@Localizer["Priority"]</th>
                                     <td>
-                                        <input class="form-control" id="stkh-001-priority" list="priority-datalist" placeholder="Type to search ...">
+                                        <input class="form-control" id="@reference-priority" list="priority-datalist" placeholder="Type to search ..." value="@stackholder.Priority">
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                        }
                     </div>
                 </li>
-                <li id="rsrc-table" class="list-group-item">
+                <li id="rsrc" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-rsrc" onclick="addSection('rsrc')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Personless sources"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Tu wymienia się akty prawne,  standardy i inne dokumenty stanowiące źródła wymagań dla projektu. Często wymienia się rozporządzenie o ochronie danych osobowych. Podaje się znane dane bibliograficzne publikacji: tytuł, wydawcę etc. – tyle ile potrzeba dla jednoznacznej identyfikacji dokumentu. Jeśli dokument jest dostępny w Internecie, to można podać jego URL.
                         </i>
-                        <table class="table table-bordered">
+                        <table id="rsrc-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">RSRC_001</th>
+                                    <th scope="row" class="w-15 ref">RSRC_001</th>
                                     <td class="fw-bold">RODO</td>
                                 </tr>
                                 <tr>
@@ -113,13 +141,14 @@
         <div class="ms-2 me-auto">
             <i>W tym miejscu precyzuje się cele systemu z podziałem na cele biznesowe i cele funkcjonalne. Zdarza się tak, że zleceniodawca początkowo wymienia tylko cele funkcjonalne zachowując do swojej wiadomości cele biznesowe. Aby jednak właściwie rozumieć te funkcje w odpowiednim kontekście, zespół projektowy musi poznać motywacje biznesowe klienta.</i>
             <ol class="list-group list-group-numbered">
-                <li id="bsgl-table" class="list-group-item">
+                <li id="bsgl" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-bsgl" onclick="addSection('bsgl')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Busines purposes"]</span>
-                    <div class="ms-2 me-auto">
-                        <table class="table table-bordered">
+                    <div class="tables ms-2 me-auto">
+                        <table id="bsgl-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">BSGL_001</th>
+                                    <th scope="row" class="w-15 ref">BSGL_001</th>
                                     <td class="fw-bold">Otwarcie nowego kanału sprzedaży</td>
                                 </tr>
                                 <tr>
@@ -138,14 +167,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="fngl-table" class="list-group-item">
+                <li id="fngl" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-fngl" onclick="addSection('fngl')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Functionality purposes"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Cele funkcjonalne wymieniają główne funkcjonalności, które ma spełniać system.</i>
-                        <table class="table table-bordered">
+                        <table id="fngl-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">FNGL_001</th>
+                                    <th scope="row" class="w-15 ref">FNGL_001</th>
                                     <td class="fw-bold">Umożliwienie sprzedaży przez Internet</td>
                                 </tr>
                                 <tr>
@@ -176,14 +206,15 @@
         <div class="ms-2 me-auto">
             <i>Zespół projektowy musi poznać otoczenie (kontekst), w jakim ma pracować system. Z rozmów z klientem powinno dać się wyszczególnić użytkowników oraz systemy zewnętrzne. Jeśli się nie da, to otoczenie systemu trzeba będzie zdefiniować w trakcie analizy funkcjonalnej.</i>
             <ol class="list-group list-group-numbered">
-                <li id="user-table" class="list-group-item">
+                <li id="user" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-user" onclick="addSection('user')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Users"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Trzeba odróżnić użytkowników wypisanych w tym punkcie od grup użytkowników wymienionych wśród interesariuszy projektu. Tam są oni zidentyfikowani jako źródło wymagań, a tu stanowią podmiot tych wymagań.</i>
-                        <table  class="table table-bordered">
+                        <table id="user-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">USER_001</th>
+                                    <th scope="row" class="w-15 ref">USER_001</th>
                                     <td class="fw-bold">Klient</td>
                                 </tr>
                                 <tr>
@@ -213,14 +244,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="xsys-table" class="list-group-item">
+                <li id="xsys" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-xsys" onclick="addSection('xsys')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Outside systems"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>System zewnętrzny wymieniany w specyfikacji wymagań to taki system, z którym projektowany system współdziała bezpośrednio, np. wysyła dane, odbiera i przetwarza informacje.</i>
-                        <table class="table table-bordered">
+                        <table id="xsys-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">XSYS_001</th>
+                                    <th scope="row" class="w-15 ref">XSYS_001</th>
                                     <td class="fw-bold">System finansowo-księgowy</td>
                                 </tr>
                                 <tr>
@@ -258,13 +290,14 @@
         <span class="fw-bold">@Localizer["Expected system components"]</span>
         <div class="ms-2 me-auto">
             <ol class="list-group list-group-numbered">
-                <li id="ssys-table" class="list-group-item">
+                <li id="ssys" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-ssys" onclick="addSection('ssys')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Subsystems"]</span>
-                    <div class="ms-2 me-auto">
-                        <table class="table table-bordered">
+                    <div class="tables ms-2 me-auto">
+                        <table id="ssys-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">SSYS_001</th>
+                                    <th scope="row" class="w-15 ref">SSYS_001</th>
                                     <td class="fw-bold">Podsystem sprzedaży</td>
                                 </tr>
                                 <tr>
@@ -299,13 +332,14 @@
                         </table>
                     </div>
                 </li>
-                <li id="hcmp-table" class="list-group-item">
+                <li id="hcmp" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-hcmp" onclick="addSection('hcmp')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Hardware components"]</span>
-                    <div class="ms-2 me-auto">
-                        <table class="table table-bordered">
+                    <div class="tables ms-2 me-auto">
+                        <table id="hcmp" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">HCMP_001</th>
+                                    <th scope="row" class="w-15 ref">HCMP_001</th>
                                     <td class="fw-bold">Serwer główny</td>
                                 </tr>
                                 <tr>
@@ -328,13 +362,14 @@
                         </table>
                     </div>
                 </li>
-                <li id="scmp-table" class="list-group-item">
+                <li id="scmp" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-scmp" onclick="addSection('scmp')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Software components"]</span>
-                    <div class="ms-2 me-auto">
-                        <table class="table table-bordered">
+                    <div class="tables ms-2 me-auto">
+                        <table id="scmp-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">SCMP_001</th>
+                                    <th scope="row" class="w-15 ref">SCMP_001</th>
                                     <td class="fw-bold">Sklep internetowy</td>
                                 </tr>
                                 <tr>
@@ -366,14 +401,15 @@
             </ol>
         </div>
     </li>
-    <li id="fnrq-table" class="list-group-item">
+    <li id="fnrq" class="list-group-item">
+        <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-fnrq" onclick="addSection('fnrq')">@Localizer["Add new"]</button>
         <span class="fw-bold">@Localizer["Functionality requirements"]</span>
-        <div class="ms-2 me-auto">
+        <div class="tables ms-2 me-auto">
             <i>Każde wymaganie funkcjonalne musi być przypisane do określonego użytkownika lub systemu zewnętrznego (pole „dotyczy”). Może być oparte o potrzeby lub zadania tego użytkownika. Wyjątek stanowią wymagania funkcjonalne wykonywane automatycznie, które mogą być przypisane do któregoś z komponentów. systemu.</i>
-            <table class="table table-bordered">
+            <table id="fnrq-001" class="table table-bordered">
                 <tbody>
                     <tr>
-                        <th scope="row">FNRQ_001</th>
+                        <th scope="row" class="w-15 ref">FNRQ_001</th>
                         <td class="fw-bold">Złożenie zamówienia</td>
                     </tr>
                     <tr>
@@ -408,14 +444,15 @@
             </table>
         </div>
     </li>
-    <li id="dtrq-table" class="list-group-item">
+    <li id="dtrq" class="list-group-item">
+        <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-dtrq" onclick="addSection('dtrq')">@Localizer["Add new"]</button>
         <span class="fw-bold">@Localizer["Data requirements"]</span>
-        <div class="ms-2 me-auto">
+        <div class="tables ms-2 me-auto">
             <i>Wymagania na dane pomagają w określeniu, jakie dane będą przetwarzane w systemie. Nie trzeba precyzować wszystkich danych. Szczegóły znajdą się w projekcie bazy danych.</i>
-            <table class="table table-bordered">
+            <table id="dtrq" class="table table-bordered">
                 <tbody>
                     <tr>
-                        <th scope="row">DTRQ_001</th>
+                        <th scope="row" class="w-15 ref">DTRQ_001</th>
                         <td class="fw-bold">Cennik</td>
                     </tr>
                     <tr>
@@ -443,14 +480,15 @@
         <div class="ms-2 me-auto">
             <i>Określenie wymagań jakościowych ułatwia późniejsze uzyskanie wysokiej jakości systemu. Podział wymagań jakościowych na kategorie jest związany z drzewem jakości (dotyczy wszystkich gałęzi drzewa za wyjątkiem funkcjonalności). Wymagania jakościowe powinny być powiązane z wymaganiami funkcjonalnymi, których dotyczą.</i>
             <ol class="list-group list-group-numbered">
-                <li id="rlrq-table" class="list-group-item">
+                <li id="rlrq" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-rlrq" onclick="addSection('rlrq')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Credibility requirements"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Wymagania w zakresie wiarygodności będą rozszerzały wymagania funkcjonalne.</i>
-                        <table class="table table-bordered">
+                        <table id="rlrq-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">RLRQ_001</th>
+                                    <th scope="row" class="w-15 ref">RLRQ_001</th>
                                     <td class="fw-bold">Ochrona danych klienta</td>
                                 </tr>
                                 <tr>
@@ -473,14 +511,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="pfrq-table" class="list-group-item">
+                <li id="pfrq" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-pfrq" onclick="addSection('pfrq')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Performance requirements"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Wymagania w zakresie wydajności będą miały zastosowanie w czasie projektowania architektury systemu.</i>
-                        <table class="table table-bordered">
+                        <table id="pfrq" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">PFRQ_001</th>
+                                    <th scope="row" class="w-15 ref">PFRQ_001</th>
                                     <td class="fw-bold">Obsługa do 10 tys. klientów dziennie</td>
                                 </tr>
                                 <tr>
@@ -503,14 +542,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="flrq-table" class="list-group-item">
+                <li id="flrq" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-flrq" onclick="addSection('flrq')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Flexibility requirements"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Wymagania w zakresie elastyczności będą miały zastosowanie w czasie wyboru koncepcji systemu.</i>
-                        <table class="table table-bordered">
+                        <table id="flrq-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">FLRQ_001</th>
+                                    <th scope="row" class="w-15 ref">FLRQ_001</th>
                                     <td class="fw-bold">Uruchamianie na dowolnym sprzęcie po stronie klienta</td>
                                 </tr>
                                 <tr>
@@ -533,14 +573,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="strq-table" class="list-group-item">
+                <li id="strq" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-strq" onclick="addSection('strq')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Usability requirements"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Wymagania w zakresie użyteczności będą brane pod uwagę głównie w czasie projektowania interfejsu użytkownika.</i>
-                        <table class="table table-bordered">
+                        <table id="strq-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">STRQ_001</th>
+                                    <th scope="row" class="w-15 ref">STRQ_001</th>
                                     <td class="fw-bold">Łatwość wyszukania towaru</td>
                                 </tr>
                                 <tr>
@@ -571,13 +612,14 @@
         <div class="ms-2 me-auto">
             <i>Sytuacje wyjątkowe stanowią dalsze rozszerzenie wymagań funkcjonalnych i dotyczących wiarygodności. Każda sytuacja wyjątkowa musi być wspierana przez przynajmniej jedną funkcjonalność, która rozwiązuje problem, zapobiega awarii lub pozwala odzyskać sprawność po awarii.</i>
             <ol class="list-group list-group-numbered">
-                <li id="excp-table" class="list-group-item">
+                <li id="excp" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-excp" onclick="addSection('excp')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Exceptions"]</span>
-                    <div class="ms-2 me-auto">
-                        <table class="table table-bordered">
+                    <div class="tables ms-2 me-auto">
+                        <table id="excp-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">EXCP_001</th>
+                                    <th scope="row" class="w-15 ref">EXCP_001</th>
                                     <td class="fw-bold">Brak towaru w magazynie</td>
                                 </tr>
                                 <tr>
@@ -604,14 +646,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="cris-table" class="list-group-item">
+                <li id="cris" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-cris" onclick="addSection('cris')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Critical situations"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Sytuacje krytyczne to takie scenariusze, które mogą doprowadzić do awarii. Funkcjonalność wpierająca zapobiega załamaniu systemu.</i>
-                        <table class="table table-bordered">
+                        <table id="cris-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">CRIS_001</th>
+                                    <th scope="row" class="w-15 ref">CRIS_001</th>
                                     <td class="fw-bold">Masowe zamówienia brakującego towaru</td>
                                 </tr>
                                 <tr>
@@ -638,14 +681,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="emrg-table" class="list-group-item">
+                <li id="emrg" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-emrg" onclick="addSection('emrg')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Emergancy situations"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i>Sytuacje awaryjne to takie, w których szkoda już nastąpiła. Funkcjonalność wpierająca pomaga systemowi odzyskać pełną sprawność.</i>
-                        <table class="table table-bordered">
+                        <table id="emrg-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">EMRG_001</th>
+                                    <th scope="row" class="w-15 ref">EMRG_001</th>
                                     <td class="fw-bold">Utrata towaru w czasie dostawy</td>
                                 </tr>
                                 <tr>
@@ -680,14 +724,15 @@
         <div class="ms-2 me-auto">
             <i>W tym miejscu podaje się te wymagania, które nie mieszczą się w zakresie poprzednich kategorii wymagań.</i>
             <ol class="list-group list-group-numbered">
-                <li id="xhrq-table" class="list-group-item">
-                    <div class="ms-2 me-auto">
+                <li id="xhrq" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-xhrq" onclick="addSection('xhrq')">@Localizer["Add new"]</button>
+                    <div class="tables ms-2 me-auto">
                         <div class="fw-bold">@Localizer["Hardware requirements"]</div>
                         <i></i>
-                        <table class="table table-bordered">
+                        <table id="xhrq-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">XHRQ_001</th>
+                                    <th scope="row" class="w-15 ref">XHRQ_001</th>
                                     <td class="fw-bold">Konfiguracja serwera</td>
                                 </tr>
                                 <tr>
@@ -712,14 +757,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="xsrq-table" class="list-group-item">
+                <li id="xsrq" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-xsrq" onclick="addSection('xsrq')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Software requirements"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i></i>
-                        <table class="table table-bordered">
+                        <table id="xsrq-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">XSRQ_001</th>
+                                    <th scope="row" class="w-15 ref">XSRQ_001</th>
                                     <td class="fw-bold">Wykorzystanie gotowego sklepu internetowego</td>
                                 </tr>
                                 <tr>
@@ -744,14 +790,15 @@
                         </table>
                     </div>
                 </li>
-                <li id="xxrq-table" class="list-group-item">
+                <li id="xxrq" class="list-group-item">
+                    <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-xxrq" onclick="addSection('xxrq')">@Localizer["Add new"]</button>
                     <span class="fw-bold">@Localizer["Other requirements"]</span>
-                    <div class="ms-2 me-auto">
+                    <div class="tables ms-2 me-auto">
                         <i></i>
-                        <table class="table table-bordered">
+                        <table id="xxrq-001" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th scope="row">XXRQ_001</th>
+                                    <th scope="row" class="w-15 ref">XXRQ_001</th>
                                     <td class="fw-bold"></td>
                                 </tr>
                                 <tr>
@@ -777,14 +824,15 @@
             </ol>
         </div>
     </li>
-    <li class="list-group-item">
+    <li id="acpt" class="list-group-item">
+        <button class="btn btn-primary d-inline float-end my-2 ms-2" data-count=1 id="add-acpt" onclick="addSection('acpt')">@Localizer["Add new"]</button>
         <span class="fw-bold">@Localizer["Acceptance criteria"]</span>
-        <div class="ms-2 me-auto">
+        <div class="tables ms-2 me-auto">
             <i>Tu podać kryteria, jakim zostanie poddany gotowy system przed ostatecznym jego przyjęciem. Określa się warunki np. przeprowadzania testów albo okres próbnej eksploatacji. Nie podaje się takich oczywistych kryteriów jak spełnienie wymagań o priorytecie krytycznym.</i>
-            <table class="table table-bordered">
+            <table id="acpt-001" class="table table-bordered">
                 <tbody>
                     <tr>
-                        <th scope="row">ACPT_001</th>
+                        <th scope="row" class="w-15 ref">ACPT_001</th>
                         <td class="fw-bold">Testy akceptacyjne u klienta</td>
                     </tr>
                     <tr>
@@ -810,13 +858,13 @@
     <li class="list-group-item">
         <span class="fw-bold">@Localizer["Dictionary"]</span>
         <div class="ms-2 me-auto">
-            <i>Znaczenia specyficznych pojęć, skrótów. Może być umieszczony w osobnym dokumencie.</i>
+            <textarea class="form-control" id="dictionary" rows="3" placeholder="Znaczenia specyficznych pojęć, skrótów. Może być umieszczony w osobnym dokumencie."></textarea>
         </div>
     </li>
     <li class="list-group-item">
         <span class="fw-bold">@Localizer["Attachements"]</span>
         <div class="ms-2 me-auto">
-            <i>Tu wyszczególnić dokumenty, do których trzeba się będzie odwoływać w całym projekcie.</i>
+            <textarea class="form-control" id="attachements" rows="3" placeholder="Tu wyszczególnić dokumenty, do których trzeba się będzie odwoływać w całym projekcie."></textarea>
         </div>
     </li>
 </ol>
@@ -827,3 +875,4 @@
     <option>@Localizer["high"]</option>
     <option>@Localizer["critical"]</option>
 </datalist>
+<partial name="_SrsDocBlankPartial.cshtml" />

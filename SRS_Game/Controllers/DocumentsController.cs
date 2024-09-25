@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using SRS_Game.Data;
 using SRS_Game.Interfaces;
@@ -144,7 +145,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] Document document)
+        public async Task<IActionResult> Create([Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] System.Reflection.Metadata.Document document)
         {
             if (ModelState.IsValid)
             {
@@ -159,6 +160,7 @@ namespace SRS_Game.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var document = await _context.Documents.FindAsync(id);
+            
             if (document == null)
             {
                 return NotFound();
@@ -184,7 +186,19 @@ namespace SRS_Game.Controllers
                 }
             }
 
-            return View(document);
+            var viewModel = new DocumentEditViewModel
+            {
+                Id = document.Id,
+                Name = document.Name,
+                Description = document.Description,
+                ProjectId = document.ProjectId,
+                AuthorId = document.AuthorId,
+                VersionId = document.VersionId,
+                FileName = document.FileName,
+                stakeholders = []
+            };
+
+            return View(viewModel);
         }
 
         // POST: Documents/Edit/5
@@ -192,7 +206,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] Document document)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] DocumentEditViewModel document)
         {
             if (id != document.Id)
             {

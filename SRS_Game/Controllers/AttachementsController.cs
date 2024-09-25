@@ -118,7 +118,7 @@ namespace SRS_Game.Controllers
             if (file == null || file.Length == 0)
                 return BadRequest("No file selected for upload...");
 
-            string fileName = Path.GetFileName(file.FileName);
+            string fileName = Path.GetFileName(file.FileName) ?? "";
             string contentType = file.ContentType;
 
             try
@@ -131,7 +131,7 @@ namespace SRS_Game.Controllers
 
                     var attachement = new Attachement[]
                     {
-                        new(1, fileName, DateTime.Now, DateTime.Now, memoryStream.ToArray(), contentType)
+                        new (1, fileName, DateTime.Now, DateTime.Now, memoryStream.ToArray(), contentType)
                     };
 
                     _context.Attachements.AddRange(attachement);

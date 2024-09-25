@@ -181,4 +181,13 @@
   <data name="Requirements sources" xml:space="preserve">
     <value>Żródła wymagań</value>
   </data>
+  <data name="Stakeholders of project" xml:space="preserve">
+    <value>Interesariusze projektu</value>
+  </data>
+  <data name="Add stakeholder" xml:space="preserve">
+    <value>Dodaj interesariusza</value>
+  </data>
+  <data name="stakeholder name" xml:space="preserve">
+    <value>nazwa interesariusza</value>
+  </data>
 </root>

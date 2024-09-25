@@ -1,14 +1,14 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
 
-@model SRS_Game.Models.Document
+@model SRS_Game.Models.DocumentEditViewModel;
 
 @{
     ViewData["Title"] = Localizer["Edit"];
 }
 
 <h1>@Localizer["Document"] - @Localizer["Edit"]</h1>
-<h4>@Html.DisplayFor(model => model.Name)</h4>
+<h4>"@Html.DisplayFor(model => model.Name)"</h4>
 <hr />
 <div class="card">
     <div class="card-header text-center">
@@ -27,7 +27,7 @@
     <div class="card-body tab-content">
         <div class="tab-pane active" id="summary">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md">
                     <form asp-action="Edit">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="Id" />
@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="tab-pane" id="srs-doc">
-            <partial name="_SrsDocEditPartial" />
+            <partial name="SrsDocument\_SrsDocEditPartial" />
         </div>
         <div class="tab-pane" id="srs-sources">
             <div class="row">
@@ -98,4 +98,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/srs-doc.js" asp-append-version="true"></script>
 }

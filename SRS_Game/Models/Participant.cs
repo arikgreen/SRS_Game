@@ -33,7 +33,7 @@ namespace SRS_Game.Models
         /// </summary>
         [StringLength(100)]
         public string? Name { get; set; }
-        
+
         [EmailAddress]
         [StringLength(50)]
         //[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
@@ -46,10 +46,6 @@ namespace SRS_Game.Models
 
         [StringLength(300)]
         public string? Address { get; set; }
-        
-        [Required]
-        [ForeignKey("ParticipantType")]
-        public int TypeId { get; set; }
 
         [Required]
         [DisplayName("External participant")]
@@ -58,12 +54,11 @@ namespace SRS_Game.Models
         // Parameterless constructor required by EF Core
         public Participant() { }
 
-        public Participant(string fname, string lname, string email, int type, string? name, string? phoneNumber, string? address, bool isExternal = false)
+        public Participant(string fname, string lname, string email, string? name, string? phoneNumber, string? address, bool isExternal = false)
         {
             FirstName = fname;
             LastName = lname;
             Email = email;
-            TypeId = type;
             IsExternal = isExternal;
             Name = name;
             PhoneNumber = phoneNumber;
@@ -79,12 +74,5 @@ namespace SRS_Game.Models
         {
             return String.Format("{0} {1}", FirstName, LastName);
         }
-    }
-
-    public class ParticipantViewModel : Participant
-    {
-        //public required Participant Participant { get; set; }
-        [DisplayName("Participant Type")]
-        public required string Type { get; set; }
     }
 }

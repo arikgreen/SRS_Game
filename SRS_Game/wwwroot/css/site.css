@@ -23,6 +23,10 @@ body {
     margin-top: 20px;
 }
 
+.w-15 {
+    width: 15% !important;
+}
+
 .navbar-collapse {
     margin-left: 17rem;
 }
