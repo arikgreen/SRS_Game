@@ -117,31 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Attachements" xml:space="preserve">
-    <value>Załączniki</value>
-  </data>
-  <data name="Chat" xml:space="preserve">
-    <value>Chat</value>
-  </data>
-  <data name="Documents" xml:space="preserve">
-    <value>Dokumenty</value>
-  </data>
-  <data name="Help" xml:space="preserve">
-    <value>Pomoc</value>
-  </data>
   <data name="Privacy" xml:space="preserve">
     <value>Polityka prywatności</value>
-  </data>
-  <data name="Projects" xml:space="preserve">
-    <value>Projekty</value>
-  </data>
-  <data name="Teams" xml:space="preserve">
-    <value>Zespoły</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Użytkownicy</value>
-  </data>
-  <data name="Participants" xml:space="preserve">
-    <value>Interesariusze</value>
   </data>
 </root>

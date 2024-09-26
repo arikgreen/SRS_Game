@@ -5,12 +5,10 @@
 @inject IViewLocalizer Localizer
 
 @{
-    var currentCulture = "en";
-
     var cultureCookie = HttpContextAccessor.HttpContext.Request.Cookies[CookieRequestCultureProvider.DefaultCookieName];
 
     // Default to English if the cookie is not set
-    currentCulture = CookieRequestCultureProvider.ParseCookieValue(cultureCookie).UICultures.FirstOrDefault().Value ?? "en";
+    var currentCulture = CookieRequestCultureProvider.ParseCookieValue(cultureCookie).UICultures.FirstOrDefault().Value ?? "en";
 }
 
 <div class="dropdown">

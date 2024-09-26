@@ -9,7 +9,7 @@ namespace SRS_Game.Models.Srs
     /// <summary>
     /// Outside system (XSYS)
     /// </summary>
-    public class OutsideSystem : SystemUser
+    public class ExternalSystem : SystemUser
     {
         public string[] Interfaces { get; set; } = [];
     }

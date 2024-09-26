@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+@model IEnumerable<SRS_Game.Models.UserViewModel>;
+
+@{
+    ViewData["Title"] = Localizer["Users"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">@Localizer["AddUser"]</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Localizer[Html.DisplayNameFor(model => model.FirstName)]
+            </th>
+            <th>
+                @Localizer[Html.DisplayNameFor(model => model.LastName)]
+            </th>
+            <th>
+                @Localizer[Html.DisplayNameFor(model => model.Login)]
+            </th>
+            <th>
+                @Localizer[Html.DisplayNameFor(model => model.Email)]
+            </th>
+            <th>
+                @Localizer[Html.DisplayNameFor(model => model.PhoneNumber)]
+            </th>
+            <th>
+                @Localizer[Html.DisplayNameFor(model => model.Role)]
+            </th>
+            <th class="text-center">@Localizer["Actions"]</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td class="text-center">
+                <a asp-action="Details" asp-route-id="@item.Id" nt="@item.Id" class="mr-3" title="View"><i class="bi bi-book"></i></a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="mr-3"><i class="bi bi-pen" title="Edit"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.Id" nt="@item.Id" class="mr-3" title="Delete"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Styles {
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+}

@@ -2,82 +2,89 @@
 @inject IViewLocalizer Localizer;
 
 <div class="d-none">
-    <table id="stkh-000" class="table table-bordered">
-        <tbody>
-            <tr>
-                <th class="ref w-15" scope="row"></th>
-                <td class="">
-                    <input class="form-control fw-bold" id="name" name="name" placeholder="@Localizer["stakeholder name"]">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">@Localizer["Desription"]</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder="Organizacja zamawiająca realizację projektu"></td>
-            </tr>
-            <tr>
-                <th scope="row">@Localizer["Type"]</th>
-                <td><input class="form-control" id="type" name="type" placeholder="osoba prawna"></td>
-            </tr>
-            <tr>
-                <th scope="row">@Localizer["Full name"]</th>
-                <td><input class="form-control" id="fname" name="fname" placeholder="dla typu instytucjonalnego"></td>
-            </tr>
-            <tr>
-                <th scope="row">@Localizer["Address"]</th>
-                <td><input class="form-control" id="address" name="address" placeholder="adres pocztowy do korespondencji"></td>
-            </tr>
-            <tr>
-                <th scope="row">@Localizer["Representative"]</th>
-                <td>
-                    <input class="form-control" id="represent" name="represent" placeholder="imię i nazwisko, kontakt albo referencja do osobnego rekordu, np.: STKH_002 Przedstawiciel zleceniodawcy">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">@Localizer["Priority"]</th>
-                <td>
-                    <input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ...">
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="stkh-000" class="row">
+        <div class="col">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_Stakeholders_0__Reference" name="SRS.Stakeholders[0].Reference" readonly /></th>
+                        <td class="">
+                            <input class="form-control fw-bold" placeholder="@Localizer["stakeholder name"]" id="SRS_Stakeholders_0__Name" name="SRS.Stakeholders[0].Name" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Desription"]</th>
+                        <td><input class="form-control" placeholder="Organizacja zamawiająca realizację projektu" id="SRS_Stakeholders_0__Description" name="SRS.Stakeholders[0].Description" value="" /></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Type"]</th>
+                        <td>
+                            <select class="form-control" placeholder="osoba prawna lub firma" id="SRS_Stakeholders_0__Type" name="SRS.Stakeholders[0].Type" onselect=""></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Full name"]</th>
+                        <td><input class="form-control" placeholder="dla typu instytucjonalnego" id="SRS_Stakeholders_0__FullName" name="SRS.Stakeholders[0].FullName" value="" /></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Address"]</th>
+                        <td><input class="form-control" placeholder="adres pocztowy do korespondencji" id="SRS_Stakeholders_0__AddressOrContact" name="SRS.Stakeholders[0].AddressOrContact" value="" /></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Representative"]</th>
+                        <td>
+                            <input class="form-control" placeholder="imię i nazwisko, kontakt albo referencja do osobnego rekordu, np.: STKH_002 Przedstawiciel zleceniodawcy" id="SRS_Stakeholders_0__Represent" name="SRS.Stakeholders[0].Represent" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Localizer["Priority"]</th>
+                        <td>
+                            <select class="form-control" placeholder="Type to search ..." id="SRS_Stakeholders_0__Priority" name="SRS.Stakeholders[0].Priority" asp-items="ViewBag.Priorities" onselect=""></select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-auto align-middle"><i class="delete-table bi bi-trash d-block bi-cursor" data-ref="stkh"></i></div>
+    </div>
 
     <table id="rsrc-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row"></th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder="Personless source name"></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_Personlesses_0__Reference" name="SRS.Personlesses[0].Reference" readonly /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_Personlesses_0__Name" name="SRS.Personlesses[0].Name" placeholder="Personless source name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Desription"]</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder="Rozporządzenie o Ochronie Danych Osobowych"></td>
+                <td><input class="form-control" id="SRS_Personlesses_0__Description" name="SRS.Personlesses[0].Description" placeholder="Rozporządzenie o Ochronie Danych Osobowych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Title"]</th>
-                <td><input class="form-control" id="title" name="title" placeholder="pełny tytuł dokumentu"></td>
+                <td><input class="form-control" id="SRS_Personlesses_0__Title" name="SRS.Personlesses[0].Title" placeholder="pełny tytuł dokumentu" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Publisher"]</th>
-                <td><input class="form-control" id="publisher" name="publisher" placeholder="nazwa organizacji publikującej dokument"></td>
+                <td><input class="form-control" id="SRS_Personlesses_0__Publisher" name="SRS.Personlesses[0].Publisher" placeholder="nazwa organizacji publikującej dokument" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Publishing place"]</th>
-                <td><input class="form-control" id="place" name="place" placeholder="miejsce publikacji (np. kraj, miasto)"></td>
+                <td><input class="form-control" id="SRS_Personlesses_0__PublishingPlace" name="SRS.Personlesses[0].PublishingPlace" placeholder="miejsce publikacji (np. kraj, miasto)" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Publishing date"]</th>
-                <td><input class="form-control" id="date" name="date" placeholder="data pełna lub skrócona (np. rok) wydania"></td>
+                <td><input class="form-control" id="SRS_Personlesses_0__PublishingDate" name="SRS.Personlesses[0].PublishingDate" placeholder="data pełna lub skrócona (np. rok) wydania" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Version"]</th>
-                <td><input class="form-control" id="version" name="version" placeholder=""></td>
+                <td><input class="form-control" id="SRS_Personlesses_0__Version" name="SRS.Personlesses[0].Version" placeholder="" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["URL"]</th>
-                <td><input class="form-control" id="url" name="url" placeholder=""></td>
+                <td><input class="form-control" id="SRS_Personlesses_0__Url" name="SRS.Personlesses[0].Url" placeholder="" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_Personlesses_0__Priority" name="SRS.Personlesses[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -85,44 +92,44 @@
     <table id="bsgl-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">BSGL_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_BusinesPurposes_0__Reference" name="SRS.BusinesPurposes[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_BlankId_0__Name" name="SRS.BusinesPurposes[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_BusinesPurposes_0__Description" name="SRS.BusinesPurposes[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_BusinesPurposes_0__Source" name="SRS.BusinesPurposes[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_BusinesPurposes_0__Priority" name="SRS.BusinesPurposes[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
     <table id="fngl-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">FNGL_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_BlankName_0__Reference" name="SRS.BlankName[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_BlankName_0__Name" name="SRS.BlankName[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_BlankName_0__Description" name="SRS.BlankName[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Busines purpose"]:</th>
-                <td><input class="form-control" id="purpose" name="purpose" placeholder="referencja do celu biznesowego"></td>
+                <td><input class="form-control" id="SRS_BlankName_0__Reference" name="SRS.BlankName[0].Reference" placeholder="referencja do celu biznesowego" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_BlankName_0__Source" name="SRS.BlankName[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_BlankName_0__Priority" name="SRS.BlankName[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>
@@ -130,31 +137,32 @@
     <table id="user-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">USER_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_SystemUsers_0__Reference" name="SRS.SystemUsers[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_SystemUsers_0__Name" name="SRS.SystemUsers[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder="Tu pod pojęciem klienta rozumie się klienta sklepu internetowego."></td>
+                <td><input class="form-control" id="SRS_SystemUsers_0__Description" name="SRS.SystemUsers[0].Description" placeholder="Tu pod pojęciem klienta rozumie się klienta sklepu internetowego." /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Needs"]:</th>
                 <td>
-                    1.	Wybór towaru
-                    2.	Wyszukanie towarów podobnych i powiązanych
+                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" id="SystemUsers_0__Tasks" name="SRS.SystemUsers[0].Needs"></textarea>
                 </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Tasks"]:</th>
-                <td>1.	Określenie preferencji dla wyszukania towaru</td>
+                <td>
+                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" id="SystemUsers_0__Tasks" name="SRS.SystemUsers[0].Tasks"></textarea>
+                </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_SystemUsers_0__Source" name="SRS.SystemUsers[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_SystemUsers_0__Priority" name="SRS.SystemUsers[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -162,32 +170,36 @@
     <table id="xsys-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">XSYS_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_ExternalSystems_0__Reference" name="SRS.ExternalSystems[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_ExternalSystems_0__Name" name="SRS.ExternalSystems[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder="System, do którego nasz system będzie wysyłał dzienne raporty."></td>
+                <td><input class="form-control" id="SRS_ExternalSystems_0__Description" name="SRS.ExternalSystems[0].Description" placeholder="System, do którego nasz system będzie wysyłał dzienne raporty." /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Needs"]:</th>
-                <td><input class="form-control" id="" placeholder=""></td>
+                <td>
+                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" id="SystemUsers_0__Tasks" name="SRS.ExternalSystems[0].Needs"></textarea>
+                </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Tasks"]:</th>
-                <td><input class="form-control" id="" placeholder=""></td>
+                <td>
+                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" id="SystemUsers_0__Tasks" name="SRS.ExternalSystems[0].Tasks"></textarea>
+                </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Interfaces"]:</th>
-                <td><input class="form-control" id="" placeholder=""></td>
+                <td><input class="form-control" id="SRS_ExternalSystems_0__Interfaces" name="SRS.ExternalSystems[0].Interfaces" placeholder=""></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_ExternalSystems_0__Source" name="SRS.ExternalSystems[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_ExternalSystems_0__Priority" name="SRS.ExternalSystems[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -195,32 +207,32 @@
     <table id="ssys-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">SSYS_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_SubSystems_0__Reference" name="SRS.SubSystems[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_SubSystems_0__Name" name="SRS.SubSystems[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_SubSystems_0__Description" name="SRS.SubSystems[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Location"]:</th>
-                <td><input class="form-control" id="location" name="location" placeholder="referencja do komponentu sprzetowego"></td>
+                <td><input class="form-control" id="SRS_SubSystems_0__Location" name="SRS.SubSystems[0].Location" placeholder="referencja do komponentu sprzetowego" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Components"]:</th>
-                <td><input class="form-control" id="components" name="components" placeholder="referencja do komponentu programowego"></td>
+                <td><input class="form-control" id="SRS_SubSystems_0__Components" name="SRS.SubSystems[0].Components" placeholder="referencja do komponentu programowego" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych podsystemów"></td>
+                <td><input class="form-control" id="SRS_SubSystems_0__Relations" name="SRS.SubSystems[0].Relations" placeholder="referencja do innych podsystemów" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_SubSystems_0__Source" name="SRS.SubSystems[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_SubSystems_0__Priority" name="SRS.SubSystems[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -228,24 +240,24 @@
     <table id="hcmp-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">HCMP_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_HardwareComponents_0__Reference" name="SRS.HardwareComponents[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_HardwareComponents_0__Name" name="SRS.HardwareComponents[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_HardwareComponents_0__Description" name="SRS.HardwareComponents[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych komponentów sprzętowych"></td>
+                <td><input class="form-control" id="SRS_HardwareComponents_0__Relations" name="SRS.HardwareComponents[0].Relations" placeholder="referencja do innych komponentów sprzętowych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_HardwareComponents_0__Source" name="SRS.HardwareComponents[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_HardwareComponents_0__Priority" name="SRS.HardwareComponents[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -253,28 +265,28 @@
     <table id="scmp-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">SCMP_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_SoftwareComponents_0__Reference" name="SRS.SoftwareComponents[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_SoftwareComponents_0__Name" name="SRS.SoftwareComponents[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder="System, do którego nasz system będzie wysyłał dzienne raporty."></td>
+                <td><input class="form-control" id="SRS_SoftwareComponents_0__Description" name="SRS.SoftwareComponents[0].Description" placeholder="System, do którego nasz system będzie wysyłał dzienne raporty." /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Location"]:</th>
-                <td><input class="form-control" id="location" name="location" placeholder="referencja do komponentu sprzetowego"></td>
+                <td><input class="form-control" id="SRS_SoftwareComponents_0__Location" name="SRS.SoftwareComponents[0].Location" placeholder="referencja do komponentu sprzetowego" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych komponentów sprzętowych"></td>
+                <td><input class="form-control" id="SRS_SoftwareComponents_0__Relations" name="SRS.SoftwareComponents[0].Relations" placeholder="referencja do innych komponentów sprzętowych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_SoftwareComponents_0__Source" name="SRS.SoftwareComponents[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_SoftwareComponents_0__Priority" name="SRS.SoftwareComponents[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -282,32 +294,40 @@
     <table id="fnrq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">FNRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_FuncionalityRequirements_0__Reference" name="SRS.FuncionalityRequirements[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_FuncionalityRequirements_0__Name" name="SRS.FuncionalityRequirements[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_FuncionalityRequirements_0__Description" name="SRS.FuncionalityRequirements[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Refers to"]:</th>
-                <td><input class="form-control" id="refers-to" placeholder="referencja do użytkownika systemu"></td>
+                <td>
+                    <input class="form-control" placeholder="@Localizer["UserRef"]" id="SRS_FuncionalityRequirements_0__RefersTo" name="SRS.FuncionalityRequirements[0].RefersTo" />
+                </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Support for"]:</th>
-                <td><input class="form-control" id="support-for" placeholder="referencja do celu biznesowego"></td>
+                <td>
+                    <input class="form-control" placeholder="@Localizer["BsglRef"]" id="SRS_FuncionalityRequirements_0__SupportFor" name="SRS.FuncionalityRequirements[0].SupportFor" />
+                </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych podsystemów"></td>
+                <td>
+                    <input class="form-control" id="SRS_FuncionalityRequirements_0__Relations" name="SRS.FuncionalityRequirements[0].Relations" placeholder="referencja do innych wymagań" />
+                    </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td>
+                    <input class="form-control" id="SRS_FuncionalityRequirements_0__Source" name="SRS.FuncionalityRequirements[0].Source" placeholder="referencja do interesariusza" />
+                </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_FuncionalityRequirements_0__Priority" name="SRS.FuncionalityRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -315,24 +335,24 @@
     <table id="dtrq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">DTRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_DataRequirements_0__Reference" name="SRS.DataRequirements[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_DataRequirements_0__Name" name="SRS.DataRequirements[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_DataRequirements_0__Description" name="SRS.DataRequirements[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych podsystemów"></td>
+                <td><input class="form-control" id="SRS_DataRequirements_0__Relations" name="SRS.DataRequirements[0].Relations" placeholder="referencja do innych podsystemów" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_DataRequirements_0__Source" name="SRS.DataRequirements[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_DataRequirements_0__Priority" name="SRS.DataRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -340,24 +360,28 @@
     <table id="rlrq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">RLRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row">
+                    <input class="form-control form-control-plaintext fw-bold ref" id="SRS_CredibilityRequirements_0__Reference" name="SRS.CredibilityRequirements[0].Reference" placeholder="" />
+                </th>
+                <td class="fw-bold">
+                    <input class="form-control fw-bold" id="SRS_CredibilityRequirements_0__Name" name="SRS.CredibilityRequirements[0].Name" placeholder="name" />
+                </td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_CredibilityRequirements_0__Description" name="SRS.CredibilityRequirements[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do innych podsystemów"></td>
+                <td><input class="form-control" id="SRS_CredibilityRequirements_0__Relations" name="SRS.CredibilityRequirements[0].Relations" placeholder="referencja do innych podsystemów" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_CredibilityRequirements_0__Source" name="SRS.CredibilityRequirements[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_CredibilityRequirements_0__Priority" name="SRS.CredibilityRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -365,24 +389,24 @@
     <table id="pfrq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">PFRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_PerformanceRequirements_0__Reference" name="SRS.PerformanceRequirements[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_PerformanceRequirements_0__Name" name="SRS.PerformanceRequirements[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_PerformanceRequirements_0__Description" name="SRS.PerformanceRequirements[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+                <td><input class="form-control" id="SRS_PerformanceRequirements_0__Relations" name="SRS.PerformanceRequirements[0].Relations" placeholder="referencja do wymagań funkcjonalnych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_PerformanceRequirements_0__Source" name="SRS.PerformanceRequirements[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_PerformanceRequirements_0__Priority" name="SRS.PerformanceRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -390,24 +414,24 @@
     <table id="flrq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">FLRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_FlexibilityRequirements_0__Reference" name="SRS.FlexibilityRequirements[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_FlexibilityRequirements_0__Name" name="SRS.FlexibilityRequirements[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_FlexibilityRequirements_0__Description" name="SRS.FlexibilityRequirements[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do komponentu programowego"></td>
+                <td><input class="form-control" id="SRS_FlexibilityRequirements_0__Relations" name="SRS.FlexibilityRequirements[0].Relations" placeholder="referencja do komponentu programowego" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_FlexibilityRequirements_0__Source" name="SRS.FlexibilityRequirements[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_FlexibilityRequirements_0__Priority" name="SRS.FlexibilityRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..." ></select></td>
             </tr>
         </tbody>
     </table>
@@ -415,24 +439,24 @@
     <table id="strq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">STRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_UsabilityRequirements_0__Reference" name="SRS.UsabilityRequirements[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_UsabilityRequirements_0__Name" name="SRS.UsabilityRequirements[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_UsabilityRequirements_0__Description" name="SRS.UsabilityRequirements[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+                <td><input class="form-control" id="SRS_UsabilityRequirements_0__Relations" name="SRS.UsabilityRequirements[0].Relations" placeholder="referencja do wymagań funkcjonalnych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_UsabilityRequirements_0__Source" name="SRS.UsabilityRequirements[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_UsabilityRequirements_0__Priority" name="SRS.UsabilityRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>
@@ -440,28 +464,28 @@
     <table id="excp-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">EXCP_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_Exceptions_0__Reference" name="SRS.Exceptions[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_Exceptions_0__Name" name="SRS.Exceptions[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_Exceptions_0__Description" name="SRS.Exceptions[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+                <td><input class="form-control" id="SRS_Exceptions_0__Relations" name="SRS.Exceptions[0].Relations" placeholder="referencja do wymagań funkcjonalnych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Supported for"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+                <td><input class="form-control" id="SRS_Exceptions_0__SupportedFor" name="SRS.Exceptions[0].SupportedFor" placeholder="referencja do wymagań funkcjonalnych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_Exceptions_0__Source" name="SRS.Exceptions[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_Exceptions_0__Priority" name="SRS.Exceptions[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>
@@ -469,28 +493,28 @@
     <table id="cris-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">CRIS_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_CriticalSituations_0__Reference" name="SRS.CriticalSituations[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_CriticalSituations_0__Name" name="SRS.CriticalSituations[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_CriticalSituations_0__Description" name="SRS.CriticalSituations[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+                <td><input class="form-control" id="SRS_CriticalSituations_0__Relations" name="SRS.CriticalSituations[0].Relations" placeholder="referencja do wymagań funkcjonalnych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Supported for"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+                <td><input class="form-control" id="SRS_CriticalSituations_0__SupportedFor" name="SRS.CriticalSituations[0].SupportedFor" placeholder="referencja do wymagań funkcjonalnych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_CriticalSituations_0__Source" name="SRS.CriticalSituations[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_CriticalSituations_0__Priority" name="SRS.CriticalSituations[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>
@@ -498,28 +522,28 @@
     <table id="emrg-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">EMRG_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_EmergancySituations_0__Reference" name="SRS.EmergancySituations[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_EmergancySituations_0__Name" name="SRS.EmergancySituations[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_EmergancySituations_0__Description" name="SRS.EmergancySituations[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Relations"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+                <td><input class="form-control" id="SRS_EmergancySituations_0__Relations" name="SRS.EmergancySituations[0].Relations" placeholder="referencja do wymagań funkcjonalnych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Supported for"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do wymagań funkcjonalnych"></td>
+                <td><input class="form-control" id="SRS_EmergancySituations_0__SupportedFor" name="SRS.EmergancySituations[0].SupportedFor" placeholder="referencja do wymagań funkcjonalnych" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_EmergancySituations_0__Source" name="SRS.EmergancySituations[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_EmergancySituations_0__Priority" name="SRS.EmergancySituations[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>
@@ -527,24 +551,24 @@
     <table id="xhrq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">XHRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_HardwareRequirements_0__Reference" name="SRS.HardwareRequirements[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_HardwareRequirements_0__Name" name="SRS.HardwareRequirements[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder="Podać konfigurację uzgodnioną z klientem."></td>
+                <td><input class="form-control" id="SRS_HardwareRequirements_0__Description" name="SRS.HardwareRequirements[0].Description" placeholder="Podać konfigurację uzgodnioną z klientem." /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Refers to"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do komponentu programowego"></td>
+                <td><input class="form-control" id="SRS_HardwareRequirements_0__RefersTo" name="SRS.HardwareRequirements[0].RefersTo" placeholder="referencja do komponentu programowego" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_HardwareRequirements_0__Source" name="SRS.HardwareRequirements[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_HardwareRequirements_0__Priority" name="SRS.HardwareRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>
@@ -552,24 +576,24 @@
     <table id="xsrq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">XSRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_SoftwareRequirements_0__Reference" name="SRS.SoftwareRequirements[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_SoftwareRequirements_0__Name" name="SRS.SoftwareRequirements[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_SoftwareRequirements_0__Description" name="SRS.SoftwareRequirements[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Refers to"]:</th>
-                <td><input class="form-control" id="relations" name="relations" placeholder="referencja do podsystemu"></td>
+                <td><input class="form-control" id="SRS_SoftwareRequirements_0__RefersTo" name="SRS.SoftwareRequirements[0].RefersTo" placeholder="referencja do podsystemu" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_SoftwareRequirements_0__Source" name="SRS.SoftwareRequirements[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_SoftwareRequirements_0__Priority" name="SRS.SoftwareRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>
@@ -577,24 +601,24 @@
     <table id="xxrq-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">XXRQ_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_OtherRequirements_0__Reference" name="SRS.OtherRequirements[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_OtherRequirements_0__Name" name="SRS.OtherRequirements[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder="Te wymagania, które nie można umieścić w żadnej innej kategorii."></td>
+                <td><input class="form-control" id="SRS_OtherRequirements_0__Description" name="SRS.OtherRequirements[0].Description" placeholder="Te wymagania, które nie można umieścić w żadnej innej kategorii." /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Refers to"]:</th>
-                <td><input class="form-control" id="refers-to" placeholder=""></td>
+                <td><input class="form-control" placeholder="@Localizer["Reference"]" id="SRS_OtherRequirements_0__RefersTo" name="SRS.OtherRequirements[0].RefersTo" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_OtherRequirements_0__Source" name="SRS.OtherRequirements[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_OtherRequirements_0__Priority" name="SRS.OtherRequirements[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>
@@ -602,24 +626,24 @@
     <table id="acpt-000" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="ref w-15" scope="row">ACPT_001</th>
-                <td class="fw-bold"><input class="form-control fw-bold" id="name" name="name" placeholder=""></td>
+                <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_AcceptanceCriteria_0__Reference" name="SRS.AcceptanceCriteria[0].Reference" placeholder="" /></th>
+                <td class="fw-bold"><input class="form-control fw-bold" id="SRS_AcceptanceCriteria_0__Name" name="SRS.AcceptanceCriteria[0].Name" placeholder="name" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Description"]:</th>
-                <td><input class="form-control" id="desc" name="desc" placeholder=""></td>
+                <td><input class="form-control" id="SRS_AcceptanceCriteria_0__Description" name="SRS.AcceptanceCriteria[0].Description" placeholder="description" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Refers to"]:</th>
-                <td><input class="form-control" id="refers-to" placeholder=""></td>
+                <td><input class="form-control" id="SRS_AcceptanceCriteria_0__RefersTo" name="SRS.AcceptanceCriteria[0].RefersTo" placeholder="@Localizer["Reference"]" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Source"]:</th>
-                <td><input class="form-control" id="source" name="source" placeholder="referencja do interesariusza"></td>
+                <td><input class="form-control" id="SRS_AcceptanceCriteria_0__Source" name="SRS.AcceptanceCriteria[0].Source" placeholder="referencja do interesariusza" /></td>
             </tr>
             <tr>
                 <th scope="row">@Localizer["Priority"]:</th>
-                <td><input class="form-control" id="priority" name="priority" list="priority-datalist" placeholder="Type to search ..."></td>
+                <td><select class="form-control" id="SRS_AcceptanceCriteria_0__Priority" name="SRS.AcceptanceCriteria[0].Priority" asp-items="ViewBag.Priorities" onselect="" placeholder="Type to search ..."></select></td>
             </tr>
         </tbody>
     </table>

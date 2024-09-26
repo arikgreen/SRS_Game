@@ -3,9 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SRS_Game.Interfaces;
 using SRS_Game.Models;
+using SRS_Game.Helpers;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Text;
+using System;
+using System.Xaml;
 
 namespace SRS_Game.Services
 {
@@ -23,9 +26,38 @@ namespace SRS_Game.Services
             return [.. _context.Documents];
         }
         
-        public async Task<Document?> GetAsync(int id)
+        public async Task<DocumentViewModel?> GetAsync(int id)
         {
-            return await _context.Documents.FindAsync(id);
+            var document = await (from d in _context.Documents
+                                  join a in _context.Participants 
+                                    on d.AuthorId equals a.Id
+                                  where d.Id == id
+                                  join t in _context.Teams 
+                                    on d.TeamId equals t.Id into teamGroup          // left join
+                                  from team in teamGroup.DefaultIfEmpty()           // Team can be null
+                                  join p in _context.Projects 
+                                    on d.ProjectId equals p.Id into projectGroup
+                                  from project in projectGroup.DefaultIfEmpty()     // Project can be null
+                                  select new DocumentViewModel
+                                  {
+                                      Id = d.Id,
+                                      Name = d.Name,
+                                      Description = d.Description,
+                                      AuthorId = d.AuthorId,
+                                      Author = a.FirstName + " " + a.LastName,
+                                      TeamId = d.TeamId,
+                                      Team = team.Name,
+                                      Owner = d.TeamLeaderId.ToString() ?? "",
+                                      ProjectId = d.ProjectId,
+                                      Project = project.Name,
+                                      CreateDate = d.CreateDate,
+                                      UpdateDate = d.UpdateDate,
+                                      Version = d.Version,
+                                      FileName = d.FileName
+                                  }
+                            ).FirstOrDefaultAsync();
+
+            return document;
         }
 
         public async Task<SelectList> GetDocumentsForSelectListAsync()
@@ -41,6 +73,11 @@ namespace SRS_Game.Services
             documents.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
 
             return new SelectList(documents, "Value", "Text");
+        }
+
+        public bool DocumentExists(int id)
+        {
+            return _context.Documents.Any(e => e.Id == id);
         }
 
         public Task AddAsync(Document document)
@@ -68,9 +105,14 @@ namespace SRS_Game.Services
                 .FirstOrDefaultAsync();
 
             string fileContentStr = fileContent == null ? "" : Encoding.ASCII.GetString(fileContent);
-            fileContentStr = Regex.Replace(fileContentStr, @"((\r)?\n|\u0010)", "<br />");
 
-            return fileContentStr;
+            return MyRegex.NewLineToBr(fileContentStr);
+        }
+
+        public ProjectSpecification? GetSpecification(int documentId, int version)
+        {
+            return _context.ProjectSepcyfications
+                .Find(documentId, version);
         }
 
         public async Task<List<int>> GetAttachements(int id, bool transcriptsOnly)
@@ -92,6 +134,12 @@ namespace SRS_Game.Services
                     .Select(i => i.Id).ToListAsync();
 
             return attachementsIdList;
+        }
+
+        public async Task SaveSrsToDatabase(ProjectSpecification srsDocument)
+        {
+            _context.Add(srsDocument);
+            await _context.SaveChangesAsync();
         }
     }
 }

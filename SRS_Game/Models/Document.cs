@@ -1,4 +1,5 @@
 ﻿using SRS_Game.Data;
+using SRS_Game.Models.Srs;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -40,7 +41,6 @@ namespace SRS_Game.Models
         [DisplayName("Project")]
         public int? ProjectId { get; set; }
 
-        [Required]
         [DisplayName("Create date")]
         public DateTime CreateDate { get; set; }
 
@@ -53,7 +53,7 @@ namespace SRS_Game.Models
         /// </summary>
         [Required]
         [DisplayName("Version")]
-        public int VersionId { get; set; }
+        public int Version { get; set; }
 
         [DisplayName("File name")]
         public string? FileName { get; set; }
@@ -71,7 +71,7 @@ namespace SRS_Game.Models
             ProjectId = projectId;
             CreateDate = createDate;
             UpdateDate = updateDate;
-            VersionId = versionId;
+            Version = versionId;
             FileName = fileName;
         }
     }
@@ -79,15 +79,14 @@ namespace SRS_Game.Models
     public class DocumentViewModel : Document
     {
         public string Project { get; set; } = string.Empty;
-
         public string Author { get; set; } = string.Empty;
-
-        public int Version { get; set; }
+        public string Team { get; set; } = string.Empty;
+        public string Owner { get; set; } = string.Empty;
     }
 
-    public class DocumentEditViewModel : Document
+    public class DocumentEditViewModel : DocumentViewModel
     {
-        public List<Srs.Stakeholder> stakeholders = [];
+        public SRS? SRS { get; set; }
     }
 
     public class DocumentStakeholderRel

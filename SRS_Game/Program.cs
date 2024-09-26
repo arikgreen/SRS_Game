@@ -33,32 +33,32 @@ builder.Services.AddControllersWithViews(options =>
         .RequireAuthenticatedUser()
         .Build();
     options.Filters.Add(new AuthorizeFilter(policy));
-})
-    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-    .AddDataAnnotationsLocalization();
+});
+    //.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    //.AddDataAnnotationsLocalization();
 
 builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI();
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-//builder.Services.AddControllersWithViews()
-//        .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-//        .AddDataAnnotationsLocalization();
+builder.Services.AddControllersWithViews()
+        .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+        .AddDataAnnotationsLocalization();
 
-builder.Services.Configure<RequestLocalizationOptions>(options =>
-{
-    var supportedCultures = new List<CultureInfo>
-            {
-                new CultureInfo("en"),
-                new CultureInfo("pl")
-            };
+//builder.Services.Configure<RequestLocalizationOptions>(options =>
+//{
+//    var supportedCultures = new List<CultureInfo>
+//            {
+//                new CultureInfo("en"),
+//                new CultureInfo("pl")
+//            };
 
-    options.DefaultRequestCulture = new RequestCulture("en");
-    options.SupportedCultures = supportedCultures;
-    options.SupportedUICultures = supportedCultures;
+//    options.DefaultRequestCulture = new RequestCulture("en");
+//    options.SupportedCultures = supportedCultures;
+//    options.SupportedUICultures = supportedCultures;
 
-    options.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
-});
+//    options.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
+//});
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // Register IHttpContextAccessor
 
@@ -73,6 +73,8 @@ builder.Services.AddScoped<IReadableDocument, DocumentService>();
 builder.Services.AddScoped<IWritableDocument, DocumentService>();
 
 builder.Services.AddScoped<IReadableAttachement, AttachementService>();
+
+builder.Services.AddScoped<IReadableTeam, TeamService>();
 
 builder.Services.AddDbContext<SRS_GameDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SRS_GameDbContext") ?? throw new InvalidOperationException("Connection string 'SRS_GameDbContext' not found.")));
@@ -109,6 +111,16 @@ var localizationOptions = new RequestLocalizationOptions()
     .AddSupportedUICultures(supportedCultures);
 
 localizationOptions.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
+
+app.Use(async (context, next) =>
+{
+    await next();
+    if (context.Response.StatusCode == 404)
+    {
+        context.Request.Path = "/NotFound";
+        await next();
+    }
+});
 
 app.UseRequestLocalization(localizationOptions);    // Ensure this is before UseRouting
 

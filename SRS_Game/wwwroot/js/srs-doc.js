@@ -2,35 +2,46 @@
     const zeroPad = (num, places) => String(num).padStart(places, '0');
 
     var btnId = "#add-" + sectionId;
-    var blankId = "#" + sectionId + "-000";
-    var appendTo = "#" + sectionId + " .tables";
-
     var itemsCount = parseInt($(btnId).attr("data-count"));
 
-    console.log(itemsCount);
+    var newItemsCount = itemsCount + 1;
 
-    itemsCount += 1;
+    $(btnId).attr("data-count", newItemsCount.toString());
 
-    var newId = sectionId + "-" + zeroPad(itemsCount, 3);
-    var refText = sectionId.toUpperCase() + "_" + zeroPad(itemsCount, 3);
+    var newId = sectionId + "_" + zeroPad(newItemsCount, 3);
+    var refText = sectionId.toUpperCase() + "_" + zeroPad(newItemsCount, 3);
 
+    var blankId = "#" + sectionId + "-000";
     var cloned = $(blankId).clone().prop('id', newId);
+
+    var appendTo = "#" + sectionId + " .tables";
     cloned.appendTo(appendTo);
 
-    $(btnId).attr("data-count", itemsCount.toString());
+    // Update ids and names for new element.
+    $("#" + newId + " .form-control").each(function () {
+        // id = Model_SRS_Stakeholders_0__Reference
+        // name = Model.SRS.Stakeholders[0].Reference
 
-    newId = "#" + newId
+        //let name = /__(\w+)$/.exec(this.id);
 
-    var refId = newId + " .ref";
+        if ($(this).hasClass("ref"))
+            this.value = refText;
 
-    $(refId).text(refText);
+        this.id = this.id.replace("_0__", "_" + itemsCount + "__");
+        this.name = this.name.replace("[0]", "[" + itemsCount + "]");
+        //}
+    });
 
-    $(newId + " .form-control").each(function () {
-        this.id = sectionId + "-" + this.id;
-        this.name = sectionId + "-" + this.name;
+    // Remove section from SRS doc
+    $("i.bi-trash").on("click", function () {
+        var ref = $(this).attr("data-ref");
+
+        var btnId = "#add-" + ref;
+
+        var itemsCount = parseInt($(btnId).attr("data-count"));
+
+        $(btnId).attr("data-count", itemsCount);
+
+        $(this).parent().parent().remove();
     });
 }
-
-//$(document).ready(function () {
-
-//});

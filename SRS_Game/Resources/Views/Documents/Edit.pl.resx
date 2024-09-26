@@ -159,11 +159,10 @@
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
   </data>
-  
   <data name="Summary" xml:space="preserve">
     <value>Podsumowanie</value>
   </data>
-  <data name="Sources" xml:space="preserve">
-    <value>Źródła</value>
+  <data name="Source" xml:space="preserve">
+    <value>Źródło</value>
   </data>
 </root>

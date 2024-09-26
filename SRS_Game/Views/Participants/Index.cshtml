@@ -30,10 +30,7 @@
             <th class="text-center">
                 @Localizer[@Html.DisplayNameFor(model => model.PhoneNumber)]
             </th>
-            <th>
-                @Localizer[@Html.DisplayNameFor(model => model.Address)]
-            </th>
-            <th>
+            <th class="text-center">
                 @Localizer[@Html.DisplayNameFor(model => model.IsExternal)]
             </th>
             <th class="text-center">@Localizer["Actions"]</th>
@@ -57,10 +54,7 @@
             <td class="text-center">
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.IsExternal)
                 </td>
             <td class="text-center">

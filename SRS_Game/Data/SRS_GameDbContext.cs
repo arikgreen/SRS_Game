@@ -27,6 +27,7 @@ namespace SRS_Game.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<DocumentStakeholderRel> DocumentStakeholderRel {  get; set; }
+        public DbSet<ProjectSpecification> ProjectSepcyfications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,7 +39,7 @@ namespace SRS_Game.Data
                 .IsUnique();
 
             modelBuilder.Entity<Document>()
-                .HasIndex(e => new { e.Name, e.TeamLeaderId, e.VersionId })
+                .HasIndex(e => new { e.Name, e.TeamLeaderId, e.Version })
                 .IsUnique();
 
             modelBuilder.Entity<DocumentHistory>()
@@ -74,6 +75,9 @@ namespace SRS_Game.Data
 
             modelBuilder.Entity<DocumentStakeholderRel>()
                 .HasKey(k => new { k.DocumentId, k.StakeholderId });
+
+            modelBuilder.Entity<ProjectSpecification>()
+                .HasKey(k => new { k.DocumentId, k.Version });
         }
     }
 }

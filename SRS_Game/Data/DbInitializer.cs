@@ -82,12 +82,19 @@ namespace ContosoUniversity.Data
                 context.SaveChanges();
             }
 
+            if (context.ProjectSepcyfications.Any())
+            {
+                context.ProjectSepcyfications.ExecuteDelete();
+                context.SaveChanges();
+            }
+
             var userRoles = new UserRole[]
             {
                 new ("Administrator", "Administrator"),
                 new ("Owner", "Teacher"),
                 new ("User", "Student")
             };
+            
             context.UserRoles.AddRange(userRoles);
             context.SaveChanges();
 
@@ -96,6 +103,9 @@ namespace ContosoUniversity.Data
                 new ("s94089", "", "s94089@student.pg.edu.pl", 3, "Artur", "Wilczak", ""),
                 new ("qhta", "", "qhta@pg.edu.pl", 2, "Jarosław", "Kuchta", "")
             };
+
+            context.Users.AddRange(users);
+            context.SaveChanges();
 
             var teams = new Team[]
             {
@@ -250,6 +260,14 @@ namespace ContosoUniversity.Data
                 new (14, "Uaktualniono dane", "2.1", "Komponenty sprzętowe", 10, 8, DateTime.Parse("2023-05-20"))
             };
             context.DocumentHistories.AddRange(documentHistories);
+            context.SaveChanges();
+
+            var projectSpecification = new ProjectSpecification[]
+            {
+                new() { DocumentId = 1, Version = 1, Name = "Specyfikacja wymagań", CreatedDate = DateTime.Now, XamlContent = "<StackPanel xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">\r\n<TextBlock FontSize=\"20\" FontWeight=\"Bold\" Text=\"Project: Projekt B\" />\r\n<TextBlock Text=\"Version: 1\" />\r\n<TextBlock Text=\"Author: Artur Wilczak\" />\r\n<TextBlock Text=\"Date: 27.09.2024 21:04:36\" />\r\n<TextBlock FontSize=\"16\" FontWeight=\"Bold\" Text=\"Introduction\" />\r\n<TextBlock Text=\"\" TextWrapping=\"Wrap\" />\r\n<TextBlock FontSize=\"16\" FontWeight=\"Bold\" Text=\"Functional Requirements\" />\r\n<TextBlock FontWeight=\"Bold\" Text=\"Złożenie zamówienia\" />\r\n<TextBlock Text=\"Złożenie zamówienia w sklepie\" TextWrapping=\"Wrap\" />\r\n<TextBlock Text=\"Priority: high\" />\r\n</StackPanel>\r\n'" }
+            };
+
+            context.ProjectSepcyfications.AddRange(projectSpecification);
             context.SaveChanges();
         }
     }

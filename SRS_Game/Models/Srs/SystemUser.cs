@@ -13,6 +13,6 @@ namespace SRS_Game.Models.Srs
     {
         public string[] Needs { get; set; } = [];
         
-        public string[] Task { get; set; } = [];
+        public string[] Tasks { get; set; } = [];
     }
 }

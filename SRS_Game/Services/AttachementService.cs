@@ -67,7 +67,10 @@ namespace SRS_Game.Services
                 .Select(c => c.FileContent)
                 .FirstOrDefaultAsync();
 
-            string fileContentStr = fileContent == null ? "" : Encoding.ASCII.GetString(fileContent);
+            if (fileContent == null)
+                return string.Empty;
+
+            string fileContentStr = Encoding.ASCII.GetString(fileContent);
             fileContentStr = Regex.Replace(fileContentStr, @"((\r)?\n|\u0010)", "<br />");
 
             return fileContentStr;

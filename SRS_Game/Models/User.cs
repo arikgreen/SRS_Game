@@ -27,13 +27,13 @@ namespace SRS_Game.Models
         /// <summary>
         /// Login
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Login is required")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "LoginRequired")]
         [StringLength(20)]
         public string Login { get; set; }
         
         [EmailAddress]
         [StringLength(50)]
-        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "Email is required")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
         public string Email { get; set; }
 
@@ -62,5 +62,12 @@ namespace SRS_Game.Models
             PhoneNumber = phoneNumber;
             RoleId = roleId;
         }
+    }
+
+    public class UserViewModel : User
+    {
+        [Required]
+        [StringLength (15)]
+        public required string Role { get; set; }
     }
 }

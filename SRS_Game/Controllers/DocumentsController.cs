@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
+using System.Security.Cryptography.Xml;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Ajax.Utilities;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using SRS_Game.Data;
+using SRS_Game.Helpers;
 using SRS_Game.Interfaces;
 using SRS_Game.Models;
+using SRS_Game.Models.Srs;
 
 namespace SRS_Game.Controllers
 {
@@ -19,20 +24,26 @@ namespace SRS_Game.Controllers
         private readonly SRS_GameDbContext _context;
         private readonly IReadableParticipant _readableParticipant;
         private readonly IReadableProject _readableProject;
+        private readonly IReadableTeam _readableTeam;
         private readonly IReadableAttachement _readableAttachement;
         private readonly IReadableDocument _readableDocument;
+        private readonly IWritableDocument _writableDocument;
 
         public DocumentsController(SRS_GameDbContext context
             , IReadableParticipant readableParticipant
             , IReadableProject readableProject
+            , IReadableTeam readableTeam
             , IReadableAttachement readableAttachement
-            , IReadableDocument readableDocument)
+            , IReadableDocument readableDocument
+            , IWritableDocument writableDocument)
         {
             _context = context;
             _readableParticipant = readableParticipant;
             _readableProject = readableProject;
+            _readableTeam = readableTeam;
             _readableAttachement = readableAttachement;
             _readableDocument = readableDocument;
+            _writableDocument = writableDocument;
         }
 
         // GET: Documents
@@ -48,7 +59,7 @@ namespace SRS_Game.Controllers
                             Id = document.Id,
                             Name = document.Name,
                             Project = project.Name,
-                            Version = document.VersionId,
+                            Version = document.Version,
                             UpdateDate = document.UpdateDate,
                             Author = author.GetName()
                         }).ToListAsync();
@@ -62,44 +73,9 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Documents/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var document = await _context.Documents
-                .Join(_context.Projects,
-                d => d.ProjectId,
-                p => p.Id,
-                (d, p) => new {
-                    d.Id,
-                    d.Name,
-                    d.VersionId,
-                    d.Description,
-                    d.CreateDate,
-                    d.UpdateDate,
-                    d.AuthorId,
-                    d.FileName,
-                    Project = p.Name
-                })
-                .Join(_context.Participants,
-                d => d.AuthorId,
-                a => a.Id,
-                (d, a) => new DocumentViewModel
-                {
-                    Id = d.Id,
-                    Name = d.Name,
-                    VersionId = d.VersionId,
-                    Description = d.Description,
-                    CreateDate = d.CreateDate,
-                    UpdateDate = d.UpdateDate,
-                    FileName = d.FileName,
-                    Project = d.Project,
-                    Author = a.FirstName + " " + a.LastName
-                })
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var document = await _readableDocument.GetAsync(id);
 
             if (document == null)
             {
@@ -128,6 +104,14 @@ namespace SRS_Game.Controllers
             ViewBag.Attachements = attachements;
             ViewBag.History = docHistory;
 
+            var spec = _readableDocument.GetSpecification(id, document.Version);
+            if (spec != null)
+            {
+                string xamlContent = spec.XamlContent;
+                //var xaml = System.Windows.Markup.XamlReader.Parse(xamlContent);
+                ViewBag.XamlContent = xamlContent; // MyRegex.NewLineToBr(xamlContent);
+            }
+
             return View(document);
         }
 
@@ -145,30 +129,52 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] System.Reflection.Metadata.Document document)
+        public async Task<IActionResult> Create(Models.Document document)
         {
             if (ModelState.IsValid)
             {
+                document.CreateDate = DateTime.Now;
                 _context.Add(document);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(document);
         }
 
         // GET: Documents/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
-            var document = await _context.Documents.FindAsync(id);
+            //var document = await _context.Documents.FindAsync(id);
+
+            var document = await _readableDocument.GetAsync(id);
             
             if (document == null)
             {
                 return NotFound();
             }
 
-            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
-            ViewBag.Projects = await _readableProject.GetProjectsForSelectListAsync();
+            var stakholderTypes = Enum.GetValues(typeof(StakeholderType))
+                .Cast<StakeholderType>()
+                .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() })
+                .ToList();
+            
+            stakholderTypes.Insert(0, new SelectListItem { Value = "-1", Text = "-- Select an option --" });
 
+            var priorities = Enum.GetValues(typeof(Priority))
+                .Cast<Priority>()
+                .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() })
+                .ToList();
+
+            priorities.Insert(0, new SelectListItem { Value = "-1", Text = "-- Select an option --" });
+
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+            var projects = await _readableProject.GetProjectsForSelectListAsync();
+            ViewBag.Projects = projects;
+            var teams = await _readableTeam.GetTeamsForSelectListAsync();
+            ViewBag.Teams = teams;
+            ViewBag.StakeholderTypes = stakholderTypes;
+            ViewBag.Priorities = priorities;
 
             var transcriptFileId = await _readableDocument.GetAttachements(id, transcriptsOnly: true);
 
@@ -186,6 +192,17 @@ namespace SRS_Game.Controllers
                 }
             }
 
+            var stakeholder = new Stakeholder {
+                Reference = "STKH_001",
+                Name = "Zleceniodawca",
+                Description = "Organizacja zamawiająca realizację projektu",
+                Type = StakeholderType.Corporation,
+                FullName = "pełna nazwa dla typu instytucjonalnego",
+                AddressOrContact = "adres pocztowy do korespondencji",
+                Representative = "STKH_002 Przedstawiciel zleceniodawcy",
+                Priority = Priority.medium
+            };
+
             var viewModel = new DocumentEditViewModel
             {
                 Id = document.Id,
@@ -193,9 +210,48 @@ namespace SRS_Game.Controllers
                 Description = document.Description,
                 ProjectId = document.ProjectId,
                 AuthorId = document.AuthorId,
-                VersionId = document.VersionId,
+                Author = document.Author,
+                Owner = document.Owner,
+                Version = document.Version,
                 FileName = document.FileName,
-                stakeholders = []
+                CreateDate = document.CreateDate,
+                TeamId = document.TeamId,
+
+                SRS = new SRS
+                {
+                    ProjectName = document.Project ?? "",
+                    TeamNumber = document.Team ?? "",
+                    Version = document.Version.ToString(),
+                    Author = document.Author,
+                    Owner = document.Owner,
+                    CreatedDate = document.CreateDate,
+                    UpdatedDate = document.UpdateDate,
+                    Stakeholders =
+                    [
+                        stakeholder
+                    ],
+                    //Personlesses = [],
+                    //BusinesPurposes = [],
+                    //FunctionalityPurposes = [],
+                    //SystemUsers = [],
+                    //ExternalSystems = [],
+                    //SubSystems = [],
+                    //HardwareComponents = [],
+                    //SoftwareComponents = [],
+                    //FuncionalityRequirements = [],
+                    //DataRequirements = [],
+                    //CredibilityRequirements = [],
+                    //PerformanceRequirements = [],
+                    //FlexibilityRequirements = [],
+                    //UsabilityRequirements = [],
+                    //Exceptions = [],
+                    //CriticalSituations = [],
+                    //EmergancySituations = [],
+                    //HardwareRequirements = [],
+                    //SoftwareRequirements = [],
+                    //OtherRequirements = [],
+                    //AcceptanceCriteria = [],
+                }
             };
 
             return View(viewModel);
@@ -206,7 +262,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] DocumentEditViewModel document)
+        public async Task<IActionResult> Edit(int id, Models.Document document)
         {
             if (id != document.Id)
             {
@@ -217,12 +273,13 @@ namespace SRS_Game.Controllers
             {
                 try
                 {
+                    document.Version++;
                     _context.Update(document);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DocumentExists(document.Id))
+                    if (!_readableDocument.DocumentExists(document.Id))
                     {
                         return NotFound();
                     }
@@ -269,9 +326,40 @@ namespace SRS_Game.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DocumentExists(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveProjectSpecification(DocumentEditViewModel document)
         {
-            return _context.Documents.Any(e => e.Id == id);
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Message = new Alert { Type = AlertType.danger, Text = "Wrong data" };
+                
+                return RedirectToAction(nameof(Edit), new { id = document.Id });
+            }
+
+            if (document == null || document.SRS == null)
+            {
+                return NotFound();
+            }
+
+            var projectSpecyfication = new ProjectSpecification
+            {
+                DocumentId = document.Id,
+                Name = document.SRS.ProjectName,
+                Version = Int32.Parse(document.SRS.Version),
+                CreatedDate = DateTime.Now,
+                XamlContent = XamlGenerator.GenerateSRSXaml(document.SRS)
+            };
+
+            await _writableDocument.SaveSrsToDatabase(projectSpecyfication);
+
+            return RedirectToAction("");
+        }
+
+        [Route("/NotFound")]
+        public IActionResult PageNotFound()
+        {
+            return View();
         }
     }
 }

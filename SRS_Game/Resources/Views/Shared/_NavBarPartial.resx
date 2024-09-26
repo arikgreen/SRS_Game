@@ -117,77 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Author" xml:space="preserve">
-    <value>Autor</value>
+  <data name="Attachements" xml:space="preserve">
+    <value>Attachements</value>
   </data>
-  <data name="Document" xml:space="preserve">
-    <value>Dokument</value>
+  <data name="Chat" xml:space="preserve">
+    <value>Chat</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Zmień</value>
+  <data name="Documents" xml:space="preserve">
+    <value>Documents</value>
   </data>
-  <data name="File name" xml:space="preserve">
-    <value>Nazwa pliku</value>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Nazwa</value>
+  <data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
   </data>
-  <data name="Project" xml:space="preserve">
-    <value>Projekt</value>
+  <data name="Projects" xml:space="preserve">
+    <value>Projects</value>
   </data>
-  <data name="Update date" xml:space="preserve">
-    <value>Zmiana</value>
+  <data name="Teams" xml:space="preserve">
+    <value>Teams</value>
   </data>
-  <data name="Version" xml:space="preserve">
-    <value>Wersja</value>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
   </data>
-  <data name="optional" xml:space="preserve">
-    <value>opcjonalny</value>
-  </data>
-  <data name="low" xml:space="preserve">
-    <value>niski</value>
-  </data>
-  <data name="medium" xml:space="preserve">
-    <value>średni</value>
-  </data>
-  <data name="high" xml:space="preserve">
-    <value>wysoki</value>
-  </data>
-  <data name="critical" xml:space="preserve">
-    <value>krytyczny</value>
-  </data>
-  <data name="Desription" xml:space="preserve">
-    <value>Opis</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Typ</value>
-  </data>
-  <data name="Full name" xml:space="preserve">
-    <value>Pełna nazwa</value>
-  </data>
-  <data name="Address" xml:space="preserve">
-    <value>Adres</value>
-  </data>	
-  <data name="Representative" xml:space="preserve">
-    <value>Reprezentuje</value>
-  </data>
-  <data name="Priority" xml:space="preserve">
-    <value>Priorytet</value>
-  </data>
-
-  <data name="Introduction" xml:space="preserve">
-    <value>Wprowadzenie</value>
-  </data>
-  <data name="Requirements sources" xml:space="preserve">
-    <value>Żródła wymagań</value>
-  </data>
-  <data name="Stakeholders of project" xml:space="preserve">
-    <value>Interesariusze projektu</value>
-  </data>
-  <data name="Add stakeholder" xml:space="preserve">
-    <value>Dodaj interesariusza</value>
-  </data>
-  <data name="stakeholder name" xml:space="preserve">
-    <value>nazwa interesariusza</value>
+  <data name="Participants" xml:space="preserve">
+    <value>Stakeholders</value>
   </data>
 </root>
