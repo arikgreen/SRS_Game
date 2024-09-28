@@ -9,11 +9,18 @@
 
 <h4>@Localizer["Project"] - @Localizer["Edit"]</h4>
 <hr />
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-@ViewBag.Message.Type" role="alert">
+        @ViewBag.Message.Text
+    </div>
+}
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CreatedDate" />
             <div class="mb-3 row">
                 <label asp-for="Name" class="col-sm-4 col-form-label">@Localizer["Name"]</label>
                 <div class="col-sm-8"><input asp-for="Name" class="form-control" /></div>
@@ -23,16 +30,6 @@
                 <label asp-for="Number" class="col-sm-4 col-form-label">@Localizer["Number"]</label>
                 <div class="col-sm-8"><input asp-for="Number" class="form-control" /></div>
                 <span asp-validation-for="Number" class="text-danger"></span>
-            </div>
-            <div class="mb-3 row">
-                <label asp-for="CreatedDate" class="col-sm-4 col-form-label">@Localizer["Created date"]</label>
-                <div class="col-sm-8"><input asp-for="CreatedDate" class="form-control" /></div>
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="mb-3 row">
-                <label asp-for="UpdateDate" class="col-sm-4 col-form-label">@Localizer["Update date"]</label>
-                <div class="col-sm-8"><input asp-for="UpdateDate" class="form-control" /></div>
-                <span asp-validation-for="UpdateDate" class="text-danger"></span>
             </div>
             <div class="mb-3 row">
                 <label asp-for="ProjectManagerId" class="col-sm-4 col-form-label">@Localizer["Project manager"]</label>

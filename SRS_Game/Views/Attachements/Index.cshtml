@@ -24,10 +24,10 @@
                 @Localizer[Html.DisplayNameFor(model => model.ContentType)]
             </th>
             <th class="text-end">
-                @Localizer[Html.DisplayNameFor(model => model.CreateDate)]
+                @Localizer[Html.DisplayNameFor(model => model.CreatedDate)]
             </th>
             <th class="text-end">
-                @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
+                @Localizer[Html.DisplayNameFor(model => model.UpdatedDate)]
             </th>
             <th class="text-center">@Localizer["Actions"]</th>
         </tr>
@@ -45,15 +45,15 @@
                 @Html.DisplayFor(modelItem => item.ContentType)
             </td>
             <td class="text-end">
-                @Html.DisplayFor(modelItem => item.CreateDate)
+                @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             <td class="text-end">
-                @Html.DisplayFor(modelItem => item.UpdateDate)
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
             </td>
             <td class="text-center">
-                <a asp-action="Details" asp-route-id="@item.Id" nt="@item.Id" class="mr-3" title="View"><i class="bi bi-book"></i></a>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="mr-3"><i class="bi bi-pen" title="Edit"></i></a>
-                <a asp-action="Delete" asp-route-id="@item.Id" nt="@item.Id" class="mr-3" title="Delete"><i class="bi bi-trash"></i></a>
+                <a asp-action="Details" asp-route-id="@item.Id" nt="@item.Id" class="mr-3" title="@Localizer["View"]"><i class="bi bi-book"></i></a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="mr-3"><i class="bi bi-pen" title="@Localizer["Edit"]"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.Id" nt="@item.Id" class="mr-3" title="@Localizer["Delete"]"><i class="bi bi-trash"></i></a>
             </td>
         </tr>
 }

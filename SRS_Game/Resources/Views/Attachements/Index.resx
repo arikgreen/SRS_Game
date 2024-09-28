@@ -117,37 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Actions" xml:space="preserve">
-    <value>Akcje</value>
-  </data>
   <data name="Attachements" xml:space="preserve">
-    <value>Załączniki</value>
+    <value>Attachements</value>
   </data>
   <data name="Content type" xml:space="preserve">
-    <value>Typ pliku</value>
-  </data>
-  <data name="Create date" xml:space="preserve">
-    <value>Utworzony</value>
-  </data>
-  <data name="Add New" xml:space="preserve">
-    <value>Dodaj nowy</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
-  </data>
-  <data name="Details" xml:space="preserve">
-    <value>Wyświetl</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>Dokument</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+    <value>Content type</value>
   </data>
   <data name="File name" xml:space="preserve">
-    <value>Nazwa pliku</value>
+    <value>File name</value>
   </data>
-  <data name="Update date" xml:space="preserve">
-    <value>Zmiana</value>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Created date" xml:space="preserve">
+    <value>Created date</value>
+  </data>
+  <data name="Updated date" xml:space="preserve">
+    <value>Updated date</value>
+  </data>
+  <data name="Add New" xml:space="preserve">
+    <value>Add New</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
 </root>

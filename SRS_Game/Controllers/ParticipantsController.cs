@@ -57,7 +57,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,FirstName,LastName,Email,PhoneNumber,Address,TypeId")] Participant participant)
+        public async Task<IActionResult> Create([Bind("Name,FirstName,LastName,Email,PhoneNumber,Address,TypeId")] Participant participant)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ProjectName,Description,CreateDate,UpdateDate,Version,FileName,FilePath")] Participant participant)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,FirstName,LastName,Email,PhoneNumber,Address,TypeId,CreatedDate")] Participant participant)
         {
             if (id != participant.Id)
             {

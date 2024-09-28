@@ -100,8 +100,8 @@ namespace ContosoUniversity.Data
 
             var users = new User[]
             {
-                new ("s94089", "", "s94089@student.pg.edu.pl", 3, "Artur", "Wilczak", ""),
-                new ("qhta", "", "qhta@pg.edu.pl", 2, "Jarosław", "Kuchta", "")
+                new ("s94089", "", "s94089@student.pg.edu.pl", 3, "Artur", "Wilczak", "", new DateTime(2023, 1, 15), new DateTime(2023, 5, 15)),
+                new ("qhta", "", "qhta@pg.edu.pl", 2, "Jarosław", "Kuchta", "", new DateTime(2024, 1, 15), new DateTime(2024, 5, 15))
             };
 
             context.Users.AddRange(users);
@@ -109,10 +109,10 @@ namespace ContosoUniversity.Data
 
             var teams = new Team[]
             {
-                new ("Zespół A", "001"),
-                new ("Zespół B", "002"),
-                new ("Zespół C", "003"),
-                new ("Zespół D", "004")
+                new ("Zespół A", "001", new DateTime(2023, 1, 15), new DateTime(2023, 5, 15)),
+                new ("Zespół B", "002", new DateTime(2023, 2, 20), new DateTime(2023, 6, 20)),
+                new ("Zespół C", "003", new DateTime(2023, 3, 25), new DateTime(2023, 7, 25)),
+                new ("Zespół D", "004", new DateTime(2023, 4, 10), new DateTime(2023, 8, 10))
             };
             context.Teams.AddRange(teams);
             context.SaveChanges();
@@ -134,16 +134,16 @@ namespace ContosoUniversity.Data
 
             var participants = new Participant[]
             {
-                new ("Artur", "Wilczak", "s94089@student.pg.edu.pl", null, "123 456 789", null),
-                new ("Jan", "Kowalski", "jan.kowalski@example.com", null, null, null),
-                new ("Anna", "Nowak", "anna.nowak@example.com", "Firma1", null, null, true),
-                new ("Piotr", "Wiśniewski", "piotr.wisniewski@example.com", null, null, null),
-                new ("Katarzyna", "Wójcik", "katarzyna.wojcik@external.com", "Xternal", "147 258 369", "Łużycka 3c\nGdynia 81-573\nPoland", true),
-                new ("Tomasz", "Kowalczyk", "tomasz.kowalczyk@example.com", null, null, null),
-                new ("Agnieszka", "Zielińska", "agnieszka.zielinska@example.com", "Firm2", null, null ,true),
-                new ("Marek", "Szymański", "marek.szymanski@example.com", null, null, null),
-                new ("Magdalena", "Lewandowska", "magdalena.lewandowska@example.com", null, null, null),
-                new ("Paweł", "Kamiński", "pawel.kaminski@example.com", null, null, null)
+                new ("Artur", "Wilczak", "s94089@student.pg.edu.pl", null, "123 456 789", null, false, new DateTime(2023, 6, 15), new DateTime(2023, 10, 15)),
+                new ("Jan", "Kowalski", "jan.kowalski@example.com", null, null, null, false, new DateTime(2023, 6, 15), new DateTime(2023, 10, 15)),
+                new ("Anna", "Nowak", "anna.nowak@example.com", "Firma1", null, null, true, new DateTime(2023, 3, 25), new DateTime(2023, 7, 25)),
+                new ("Piotr", "Wiśniewski", "piotr.wisniewski@example.com", null, null, null, false, new DateTime(2023, 6, 15), new DateTime(2023, 10, 15)),
+                new ("Katarzyna", "Wójcik", "katarzyna.wojcik@external.com", "Xternal", "147 258 369", "Łużycka 3c\nGdynia 81-573\nPoland", true, new DateTime(2023, 6, 15), new DateTime(2023, 10, 15)),
+                new ("Tomasz", "Kowalczyk", "tomasz.kowalczyk@example.com", null, null, null, false, new DateTime(2023, 6, 15), new DateTime(2023, 10, 15)),
+                new ("Agnieszka", "Zielińska", "agnieszka.zielinska@example.com", "Firm2", null, null ,true, new DateTime(2023, 3, 25), new DateTime(2023, 7, 25)),
+                new ("Marek", "Szymański", "marek.szymanski@example.com", null, null, null, false, new DateTime(2023, 6, 15), new DateTime(2023, 10, 15)),
+                new ("Magdalena", "Lewandowska", "magdalena.lewandowska@example.com", null, null, null, false, new DateTime(2023, 6, 15), new DateTime(2023, 10, 15)),
+                new ("Paweł", "Kamiński", "pawel.kaminski@example.com", null, null, null, false, new DateTime(2023, 6, 15), new DateTime(2023, 10, 15))
             };
             context.Participants.AddRange(participants);
             context.SaveChanges();

@@ -111,8 +111,9 @@ namespace SRS_Game.Controllers
             {
                 Id = team.Id,
                 Name = team.Name,
+                CreatedDate = team.CreatedDate,
                 Number = team.Number,
-                Members = members
+                Members = members,
             };
 
             return View(viewModel);
@@ -123,7 +124,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Number")] Team team)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Number,CreatedDate")] Team team)
         {
             if (id != team.Id)
             {

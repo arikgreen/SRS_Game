@@ -22,11 +22,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
-// doesn't work
-//InvalidOperationException: Unable to resolve service for type 'SRS_Game.Services.UserService' while attempting to activate 'SRS_Game.Controllers.UsersController'.
-//builder.Services.AddScoped<IReadableUser, UserService>();
-//builder.Services.AddScoped<IWritableUser, UserService>();
-
 builder.Services.AddControllersWithViews(options =>
 {
     var policy = new AuthorizationPolicyBuilder()
@@ -112,15 +107,7 @@ var localizationOptions = new RequestLocalizationOptions()
 
 localizationOptions.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
 
-app.Use(async (context, next) =>
-{
-    await next();
-    if (context.Response.StatusCode == 404)
-    {
-        context.Request.Path = "/NotFound";
-        await next();
-    }
-});
+app.UseStatusCodePagesWithReExecute("/NotFound");
 
 app.UseRequestLocalization(localizationOptions);    // Ensure this is before UseRouting
 
@@ -128,14 +115,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
-//app.Use(async (context, next) =>
-//{
-//    var rqf = context.Features.Get<IRequestCultureFeature>();
-//    var culture = rqf?.RequestCulture.Culture;
-//    Console.WriteLine($"Culture: {culture}"); // Output to console or log
-//    await next.Invoke();
-//});
 
 app.UseAuthorization();
 

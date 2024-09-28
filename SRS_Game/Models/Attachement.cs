@@ -28,24 +28,24 @@ namespace SRS_Game.Models
         public byte[] FileContent { get; set; } = [];
 
         [Required]
-        [DisplayName("Create date")]
-        public DateTime CreateDate { get; set; } = DateTime.MinValue;
+        [DisplayName("Created date")]
+        public DateTime CreatedDate { get; set; } = DateTime.MinValue;
 
         [Required]
-        [DisplayName("Update date")]
-        public DateTime UpdateDate { get; set; } = DateTime.Now;
+        [DisplayName("Updated date")]
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
         [DisplayName("Is transcript")]
         public bool IsTranscript { get; set; } = false;
 
         public Attachement() { }
 
-        public Attachement(int documentId, string fileName, DateTime createDate, DateTime updateDate, byte[] fileContent, string contentType, bool isTranscript = false)
+        public Attachement(int documentId, string fileName, DateTime createdDate, DateTime updatedDate, byte[] fileContent, string contentType, bool isTranscript = false)
         {
             DocumentId = documentId;
             FileName = fileName;
-            CreateDate = createDate;
-            UpdateDate = updateDate;
+            CreatedDate = createdDate;
+            UpdatedDate = updatedDate;
             ContentType = contentType;
             FileContent = fileContent;
             IsTranscript = isTranscript;

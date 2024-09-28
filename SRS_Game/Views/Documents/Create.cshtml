@@ -8,9 +8,14 @@
 }
 
 <h1>@ViewData["Title"]</h1>
-
 <h4>@Localizer["Specification of requirements"]</h4>
 <hr />
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-@ViewBag.Message.Type" role="alert">
+        @ViewBag.Message.Text
+    </div>
+}
 <div class="row">
     <div class="col-sm-6">
         <form asp-action="Create">

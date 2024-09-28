@@ -39,11 +39,11 @@ namespace SRS_Game.Controllers
                     Id = a.Id,
                     FileName = a.FileName,
                     ContentType = a.ContentType,
-                    CreateDate = a.CreateDate,
-                    UpdateDate = a.UpdateDate
+                    CreatedDate = a.CreatedDate,
+                    UpdatedDate = a.UpdatedDate
                 }
                 )
-                .OrderByDescending(d => d.CreateDate)
+                .OrderByDescending(d => d.CreatedDate)
                 .ToListAsync();
 
             return View(await orderedAttachements);
@@ -67,8 +67,8 @@ namespace SRS_Game.Controllers
                     Id = a.Id,
                     FileName = a.FileName,
                     ContentType = a.ContentType,
-                    CreateDate = a.CreateDate,
-                    UpdateDate = a.UpdateDate,
+                    CreatedDate = a.CreatedDate,
+                    UpdatedDate = a.UpdatedDate,
                     FileContent = a.FileContent
                 })
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -97,7 +97,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DocumentId,FileName,ContentType,FileContent,CreateDate,UpdateDate")] Attachement attachement)
+        public async Task<IActionResult> Create([Bind("DocumentId,FileName,ContentType,FileContent")] Attachement attachement)
         {
             if (ModelState.IsValid)
             {
@@ -113,7 +113,7 @@ namespace SRS_Game.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadFilePost(IFormFile file)
+        public ActionResult UploadFilePost([Bind("DocumentId,file,FileSourceType")] IFormFile file)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("No file selected for upload...");
@@ -150,13 +150,8 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Attachements/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var attachement = await _context.Attachements.FindAsync(id);
             if (attachement == null)
             {
@@ -173,7 +168,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DocumentId,FileName,ContentType,FileContent,CreateDate,UpdateDate")] Attachement attachement)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DocumentId,FileName,ContentType,CreatedDate")] Attachement attachement)
         {
             if (id != attachement.Id)
             {
@@ -200,6 +195,10 @@ namespace SRS_Game.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Documents = await _readableDocument.GetDocumentsForSelectListAsync();
+            ViewBag.Message = new Alert { Type = AlertType.danger, Text = "Model state is not valid." };
+
             return View(attachement);
         }
 

@@ -50,9 +50,17 @@ namespace SRS_Game.Models
         [DisplayName("Role")]
         public int RoleId { get; set; }
 
+        [Required]
+        [DisplayName("Create date")]
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        [Required]
+        [DisplayName("Update date")]
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
+
         public User() { }  // Parameterless constructor required by EF Core
 
-        public User(string login, string password, string email, int roleId, string fname, string lname, string? phoneNumber)
+        public User(string login, string password, string email, int roleId, string fname, string lname, string? phoneNumber, DateTime createdDate, DateTime updatedDate)
         {
             Login = login;
             FirstName = fname;
@@ -61,6 +69,8 @@ namespace SRS_Game.Models
             Password = password;
             PhoneNumber = phoneNumber;
             RoleId = roleId;
+            CreatedDate = createdDate;
+            UpdatedDate = updatedDate;
         }
     }
 

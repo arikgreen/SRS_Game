@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Reflection.PortableExecutable;
 using System.Security.Cryptography.Xml;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -61,7 +63,7 @@ namespace SRS_Game.Controllers
                             Project = project.Name,
                             Version = document.Version,
                             UpdateDate = document.UpdateDate,
-                            Author = author.GetName()
+                            Author = author.GetParticipantName()
                         }).ToListAsync();
 
             if (documents == null || documents.Count == 0)
@@ -136,9 +138,12 @@ namespace SRS_Game.Controllers
                 document.CreateDate = DateTime.Now;
                 _context.Add(document);
                 await _context.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
-            
+
+            ViewBag.Message = new Alert { Type = AlertType.danger, Text = "Model state is not valid." };
+
             return View(document);
         }
 
@@ -264,11 +269,6 @@ namespace SRS_Game.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Models.Document document)
         {
-            if (id != document.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
@@ -279,8 +279,10 @@ namespace SRS_Game.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!_readableDocument.DocumentExists(document.Id))
+                    if (!_readableDocument.DocumentExists(document.Id) || id != document.Id)
                     {
+                        ViewBag.Message = new Alert { Type = AlertType.danger, Text = $"Document Id ({id}) does not exist." };
+
                         return NotFound();
                     }
                     else
@@ -290,25 +292,25 @@ namespace SRS_Game.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Message = new Alert { Type = AlertType.danger, Text = "Model state is not valid." };
+
             return View(document);
         }
 
         // GET: Documents/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
+            var document = await _readableDocument.GetAsync((int)id);
+
+            if (document != null)
             {
-                return NotFound();
+                return View(document);
             }
 
-            var document = await _context.Documents
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (document == null)
-            {
-                return NotFound();
-            }
+            ViewBag.Message = new Alert { Type = AlertType.danger, Text = $"Document Id ({id}) does not exist." };
 
-            return View(document);
+            return NotFound();
         }
 
         // POST: Documents/Delete/5
@@ -354,12 +356,6 @@ namespace SRS_Game.Controllers
             await _writableDocument.SaveSrsToDatabase(projectSpecyfication);
 
             return RedirectToAction("");
-        }
-
-        [Route("/NotFound")]
-        public IActionResult PageNotFound()
-        {
-            return View();
         }
     }
 }

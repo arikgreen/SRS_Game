@@ -106,7 +106,7 @@ namespace SRS_Game.Services
 
             string fileContentStr = fileContent == null ? "" : Encoding.ASCII.GetString(fileContent);
 
-            return MyRegex.NewLineToBr(fileContentStr);
+            return MyRegex.NewLineToBr(fileContentStr) ?? string.Empty;
         }
 
         public ProjectSpecification? GetSpecification(int documentId, int version)

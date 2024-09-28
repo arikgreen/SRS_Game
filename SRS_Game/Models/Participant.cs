@@ -1,5 +1,6 @@
 ﻿using Elfie.Serialization;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using SRS_Game.Helpers;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -51,10 +52,18 @@ namespace SRS_Game.Models
         [DisplayName("External participant")]
         public bool IsExternal { get; set; }
 
+        [Required]
+        [DisplayName("Create date")]
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        [Required]
+        [DisplayName("Update date")]
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
+
         // Parameterless constructor required by EF Core
         public Participant() { }
 
-        public Participant(string fname, string lname, string email, string? name, string? phoneNumber, string? address, bool isExternal = false)
+        public Participant(string fname, string lname, string email, string? name, string? phoneNumber, string? address, bool isExternal, DateTime createdDate, DateTime updatedDate)
         {
             FirstName = fname;
             LastName = lname;
@@ -63,14 +72,16 @@ namespace SRS_Game.Models
             Name = name;
             PhoneNumber = phoneNumber;
             Address = address;
+            CreatedDate = createdDate;
+            UpdatedDate = updatedDate;
         }
 
         public string GetAddress()
         {
-            return Address != null ? Regex.Replace(Address, "<br />", @"((\r)?\n|\u0010)") : "";
+            return MyRegex.NewLineToBr(Address) ?? "";
         }
 
-        public string GetName()
+        public string GetParticipantName()
         {
             return String.Format("{0} {1}", FirstName, LastName);
         }

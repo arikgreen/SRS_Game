@@ -1,7 +1,7 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
 
-@model SRS_Game.Models.Attachement
+@model SRS_Game.Models.Attachement;
 
 @{
     ViewData["Title"] = Localizer["Edit"];
@@ -9,11 +9,19 @@
 
 <h4>@Localizer["Attachement"] - @Localizer["Edit"]</h4>
 <hr />
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-@ViewBag.Message.Type" role="alert">
+        @ViewBag.Message.Text
+    </div>
+}
 <div class="row">
     <div class="col">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CreatedDate" />
+            <input type="hidden" asp-for="ContentType" />
             <div class="mb-3 row">
                 <label asp-for="DocumentId" class="col-sm-3 col-form-label">@Localizer["Document"]</label>
                 <div class="col-sm-9">
@@ -30,8 +38,8 @@
             </div>
             <div class="form-group mt-3">
                 <input type="submit" value=@Localizer["Save"] class="btn btn-primary mr-3" />
-                <button asp-action="Details" class="btn btn-primary">@Localizer["Cancel"]</button>
-                <button asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</button>
+                @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Attachements", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(@Localizer["Back to List"].Value, "Index", "Attachements", null, new { @class = "btn btn-primary" })
             </div>
         </form>
     </div>

@@ -71,5 +71,11 @@ namespace SRS_Game.Controllers
         {
             return View(new ErrorView { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [Route("/NotFound")]
+        public IActionResult PageNotFound()
+        {
+            return View();
+        }
     }
 }

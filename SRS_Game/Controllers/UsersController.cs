@@ -102,7 +102,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Login,Email,PhoneNumber,Password,RoleId")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Login,Email,PhoneNumber,Password,RoleId,CreatedDate")] User user)
         {
             if (id != user.Id)
             {
