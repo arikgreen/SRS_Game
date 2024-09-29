@@ -5,6 +5,7 @@ using System.Security.Policy;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SRS_Game.Models;
+using SRS_Game.Models.Srs;
 
 
 namespace SRS_Game.Data
@@ -28,6 +29,10 @@ namespace SRS_Game.Data
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<DocumentStakeholderRel> DocumentStakeholderRel {  get; set; }
         public DbSet<ProjectSpecification> ProjectSepcyfications { get; set; }
+        /// <summary>
+        /// Table for storage components of SRS documentation 
+        /// </summary>
+        public DbSet<SrsDocumentComponent> SrsDocumentComponents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -78,6 +83,9 @@ namespace SRS_Game.Data
 
             modelBuilder.Entity<ProjectSpecification>()
                 .HasKey(k => new { k.DocumentId, k.Version });
+
+            modelBuilder.Entity<SrsDocumentComponent>()
+                .HasKey(k => new { k.DocumentId, k.RefId });
         }
     }
 }

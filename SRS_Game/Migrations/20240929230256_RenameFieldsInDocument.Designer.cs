@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SRS_Game.Data;
 
@@ -11,9 +12,11 @@ using SRS_Game.Data;
 namespace SRS_Game.Migrations
 {
     [DbContext(typeof(SRS_GameDbContext))]
-    partial class SRS_GameDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240929230256_RenameFieldsInDocument")]
+    partial class RenameFieldsInDocument
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -42,11 +42,11 @@ namespace SRS_Game.Models
         public int? ProjectId { get; set; }
 
         [DisplayName("Create date")]
-        public DateTime CreateDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         [Required]
         [DisplayName("Update date")]
-        public DateTime UpdateDate { get; set; } = DateTime.Now;
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Wersja dokumentu
@@ -55,13 +55,17 @@ namespace SRS_Game.Models
         [DisplayName("Version")]
         public int Version { get; set; }
 
+        public int? ParentId { get; set; }
+
         [DisplayName("File name")]
         public string? FileName { get; set; }
 
+        public string? Introduction { get; set; }
+
         public Document() { }
 
-        public Document(string name, string? description, int authorId, int? team, int? teamLeaderId,
-            int? projectId, DateTime createDate, DateTime updateDate, int versionId, string? fileName)
+        public Document(string name, string? description, int authorId, int? team, int? teamLeaderId, int? projectId, 
+            DateTime createDate, DateTime updateDate, int versionId, int? parentId, string? fileName, string? introduction)
         {
             Name = name;
             Description = description;
@@ -69,10 +73,12 @@ namespace SRS_Game.Models
             TeamId = team;
             TeamLeaderId = teamLeaderId;
             ProjectId = projectId;
-            CreateDate = createDate;
-            UpdateDate = updateDate;
+            CreatedDate = createDate;
+            UpdatedDate = updateDate;
             Version = versionId;
+            ParentId = parentId;
             FileName = fileName;
+            Introduction = introduction;
         }
     }
 

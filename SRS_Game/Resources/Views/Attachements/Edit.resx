@@ -20,10 +20,10 @@
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
     <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
+        <value>Bitmap1</value>
     </data>
     <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <value>Icon1</value>
         <comment>This is a comment</comment>
     </data>
                 
@@ -118,42 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Attachement" xml:space="preserve">
-    <value>Załącznik</value>
+    <value>Attachement</value>
   </data>
   <data name="Back to List" xml:space="preserve">
-    <value>Wróc do listy</value>
+    <value>Back to List</value>
   </data>
   <data name="Content type" xml:space="preserve">
-    <value>Typ pliku</value>
+    <value>Content type</value>
   </data>
   <data name="Create date" xml:space="preserve">
-    <value>Utworzony</value>
+    <value>Create date</value>
   </data>
   <data name="Create New" xml:space="preserve">
-    <value>Dodaj nowy</value>
+    <value>Create New</value>
   </data>
   <data name="Document" xml:space="preserve">
-    <value>Dokument</value>
+    <value>Document</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Zmień</value>
+    <value>Edit</value>
   </data>
   <data name="File content" xml:space="preserve">
-    <value>Zawartość</value>
+    <value>File content</value>
   </data>
   <data name="File name" xml:space="preserve">
-    <value>Nazwa pliku</value>
+    <value>File name</value>
   </data>
   <data name="Update date" xml:space="preserve">
-    <value>Zmiana</value>
+    <value>Update date</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
+    <value>Save</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Anuluj</value>
+    <value>Cancel</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+    <value>Delete</value>
   </data>
 </root>

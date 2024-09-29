@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SRS_Game.Data;
 
@@ -11,9 +12,11 @@ using SRS_Game.Data;
 namespace SRS_Game.Migrations
 {
     [DbContext(typeof(SRS_GameDbContext))]
-    partial class SRS_GameDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240929224128_AddTableForSrsDocumentComponents")]
+    partial class AddTableForSrsDocumentComponents
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,7 +77,7 @@ namespace SRS_Game.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -102,7 +105,7 @@ namespace SRS_Game.Migrations
                     b.Property<int?>("TeamLeaderId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Version")

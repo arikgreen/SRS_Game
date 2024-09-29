@@ -7,6 +7,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SRS_Game.Models.Srs
 {
     /// <summary>
+    /// Busines purpose (BSGL)
+    /// </summary>
+    public class BusinesPurpose : BaseModel { }
+
+    /// <summary>
     /// Functionality purpose (FNGL)
     /// </summary>
     public class FunctionalityPurpose : BaseModel

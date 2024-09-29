@@ -12,7 +12,15 @@ namespace SRS_Game.Models.Srs
     public class SystemUser : BaseModel
     {
         public string[] Needs { get; set; } = [];
-        
+
         public string[] Tasks { get; set; } = [];
+    }
+
+    /// <summary>
+    /// Outside system (XSYS)
+    /// </summary>
+    public class ExternalSystem : SystemUser
+    {
+        public string[] Interfaces { get; set; } = [];
     }
 }

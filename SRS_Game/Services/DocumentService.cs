@@ -50,8 +50,8 @@ namespace SRS_Game.Services
                                       Owner = d.TeamLeaderId.ToString() ?? "",
                                       ProjectId = d.ProjectId,
                                       Project = project.Name,
-                                      CreateDate = d.CreateDate,
-                                      UpdateDate = d.UpdateDate,
+                                      CreatedDate = d.CreatedDate,
+                                      UpdatedDate = d.UpdatedDate,
                                       Version = d.Version,
                                       FileName = d.FileName
                                   }

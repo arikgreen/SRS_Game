@@ -37,7 +37,7 @@
         /// Chapter 5. System components
         /// </summary>
         public List<SubSystem> SubSystems { get; set; } = [];
-        public List<Component> HardwareComponents { get; set; } = [];
+        public List<HardwareComponent> HardwareComponents { get; set; } = [];
         public List<SoftwareComponent> SoftwareComponents { get; set; } = [];
 
         /// <summary>
@@ -61,7 +61,7 @@
         /// <summary>
         /// Chapter 9. Emergancy situations
         /// </summary>
-        public List<Exception> Exceptions { get; set; } = [];
+        public List<ExceptionScenario> Exceptions { get; set; } = [];
         public List<CriticalSituation> CriticalSituations  { get; set; } = [];
         public List<EmergancySituation> EmergancySituations  { get; set; } = [];
 

@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Back to List" xml:space="preserve">
-    <value>Wróc do listy</value>
+    <value>Back to List</value>
   </data>
   <data name="Upload File" xml:space="preserve">
-    <value>Dodaj Załącznik</value>
+    <value>Upload File</value>
   </data>
   <data name="Browse" xml:space="preserve">
-    <value>Wybierz</value>
+    <value>Browse</value>
   </data>
   <data name="Upload" xml:space="preserve">
-    <value>Prześlij</value>
+    <value>Upload</value>
   </data>
   <data name="No file selected" xml:space="preserve">
-    <value>Nie wybrano pliku</value>
+    <value>No file selected</value>
   </data>
   <data name="Required" xml:space="preserve">
-    <value>Pole wymagane</value>
+    <value>Required</value>
   </data>
   <data name="Document name" xml:space="preserve">
-    <value>Nazwa dokumentu</value>
+    <value>Document name</value>
   </data>
   <data name="Select document for this attachement" xml:space="preserve">
-    <value>Wybierz dokument do którego chcesz wgrać załącznik</value>
+    <value>Select document for this attachement</value>
   </data>
   <data name="Source (if uploading transcript)" xml:space="preserve">
-    <value>Źródło (jeśli przesyłasz plik z rozmową)</value>
+    <value>Source (if uploading transcript)</value>
   </data>
 </root>

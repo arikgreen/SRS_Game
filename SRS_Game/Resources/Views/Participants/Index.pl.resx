@@ -153,4 +153,7 @@
   <data name="Participants" xml:space="preserve">
     <value>Interesariusze</value>
   </data>
+  <data name="External participant" xml:space="preserve">
+    <value>Interesariusz zew.</value>
+  </data>
 </root>

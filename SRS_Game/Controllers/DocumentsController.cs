@@ -62,7 +62,7 @@ namespace SRS_Game.Controllers
                             Name = document.Name,
                             Project = project.Name,
                             Version = document.Version,
-                            UpdateDate = document.UpdateDate,
+                            UpdatedDate = document.UpdatedDate,
                             Author = author.GetParticipantName()
                         }).ToListAsync();
 
@@ -135,7 +135,7 @@ namespace SRS_Game.Controllers
         {
             if (ModelState.IsValid)
             {
-                document.CreateDate = DateTime.Now;
+                document.CreatedDate = DateTime.Now;
                 _context.Add(document);
                 await _context.SaveChangesAsync();
                 
@@ -219,7 +219,7 @@ namespace SRS_Game.Controllers
                 Owner = document.Owner,
                 Version = document.Version,
                 FileName = document.FileName,
-                CreateDate = document.CreateDate,
+                CreatedDate = document.CreatedDate,
                 TeamId = document.TeamId,
 
                 SRS = new SRS
@@ -229,8 +229,8 @@ namespace SRS_Game.Controllers
                     Version = document.Version.ToString(),
                     Author = document.Author,
                     Owner = document.Owner,
-                    CreatedDate = document.CreateDate,
-                    UpdatedDate = document.UpdateDate,
+                    CreatedDate = document.CreatedDate,
+                    UpdatedDate = document.UpdatedDate,
                     Stakeholders =
                     [
                         stakeholder

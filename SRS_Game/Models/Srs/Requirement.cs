@@ -6,7 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SRS_Game.Models.Srs
 {
-    public class Requirement : Component { }
+    public class Requirement : BaseModel
+    {
+        [ForeignKey(nameof(FuncionalityRequirement.Reference))]
+        public string[] Relations { get; set; } = [];
+    }
 
     /// <summary>
     /// Functionality requirements (FNRQ)
@@ -52,7 +56,7 @@ namespace SRS_Game.Models.Srs
     /// </summary>
     public class HardwareRequirement : BaseModel
     {
-        [ForeignKey(nameof(Component.Reference))]
+        [ForeignKey(nameof(HardwareComponent.Reference))]
         public required string RefersTo { get; set; }
     }
 

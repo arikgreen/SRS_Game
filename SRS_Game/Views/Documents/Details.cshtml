@@ -59,16 +59,16 @@
                             @Html.DisplayFor(model => model.Team)
                         </dd>
                         <dt class = "col-sm-2">
-                            @Localizer[Html.DisplayNameFor(model => model.CreateDate)]
+                            @Localizer[Html.DisplayNameFor(model => model.CreatedDate)]
                         </dt>
                         <dd class = "col-sm-10">
-                            @Html.DisplayFor(model => model.CreateDate)
+                            @Html.DisplayFor(model => model.CreatedDate)
                         </dd>
                         <dt class = "col-sm-2">
-                            @Localizer[Html.DisplayNameFor(model => model.UpdateDate)]
+                            @Localizer[Html.DisplayNameFor(model => model.UpdatedDate)]
                         </dt>
                         <dd class = "col-sm-10">
-                            @Html.DisplayFor(model => model.UpdateDate)
+                            @Html.DisplayFor(model => model.UpdatedDate)
                         </dd>
                         <dt class="col-sm-2">
                             @Localizer[Html.DisplayNameFor(model => model.Author)]
@@ -147,7 +147,7 @@
                                     <tr>
                                         <td>@attachement.FileName</td>
                                         <td>@attachement.ContentType</td>
-                                        <td>@attachement.CreateDate</td>
+                                        <td>@attachement.CreatedDate</td>
                                     </tr>
                                 }
                             </table>

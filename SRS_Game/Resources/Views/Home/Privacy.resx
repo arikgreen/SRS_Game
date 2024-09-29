@@ -117,34 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Attachement" xml:space="preserve">
-    <value>Załącznik</value>
-  </data>
-  <data name="Back to List" xml:space="preserve">
-    <value>Wróc do listy</value>
-  </data>
-  <data name="Content type" xml:space="preserve">
-    <value>Typ pliku</value>
-  </data>
-  <data name="Created date" xml:space="preserve">
-    <value>Utworzony</value>
-  </data>
-  <data name="Create New" xml:space="preserve">
-    <value>Dodaj nowy</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>Dokument</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
-  </data>
-  <data name="File content" xml:space="preserve">
-    <value>Zawartość</value>
-  </data>
-  <data name="File name" xml:space="preserve">
-    <value>Nazwa pliku</value>
-  </data>
-  <data name="Updated date" xml:space="preserve">
-    <value>Zmieniony</value>
+  <data name="Privacy policy" xml:space="preserve">
+    <value>Privacy policy</value>
   </data>
 </root>

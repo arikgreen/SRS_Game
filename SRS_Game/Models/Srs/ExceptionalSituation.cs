@@ -7,10 +7,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SRS_Game.Models.Srs
 {
     /// <summary>
+    /// Acceptance criteria (ACPT)
+    /// </summary>
+    public class AcceptanceCriteria : BaseModel
+    {
+        public string RefersTo { get; set; } = string.Empty;
+    }
+
+    /// <summary>
     ///  Exception (EXCP)
     /// </summary>
-    public class Exception : Requirement
+    public class ExceptionScenario : BaseModel
     {
+        [ForeignKey(nameof(FuncionalityRequirement.Reference))]
+        public string[] Relations { get; set; } = [];
+
         [ForeignKey(nameof(FuncionalityRequirement.Reference))]
         public required string SupportedFor { get; set; }
     }
@@ -18,10 +29,10 @@ namespace SRS_Game.Models.Srs
     /// <summary>
     ///  Critical situation (CRIS)
     /// </summary>
-    public class CriticalSituation : Exception { }
+    public class CriticalSituation : ExceptionScenario { }
 
     /// <summary>
     /// Emergancy situation (EMRG)
     /// </summary>
-    public class EmergancySituation : Exception { }
+    public class EmergancySituation : ExceptionScenario { }
 }
