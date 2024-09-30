@@ -141,5 +141,20 @@ namespace SRS_Game.Services
             _context.Add(srsDocument);
             await _context.SaveChangesAsync();
         }
+
+        public async Task UpdateVersion(int documentId)
+        {
+            var document = await _context.Documents.FindAsync(documentId);
+
+            if (document != null)
+            {
+                // Assuming Version is numeric (like an int or double) and needs to be incremented
+                document.Version++; // Increment the version
+                document.UpdatedDate = DateTime.Now;
+
+                // Save changes
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

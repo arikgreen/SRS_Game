@@ -28,6 +28,7 @@
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="3.1.0" />
     <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
+    <PackageReference Include="Portable.Xaml" Version="0.26.0" />
   </ItemGroup>
 
   <ItemGroup>

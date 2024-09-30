@@ -10,6 +10,7 @@ namespace SRS_Game.Interfaces
         Task<SelectList> GetAttachementsForSelectListAsync();
         Task<string?> GetTranscriptSourceContentAsync(int id);
         Task<byte[]?> GetContentAsync(int id);
+        IEnumerable<Attachement> GetAllForDocument(int idDoc);
     }
     public interface IWritableAttachement
     {

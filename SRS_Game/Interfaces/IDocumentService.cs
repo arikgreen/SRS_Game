@@ -19,5 +19,6 @@ namespace SRS_Game.Interfaces
         Task UpdateAsync(Document document);
         Task DeleteAsync(int id);
         Task SaveSrsToDatabase(ProjectSpecification srsDocument);
+        Task UpdateVersion(int documentId);
     }
 }

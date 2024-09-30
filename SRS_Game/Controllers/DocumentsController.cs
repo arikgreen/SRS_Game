@@ -7,6 +7,7 @@ using System.Security.Cryptography.Xml;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -84,9 +85,7 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var attachements = await _context.Attachements.Where(m => m.DocumentId == id)
-                .OrderByDescending(d => d.FileName)
-                .ToListAsync();
+            var attachements = _readableAttachement.GetAllForDocument(id);
 
             var docHistory = await _context.DocumentHistories
                 .Join(_context.Participants,
@@ -192,21 +191,30 @@ namespace SRS_Game.Controllers
 
                     ViewData["TopicS"] = meetingTranscript.Topic;
                     ViewData["MeetingDateS"] = meetingTranscript.MeetingDate;
-                    ViewData["ParticipantsS"] = Regex.Replace(meetingTranscript.Participants, @"((\r)?\n|\u0010)", "<br />");
-                    ViewData["ContentS"] = Regex.Replace(meetingTranscript.MeetingContent, @"((\r)?\n|\u0010)", "<br />");
+                    ViewData["ParticipantsS"] = MyRegex.NewLineToBr(meetingTranscript.Participants);
+                    ViewData["ContentS"] = MyRegex.NewLineToBr(meetingTranscript.MeetingContent);
                 }
             }
 
-            var stakeholder = new Stakeholder {
-                Reference = "STKH_001",
-                Name = "Zleceniodawca",
-                Description = "Organizacja zamawiająca realizację projektu",
-                Type = StakeholderType.Corporation,
-                FullName = "pełna nazwa dla typu instytucjonalnego",
-                AddressOrContact = "adres pocztowy do korespondencji",
-                Representative = "STKH_002 Przedstawiciel zleceniodawcy",
-                Priority = Priority.medium
-            };
+            //var stakeholder = new Stakeholder {
+            //    Reference = "STKH_001",
+            //    Name = "Zleceniodawca",
+            //    Description = "Organizacja zamawiająca realizację projektu",
+            //    Type = StakeholderType.Corporation,
+            //    FullName = "pełna nazwa dla typu instytucjonalnego",
+            //    AddressOrContact = "adres pocztowy do korespondencji",
+            //    Representative = "STKH_002 Przedstawiciel zleceniodawcy",
+            //    Priority = Priority.medium
+            //};
+
+            SRS? srsDoc = null;
+            var spec = _readableDocument.GetSpecification(id, document.Version);
+            if (spec != null)
+            {
+                string xamlContent = spec.XamlContent;
+                srsDoc = XamlSerializer.DeserializeObjectToXaml(xamlContent);
+                srsDoc.Attachements = _readableAttachement.GetAllForDocument(id).ToList();
+            }
 
             var viewModel = new DocumentEditViewModel
             {
@@ -221,42 +229,43 @@ namespace SRS_Game.Controllers
                 FileName = document.FileName,
                 CreatedDate = document.CreatedDate,
                 TeamId = document.TeamId,
-
-                SRS = new SRS
-                {
-                    ProjectName = document.Project ?? "",
-                    TeamNumber = document.Team ?? "",
-                    Version = document.Version.ToString(),
-                    Author = document.Author,
-                    Owner = document.Owner,
-                    CreatedDate = document.CreatedDate,
-                    UpdatedDate = document.UpdatedDate,
-                    Stakeholders =
-                    [
-                        stakeholder
-                    ],
-                    //Personlesses = [],
-                    //BusinesPurposes = [],
-                    //FunctionalityPurposes = [],
-                    //SystemUsers = [],
-                    //ExternalSystems = [],
-                    //SubSystems = [],
-                    //HardwareComponents = [],
-                    //SoftwareComponents = [],
-                    //FuncionalityRequirements = [],
-                    //DataRequirements = [],
-                    //CredibilityRequirements = [],
-                    //PerformanceRequirements = [],
-                    //FlexibilityRequirements = [],
-                    //UsabilityRequirements = [],
-                    //Exceptions = [],
-                    //CriticalSituations = [],
-                    //EmergancySituations = [],
-                    //HardwareRequirements = [],
-                    //SoftwareRequirements = [],
-                    //OtherRequirements = [],
-                    //AcceptanceCriteria = [],
-                }
+                SRS = srsDoc,
+                
+                //SRS = new SRS
+                //{
+                //    ProjectName = document.Project ?? "",
+                //    TeamNumber = document.Team ?? "",
+                //    Version = document.Version.ToString(),
+                //    Author = document.Author,
+                //    Owner = document.Owner,
+                //    CreatedDate = document.CreatedDate,
+                //    UpdatedDate = document.UpdatedDate,
+                //    Stakeholders =
+                //    [
+                //        stakeholder
+                //    ],
+                //    //Personlesses = [],
+                //    //BusinesPurposes = [],
+                //    //FunctionalityPurposes = [],
+                //    //SystemUsers = [],
+                //    //ExternalSystems = [],
+                //    //SubSystems = [],
+                //    //HardwareComponents = [],
+                //    //SoftwareComponents = [],
+                //    //FuncionalityRequirements = [],
+                //    //DataRequirements = [],
+                //    //CredibilityRequirements = [],
+                //    //PerformanceRequirements = [],
+                //    //FlexibilityRequirements = [],
+                //    //UsabilityRequirements = [],
+                //    //Exceptions = [],
+                //    //CriticalSituations = [],
+                //    //EmergancySituations = [],
+                //    //HardwareRequirements = [],
+                //    //SoftwareRequirements = [],
+                //    //OtherRequirements = [],
+                //    //AcceptanceCriteria = [],
+                //}
             };
 
             return View(viewModel);
@@ -344,18 +353,45 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var projectSpecyfication = new ProjectSpecification
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
             {
-                DocumentId = document.Id,
-                Name = document.SRS.ProjectName,
-                Version = Int32.Parse(document.SRS.Version),
-                CreatedDate = DateTime.Now,
-                XamlContent = XamlGenerator.GenerateSRSXaml(document.SRS)
-            };
 
-            await _writableDocument.SaveSrsToDatabase(projectSpecyfication);
+                var projectSpecyfication = new ProjectSpecification
+                {
+                    DocumentId = document.Id,
+                    Name = document.SRS.ProjectName,
+                    Version = Int32.Parse(document.SRS.Version) + 1,
+                    CreatedDate = DateTime.Now
+                };
 
-            return RedirectToAction("");
+                // Serialize the SRS object to XAML format
+                projectSpecyfication.XamlContent = XamlSerializer.SerializeObjectToXaml(document.SRS);
+
+                // Serialize the SRS object to XML format
+                //var xmlSerializer = new XmlSerializer(typeof(SRS));
+                //using (var stringWriter = new StringWriter())
+                //{
+                //    xmlSerializer.Serialize(stringWriter, document.SRS);
+                //    projectSpecyfication.XamlContent = stringWriter.ToString();
+                //}
+
+                await _writableDocument.SaveSrsToDatabase(projectSpecyfication);
+
+                await _writableDocument.UpdateVersion(document.Id);
+
+                // Commit the transaction
+                await transaction.CommitAsync();
+
+                return RedirectToAction("");
+
+            }
+            catch (Exception)
+            {
+                // Rollback if any error occurs
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
     }
 }

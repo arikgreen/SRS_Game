@@ -32,7 +32,7 @@
                         @{
                             var count = @Model.SRS != null && @Model.SRS.Stakeholders.Any() ? @Model.SRS.Stakeholders.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-stkh" onclick="addSection('stkh')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-stkh" onclick="addSection('stkh')">+</button>
                         <span class="fw-bold d-inline-block">@Localizer["Stakeholders of project"]</span>
                         <div class="tables mt-2 ms-2 me-auto">
                             <i>Tu identyfikuje się wszystkie osoby (fizyczne i prawne), które są zainteresowane realizacją projektu bezpośrednio lub pośrednio.</i>
@@ -113,7 +113,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.Personlesses.Any() ? @Model.SRS.Personlesses.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-rsrc" onclick="addSection('rsrc')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-rsrc" onclick="addSection('rsrc')">+</button>
                         <span class="fw-bold">@Localizer["Personless sources"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Tu wymienia się akty prawne, standardy i inne dokumenty stanowiące źródła wymagań dla projektu. Często wymienia się rozporządzenie o ochronie danych osobowych. Podaje się znane dane bibliograficzne publikacji: tytuł, wydawcę etc. – tyle ile potrzeba dla jednoznacznej identyfikacji dokumentu. Jeśli dokument jest dostępny w Internecie, to można podać jego URL.
@@ -181,7 +181,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.BusinesPurposes.Any() ? @Model.SRS.BusinesPurposes.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-bsgl" onclick="addSection('bsgl')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-bsgl" onclick="addSection('bsgl')">+</button>
                         <span class="fw-bold">@Localizer["Busines purposes"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
@@ -221,7 +221,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.FunctionalityPurposes.Any() ? @Model.SRS.FunctionalityPurposes.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-fngl" onclick="addSection('fngl')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-fngl" onclick="addSection('fngl')">+</button>
                         <span class="fw-bold">@Localizer["Functionality purposes"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Cele funkcjonalne wymieniają główne funkcjonalności, które ma spełniać system.</i>
@@ -270,7 +270,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.SystemUsers.Any() ? @Model.SRS.SystemUsers.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-user" onclick="addSection('user')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-user" onclick="addSection('user')">+</button>
                         <span class="fw-bold">@Localizer["Users"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Trzeba odróżnić użytkowników wypisanych w tym punkcie od grup użytkowników wymienionych wśród interesariuszy projektu. Tam są oni zidentyfikowani jako źródło wymagań, a tu stanowią podmiot tych wymagań.</i>
@@ -323,7 +323,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.ExternalSystems.Any() ? @Model.SRS.ExternalSystems.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xsys" onclick="addSection('xsys')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xsys" onclick="addSection('xsys')">+</button>
                         <span class="fw-bold">@Localizer["External systems"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>System zewnętrzny wymieniany w specyfikacji wymagań to taki system, z którym projektowany system współdziała bezpośrednio, np. wysyła dane, odbiera i przetwarza informacje.</i>
@@ -390,7 +390,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.SubSystems.Any() ? @Model.SRS.SubSystems.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-ssys" onclick="addSection('ssys')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-ssys" onclick="addSection('ssys')">+</button>
                         <span class="fw-bold">@Localizer["Subsystems"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
@@ -447,7 +447,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.HardwareComponents.Any() ? @Model.SRS.HardwareComponents.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-hcmp" onclick="addSection('hcmp')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-hcmp" onclick="addSection('hcmp')">+</button>
                         <span class="fw-bold">@Localizer["Hardware components"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
@@ -495,7 +495,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.SoftwareComponents.Any() ? @Model.SRS.SoftwareComponents.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-scmp" onclick="addSection('scmp')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-scmp" onclick="addSection('scmp')">+</button>
                         <span class="fw-bold">@Localizer["Software components"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
@@ -555,7 +555,7 @@
             @{
                 count = @Model.SRS != null && @Model.SRS.FuncionalityRequirements.Any() ? @Model.SRS.FuncionalityRequirements.Count : 0;
             }
-            <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-fnrq" onclick="addSection('fnrq')">@Localizer["Add"]</button>
+            <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2 me-3" data-count=@count id="add-fnrq" onclick="addSection('fnrq')">+</button>
             <span class="fw-bold">@Localizer["Functionality requirements"]</span>
             <div class="tables ms-2 me-auto">
                 <i>Każde wymaganie funkcjonalne musi być przypisane do określonego użytkownika lub systemu zewnętrznego (pole „dotyczy”). Może być oparte o potrzeby lub zadania tego użytkownika. Wyjątek stanowią wymagania funkcjonalne wykonywane automatycznie, które mogą być przypisane do któregoś z komponentów. systemu.</i>
@@ -618,7 +618,7 @@
             @{
                 count = @Model.SRS != null && @Model.SRS.DataRequirements.Any() ? @Model.SRS.DataRequirements.Count : 0;
             }
-            <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-dtrq" onclick="addSection('dtrq')">@Localizer["Add"]</button>
+            <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2 me-3" data-count=@count id="add-dtrq" onclick="addSection('dtrq')">+</button>
             <span class="fw-bold">@Localizer["Data requirements"]</span>
             <div class="tables ms-2 me-auto">
                 <i>Wymagania na dane pomagają w określeniu, jakie dane będą przetwarzane w systemie. Nie trzeba precyzować wszystkich danych. Szczegóły znajdą się w projekcie bazy danych.</i>
@@ -674,7 +674,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.CredibilityRequirements.Any() ? @Model.SRS.CredibilityRequirements.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-rlrq" onclick="addSection('rlrq')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-rlrq" onclick="addSection('rlrq')">+</button>
                         <span class="fw-bold">@Localizer["Credibility requirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Wymagania w zakresie wiarygodności będą rozszerzały wymagania funkcjonalne.</i>
@@ -725,7 +725,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.PerformanceRequirements.Any() ? @Model.SRS.PerformanceRequirements.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-pfrq" onclick="addSection('pfrq')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-pfrq" onclick="addSection('pfrq')">+</button>
                         <span class="fw-bold">@Localizer["Performance requirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Wymagania w zakresie wydajności będą miały zastosowanie w czasie projektowania architektury systemu.</i>
@@ -778,7 +778,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.FlexibilityRequirements.Any() ? @Model.SRS.FlexibilityRequirements.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-flrq" onclick="addSection('flrq')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-flrq" onclick="addSection('flrq')">+</button>
                         <span class="fw-bold">@Localizer["Flexibility requirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Wymagania w zakresie elastyczności będą miały zastosowanie w czasie wyboru koncepcji systemu.</i>
@@ -831,7 +831,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.UsabilityRequirements.Any() ? @Model.SRS.UsabilityRequirements.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-strq" onclick="addSection('strq')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-strq" onclick="addSection('strq')">+</button>
                         <span class="fw-bold">@Localizer["Usability requirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Wymagania w zakresie użyteczności będą brane pod uwagę głównie w czasie projektowania interfejsu użytkownika.</i>
@@ -892,7 +892,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.Exceptions.Any() ? @Model.SRS.Exceptions.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-excp" onclick="addSection('excp')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-excp" onclick="addSection('excp')">+</button>
                         <span class="fw-bold">@Localizer["Exceptions"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
@@ -950,7 +950,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.CriticalSituations.Any() ? @Model.SRS.CriticalSituations.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-cris" onclick="addSection('cris')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-cris" onclick="addSection('cris')">+</button>
                         <span class="fw-bold">@Localizer["Critical situations"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Sytuacje krytyczne to takie scenariusze, które mogą doprowadzić do awarii. Funkcjonalność wpierająca zapobiega załamaniu systemu.</i>
@@ -1009,7 +1009,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.EmergancySituations.Any() ? @Model.SRS.EmergancySituations.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-emrg" onclick="addSection('emrg')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-emrg" onclick="addSection('emrg')">+</button>
                         <span class="fw-bold">@Localizer["Emergancy situations"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Sytuacje awaryjne to takie, w których szkoda już nastąpiła. Funkcjonalność wpierająca pomaga systemowi odzyskać pełną sprawność.</i>
@@ -1076,7 +1076,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.HardwareRequirements.Any() ? @Model.SRS.HardwareRequirements.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xhrq" onclick="addSection('xhrq')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xhrq" onclick="addSection('xhrq')">+</button>
                         <div class="tables ms-2 me-auto">
                             <div class="fw-bold">@Localizer["Hardware requirements"]</div>
                             <i></i>
@@ -1130,7 +1130,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.SoftwareRequirements.Any() ? @Model.SRS.SoftwareRequirements.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xsrq" onclick="addSection('xsrq')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xsrq" onclick="addSection('xsrq')">+</button>
                         <span class="fw-bold">@Localizer["Software requirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i></i>
@@ -1183,7 +1183,7 @@
                         @{
                             count = @Model.SRS != null && @Model.SRS.OtherRequirements.Any() ? @Model.SRS.OtherRequirements.Count : 0;
                         }
-                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xxrq" onclick="addSection('xxrq')">@Localizer["Add"]</button>
+                        <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xxrq" onclick="addSection('xxrq')">+</button>
                         <span class="fw-bold">@Localizer["Other requirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i></i>
@@ -1239,7 +1239,7 @@
             @{
                 count = @Model.SRS != null && @Model.SRS.AcceptanceCriteria.Any() ? @Model.SRS.AcceptanceCriteria.Count : 0;
             }
-            <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-acpt" onclick="addSection('acpt')">@Localizer["Add"]</button>
+            <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2 me-3" data-count=@count id="add-acpt" onclick="addSection('acpt')">+</button>
             <span class="fw-bold">@Localizer["Acceptance criteria"]</span>
             <div class="tables ms-2 me-auto">
                 <i>Tu podać kryteria, jakim zostanie poddany gotowy system przed ostatecznym jego przyjęciem. Określa się warunki np. przeprowadzania testów albo okres próbnej eksploatacji. Nie podaje się takich oczywistych kryteriów jak spełnienie wymagań o priorytecie krytycznym.</i>
@@ -1297,8 +1297,30 @@
         <li class="list-group-item">
             <span class="fw-bold">@Localizer["Attachements"]</span>
             <div class="ms-2 me-auto">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr><th>File name</th><th>Content Type</th><th>Created</th></tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.SRS != null && Model.SRS.Attachements.Any())
+                        {
+                            count = Model.SRS.Attachements.Count;
 
-                <textarea class="form-control" rows="3" asp-for="@Model.SRS.Attachements" placeholder="Tu wyszczególnić dokumenty, do których trzeba się będzie odwoływać w całym projekcie."></textarea>
+                            @for (int i = 0; i < count; i++)
+                            {
+                                <tr>
+                                    <td><input class="form-control fw-bold" asp-for="@Model.SRS.Attachements[@i].FileName" readonly /></td>
+                                    <td><input class="form-control fw-bold" asp-for="@Model.SRS.Attachements[@i].ContentType" readonly /></td>
+                                    <td><input class="form-control fw-bold" asp-for="@Model.SRS.Attachements[@i].CreatedDate" readonly /></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="3" class="text-center">No attachements</td></tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </li>
     </ol>

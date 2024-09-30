@@ -22,6 +22,13 @@ namespace SRS_Game.Services
         {
             return [.. _context.Attachements];
         }
+
+        public IEnumerable<Attachement> GetAllForDocument(int documentId)
+        {
+            return [.. _context.Attachements
+                .OrderByDescending(d => d.FileName)
+                .Where(d => d.DocumentId == documentId)];
+        }
         
         public async Task<Attachement?> GetAsync(int id)
         {

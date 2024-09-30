@@ -86,6 +86,7 @@ namespace ContosoUniversity.Data
             if (context.ProjectSepcyfications.Any())
             {
                 context.ProjectSepcyfications.ExecuteDelete();
+                //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('ProjectSepcyfications', RESEED, 0)");
                 context.SaveChanges();
             }
 
@@ -442,13 +443,13 @@ namespace ContosoUniversity.Data
             context.DocumentHistories.AddRange(documentHistories);
             context.SaveChanges();
 
-            var projectSpecification = new ProjectSpecification[]
-            {
-                new() { DocumentId = 1, Version = 1, Name = "Specyfikacja wymagań", CreatedDate = DateTime.Now, XamlContent = "<StackPanel xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">\r\n<TextBlock FontSize=\"20\" FontWeight=\"Bold\" Text=\"Project: Projekt B\" />\r\n<TextBlock Text=\"Version: 1\" />\r\n<TextBlock Text=\"Author: Artur Wilczak\" />\r\n<TextBlock Text=\"Date: 27.09.2024 21:04:36\" />\r\n<TextBlock FontSize=\"16\" FontWeight=\"Bold\" Text=\"Introduction\" />\r\n<TextBlock Text=\"\" TextWrapping=\"Wrap\" />\r\n<TextBlock FontSize=\"16\" FontWeight=\"Bold\" Text=\"Functional Requirements\" />\r\n<TextBlock FontWeight=\"Bold\" Text=\"Złożenie zamówienia\" />\r\n<TextBlock Text=\"Złożenie zamówienia w sklepie\" TextWrapping=\"Wrap\" />\r\n<TextBlock Text=\"Priority: high\" />\r\n</StackPanel>\r\n'" }
-            };
+            //var projectSpecification = new ProjectSpecification[]
+            //{
+            //    new() { DocumentId = 1, Version = 1, Name = "Specyfikacja wymagań", CreatedDate = DateTime.Now, XamlContent = "<StackPanel xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">\r\n<TextBlock FontSize=\"20\" FontWeight=\"Bold\" Text=\"Project: Projekt B\" />\r\n<TextBlock Text=\"Version: 1\" />\r\n<TextBlock Text=\"Author: Artur Wilczak\" />\r\n<TextBlock Text=\"Date: 27.09.2024 21:04:36\" />\r\n<TextBlock FontSize=\"16\" FontWeight=\"Bold\" Text=\"Introduction\" />\r\n<TextBlock Text=\"\" TextWrapping=\"Wrap\" />\r\n<TextBlock FontSize=\"16\" FontWeight=\"Bold\" Text=\"Functional Requirements\" />\r\n<TextBlock FontWeight=\"Bold\" Text=\"Złożenie zamówienia\" />\r\n<TextBlock Text=\"Złożenie zamówienia w sklepie\" TextWrapping=\"Wrap\" />\r\n<TextBlock Text=\"Priority: high\" />\r\n</StackPanel>\r\n'" }
+            //};
 
-            context.ProjectSepcyfications.AddRange(projectSpecification);
-            context.SaveChanges();
+            //context.ProjectSepcyfications.AddRange(projectSpecification);
+            //context.SaveChanges();
         }
     }
 }

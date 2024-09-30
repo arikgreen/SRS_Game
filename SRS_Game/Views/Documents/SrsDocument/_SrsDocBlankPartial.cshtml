@@ -19,7 +19,7 @@
                     <tr>
                         <th scope="row">@Localizer["Type"]</th>
                         <td>
-                            <select class="form-control" placeholder="osoba prawna lub firma" id="SRS_Stakeholders_0__Type" name="SRS.Stakeholders[0].Type" onselect=""></select>
+                            <select class="form-control" placeholder="osoba prawna lub firma" id="SRS_Stakeholders_0__Type" name="SRS.Stakeholders[0].Type" onselect="0" asp-items="ViewBag.StakeholderTypes"></select>
                         </td>
                     </tr>
                     <tr>
@@ -45,7 +45,9 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-auto align-middle"><i class="delete-table bi bi-trash d-block bi-cursor" data-ref="stkh"></i></div>
+        <div class="col-sm-auto d-table border-light">
+            <div class="d-table-cell align-middle"><i class="delete-table bi bi-trash" data-ref="stkh"></i></div>
+        </div>
     </div>
     
     <div id="rsrc-000" class="row">
@@ -55,6 +57,7 @@
                     <tr>
                         <th class="w-15" scope="row"><input class="form-control form-control-plaintext fw-bold ref" id="SRS_Personlesses_0__Reference" name="SRS.Personlesses[0].Reference" readonly /></th>
                         <td class="fw-bold"><input class="form-control fw-bold" id="SRS_Personlesses_0__Name" name="SRS.Personlesses[0].Name" placeholder="Personless source name" /></td>
+                        @*<td rowspan="9" class="text-center align-middle"><i class="delete-table bi bi-trash" data-ref="rsrc"></i></td>*@
                     </tr>
                     <tr>
                         <th scope="row">@Localizer["Desription"]</th>
