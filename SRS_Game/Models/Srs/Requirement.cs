@@ -9,7 +9,7 @@ namespace SRS_Game.Models.Srs
     public class Requirement : BaseModel
     {
         [ForeignKey(nameof(FuncionalityRequirement.Reference))]
-        public string[] Relations { get; set; } = [];
+        public string? Relations { get; set; }
     }
 
     /// <summary>

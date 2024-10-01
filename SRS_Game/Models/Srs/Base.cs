@@ -23,7 +23,7 @@ namespace SRS_Game.Models.Srs
         [Required]
         public required string Name { get; set; }
 
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; }
         
         [ForeignKey(nameof(Stakeholder.Reference))]
         public required string Source {  get; set; }

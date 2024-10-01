@@ -126,7 +126,7 @@
   <data name="Edit" xml:space="preserve">
     <value>Zmień</value>
   </data>
-  <data name="File name" xml:space="preserve">
+  <data name="FileName" xml:space="preserve">
     <value>Nazwa pliku</value>
   </data>
   <data name="Name" xml:space="preserve">
@@ -156,18 +156,18 @@
   <data name="critical" xml:space="preserve">
     <value>krytyczny</value>
   </data>
-  <data name="Desription" xml:space="preserve">
+  <data name="Description" xml:space="preserve">
     <value>Opis</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Typ</value>
   </data>
-  <data name="Full name" xml:space="preserve">
+  <data name="FullName" xml:space="preserve">
     <value>Pełna nazwa</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Adres</value>
-  </data>	
+  </data>
   <data name="Representative" xml:space="preserve">
     <value>Reprezentuje</value>
   </data>
@@ -177,10 +177,10 @@
   <data name="Introduction" xml:space="preserve">
     <value>Wprowadzenie</value>
   </data>
-  <data name="Requirements sources" xml:space="preserve">
+  <data name="RequirementsSources" xml:space="preserve">
     <value>Żródła wymagań</value>
   </data>
-  <data name="Stakeholders of project" xml:space="preserve">
+  <data name="StakeholdersOfProject" xml:space="preserve">
     <value>Interesariusze projektu</value>
   </data>
   <data name="Attachements" xml:space="preserve">
@@ -189,7 +189,154 @@
   <data name="Add" xml:space="preserve">
     <value>Dodaj</value>
   </data>
-  <data name="SthkRef" xml:space="preserve">
-    <value>Referencja do Interesariusza</value>
+  <data name="StakeholderReference" xml:space="preserve">
+    <value>Ref. do interesariusza</value>
+  </data>
+  <data name="BsglRef" xml:space="preserve">
+    <value>Ref. do celu biznesowego</value>
+  </data>
+  <data name="HardwareComponentReference" xml:space="preserve">
+    <value>Ref. do komponentu sprzętowego</value>
+  </data>
+  <data name="SoftwareComponentReference" xml:space="preserve">
+    <value>Ref. do komponentu programowego</value>
+  </data>
+  <data name="SsysRef" xml:space="preserve">
+    <value>Ref. do podsystemu</value>
+  </data>
+  <data name="OthrRef" xml:space="preserve">
+    <value>Ref. do innych systemów</value>
+  </data>
+  <data name="UserRef" xml:space="preserve">
+    <value>Ref. użytkownika</value>
+  </data>
+  <data name="FunctionalityRequirementReference" xml:space="preserve">
+    <value>Ref. do wymagania funkcjonalnego</value>
+  </data>
+  <data name="HwReqAgreeClient" xml:space="preserve">
+    <value>Konfiguracja uzgodniona z klientem</value>
+  </data>
+  <data name="AddiReqDsc" xml:space="preserve">
+    <value>wymagania, które nie mieszczą się w zakresie poprzednich kategorii wymagań</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>opis</value>
+  </data>
+  <data name="ContentType" xml:space="preserve">
+    <value>Typ pliku</value>
+  </data>
+  <data name="PersonlessSrc" xml:space="preserve">
+    <value>Źródła nieosobowe</value>
+  </data>
+  <data name="SystemPurposes" xml:space="preserve">
+    <value>Cele systemu</value>
+  </data>
+  <data name="BusinesPurpose" xml:space="preserve">
+    <value>Cele biznesowe</value>
+  </data>
+  <data name="FunctionalityPurposes" xml:space="preserve">
+    <value>Cele funkcjonalne</value>
+  </data>
+  <data name="SystemEnvironment" xml:space="preserve">
+    <value>Otoczenie systemu</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="ExternalSystems" xml:space="preserve">
+    <value>Systemy zew.</value>
+  </data>
+  <data name="ExpectedSystemComponents" xml:space="preserve">
+    <value>Przewidywane komponenty systemu</value>
+  </data>
+  <data name="Subsystems" xml:space="preserve">
+    <value>Podsystemy</value>
+  </data>
+  <data name="HardwareComponents" xml:space="preserve">
+    <value>Komponenty sprzętowe</value>
+  </data>
+  <data name="SoftwareComponents" xml:space="preserve">
+    <value>Komponenty programowe</value>
+  </data>
+  <data name="FunctionalityRequirements" xml:space="preserve">
+    <value>Wymagania funkcjonalne</value>
+  </data>
+  <data name="DataRequirements" xml:space="preserve">
+    <value>Wymagania dot. danych</value>
+  </data>
+  <data name="QualityRequirements" xml:space="preserve">
+    <value>Wymagania jakościowe</value>
+  </data>
+  <data name="CredibilityRequirements" xml:space="preserve">
+    <value>Wymagania w zakresie wiarygodności</value>
+  </data>
+  <data name="PerformanceRequirements" xml:space="preserve">
+    <value>Wymagania w zakresie wydajności</value>
+  </data>
+  <data name="FlexibilityRequirements" xml:space="preserve">
+    <value>Wymagania w zakresie elastyczności</value>
+  </data>
+  <data name="UsabilityRequirements" xml:space="preserve">
+    <value>Wymaganie w zakresie użyteczności</value>
+  </data>
+  <data name="ExcpSits" xml:space="preserve">
+    <value>Sytuacje wyjątkowe</value>
+  </data>
+  <data name="CriticalSituations" xml:space="preserve">
+    <value>Sytuacje krytyczne</value>
+  </data>
+  <data name="EmergancySituations" xml:space="preserve">
+    <value>Sytuacje awaryjne</value>
+  </data>
+  <data name="Exceptions" xml:space="preserve">
+    <value>Sytuacje wyjątkowe</value>
+  </data>
+  <data name="ExtraordinarySituations" xml:space="preserve">
+    <value>Sytuacje nadzwyczajne</value>
+  </data>
+  <data name="SaveSrs" xml:space="preserve">
+    <value>Zapisz specyfikację</value>
+  </data>
+  <data name="Dict" xml:space="preserve">
+    <value>Słownik</value>
+  </data>
+  <data name="AcceptanceCriteria" xml:space="preserve">
+    <value>Kryteria akceptacyjne</value>
+  </data>
+  <data name="AdditionalRequirements" xml:space="preserve">
+    <value>Dodatkowe wymagania</value>
+  </data>
+  <data name="Needs" xml:space="preserve">
+    <value>Potrzeby</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Zadania</value>
+  </data>
+  <data name="RefersTo" xml:space="preserve">
+    <value>Dotyczy</value>
+  </data>
+  <data name="SupportFor" xml:space="preserve">
+    <value>Wspiera</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>Powiązania</value>
+  </data>
+  <data name="SwReqs" xml:space="preserve">
+    <value>Wymagania programowe</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Źródło</value>
+  </data>
+  <data name="PublishingPlace" xml:space="preserve">
+    <value>Miejsce publikacji</value>
+  </data>
+  <data name="PublishingDate" xml:space="preserve">
+    <value>Data publikacji</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Wydawca</value>
+  </data>
+  <data name="HardwareRequirements" xml:space="preserve">
+    <value>Wymaganie w zakresie sprzętu</value>
   </data>
 </root>

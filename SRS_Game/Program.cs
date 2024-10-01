@@ -82,7 +82,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<SRS_GameDbContext>();
-        DbInitializer.Initialize(context);
+        //DbInitializer.Initialize(context);
     }
     catch (Exception ex)
     {

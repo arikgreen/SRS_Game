@@ -6,9 +6,17 @@
 @{
     ViewData["Title"] = Localizer["Edit"];
 }
-
-<h1>@Localizer["Document"] - @Localizer["Edit"]</h1>
-<h4>"@Html.DisplayFor(model => model.Name)"</h4>
+<div class="row">
+    <div class="col-8">
+        <h1>@Localizer["Document"] - @Localizer["Edit"]</h1>
+        <h4>"@Html.DisplayFor(model => model.Name)"</h4>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        <input type="submit" value=@Localizer["Save"] form="srs-header-form" class="btn btn-primary mr-3" />
+        @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Documents", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Documents", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
 <hr />
 @if (ViewBag.Message != null)
 {
@@ -34,57 +42,62 @@
         <div class="tab-pane active" id="summary">
             <div class="row">
                 <div class="col-md">
-                    <form asp-action="Edit">
+                    <form id="srs-header-form" class="" asp-action="Edit">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="Id" />
-                        <input type="hidden" asp-for="CreatedDate" />
-                        <div class="mb-3 row">
-                            <label asp-for="Name" class="col-sm-3 col-form-label">@Localizer["Name"]</label>
-                            <div class="col-sm-9"><input asp-for="Name" class="form-control" /></div>
-                            <span asp-validation-for="Name" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3 row">
-                            <label asp-for="ProjectId" class="col-sm-3 col-form-label">@Localizer["Project"]</label>
-                            <div class="col-sm-9">
-                                <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.Projects" onselect="@Model.ProjectId"></select>
-                            </div>
-                            <span asp-validation-for="ProjectId" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3 row">
-                            <label asp-for="TeamId" class="col-sm-3 col-form-label">@Localizer["Team"]</label>
-                            <div class="col-sm-9">
-                                <select asp-for="TeamId" class="form-control" asp-items="ViewBag.Teams" onselect="@Model.TeamId"></select>
-                            </div>
-                            <span asp-validation-for="TeamId" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3 row">
-                            <label asp-for="Description" class="col-sm-3 col-form-label">@Localizer["Description"]</label>
-                            <div class="col-sm-9"><input asp-for="Description" class="form-control" /></div>
-                            <span asp-validation-for="Description" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3 row">
-                            <label asp-for="AuthorId" class="col-sm-3 col-form-label">@Localizer["Autor"]</label>
-                            <div class="col-sm-9">
-                                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Participants" onselect="@Model.AuthorId"></select>
-                            </div>
-                            <span asp-validation-for="AuthorId" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3 row">
-                            <label asp-for="Version" class="col-sm-3 col-form-label">@Localizer["Version"]</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control-plaintext" asp-for="Version" readonly />
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label asp-for="FileName" class="col-sm-3 col-form-label">@Localizer["File name"]</label>
-                            <div class="col-sm-9"><input asp-for="FileName" class="form-control" /></div>
-                            <span asp-validation-for="FileName" class="text-danger"></span>
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type="submit" value=@Localizer["Save"] class="btn btn-primary mr-3" />
-                            @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Documents", new {id = Model.Id}, new { @class = "btn btn-primary" })
-                            @Html.ActionLink(@Localizer["Back to List"].Value, "Index", "Documents", null, new { @class = "btn btn-primary" })
-                        </div>
+
+                        <table class="table-bordered mb-2 w-100">
+                            <tr class="align-top">
+                                <td class="form-floating">
+                                    <select asp-for="TeamId" class="form-select border-0" asp-items="ViewBag.Teams" onselect="@Model.TeamId"></select>
+                                    <label asp-for="TeamId">@Localizer["TeamNumber"]:</label>
+                                </td>
+                                <td class="form-floating">
+                                    <select class="form-select border-0" asp-for="TeamLeaderId" asp-items="ViewBag.Participants" onselect="@Model.TeamLeaderId"></select>
+                                    <label asp-for="TeamLeaderId">@Localizer["Supervisor/Manager"]</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-floating" colspan="2">
+                                    <select asp-for="ProjectId" class="form-select border-0" asp-items="ViewBag.Projects" onselect="@Model.ProjectId"></select>
+                                    <label asp-for="ProjectId">@Localizer["ProjectName"]:</label>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="table-bordered mb-2 w-100">
+                            <tr class="align-top">
+                                <td class="form-floating pb-0">
+                                    <input asp-for="Name" class="form-control-plaintext h4" placeholder="@Localizer["DocumentName"]" />
+                                    <label asp-for="Name">@Localizer["DocumentName"]:</label>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </td>
+                                <td class="form-floating pb-0">
+                                    <input type="text" class="form-control-plaintext" asp-for="Version" readonly placeholder="@Localizer["VersionNr"]" />
+                                    <label asp-for="Version" class="col-sm-3 col-form-label">@Localizer["VersionNr"]:</label>
+                                </td>
+                            </tr>
+                            <tr class="align-top">
+                                <td class="form-floating">
+                                    <select asp-for="AuthorId" class="form-select border-0" asp-items="ViewBag.Participants" onselect="@Model.AuthorId"></select>
+                                    <label asp-for="AuthorId" class="col-sm-3 col-form-label">@Localizer["ResponsibleForTheDocument"]:</label>
+                                </td>
+                                <td class="form-floating">
+                                    <input asp-for="UpdatedDate" asp-format="{0:yyyy-MM-ddTHH:mm}" class="form-control-plaintext" placeholder="@Localizer["UpdatedDate"]" readonly />
+                                    <label asp-for="UpdatedDate">@Localizer["UpdatedDate"]:</label>
+                                </td>
+                            </tr>
+                            <tr class="align-top">
+                                <td class="form-floating">
+                                    <input asp-for="Destination" class="form-control-plaintext" placeholder="@Localizer["Destination"]" />
+                                    <label asp-for="Destination">@Localizer["Destination"]:</label>
+                                </td>
+                                <td class="form-floating">
+                                    <input asp-for="CreatedDate" asp-format="{0:yyyy-MM-ddTHH:mm}" class="form-control-plaintext" placeholder="@Localizer["CreatedDate"]" readonly />
+                                    <label asp-for="CreatedDate">@Localizer["CreatedDate"]:</label>
+                                </td>
+                            </tr>
+                        </table>
                     </form>
                 </div>
             </div>

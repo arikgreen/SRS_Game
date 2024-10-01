@@ -20,7 +20,7 @@ namespace SRS_Game.Models
         /// <summary>
         /// Przeznaczenie
         /// </summary>
-        public string? Description { get; set; }
+        public string? Destination { get; set; }
 
         [Required]
         [ForeignKey("Participant")]
@@ -57,18 +57,18 @@ namespace SRS_Game.Models
 
         public int? ParentId { get; set; }
 
-        [DisplayName("File name")]
-        public string? FileName { get; set; }
-
-        public string? Introduction { get; set; }
+        /// <summary>
+        /// Percent 0% - 100%
+        /// </summary>
+        public int? Rate {  get; set; }
 
         public Document() { }
 
-        public Document(string name, string? description, int authorId, int? team, int? teamLeaderId, int? projectId, 
-            DateTime createDate, DateTime updateDate, int versionId, int? parentId, string? fileName, string? introduction)
+        public Document(string name, string? destinatiption, int authorId, int? team, int? teamLeaderId, int? projectId, 
+            DateTime createDate, DateTime updateDate, int versionId, int? parentId, int? rate = 0)
         {
             Name = name;
-            Description = description;
+            Destination = destinatiption;
             AuthorId = authorId;
             TeamId = team;
             TeamLeaderId = teamLeaderId;
@@ -77,8 +77,7 @@ namespace SRS_Game.Models
             UpdatedDate = updateDate;
             Version = versionId;
             ParentId = parentId;
-            FileName = fileName;
-            Introduction = introduction;
+            Rate = rate;
         }
     }
 

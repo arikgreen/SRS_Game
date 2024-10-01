@@ -30,7 +30,7 @@ namespace SRS_Game.Models.Srs
 
         public string Description { get; set; } = string.Empty;
 
-        public string AddressOrContact { get; set; } = string.Empty;
+        public string? AddressOrContact { get; set; }
 
         public required StakeholderType Type { get; set; }
 
@@ -47,20 +47,6 @@ namespace SRS_Game.Models.Srs
         public string Represent { get; set; } = string.Empty;
 
         public required Priority Priority { get; set; }
-
-        public static SelectList GetStakeholderTypes()
-        {
-            var stakeholderTypes = (from StakeholderType t in Enum.GetValues(typeof(StakeholderType))
-                                    select new SelectListItem
-                                    {
-                                        Value = ((int)t).ToString(),
-                                        Text = t.ToString()
-                                    }).ToList();
-
-            stakeholderTypes.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
-
-            return new SelectList(stakeholderTypes, "Value", "Text");
-        }
     }
 
     /// <summary>
@@ -73,21 +59,21 @@ namespace SRS_Game.Models.Srs
         
         public required string Name { get; set; }
         
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; }
         
         public string Title { get; set; } = string.Empty;
         
-        public string Publisher { get; set; } = string.Empty;
+        public string? Publisher { get; set; }
         
         [DisplayName("Publishing place")]
-        public string PublishingPlace {  get; set; } = string.Empty;
+        public string? PublishingPlace {  get; set; }
         
         [DisplayName("Publishing date")]
         public DateTime PublishingDate { get; set; }
         
         public string Version { get; set; } = string.Empty;
         
-        public string Url { get; set; } = string.Empty;
+        public string? Url { get; set; }
         
         public required Priority Priority { get; set; }
     }

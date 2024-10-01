@@ -37,3 +37,9 @@ body {
     display: block;
     margin-top: -2.7rem;
 }
+
+.pre-wrap {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

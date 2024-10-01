@@ -11,7 +11,7 @@ namespace SRS_Game.Models.Srs
     /// </summary>
     public class AcceptanceCriteria : BaseModel
     {
-        public string RefersTo { get; set; } = string.Empty;
+        public string? RefersTo { get; set; }
     }
 
     /// <summary>
@@ -20,7 +20,7 @@ namespace SRS_Game.Models.Srs
     public class ExceptionScenario : BaseModel
     {
         [ForeignKey(nameof(FuncionalityRequirement.Reference))]
-        public string[] Relations { get; set; } = [];
+        public string?[] Relations { get; set; } = [];
 
         [ForeignKey(nameof(FuncionalityRequirement.Reference))]
         public required string SupportedFor { get; set; }

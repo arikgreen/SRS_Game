@@ -172,7 +172,7 @@ namespace SRS_Game.Controllers
 
             priorities.Insert(0, new SelectListItem { Value = "-1", Text = "-- Select an option --" });
 
-            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+            var participants = await _readableParticipant.GetParticipantsForSelectListAsync();
             var projects = await _readableProject.GetProjectsForSelectListAsync();
             ViewBag.Projects = projects;
             var teams = await _readableTeam.GetTeamsForSelectListAsync();
@@ -209,26 +209,40 @@ namespace SRS_Game.Controllers
 
             SRS? srsDoc = null;
             var spec = _readableDocument.GetSpecification(id, document.Version);
+            
             if (spec != null)
             {
                 string xamlContent = spec.XamlContent;
                 srsDoc = XamlSerializer.DeserializeObjectToXaml(xamlContent);
                 srsDoc.Attachements = _readableAttachement.GetAllForDocument(id).ToList();
             }
+            else
+            {
+                srsDoc = new SRS
+                {
+                    ProjectName = document.Project ?? "",
+                    TeamNumber = document.Team ?? "",
+                    Version = document.Version.ToString(),
+                    Author = document.Author,
+                    Owner = document.Owner ?? "",
+                    CreatedDate = document.CreatedDate,
+                    UpdatedDate = document.UpdatedDate,
+                };
+            }
 
             var viewModel = new DocumentEditViewModel
             {
                 Id = document.Id,
                 Name = document.Name,
-                Description = document.Description,
+                Destination = document.Destination,
                 ProjectId = document.ProjectId,
                 AuthorId = document.AuthorId,
                 Author = document.Author,
                 Owner = document.Owner,
                 Version = document.Version,
-                FileName = document.FileName,
-                CreatedDate = document.CreatedDate,
+                CreatedDate = document.CreatedDate.ToLocalTime(),
                 TeamId = document.TeamId,
+                TeamLeaderId = document.TeamLeaderId,
                 SRS = srsDoc,
                 
                 //SRS = new SRS
@@ -267,6 +281,8 @@ namespace SRS_Game.Controllers
                 //    //AcceptanceCriteria = [],
                 //}
             };
+
+            ViewBag.Participants = participants;
 
             return View(viewModel);
         }
@@ -360,7 +376,6 @@ namespace SRS_Game.Controllers
                 var projectSpecyfication = new ProjectSpecification
                 {
                     DocumentId = document.Id,
-                    Name = document.SRS.ProjectName,
                     Version = Int32.Parse(document.SRS.Version) + 1,
                     CreatedDate = DateTime.Now
                 };

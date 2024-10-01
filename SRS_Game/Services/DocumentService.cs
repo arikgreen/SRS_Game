@@ -29,9 +29,11 @@ namespace SRS_Game.Services
         public async Task<DocumentViewModel?> GetAsync(int id)
         {
             var document = await (from d in _context.Documents
-                                  join a in _context.Participants 
-                                    on d.AuthorId equals a.Id
-                                  where d.Id == id
+                                    where d.Id == id
+                                  join a in _context.Participants
+                                    on d.AuthorId equals a.Id 
+                                  join o in _context.Participants
+                                    on d.TeamLeaderId equals o.Id
                                   join t in _context.Teams 
                                     on d.TeamId equals t.Id into teamGroup          // left join
                                   from team in teamGroup.DefaultIfEmpty()           // Team can be null
@@ -42,18 +44,18 @@ namespace SRS_Game.Services
                                   {
                                       Id = d.Id,
                                       Name = d.Name,
-                                      Description = d.Description,
+                                      Destination = d.Destination,
                                       AuthorId = d.AuthorId,
                                       Author = a.FirstName + " " + a.LastName,
                                       TeamId = d.TeamId,
                                       Team = team.Name,
-                                      Owner = d.TeamLeaderId.ToString() ?? "",
+                                      TeamLeaderId = d.TeamLeaderId,
+                                      Owner = o.FirstName + " " + o.LastName,
                                       ProjectId = d.ProjectId,
                                       Project = project.Name,
                                       CreatedDate = d.CreatedDate,
                                       UpdatedDate = d.UpdatedDate,
-                                      Version = d.Version,
-                                      FileName = d.FileName
+                                      Version = d.Version
                                   }
                             ).FirstOrDefaultAsync();
 

@@ -13,7 +13,7 @@
         /// <summary>
         /// Chapter 1. Introduction
         /// </summary>
-        public string Introduction { get; set; } = string.Empty;
+        public string? Introduction { get; set; }
         
         /// <summary>
         /// Chapter 2. Requirements sources
@@ -80,7 +80,7 @@
         /// <summary>
         /// Chapter 12. Dictionary
         /// </summary>
-        public string Dictionary { get; set; } = string.Empty;
+        public string? Dictionary { get; set; }
 
         /// <summary>
         /// Chapter 13. Attachements

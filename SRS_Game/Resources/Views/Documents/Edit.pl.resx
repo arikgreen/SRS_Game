@@ -120,10 +120,10 @@
   <data name="Author" xml:space="preserve">
     <value>Autor</value>
   </data>
-  <data name="Back to List" xml:space="preserve">
+  <data name="BackToList" xml:space="preserve">
     <value>Wróc do listy</value>
   </data>
-  <data name="Create date" xml:space="preserve">
+  <data name="CreateDate" xml:space="preserve">
     <value>Utworzony</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -132,10 +132,13 @@
   <data name="Document" xml:space="preserve">
     <value>Dokument</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Zmień</value>
+  <data name="DocumentName" xml:space="preserve">
+    <value>Nazwa dokumentu</value>
   </data>
-  <data name="File name" xml:space="preserve">
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
     <value>Nazwa pliku</value>
   </data>
   <data name="Name" xml:space="preserve">
@@ -144,11 +147,14 @@
   <data name="Project" xml:space="preserve">
     <value>Projekt</value>
   </data>
-  <data name="Update date" xml:space="preserve">
-    <value>Zmiana</value>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Nazwa projektu</value>
   </data>
-  <data name="Version" xml:space="preserve">
-    <value>Wersja</value>
+  <data name="UpdateDate" xml:space="preserve">
+    <value>Data aktualizacji</value>
+  </data>
+  <data name="VersionNr" xml:space="preserve">
+    <value>Numer wersji</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Zapisz</value>
@@ -164,5 +170,17 @@
   </data>
   <data name="Source" xml:space="preserve">
     <value>Źródło</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Przeznaczenie</value>
+  </data>
+  <data name="ResponsibleForTheDocument" xml:space="preserve">
+    <value>Odpowiedzialny za dokument</value>
+  </data>
+  <data name="SupervisorManager" xml:space="preserve">
+    <value>Opiekun/Kierownik</value>
+  </data>
+  <data name="TeamNumber" xml:space="preserve">
+    <value>Numer zespołu</value>
   </data>
 </root>

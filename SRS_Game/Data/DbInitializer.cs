@@ -167,8 +167,8 @@ namespace ContosoUniversity.Data
             context.TeamParticipants.AddRange(teamParticipants);
             context.SaveChanges();
 
-            // Document(string name, string? description, int authorId, int? teamId, int? teamLeaderId, int? projectId,
-            // DateTime createDate, DateTime updateDate, int versionId, int? parentId, string? fileName, string? introduction)
+            // Document(string name, string? destination, int authorId, int? teamId, int? teamLeaderId, int? projectId,
+            // DateTime createDate, DateTime updateDate, int versionId, int? parentId, string? fileName, int? rate)
             var documents = new Document[]
             {
             new(
@@ -181,9 +181,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-3),
                 DateTime.Now.AddMonths(-1),
                 1,
-                null,
-                "specification_v1.pdf",
-                "This document contains the full project specification."
+                null
             ),new(
                 "Team Report",
                 null,
@@ -195,8 +193,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-2),
                 2,
                 1,
-                "report.pdf",
-                "Summary of team activities."
+                39
             ),new(
                 "Financial Report",
                 "Quarterly financial results",
@@ -207,8 +204,6 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-6),
                 DateTime.Now.AddMonths(-3),
                 1,
-                null,
-                "financial_report.xlsx",
                 null
             ),new(
                 "Marketing Plan",
@@ -221,8 +216,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddDays(-15),
                 1,
                 null,
-                "marketing_plan.pptx",
-                "Overview of Q3 marketing activities."
+                83
             ),new(
                 "Project Proposal",
                 null,
@@ -234,8 +228,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-4),
                 2,
                 null,
-                "proposal.pdf",
-                "Initial proposal for project goals and deliverables."
+                23
             ),new(
                 "Architecture Design",
                 "Architecture design for the new system",
@@ -246,9 +239,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-5),
                 DateTime.Now.AddMonths(-3),
                 3,
-                5,
-                "design_architecture_v2.docx",
-                null
+                5
             ),new(
                 "Sprint Review",
                 "Sprint 2 review notes",
@@ -260,8 +251,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddDays(-20),
                 1,
                 null,
-                "sprint_review.docx",
-                "Details of completed tasks and upcoming actions."
+                57
             ),new(
                 "Client Feedback",
                 null,
@@ -273,8 +263,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-7),
                 1,
                 null,
-                "client_feedback.txt",
-                null
+                47
             ),new(
                 "System Requirements",
                 "Complete list of system requirements",
@@ -286,8 +275,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-1),
                 4,
                 null,
-                "system_requirements.pdf",
-                "Technical and functional requirements for the system."
+                49
             ),new(
                 "UI Mockups",
                 "Initial UI mockups for client review",
@@ -298,9 +286,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-3),
                 DateTime.Now.AddMonths(-2),
                 1,
-                null,
-                "ui_mockups_v1.png",
-                "Sample user interface screens for the new application."
+                null
             ),new(
                 "Code Review",
                 "Code review document for sprint 5",
@@ -311,9 +297,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-7),
                 DateTime.Now.AddMonths(-5),
                 1,
-                null,
-                "code_review_v1.docx",
-                "Detailed feedback from the team on the recent code changes."
+                null
             ),new(
                 "Budget Report",
                 "Detailed project budget report",
@@ -324,9 +308,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-6),
                 DateTime.Now.AddMonths(-4),
                 2,
-                9,
-                "budget_report_v1.xlsx",
-                "An overview of project expenses to date."
+                9
             ),new(
                 "Team Goals",
                 "Goals for the upcoming quarter",
@@ -338,8 +320,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddDays(-10),
                 1,
                 null,
-                "team_goals.docx",
-                "Objectives for each team member for Q4."
+                79
             ),new(
                 "Security Audit",
                 "Audit results for Q2",
@@ -350,9 +331,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-10),
                 DateTime.Now.AddMonths(-8),
                 1,
-                null,
-                "security_audit_q2.docx",
-                "Overview of security vulnerabilities found in the audit."
+                null
             ),new(
                 "Risk Assessment",
                 null,
@@ -364,8 +343,7 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-10),
                 1,
                 null,
-                "risk_assessment.pdf",
-                "Analysis of potential project risks."
+                100
             )
         };
             context.Documents.AddRange(documents);

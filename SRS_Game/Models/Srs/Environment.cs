@@ -11,9 +11,9 @@ namespace SRS_Game.Models.Srs
     /// </summary>
     public class SystemUser : BaseModel
     {
-        public string[] Needs { get; set; } = [];
+        public string? Needs { get; set; }
 
-        public string[] Tasks { get; set; } = [];
+        public string? Tasks { get; set; }
     }
 
     /// <summary>
@@ -21,6 +21,6 @@ namespace SRS_Game.Models.Srs
     /// </summary>
     public class ExternalSystem : SystemUser
     {
-        public string[] Interfaces { get; set; } = [];
+        public string? Interfaces { get; set; }
     }
 }

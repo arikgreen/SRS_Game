@@ -13,10 +13,6 @@ namespace SRS_Game.Models
         [Key]
         [Required]
         public int Version { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public required string Name { get; set; }
         
         [Required]
         public string XamlContent { get; set; } = string.Empty;

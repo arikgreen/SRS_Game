@@ -16,15 +16,15 @@
     <input type="hidden" asp-for="SRS.Version" />
     <input type="hidden" asp-for="SRS.TeamNumber" />
     <input type="hidden" asp-for="SRS.ProjectName" />
-    <ol class="list-group list-group-numbered">
+    <ol class="list-group list-group-numbered mb-2">
         <li class="list-group-item">
             <span class="fw-bold">@Localizer["Introduction"]</span>
             <div class="ms-2 me-auto">
-                <textarea class="form-control" id="introduction" rows="3" placeholder="Tu się podaje krótkie wprowadzenie: co to jest za projekt, na czym polega, jaka jest jego główna idea." ></textarea>
+                <textarea class="form-control" asp-for="@Model.SRS.Introduction" rows="3" placeholder="Tu się podaje krótkie wprowadzenie: co to jest za projekt, na czym polega, jaka jest jego główna idea." ></textarea>
             </div>
         </li>
         <li class="list-group-item">
-            <span class="fw-bold">@Localizer["Requirements sources"]</span>
+            <span class="fw-bold">@Localizer["RequirementsSources"]</span>
             <div class="ms-2 me-auto">
                 <i>W tym rozdziale identyfikuje się źródła wymagań. Jest to potrzebne, aby zorientować się, skąd pozyskiwać wymagania do projektu.</i>
                 <ol class="list-group list-group-numbered">
@@ -33,7 +33,7 @@
                             var count = @Model.SRS != null && @Model.SRS.Stakeholders.Any() ? @Model.SRS.Stakeholders.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-stkh" onclick="addSection('stkh')">+</button>
-                        <span class="fw-bold d-inline-block">@Localizer["Stakeholders of project"]</span>
+                        <span class="fw-bold d-inline-block">@Localizer["StakeholdersOfProject"]</span>
                         <div class="tables mt-2 ms-2 me-auto">
                             <i>Tu identyfikuje się wszystkie osoby (fizyczne i prawne), które są zainteresowane realizacją projektu bezpośrednio lub pośrednio.</i>
                             @if (Model.SRS != null)
@@ -50,7 +50,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Desription"]</th>
+                                                <th scope="row">@Localizer["Description"]</th>
                                                 <td>
                                                     <input class="form-control" placeholder="Organizacja zamawiająca realizację projektu" value="@Model.SRS.Stakeholders[@i].Description" asp-for="@Model.SRS.Stakeholders[@i].Description" />
                                                 </td>
@@ -65,7 +65,7 @@
                                     {
                                         addressOrContactHeader = @Localizer["Address"];
                                             <tr>
-                                                <th scope="row">@Localizer["Full name"]</th>
+                                                <th scope="row">@Localizer["FullName"]</th>
                                                 <td>
                                                     <input class="form-control" placeholder="dla typu instytucjonalnego" value="@Model.SRS.Stakeholders[@i].FullName" asp-for="@Model.SRS.Stakeholders[@i].FullName" />
                                                 </td>
@@ -114,7 +114,7 @@
                             count = @Model.SRS != null && @Model.SRS.Personlesses.Any() ? @Model.SRS.Personlesses.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-rsrc" onclick="addSection('rsrc')">+</button>
-                        <span class="fw-bold">@Localizer["Personless sources"]</span>
+                        <span class="fw-bold">@Localizer["PersonlessSrc"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Tu wymienia się akty prawne, standardy i inne dokumenty stanowiące źródła wymagań dla projektu. Często wymienia się rozporządzenie o ochronie danych osobowych. Podaje się znane dane bibliograficzne publikacji: tytuł, wydawcę etc. – tyle ile potrzeba dla jednoznacznej identyfikacji dokumentu. Jeśli dokument jest dostępny w Internecie, to można podać jego URL.
                             </i>
@@ -132,32 +132,32 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Desription"]</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["Rozporządzenie o Ochronie Danych Osobowych"]" asp-for="@Model.SRS.Personlesses[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Rozporządzenie o Ochronie Danych Osobowych"]" asp-for="@Model.SRS.Personlesses[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Title"]</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["pełny tytuł dokumentu"]" asp-for="@Model.SRS.Personlesses[@i].Title" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["pełny tytuł dokumentu"]" asp-for="@Model.SRS.Personlesses[@i].Title" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Publisher"]</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["nazwa organizacji publikującej dokument"]" asp-for="@Model.SRS.Personlesses[@i].Publisher" />t</td>
+                                                <td><input class="form-control" placeholder="@Localizer["nazwa organizacji publikującej dokument"]" asp-for="@Model.SRS.Personlesses[@i].Publisher" />t</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Publishing place"]</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["miejsce publikacji (np. kraj, miasto)"]" asp-for="@Model.SRS.Personlesses[@i].PublishingPlace" /></td>
+                                                <th scope="row">@Localizer["PublishingPlace"]</th>
+                                                <td><input class="form-control" placeholder="@Localizer["miejsce publikacji (np. kraj, miasto)"]" asp-for="@Model.SRS.Personlesses[@i].PublishingPlace" /></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Publishing date"]</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["data pełna lub skrócona (np. rok) wydania"]" asp-for="@Model.SRS.Personlesses[@i].PublishingDate" /></td>
+                                                <th scope="row">@Localizer["PublishingDate"]</th>
+                                                <td><input class="form-control" placeholder="@Localizer["data pełna lub skrócona (np. rok) wydania"]" asp-for="@Model.SRS.Personlesses[@i].PublishingDate" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Version"]</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["numer wersji (gdy kolejna)"]" asp-for="@Model.SRS.Personlesses[@i].Version" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["numer wersji (gdy kolejna)"]" asp-for="@Model.SRS.Personlesses[@i].Version" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["URL"]</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["adres URL"]" asp-for="@Model.SRS.Personlesses[@i].Url" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["adres URL"]" asp-for="@Model.SRS.Personlesses[@i].Url" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]</th>
@@ -173,7 +173,7 @@
             </div>
         </li>
         <li class="list-group-item">
-            <span class="fw-bold">@Localizer["Purposes"]</span>
+            <span class="fw-bold">@Localizer["SystemPurposes"]</span>
             <div class="ms-2 me-auto">
                 <i>W tym miejscu precyzuje się cele systemu z podziałem na cele biznesowe i cele funkcjonalne. Zdarza się tak, że zleceniodawca początkowo wymienia tylko cele funkcjonalne zachowując do swojej wiadomości cele biznesowe. Aby jednak właściwie rozumieć te funkcje w odpowiednim kontekście, zespół projektowy musi poznać motywacje biznesowe klienta.</i>
                 <ol class="list-group list-group-numbered">
@@ -182,7 +182,7 @@
                             count = @Model.SRS != null && @Model.SRS.BusinesPurposes.Any() ? @Model.SRS.BusinesPurposes.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-bsgl" onclick="addSection('bsgl')">+</button>
-                        <span class="fw-bold">@Localizer["Busines purposes"]</span>
+                        <span class="fw-bold">@Localizer["BusinesPurposes"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
                             {
@@ -199,11 +199,11 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["Otwarcie nowego kanału sprzedaży"]" asp-for="@Model.SRS.BusinesPurposes[@i].Description" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["Otwarcie nowego kanału sprzedaży"]" asp-for="@Model.SRS.BusinesPurposes[@i].Description" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.BusinesPurposes[@i].Source" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.BusinesPurposes[@i].Source" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
@@ -222,7 +222,7 @@
                             count = @Model.SRS != null && @Model.SRS.FunctionalityPurposes.Any() ? @Model.SRS.FunctionalityPurposes.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-fngl" onclick="addSection('fngl')">+</button>
-                        <span class="fw-bold">@Localizer["Functionality purposes"]</span>
+                        <span class="fw-bold">@Localizer["FunctionalityPurposes"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Cele funkcjonalne wymieniają główne funkcjonalności, które ma spełniać system.</i>
                             @if (Model.SRS != null)
@@ -238,15 +238,15 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["BsglRef"]" asp-for="@Model.SRS.FunctionalityPurposes[@i].Description" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["BusinsessPurposeReference"]" asp-for="@Model.SRS.FunctionalityPurposes[@i].Description" /></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Busines purpose"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["BsglRef"]" asp-for="@Model.SRS.FunctionalityPurposes[@i].Description" /></td>
+                                                <th scope="row">@Localizer["BusinesPurpose"]:</th>
+                                                <td><input class="form-control" placeholder="@Localizer["BusinsessPurposeReference"]" asp-for="@Model.SRS.FunctionalityPurposes[@i].Description" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.FunctionalityPurposes[@i].Source" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.FunctionalityPurposes[@i].Source" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
@@ -262,7 +262,7 @@
             </div>
         </li>
         <li class="list-group-item">
-            <span class="fw-bold">@Localizer["System environment"]</span>
+            <span class="fw-bold">@Localizer["SystemEnvironment"]</span>
             <div class="ms-2 me-auto">
                 <i>Zespół projektowy musi poznać otoczenie (kontekst), w jakim ma pracować system. Z rozmów z klientem powinno dać się wyszczególnić użytkowników oraz systemy zewnętrzne. Jeśli się nie da, to otoczenie systemu trzeba będzie zdefiniować w trakcie analizy funkcjonalnej.</i>
                 <ol class="list-group list-group-numbered">
@@ -290,24 +290,24 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["Tu pod pojęciem klienta rozumie się klienta sklepu internetowego."]" asp-for="@Model.SRS.SystemUsers[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Tu pod pojęciem klienta rozumie się klienta sklepu internetowego."]" asp-for="@Model.SRS.SystemUsers[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Needs"]:</th>
                                                 <td>
-                                                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" asp-for="@Model.SRS.SystemUsers[@i].Needs"></textarea>
+                                                    <textarea rows="3" class="form-control" placeholder="@Localizer[""]" asp-for="@Model.SRS.SystemUsers[@i].Needs"></textarea>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Tasks"]:</th>
                                                 <td>
-                                                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" asp-for="@Model.SRS.SystemUsers[@i].Tasks"></textarea>
+                                                    <textarea rows="3" class="form-control" placeholder="@Localizer[""]" asp-for="@Model.SRS.SystemUsers[@i].Tasks"></textarea>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.SystemUsers[@i].Source" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.SystemUsers[@i].Source" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
@@ -324,7 +324,7 @@
                             count = @Model.SRS != null && @Model.SRS.ExternalSystems.Any() ? @Model.SRS.ExternalSystems.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xsys" onclick="addSection('xsys')">+</button>
-                        <span class="fw-bold">@Localizer["External systems"]</span>
+                        <span class="fw-bold">@Localizer["ExternalSystems"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>System zewnętrzny wymieniany w specyfikacji wymagań to taki system, z którym projektowany system współdziała bezpośrednio, np. wysyła dane, odbiera i przetwarza informacje.</i>
                             @if (Model.SRS != null)
@@ -342,31 +342,31 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer[""]" asp-for="@Model.SRS.ExternalSystems[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer[""]" asp-for="@Model.SRS.ExternalSystems[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Needs"]:</th>
                                                 <td>
-                                                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" asp-for="@Model.SRS.ExternalSystems[@i].Needs"></textarea>
+                                                    <textarea rows="3" class="form-control" placeholder="@Localizer[""]" asp-for="@Model.SRS.ExternalSystems[@i].Needs"></textarea>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Tasks"]:</th>
                                                 <td>
-                                                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" asp-for="@Model.SRS.ExternalSystems[@i].Tasks"></textarea>
+                                                    <textarea rows="3" class="form-control" placeholder="@Localizer[""]" asp-for="@Model.SRS.ExternalSystems[@i].Tasks"></textarea>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Interfaces"]:</th>
                                                 <td>
-                                                    <textarea rows="3" class="form-control fw-bold" placeholder="@Localizer[""]" asp-for="@Model.SRS.ExternalSystems[@i].Interfaces"></textarea>
+                                                    <textarea rows="3" class="form-control" placeholder="@Localizer[""]" asp-for="@Model.SRS.ExternalSystems[@i].Interfaces"></textarea>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.ExternalSystems[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.ExternalSystems[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -383,7 +383,7 @@
             </div>
         </li>
         <li class="list-group-item">
-            <span class="fw-bold">@Localizer["Expected system components"]</span>
+            <span class="fw-bold">@Localizer["ExpectedSystemComponents"]</span>
             <div class="ms-2 me-auto">
                 <ol class="list-group list-group-numbered">
                     <li id="ssys" class="list-group-item">
@@ -408,28 +408,28 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer[""]" asp-for="@Model.SRS.SubSystems[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer[""]" asp-for="@Model.SRS.SubSystems[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Location"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["HcmpRef"]" asp-for="@Model.SRS.SubSystems[@i].Location" />
+                                                    <input class="form-control" placeholder="@Localizer["HardwareComponentReference"]" asp-for="@Model.SRS.SubSystems[@i].Location" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Components"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["ScmpRef"]" asp-for="@Model.SRS.SubSystems[@i].Components" />
+                                                    <input class="form-control" placeholder="@Localizer["SoftwareComponentReference"]" asp-for="@Model.SRS.SubSystems[@i].Components" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["OthrRef"]" asp-for="@Model.SRS.SubSystems[@i].Relations" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["OthrRef"]" asp-for="@Model.SRS.SubSystems[@i].Relations" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.SubSystems[@i].Source" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.SubSystems[@i].Source" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
@@ -448,7 +448,7 @@
                             count = @Model.SRS != null && @Model.SRS.HardwareComponents.Any() ? @Model.SRS.HardwareComponents.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-hcmp" onclick="addSection('hcmp')">+</button>
-                        <span class="fw-bold">@Localizer["Hardware components"]</span>
+                        <span class="fw-bold">@Localizer["HardwareComponents"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
                             {
@@ -466,18 +466,18 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["Desc"]" asp-for="@Model.SRS.HardwareComponents[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.HardwareComponents[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["HcmpRef"]" asp-for="@Model.SRS.HardwareComponents[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["HardwareComponentReference"]" asp-for="@Model.SRS.HardwareComponents[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
-                                                <td><input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.HardwareComponents[@i].Source" /></td>
+                                                <td><input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.HardwareComponents[@i].Source" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
@@ -496,7 +496,7 @@
                             count = @Model.SRS != null && @Model.SRS.SoftwareComponents.Any() ? @Model.SRS.SoftwareComponents.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-scmp" onclick="addSection('scmp')">+</button>
-                        <span class="fw-bold">@Localizer["Software components"]</span>
+                        <span class="fw-bold">@Localizer["SoftwareComponents"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
                             {
@@ -514,26 +514,26 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.SoftwareComponents[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.SoftwareComponents[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Location"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["HcmpRef"]" asp-for="@Model.SRS.SoftwareComponents[@i].Location" />
+                                                    <input class="form-control" placeholder="@Localizer["HardwareComponentReference"]" asp-for="@Model.SRS.SoftwareComponents[@i].Location" />
 
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["ScmpRef"]" asp-for="@Model.SRS.SoftwareComponents[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["SoftwareComponentReference"]" asp-for="@Model.SRS.SoftwareComponents[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.SoftwareComponents[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.SoftwareComponents[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -556,7 +556,7 @@
                 count = @Model.SRS != null && @Model.SRS.FuncionalityRequirements.Any() ? @Model.SRS.FuncionalityRequirements.Count : 0;
             }
             <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2 me-3" data-count=@count id="add-fnrq" onclick="addSection('fnrq')">+</button>
-            <span class="fw-bold">@Localizer["Functionality requirements"]</span>
+            <span class="fw-bold">@Localizer["FunctionalityRequirements"]</span>
             <div class="tables ms-2 me-auto">
                 <i>Każde wymaganie funkcjonalne musi być przypisane do określonego użytkownika lub systemu zewnętrznego (pole „dotyczy”). Może być oparte o potrzeby lub zadania tego użytkownika. Wyjątek stanowią wymagania funkcjonalne wykonywane automatycznie, które mogą być przypisane do któregoś z komponentów. systemu.</i>
                 @if (Model.SRS != null)
@@ -575,31 +575,31 @@
                                 <tr>
                                     <th scope="row">@Localizer["Description"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].Description" />
+                                        <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].Description" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">@Localizer["Refers to"]:</th>
+                                    <th scope="row">@Localizer["RefersTo"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["UserRef"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].RefersTo" />
+                                        <input class="form-control" placeholder="@Localizer["UserRef"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].RefersTo" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">@Localizer["Support for"]:</th>
+                                    <th scope="row">@Localizer["SupportFor"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["BsglRef"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].SupportFor" />
+                                        <input class="form-control" placeholder="@Localizer["BusinsessPurposeReference"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].SupportFor" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">@Localizer["Relations"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["OthrRef"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].Relations" />
+                                        <input class="form-control" placeholder="@Localizer["OthrRef"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].Relations" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">@Localizer["Source"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].Source" />
+                                        <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.FuncionalityRequirements[@i].Source" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -619,7 +619,7 @@
                 count = @Model.SRS != null && @Model.SRS.DataRequirements.Any() ? @Model.SRS.DataRequirements.Count : 0;
             }
             <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2 me-3" data-count=@count id="add-dtrq" onclick="addSection('dtrq')">+</button>
-            <span class="fw-bold">@Localizer["Data requirements"]</span>
+            <span class="fw-bold">@Localizer["DataRequirements"]</span>
             <div class="tables ms-2 me-auto">
                 <i>Wymagania na dane pomagają w określeniu, jakie dane będą przetwarzane w systemie. Nie trzeba precyzować wszystkich danych. Szczegóły znajdą się w projekcie bazy danych.</i>
                 @if (Model.SRS != null)
@@ -638,19 +638,19 @@
                                 <tr>
                                     <th scope="row">@Localizer["Description"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.DataRequirements[@i].Description" />
+                                        <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.DataRequirements[@i].Description" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">@Localizer["Relations"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["OthrRef"]" asp-for="@Model.SRS.DataRequirements[@i].Relations" />
+                                        <input class="form-control" placeholder="@Localizer["OthrRef"]" asp-for="@Model.SRS.DataRequirements[@i].Relations" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">@Localizer["Source"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.DataRequirements[@i].Source" />
+                                        <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.DataRequirements[@i].Source" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -666,7 +666,7 @@
             </div>
         </li>
         <li class="list-group-item">
-            <span class="fw-bold">@Localizer["Quality requirements"]</span>
+            <span class="fw-bold">@Localizer["QualityRequirements"]</span>
             <div class="ms-2 me-auto">
                 <i>Określenie wymagań jakościowych ułatwia późniejsze uzyskanie wysokiej jakości systemu. Podział wymagań jakościowych na kategorie jest związany z drzewem jakości (dotyczy wszystkich gałęzi drzewa za wyjątkiem funkcjonalności). Wymagania jakościowe powinny być powiązane z wymaganiami funkcjonalnymi, których dotyczą.</i>
                 <ol class="list-group list-group-numbered">
@@ -675,7 +675,7 @@
                             count = @Model.SRS != null && @Model.SRS.CredibilityRequirements.Any() ? @Model.SRS.CredibilityRequirements.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-rlrq" onclick="addSection('rlrq')">+</button>
-                        <span class="fw-bold">@Localizer["Credibility requirements"]</span>
+                        <span class="fw-bold">@Localizer["CredibilityRequirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Wymagania w zakresie wiarygodności będą rozszerzały wymagania funkcjonalne.</i>
                             @if (Model.SRS != null)
@@ -694,19 +694,19 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.CredibilityRequirements[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.CredibilityRequirements[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["OthrRef"]" asp-for="@Model.SRS.DataRequirements[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["OthrRef"]" asp-for="@Model.SRS.DataRequirements[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.CredibilityRequirements[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.CredibilityRequirements[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -726,7 +726,7 @@
                             count = @Model.SRS != null && @Model.SRS.PerformanceRequirements.Any() ? @Model.SRS.PerformanceRequirements.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-pfrq" onclick="addSection('pfrq')">+</button>
-                        <span class="fw-bold">@Localizer["Performance requirements"]</span>
+                        <span class="fw-bold">@Localizer["PerformanceRequirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Wymagania w zakresie wydajności będą miały zastosowanie w czasie projektowania architektury systemu.</i>
                             @if (Model.SRS != null)
@@ -747,19 +747,19 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.PerformanceRequirements[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.PerformanceRequirements[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["FnrqRef"]" asp-for="@Model.SRS.PerformanceRequirements[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["FunctionalityRequirementReference"]" asp-for="@Model.SRS.PerformanceRequirements[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.PerformanceRequirements[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.PerformanceRequirements[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -779,7 +779,7 @@
                             count = @Model.SRS != null && @Model.SRS.FlexibilityRequirements.Any() ? @Model.SRS.FlexibilityRequirements.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-flrq" onclick="addSection('flrq')">+</button>
-                        <span class="fw-bold">@Localizer["Flexibility requirements"]</span>
+                        <span class="fw-bold">@Localizer["FlexibilityRequirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Wymagania w zakresie elastyczności będą miały zastosowanie w czasie wyboru koncepcji systemu.</i>
                             @if (Model.SRS != null)
@@ -800,19 +800,19 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.FlexibilityRequirements[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.FlexibilityRequirements[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["ScmpRef"]" asp-for="@Model.SRS.FlexibilityRequirements[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["SoftwareComponentReference"]" asp-for="@Model.SRS.FlexibilityRequirements[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.FlexibilityRequirements[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.FlexibilityRequirements[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -832,7 +832,7 @@
                             count = @Model.SRS != null && @Model.SRS.UsabilityRequirements.Any() ? @Model.SRS.UsabilityRequirements.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-strq" onclick="addSection('strq')">+</button>
-                        <span class="fw-bold">@Localizer["Usability requirements"]</span>
+                        <span class="fw-bold">@Localizer["UsabilityRequirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Wymagania w zakresie użyteczności będą brane pod uwagę głównie w czasie projektowania interfejsu użytkownika.</i>
                             @if (Model.SRS != null)
@@ -853,19 +853,19 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.UsabilityRequirements[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.UsabilityRequirements[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["FnrqRef"]" asp-for="@Model.SRS.UsabilityRequirements[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["FunctionalityRequirementReference"]" asp-for="@Model.SRS.UsabilityRequirements[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.UsabilityRequirements[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.UsabilityRequirements[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -884,7 +884,7 @@
             </div>
         </li>
         <li class="list-group-item">
-            <span class="fw-bold">@Localizer["Emergency situations"]</span>
+            <span class="fw-bold">@Localizer["Exceptions"]</span>
             <div class="ms-2 me-auto">
                 <i>Sytuacje wyjątkowe stanowią dalsze rozszerzenie wymagań funkcjonalnych i dotyczących wiarygodności. Każda sytuacja wyjątkowa musi być wspierana przez przynajmniej jedną funkcjonalność, która rozwiązuje problem, zapobiega awarii lub pozwala odzyskać sprawność po awarii.</i>
                 <ol class="list-group list-group-numbered">
@@ -893,7 +893,7 @@
                             count = @Model.SRS != null && @Model.SRS.Exceptions.Any() ? @Model.SRS.Exceptions.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-excp" onclick="addSection('excp')">+</button>
-                        <span class="fw-bold">@Localizer["Exceptions"]</span>
+                        <span class="fw-bold">@Localizer["ExtraordinarySituations"]</span>
                         <div class="tables ms-2 me-auto">
                             @if (Model.SRS != null)
                             {
@@ -913,25 +913,25 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.Exceptions[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.Exceptions[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["FnrqRef"]" asp-for="@Model.SRS.Exceptions[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["FunctionalityRequirementReference"]" asp-for="@Model.SRS.Exceptions[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Supported for"]:</th>
+                                                <th scope="row">@Localizer["SupportFor"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["FnrqRef"]" asp-for="@Model.SRS.Exceptions[@i].SupportedFor" />
+                                                    <input class="form-control" placeholder="@Localizer["FunctionalityRequirementReference"]" asp-for="@Model.SRS.Exceptions[@i].SupportedFor" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.Exceptions[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.Exceptions[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -951,7 +951,7 @@
                             count = @Model.SRS != null && @Model.SRS.CriticalSituations.Any() ? @Model.SRS.CriticalSituations.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-cris" onclick="addSection('cris')">+</button>
-                        <span class="fw-bold">@Localizer["Critical situations"]</span>
+                        <span class="fw-bold">@Localizer["CriticalSituations"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Sytuacje krytyczne to takie scenariusze, które mogą doprowadzić do awarii. Funkcjonalność wpierająca zapobiega załamaniu systemu.</i>
                             @if (Model.SRS != null)
@@ -972,25 +972,25 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.CriticalSituations[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.CriticalSituations[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["FnrqRef"]" asp-for="@Model.SRS.CriticalSituations[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["FunctionalityRequirementReference"]" asp-for="@Model.SRS.CriticalSituations[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Supported for"]:</th>
+                                                <th scope="row">@Localizer["SupportFor"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["FnrqRef"]" asp-for="@Model.SRS.CriticalSituations[@i].SupportedFor" />
+                                                    <input class="form-control" placeholder="@Localizer["FunctionalityRequirementReference"]" asp-for="@Model.SRS.CriticalSituations[@i].SupportedFor" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.CriticalSituations[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.CriticalSituations[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1010,7 +1010,7 @@
                             count = @Model.SRS != null && @Model.SRS.EmergancySituations.Any() ? @Model.SRS.EmergancySituations.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-emrg" onclick="addSection('emrg')">+</button>
-                        <span class="fw-bold">@Localizer["Emergancy situations"]</span>
+                        <span class="fw-bold">@Localizer["EmergancySituations"]</span>
                         <div class="tables ms-2 me-auto">
                             <i>Sytuacje awaryjne to takie, w których szkoda już nastąpiła. Funkcjonalność wpierająca pomaga systemowi odzyskać pełną sprawność.</i>
                             @if (Model.SRS != null)
@@ -1031,25 +1031,25 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.EmergancySituations[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.EmergancySituations[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Relations"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["FnrqRef"]" asp-for="@Model.SRS.EmergancySituations[@i].Relations" />
+                                                    <input class="form-control" placeholder="@Localizer["FunctionalityRequirementReference"]" asp-for="@Model.SRS.EmergancySituations[@i].Relations" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Supported for"]:</th>
+                                                <th scope="row">@Localizer["SupportFor"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["FnrqRef"]" asp-for="@Model.SRS.EmergancySituations[@i].SupportedFor" />
+                                                    <input class="form-control" placeholder="@Localizer["FunctionalityRequirementReference"]" asp-for="@Model.SRS.EmergancySituations[@i].SupportedFor" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.EmergancySituations[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.EmergancySituations[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1068,7 +1068,7 @@
             </div>
         </li>
         <li class="list-group-item">
-            <span class="fw-bold">@Localizer["Extras requirements"]</span>
+            <span class="fw-bold">@Localizer["AdditionalRequirements"]</span>
             <div class="ms-2 me-auto">
                 <i>W tym miejscu podaje się te wymagania, które nie mieszczą się w zakresie poprzednich kategorii wymagań.</i>
                 <ol class="list-group list-group-numbered">
@@ -1078,7 +1078,7 @@
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xhrq" onclick="addSection('xhrq')">+</button>
                         <div class="tables ms-2 me-auto">
-                            <div class="fw-bold">@Localizer["Hardware requirements"]</div>
+                            <div class="fw-bold">@Localizer["HardwareRequirements"]</div>
                             <i></i>
                             @if (Model.SRS != null)
                             {
@@ -1098,20 +1098,20 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["HwReqAgreeClient"]" asp-for="@Model.SRS.HardwareRequirements[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["HwReqAgreeClient"]" asp-for="@Model.SRS.HardwareRequirements[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Refers to"]:</th>
+                                                <th scope="row">@Localizer["RefersTo"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["HcmpRef"]" asp-for="@Model.SRS.HardwareRequirements[@i].RefersTo" />
+                                                    <input class="form-control" placeholder="@Localizer["HardwareComponentReference"]" asp-for="@Model.SRS.HardwareRequirements[@i].RefersTo" />
 
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.HardwareRequirements[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.HardwareRequirements[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1131,7 +1131,7 @@
                             count = @Model.SRS != null && @Model.SRS.SoftwareRequirements.Any() ? @Model.SRS.SoftwareRequirements.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xsrq" onclick="addSection('xsrq')">+</button>
-                        <span class="fw-bold">@Localizer["Software requirements"]</span>
+                        <span class="fw-bold">@Localizer["SoftwareRequirements"]</span>
                         <div class="tables ms-2 me-auto">
                             <i></i>
                             @if (Model.SRS != null)
@@ -1152,19 +1152,19 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.SoftwareRequirements[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.SoftwareRequirements[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Refers to"]:</th>
+                                                <th scope="row">@Localizer["RefersTo"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SsysRef"]" asp-for="@Model.SRS.SoftwareRequirements[@i].RefersTo" />
+                                                    <input class="form-control" placeholder="@Localizer["SubsystemReference"]" asp-for="@Model.SRS.SoftwareRequirements[@i].RefersTo" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.SoftwareRequirements[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.SoftwareRequirements[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1184,9 +1184,9 @@
                             count = @Model.SRS != null && @Model.SRS.OtherRequirements.Any() ? @Model.SRS.OtherRequirements.Count : 0;
                         }
                         <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2" data-count=@count id="add-xxrq" onclick="addSection('xxrq')">+</button>
-                        <span class="fw-bold">@Localizer["Other requirements"]</span>
+                        <span class="fw-bold">@Localizer["AdditionalRequirements"]</span>
                         <div class="tables ms-2 me-auto">
-                            <i></i>
+                            <i>@Localizer["AdditionalRequirementsDsc"]</i>
                             @if (Model.SRS != null)
                             {
                                 @for (int i = 0; i < count; i++)
@@ -1205,19 +1205,19 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Description"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["OthrReq"]" asp-for="@Model.SRS.OtherRequirements[@i].Description" />
+                                                    <input class="form-control" placeholder="@Localizer["OtherSystemsReference"]" asp-for="@Model.SRS.OtherRequirements[@i].Description" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">@Localizer["Refers to"]:</th>
+                                                <th scope="row">@Localizer["RefersTo"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["Reference"]" asp-for="@Model.SRS.OtherRequirements[@i].RefersTo" />
+                                                    <input class="form-control" placeholder="@Localizer["Reference"]" asp-for="@Model.SRS.OtherRequirements[@i].RefersTo" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Source"]:</th>
                                                 <td>
-                                                    <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.OtherRequirements[@i].Source" />
+                                                    <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.OtherRequirements[@i].Source" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1240,7 +1240,7 @@
                 count = @Model.SRS != null && @Model.SRS.AcceptanceCriteria.Any() ? @Model.SRS.AcceptanceCriteria.Count : 0;
             }
             <button type="button" class="btn btn-primary d-inline float-end my-2 ms-2 me-3" data-count=@count id="add-acpt" onclick="addSection('acpt')">+</button>
-            <span class="fw-bold">@Localizer["Acceptance criteria"]</span>
+            <span class="fw-bold">@Localizer["AcceptanceCriteria"]</span>
             <div class="tables ms-2 me-auto">
                 <i>Tu podać kryteria, jakim zostanie poddany gotowy system przed ostatecznym jego przyjęciem. Określa się warunki np. przeprowadzania testów albo okres próbnej eksploatacji. Nie podaje się takich oczywistych kryteriów jak spełnienie wymagań o priorytecie krytycznym.</i>
                 @if (Model.SRS != null)
@@ -1261,19 +1261,19 @@
                                 <tr>
                                     <th scope="row">@Localizer["Description"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["desc"]" asp-for="@Model.SRS.AcceptanceCriteria[@i].Description" />
+                                        <input class="form-control" placeholder="@Localizer["Description"]" asp-for="@Model.SRS.AcceptanceCriteria[@i].Description" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">@Localizer["Refers to"]:</th>
+                                    <th scope="row">@Localizer["RefersTo"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["Reference"]" asp-for="@Model.SRS.AcceptanceCriteria[@i].RefersTo" />
+                                        <input class="form-control" placeholder="@Localizer["Reference"]" asp-for="@Model.SRS.AcceptanceCriteria[@i].RefersTo" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">@Localizer["Source"]:</th>
                                     <td>
-                                        <input class="form-control fw-bold" placeholder="@Localizer["SthkRef"]" asp-for="@Model.SRS.AcceptanceCriteria[@i].Source" />
+                                        <input class="form-control" placeholder="@Localizer["StakeholderReference"]" asp-for="@Model.SRS.AcceptanceCriteria[@i].Source" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -1299,7 +1299,7 @@
             <div class="ms-2 me-auto">
                 <table class="table table-bordered">
                     <thead>
-                        <tr><th>File name</th><th>Content Type</th><th>Created</th></tr>
+                        <tr><th>@Localizer["FileName"]</th><th>@Localizer["ContentType"]</th><th>@Localizer["Created"]</th></tr>
                     </thead>
                     <tbody>
                         @if (Model.SRS != null && Model.SRS.Attachements.Any())
@@ -1309,9 +1309,9 @@
                             @for (int i = 0; i < count; i++)
                             {
                                 <tr>
-                                    <td><input class="form-control fw-bold" asp-for="@Model.SRS.Attachements[@i].FileName" readonly /></td>
-                                    <td><input class="form-control fw-bold" asp-for="@Model.SRS.Attachements[@i].ContentType" readonly /></td>
-                                    <td><input class="form-control fw-bold" asp-for="@Model.SRS.Attachements[@i].CreatedDate" readonly /></td>
+                                    <td><input class="form-control-plaintext" asp-for="@Model.SRS.Attachements[@i].FileName" readonly /></td>
+                                    <td><input class="form-control-plaintext" asp-for="@Model.SRS.Attachements[@i].ContentType" readonly /></td>
+                                    <td><input class="form-control-plaintext" asp-for="@Model.SRS.Attachements[@i].CreatedDate" asp-format="{0:yyyy-MM-ddTHH:mm}" readonly  /></td>
                                 </tr>
                             }
                         }
@@ -1324,6 +1324,6 @@
             </div>
         </li>
     </ol>
-    <button type="submit" class="btn btn-primary">@Localizer["Save specification"]</button>
+    <button type="submit" class="btn btn-primary">@Localizer["SaveSrs"]</button>
 </form>
 
