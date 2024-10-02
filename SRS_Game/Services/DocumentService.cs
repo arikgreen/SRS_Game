@@ -232,5 +232,39 @@ namespace SRS_Game.Services
                 throw;
             }
         }
+
+        public IEnumerable<DocumentHistoryViewModel> GetDocumentHistories(int documentId)
+        {
+            var documentHistory = from dh in _context.DocumentHistories
+                                  join p in _context.Participants on dh.AuthorId equals p.Id
+                                  where dh.DocumentId == documentId
+                                  orderby dh.Created descending
+                                  select new DocumentHistoryViewModel
+                                  {
+                                      Description = dh.Description,
+                                      Version = dh.Version,
+                                      Chapter = dh.Chapter,
+                                      Created = dh.Created,
+                                      AuthorFullName = p.FirstName + " " + p.LastName,
+                                  };
+
+
+
+            //var documentHistory = _context.DocumentHistories
+            //    .Join(_context.Participants,
+            //    h => h.AuthorId,
+            //    a => a.Id,
+            //    (h, a) => new DocumentHistoryViewModel
+            //    {
+            //        Description = h.Description,
+            //        Version = h.Version,
+            //        Chapter = h.Chapter,
+            //        Created = h.Created,
+            //        AuthorFullName = a.FirstName + " " + a.LastName,
+            //    })
+            //    .OrderByDescending(d => d.Created);
+
+            return documentHistory;
+        }
     }
 }

@@ -54,10 +54,14 @@ namespace SRS_Game.Controllers
                 .Join(_context.Participants,
                 p => p.ProjectManagerId,
                 m => m.Id,
-                (p, m) => new ProjectViewModel { Project = p, Manager = m })
+                (p, m) => new ProjectViewModel 
+                { 
+                    Id= p.Id,
+                    Project = p,
+                    Manager = m 
+                })
                 .Where(r => r.Project.Id == id)
                 .FirstOrDefaultAsync();
-                //.FirstOrDefaultAsync(r => r.Project.Id == id);
 
             if (project == null)
             {

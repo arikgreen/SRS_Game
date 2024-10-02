@@ -117,28 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Back to List" xml:space="preserve">
-    <value>Wróc do listy</value>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to List</value>
   </data>
   <data name="Create a new document" xml:space="preserve">
-    <value>Dodaj nowy dokument</value>
+    <value>Create a new document</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Opis</value>
+    <value>Description</value>
   </data>
   <data name="Document" xml:space="preserve">
-    <value>Dokument</value>
+    <value>Document</value>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
+    <value>Add</value>
   </data>
   <data name="File name" xml:space="preserve">
-    <value>Nazwa pliku</value>
+    <value>File name</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nazwa</value>
+    <value>Name</value>
   </data>
   <data name="Specification of requirements" xml:space="preserve">
-    <value>Specyfikacja wymagań</value>
+    <value>Specification of requirements</value>
   </data>
 </root>

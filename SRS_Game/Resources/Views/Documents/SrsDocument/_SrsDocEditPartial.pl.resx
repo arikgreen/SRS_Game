@@ -135,8 +135,8 @@
   <data name="Project" xml:space="preserve">
     <value>Projekt</value>
   </data>
-  <data name="Update date" xml:space="preserve">
-    <value>Zmiana</value>
+  <data name="Updated date" xml:space="preserve">
+    <value>Zmodyfikowany</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Wersja</value>
@@ -160,7 +160,7 @@
     <value>Opis</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Typ</value>
+    <value>Rodzaj</value>
   </data>
   <data name="FullName" xml:space="preserve">
     <value>Pełna nazwa</value>
@@ -168,7 +168,7 @@
   <data name="Address" xml:space="preserve">
     <value>Adres</value>
   </data>
-  <data name="Representative" xml:space="preserve">
+  <data name="Representats" xml:space="preserve">
     <value>Reprezentuje</value>
   </data>
   <data name="Priority" xml:space="preserve">
@@ -192,7 +192,7 @@
   <data name="StakeholderReference" xml:space="preserve">
     <value>Ref. do interesariusza</value>
   </data>
-  <data name="BsglRef" xml:space="preserve">
+  <data name="BusinsessPurposeReference" xml:space="preserve">
     <value>Ref. do celu biznesowego</value>
   </data>
   <data name="HardwareComponentReference" xml:space="preserve">
@@ -201,10 +201,10 @@
   <data name="SoftwareComponentReference" xml:space="preserve">
     <value>Ref. do komponentu programowego</value>
   </data>
-  <data name="SsysRef" xml:space="preserve">
+  <data name="SubsystemReference" xml:space="preserve">
     <value>Ref. do podsystemu</value>
   </data>
-  <data name="OthrRef" xml:space="preserve">
+  <data name="OtherSystemsReference" xml:space="preserve">
     <value>Ref. do innych systemów</value>
   </data>
   <data name="UserRef" xml:space="preserve">
@@ -216,11 +216,8 @@
   <data name="HwReqAgreeClient" xml:space="preserve">
     <value>Konfiguracja uzgodniona z klientem</value>
   </data>
-  <data name="AddiReqDsc" xml:space="preserve">
+  <data name="AdditionalRequirementsDsc" xml:space="preserve">
     <value>wymagania, które nie mieszczą się w zakresie poprzednich kategorii wymagań</value>
-  </data>
-  <data name="description" xml:space="preserve">
-    <value>opis</value>
   </data>
   <data name="ContentType" xml:space="preserve">
     <value>Typ pliku</value>
@@ -231,7 +228,7 @@
   <data name="SystemPurposes" xml:space="preserve">
     <value>Cele systemu</value>
   </data>
-  <data name="BusinesPurpose" xml:space="preserve">
+  <data name="BusinesPurposes" xml:space="preserve">
     <value>Cele biznesowe</value>
   </data>
   <data name="FunctionalityPurposes" xml:space="preserve">
@@ -297,7 +294,7 @@
   <data name="SaveSrs" xml:space="preserve">
     <value>Zapisz specyfikację</value>
   </data>
-  <data name="Dict" xml:space="preserve">
+  <data name="Dictionary" xml:space="preserve">
     <value>Słownik</value>
   </data>
   <data name="AcceptanceCriteria" xml:space="preserve">
@@ -321,7 +318,7 @@
   <data name="Relations" xml:space="preserve">
     <value>Powiązania</value>
   </data>
-  <data name="SwReqs" xml:space="preserve">
+  <data name="SoftwareRequirements" xml:space="preserve">
     <value>Wymagania programowe</value>
   </data>
   <data name="Source" xml:space="preserve">
@@ -338,5 +335,20 @@
   </data>
   <data name="HardwareRequirements" xml:space="preserve">
     <value>Wymaganie w zakresie sprzętu</value>
+  </data>
+  <data name="BusinesPurpose" xml:space="preserve">
+    <value>Cel biznesowy</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="Represent" xml:space="preserve">
+    <value>Reprezentat</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tytuł</value>
+  </data>
+  <data name="-- Select an option --" xml:space="preserve">
+    <value>-- Wybierz --</value>
   </data>
 </root>

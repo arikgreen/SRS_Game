@@ -57,7 +57,7 @@
                                 </td>
                                 <td class="form-floating">
                                     <select class="form-select border-0" asp-for="TeamLeaderId" asp-items="ViewBag.Participants" onselect="@Model.TeamLeaderId"></select>
-                                    <label asp-for="TeamLeaderId">@Localizer["Supervisor/Manager"]</label>
+                                    <label asp-for="TeamLeaderId">@Localizer["SupervisorManager"]</label>
                                 </td>
                             </tr>
                             <tr>
@@ -102,6 +102,18 @@
                             </tr>
                         </table>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="srs-history">
+            <div class="row">
+                <div class="col card">
+                    <div class="card-header">
+                        <h4>@Localizer["Meeting Transcript"]</h4>
+                    </div>
+                    <div class="card-body">
+                        <partial name="_DocumentHistoryPartial" />
+                    </div>
                 </div>
             </div>
         </div>

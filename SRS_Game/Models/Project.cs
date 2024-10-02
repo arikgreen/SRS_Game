@@ -17,11 +17,11 @@ namespace SRS_Game.Models
         public string Number { get; set; }
 
         [Required]
-        [DisplayName("Create date")]
+        [DisplayName("Created date")]
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         [Required]
-        [DisplayName("Update date")]
+        [DisplayName("Updated date")]
         public DateTime UpdateDate { get; set; } = DateTime.Now;
 
         [DisplayName("Project manager")]
@@ -48,6 +48,7 @@ namespace SRS_Game.Models
 
     public class ProjectViewModel
     {
+        public int Id { get; set; }
         public required Project Project { get; set; }
         public Participant Manager { get; set; }
     }

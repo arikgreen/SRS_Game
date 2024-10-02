@@ -14,6 +14,7 @@ namespace SRS_Game.Interfaces
         bool DocumentExists(int id);
         ProjectSpecification? GetSpecification(int documentId, int version);
         Task<DocumentDetailsViewModel?> GetDocumentParticipants(int documentId);
+        IEnumerable<DocumentHistoryViewModel> GetDocumentHistories(int documentId);
     }
     public interface IWritableDocument
     {

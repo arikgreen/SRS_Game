@@ -6,10 +6,19 @@
 @{
     ViewData["Title"] = @Localizer["Details"];
 }
-
-<div>
-    <h4>@Localizer["Team"] - @Html.DisplayFor(model => model.Name)</h4>
-    <hr />
+<div class="row">
+    <div class="col-8">
+        <h1>@Localizer["Team"] - @Localizer["Details"]</h1>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        @Html.ActionLink(@Localizer["Edit"].Value, "Edit", "Teams", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Teams", null, new { @class = "btn btn-primary" })
+        @*<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+        <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>*@
+    </div>
+</div>
+<hr />
+<div class="w-100">
     <dl class="row">
         <dt class = "col-sm-2">
             @Localizer[Html.DisplayNameFor(model => model.Name)]
@@ -29,7 +38,7 @@
         <tr>
             <th>Id</th>
             <th>@Localizer[Html.DisplayNameFor(model => model.Name)]</th>
-            <th>@Localizer["Participant Name"]</th>
+            <th>@Localizer["Stakholder Fullname"]</th>
             <th>@Localizer["Email"]</th>
         </tr>
         @foreach (var member in Model.Members)
@@ -42,8 +51,4 @@
             </tr>
         }
     </table>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
-    <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
 </div>

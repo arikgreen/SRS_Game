@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Back to List" xml:space="preserve">
-    <value>Wróc do listy</value>
+  <data name="BackToList" xml:space="preserve">
+    <value>Wróć do listy</value>
   </data>
   <data name="Create a new team" xml:space="preserve">
     <value>Dodaj nowy zespół</value>
@@ -132,7 +132,7 @@
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
   </data>
-  <data name="Participant Name" xml:space="preserve">
+  <data name="Stakholder Name" xml:space="preserve">
     <value>Nazwa Interesariusza</value>
   </data>
 </root>

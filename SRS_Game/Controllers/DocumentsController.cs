@@ -85,32 +85,14 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var attachements = _readableAttachement.GetAllForDocument(id);
-
-            var docHistory = await _context.DocumentHistories
-                .Join(_context.Participants,
-                h => h.AuthorId,
-                a => a.Id,
-                (h, a) => new
-                {
-                    h.DocumentId,
-                    h.Description,
-                    h.Created,
-                    Author = a.FirstName + " " + a.LastName,
-                })
-                .Where(m => m.DocumentId == id)
-                .OrderByDescending(d => d.Created)
-                .ToListAsync();
-
-            ViewBag.Attachements = attachements;
-            ViewBag.History = docHistory;
+            ViewBag.Attachements = _readableAttachement.GetAllForDocument(id);
+            ViewBag.History = _readableDocument.GetDocumentHistories(id);
 
             var spec = _readableDocument.GetSpecification(id, document.Version);
             if (spec != null)
             {
                 string xamlContent = spec.XamlContent;
-                //var xaml = System.Windows.Markup.XamlReader.Parse(xamlContent);
-                ViewBag.XamlContent = xamlContent; // MyRegex.NewLineToBr(xamlContent);
+                ViewBag.XamlContent = xamlContent;
             }
 
             return View(document);
@@ -282,6 +264,7 @@ namespace SRS_Game.Controllers
             };
 
             ViewBag.Participants = participants;
+            ViewBag.History = _readableDocument.GetDocumentHistories(id);
 
             return View(viewModel);
         }

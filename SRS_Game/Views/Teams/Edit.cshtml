@@ -6,8 +6,18 @@
 @{
     ViewData["Title"] = Localizer["Edit"];
 }
-
-<h4>@Localizer["Team"] - @Localizer["Edit"]</h4>
+<div class="row">
+    <div class="col-8">
+        <h1>@Localizer["Team"] - @Localizer["Edit"]</h1>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        <input type="submit" value=@Localizer["Save"] form="edit-form" class="btn btn-primary mr-3" />
+        @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Teams", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Teams", null, new { @class = "btn btn-primary" })
+        @*<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+        <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>*@
+    </div>
+</div>
 <hr />
 @if (ViewBag.Message != null)
 {
@@ -17,7 +27,7 @@
 }
 <div class="row">
     <div class="col">
-        <form asp-action="Edit">
+        <form id="edit-form" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="CreatedDate" />
@@ -42,7 +52,7 @@
                         <tr>
                             <th>Id</th>
                             <th>@Html.DisplayFor(model => model.Name)</th>
-                            <th>@Localizer["Participant Name"]</th>
+                            <th>@Localizer["Fullname"]</th>
                             <th>@Localizer["Email"]</th>
                             <th>@Localizer["Actions"]</th>
                         </tr>
@@ -61,15 +71,12 @@
                     </table>
                 </div>
             </div>
-            <div class="form-group mt-3">
-                <input type="submit" value=@Localizer["Save"] class="btn btn-primary mr-3" />
-                <button asp-action="Details" class="btn btn-primary">@Localizer["Cancel"]</button>
-                <button asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</button>
-            </div>
         </form>
     </div>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

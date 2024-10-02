@@ -117,7 +117,229 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="stakeholder name" xml:space="preserve">
-    <value>stakeholder name</value>
+  <data name="AcceptanceCriteria" xml:space="preserve">
+    <value>Acceptance criteria</value>
+  </data>
+  <data name="AdditionalRequirements" xml:space="preserve">
+    <value>Additional requirements</value>
+  </data>
+  <data name="AdditionalRequirementsDsc" xml:space="preserve">
+    <value>requirements that cannot be placed in any other category</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Attachements" xml:space="preserve">
+    <value>Attachements</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="BusinesPurpose" xml:space="preserve">
+    <value>Busines purpose</value>
+  </data>
+  <data name="BusinesPurposes" xml:space="preserve">
+    <value>Busines purposes</value>
+  </data>
+  <data name="BusinsessPurposeReference" xml:space="preserve">
+    <value>Businsess purpose reference</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ContentType" xml:space="preserve">
+    <value>Content type</value>
+  </data>
+  <data name="CredibilityRequirements" xml:space="preserve">
+    <value>Credibility requirements</value>
+  </data>
+  <data name="critical" xml:space="preserve">
+    <value>critical</value>
+  </data>
+  <data name="CriticalSituations" xml:space="preserve">
+    <value>Critical situations</value>
+  </data>
+  <data name="DataRequirements" xml:space="preserve">
+    <value>Data requirements</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Dictionary" xml:space="preserve">
+    <value>Dictionary</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="EmergancySituations" xml:space="preserve">
+    <value>Emergancy situations</value>
+  </data>
+  <data name="Exceptions" xml:space="preserve">
+    <value>Exceptions</value>
+  </data>
+  <data name="ExcpSits" xml:space="preserve">
+    <value>Exception situations</value>
+  </data>
+  <data name="ExpectedSystemComponents" xml:space="preserve">
+    <value>Expected system components</value>
+  </data>
+  <data name="ExternalSystems" xml:space="preserve">
+    <value>External systems</value>
+  </data>
+  <data name="ExtraordinarySituations" xml:space="preserve">
+    <value>Extraordinary situations</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="FlexibilityRequirements" xml:space="preserve">
+    <value>Flexibility requirements</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="FunctionalityPurposes" xml:space="preserve">
+    <value>Functionality purposes</value>
+  </data>
+  <data name="FunctionalityRequirementReference" xml:space="preserve">
+    <value>Functionality requirement reference</value>
+  </data>
+  <data name="FunctionalityRequirements" xml:space="preserve">
+    <value>Functionality requirements</value>
+  </data>
+  <data name="HardwareComponentReference" xml:space="preserve">
+    <value>Hardware component reference</value>
+  </data>
+  <data name="HardwareComponents" xml:space="preserve">
+    <value>Hardware components</value>
+  </data>
+  <data name="HardwareRequirements" xml:space="preserve">
+    <value>Hardware requirements</value>
+  </data>
+  <data name="high" xml:space="preserve">
+    <value>high</value>
+  </data>
+  <data name="HwReqAgreeClient" xml:space="preserve">
+    <value>Configuration agreed with the client</value>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="low" xml:space="preserve">
+    <value>low</value>
+  </data>
+  <data name="medium" xml:space="preserve">
+    <value>medium</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Needs" xml:space="preserve">
+    <value>Needs</value>
+  </data>
+  <data name="optional" xml:space="preserve">
+    <value>optional</value>
+  </data>
+  <data name="OtherSystemsReference" xml:space="preserve">
+    <value>Other systems reference</value>
+  </data>
+  <data name="PerformanceRequirements" xml:space="preserve">
+    <value>Performance requirements</value>
+  </data>
+  <data name="PersonlessSrc" xml:space="preserve">
+    <value>Personless Source</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Publisher</value>
+  </data>
+  <data name="PublishingDate" xml:space="preserve">
+    <value>Publishing date</value>
+  </data>
+  <data name="PublishingPlace" xml:space="preserve">
+    <value>Publishing place</value>
+  </data>
+  <data name="QualityRequirements" xml:space="preserve">
+    <value>Quality requirements</value>
+  </data>
+  <data name="RefersTo" xml:space="preserve">
+    <value>Refers to</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>Relations</value>
+  </data>
+  <data name="Represent" xml:space="preserve">
+    <value>Represent</value>
+  </data>
+  <data name="Representats" xml:space="preserve">
+    <value>Representats</value>
+  </data>
+  <data name="RequirementsSources" xml:space="preserve">
+    <value>Requirements sources</value>
+  </data>
+  <data name="SoftwareComponentReference" xml:space="preserve">
+    <value>Software component reference</value>
+  </data>
+  <data name="SoftwareComponents" xml:space="preserve">
+    <value>Software components</value>
+  </data>
+  <data name="SoftwareRequirements" xml:space="preserve">
+    <value>Software requirements</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="StakeholderReference" xml:space="preserve">
+    <value>Stakeholder reference</value>
+  </data>
+  <data name="StakeholdersOfProject" xml:space="preserve">
+    <value>Stakeholders of project</value>
+  </data>
+  <data name="SubsystemReference" xml:space="preserve">
+    <value>Subsystem reference</value>
+  </data>
+  <data name="Subsystems" xml:space="preserve">
+    <value>Subsystems</value>
+  </data>
+  <data name="SupportFor" xml:space="preserve">
+    <value>Support for</value>
+  </data>
+  <data name="SystemEnvironment" xml:space="preserve">
+    <value>System environment</value>
+  </data>
+  <data name="SystemPurposes" xml:space="preserve">
+    <value>System purposes</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Updated date" xml:space="preserve">
+    <value>Updated date</value>
+  </data>
+  <data name="UsabilityRequirements" xml:space="preserve">
+    <value>Usability requirements</value>
+  </data>
+  <data name="UserRef" xml:space="preserve">
+    <value>System user reference</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="-- Select an option --" xml:space="preserve">
+    <value>-- Select an option --</value>
   </data>
 </root>

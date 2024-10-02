@@ -1,15 +1,25 @@
-﻿@model SRS_Game.Models.User
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+@model SRS_Game.Models.User
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Details</h1>
-
-<div>
-    <h4>User</h4>
-    <hr />
+<div class="row">
+    <div class="col-8">
+        <h1>@Localizer["User"] - @Localizer["Details"]</h1>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        @Html.ActionLink(@Localizer["Edit"].Value, "Edit", "Users", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Users", null, new { @class = "btn btn-primary" })
+        @*<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+        <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>*@
+    </div>
+</div>
+<hr />
+<div class="w-100">
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
@@ -54,8 +64,4 @@
             @Html.DisplayFor(model => model.RoleId)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
 </div>

@@ -6,8 +6,18 @@
 @{
     ViewData["Title"] = Localizer["Edit"];
 }
-
-<h4>@Localizer["Attachement"] - @Localizer["Edit"]</h4>
+<div class="row">
+    <div class="col-8">
+        <h1>@Localizer["Attachement"] - @Localizer["Edit"]</h1>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        <input type="submit" value=@Localizer["Save"] form="edit-form" class="btn btn-primary mr-3" />
+        @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Attachements", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(@Localizer["Back to List"].Value, "Index", "Attachements", null, new { @class = "btn btn-primary" })
+        @*<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+        <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>*@
+    </div>
+</div>
 <hr />
 @if (ViewBag.Message != null)
 {
@@ -17,11 +27,17 @@
 }
 <div class="row">
     <div class="col">
-        <form asp-action="Edit">
+        <form id="edit-form" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="CreatedDate" />
             <input type="hidden" asp-for="ContentType" />
+            <div class="mb-3 row">
+                <label asp-for="FileName" class="col-sm-3 col-form-label">@Localizer["File name"]</label>
+                <div class="col-sm-9">
+                    <input asp-for="FileName" class="form-control-plaintext" readonly />
+                </div>
+            </div>
             <div class="mb-3 row">
                 <label asp-for="DocumentId" class="col-sm-3 col-form-label">@Localizer["Document"]</label>
                 <div class="col-sm-9">
@@ -29,22 +45,12 @@
                 </div>
                 <span asp-validation-for="DocumentId" class="text-danger"></span>
             </div>
-            <div class="mb-3 row">
-                <label asp-for="FileName" class="col-sm-3 col-form-label">@Localizer["File name"]</label>
-                    <div class="col-sm-9">
-                        <input asp-for="FileName" class="form-control" />
-                    </div>
-                <span asp-validation-for="FileName" class="text-danger"></span>
-            </div>
-            <div class="form-group mt-3">
-                <input type="submit" value=@Localizer["Save"] class="btn btn-primary mr-3" />
-                @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Attachements", new { id = Model.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(@Localizer["Back to List"].Value, "Index", "Attachements", null, new { @class = "btn btn-primary" })
-            </div>
         </form>
     </div>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -41,11 +41,11 @@ namespace SRS_Game.Models
         [DisplayName("Project")]
         public int? ProjectId { get; set; }
 
-        [DisplayName("Create date")]
+        [DisplayName("Created date")]
         public DateTime CreatedDate { get; set; }
 
         [Required]
-        [DisplayName("Update date")]
+        [DisplayName("Updated date")]
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
         /// <summary>

@@ -150,8 +150,8 @@
   <data name="ProjectName" xml:space="preserve">
     <value>Project name</value>
   </data>
-  <data name="UpdateDate" xml:space="preserve">
-    <value>Update date</value>
+  <data name="UpdatedDate" xml:space="preserve">
+    <value>Updated date</value>
   </data>
   <data name="VersionNr" xml:space="preserve">
     <value>Version #</value>
@@ -182,5 +182,8 @@
   </data>
   <data name="TeamNumber" xml:space="preserve">
     <value>Team #</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
   </data>
 </root>

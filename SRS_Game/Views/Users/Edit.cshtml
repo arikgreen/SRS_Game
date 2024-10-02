@@ -1,13 +1,24 @@
-﻿@model SRS_Game.Models.User
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+@model SRS_Game.Models.User;
 
 @{
     ViewData["Title"] = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    @*Layout = "~/Views/Shared/_Layout.cshtml";*@
 }
-
-<h1>Edit</h1>
-
-<h4>User</h4>
+<div class="row">
+    <div class="col-8">
+        <h1>@Localizer["User"] - @Localizer["Edit"]</h1>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        <input type="submit" value=@Localizer["Save"] form="edit-form" class="btn btn-primary mr-3" />
+        @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Users", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(@Localizer["Back to List"].Value, "Index", "Users", null, new { @class = "btn btn-primary" })
+        @*<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
+        <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>*@
+    </div>
+</div>
 <hr />
 @if (ViewBag.Message != null)
 {
@@ -17,7 +28,7 @@
 }
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form id="edit-form" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="CreatedDate" />
@@ -56,14 +67,11 @@
                 <input asp-for="RoleId" class="form-control" />
                 <span asp-validation-for="RoleId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

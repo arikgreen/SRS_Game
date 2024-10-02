@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Back to List" xml:space="preserve">
+  <data name="BackToList" xml:space="preserve">
     <value>Wróć do listy</value>
   </data>
   <data name="Edit" xml:space="preserve">
@@ -139,10 +139,7 @@
     <value>Numer telefonu</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Rola</value>
-  </data>
-  <data name="Participant" xml:space="preserve">
-    <value>Interesariusz</value>
+    <value>Rodzaj</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Adres</value>
@@ -155,5 +152,11 @@
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
+  </data>
+  <data name="Stakholder" xml:space="preserve">
+    <value>Interesariusz</value>
+  </data>
+  <data name="External stakholder" xml:space="preserve">
+    <value>Interesariusz zew.</value>
   </data>
 </root>

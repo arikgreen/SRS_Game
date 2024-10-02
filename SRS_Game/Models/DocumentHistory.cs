@@ -16,21 +16,21 @@ namespace SRS_Game.Models
         [Required]
         [StringLength(100)]
         public string Description { get; set; }
-        
+
         [Required]
         public string Version { get; set; }
-        
+
         [Required]
         public string Chapter { get; set; }
-        
+
         [Required]
-        public int Page {  get; set; }
+        public int Page { get; set; }
 
         [Required]
         [ForeignKey("Principal")]
         [DisplayName("Author")]
         public int AuthorId { get; set; }
-        
+
         [Required]
         public DateTime Created { get; set; }
 
@@ -46,5 +46,19 @@ namespace SRS_Game.Models
             AuthorId = authorId;
             Created = created;
         }
+    }
+
+    public class DocumentHistoryViewModel
+    {
+        public string? Description { get; set; }
+        public string? Version { get; set; }
+        public string? Chapter { get; set; }
+        public int Page { get; set; }
+        
+        /// <summary>
+        /// Author full name 
+        /// </summary>
+        public string? AuthorFullName { get; set; }
+        public DateTime Created { get; set; }
     }
 }

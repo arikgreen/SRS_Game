@@ -120,9 +120,6 @@
   <data name="Attachements" xml:space="preserve">
     <value>Załączniki</value>
   </data>
-  <data name="Attachement" xml:space="preserve">
-    <value>Załącznik</value>
-  </data>
   <data name="Content type" xml:space="preserve">
     <value>Typ pliku</value>
   </data>
@@ -136,13 +133,10 @@
     <value>Utworzony</value>
   </data>
   <data name="Updated date" xml:space="preserve">
-    <value>Zmiana</value>
+    <value>Zmodyfikowany</value>
   </data>
   <data name="Add New" xml:space="preserve">
     <value>Dodaj nowy</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
@@ -152,5 +146,11 @@
   </data>
   <data name="Document" xml:space="preserve">
     <value>Dokument</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Attachement" xml:space="preserve">
+    <value>Załącznik</value>
   </data>
 </root>

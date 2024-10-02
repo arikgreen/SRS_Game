@@ -120,7 +120,7 @@
   <data name="Attachement" xml:space="preserve">
     <value>Załącznik</value>
   </data>
-  <data name="Back to List" xml:space="preserve">
+  <data name="BackToList" xml:space="preserve">
     <value>Wróc do listy</value>
   </data>
   <data name="Content type" xml:space="preserve">
@@ -129,8 +129,8 @@
   <data name="Created date" xml:space="preserve">
     <value>Utworzony</value>
   </data>
-  <data name="Create New" xml:space="preserve">
-    <value>Dodaj nowy</value>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
   </data>
   <data name="Document" xml:space="preserve">
     <value>Dokument</value>
@@ -145,6 +145,6 @@
     <value>Nazwa pliku</value>
   </data>
   <data name="Updated date" xml:space="preserve">
-    <value>Zmieniony</value>
+    <value>Zmodyfikowany</value>
   </data>
 </root>

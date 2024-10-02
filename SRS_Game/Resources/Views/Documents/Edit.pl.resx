@@ -123,7 +123,7 @@
   <data name="BackToList" xml:space="preserve">
     <value>Wróc do listy</value>
   </data>
-  <data name="CreateDate" xml:space="preserve">
+  <data name="CreatedDate" xml:space="preserve">
     <value>Utworzony</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -151,7 +151,7 @@
     <value>Nazwa projektu</value>
   </data>
   <data name="UpdateDate" xml:space="preserve">
-    <value>Data aktualizacji</value>
+    <value>Zmodyfikowany</value>
   </data>
   <data name="VersionNr" xml:space="preserve">
     <value>Numer wersji</value>
@@ -182,5 +182,8 @@
   </data>
   <data name="TeamNumber" xml:space="preserve">
     <value>Numer zespołu</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Historia dokumetu</value>
   </data>
 </root>

@@ -150,4 +150,7 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Attachement" xml:space="preserve">
+    <value>Attachement</value>
+  </data>
 </root>

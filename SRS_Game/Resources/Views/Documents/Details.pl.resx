@@ -120,10 +120,10 @@
   <data name="Author" xml:space="preserve">
     <value>Autor</value>
   </data>
-  <data name="Back to List" xml:space="preserve">
+  <data name="BackToList" xml:space="preserve">
     <value>Wróć do listy</value>
   </data>
-  <data name="Create date" xml:space="preserve">
+  <data name="Created date" xml:space="preserve">
     <value>Utworzony</value>
   </data>
   <data name="Delete" xml:space="preserve">
@@ -147,8 +147,8 @@
   <data name="Project" xml:space="preserve">
     <value>Projekt</value>
   </data>
-  <data name="Update date" xml:space="preserve">
-    <value>Zmiana</value>
+  <data name="Updated date" xml:space="preserve">
+    <value>Zmodyfikowany</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Wersja</value>
@@ -159,13 +159,16 @@
   <data name="Attachements" xml:space="preserve">
     <value>Załączniki</value>
   </data>
-  <data name="Created" xml:space="preserve">
-    <value>Utworzony</value>
-  </data>
   <data name="Content type" xml:space="preserve">
     <value>Typ pliku</value>
   </data>
   <data name="Document" xml:space="preserve">
     <value>Dokument</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>Zespół</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Przeznaczenie</value>
   </data>
 </root>

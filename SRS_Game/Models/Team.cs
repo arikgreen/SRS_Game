@@ -17,11 +17,11 @@ namespace SRS_Game.Models
         public string Number { get; set; }
 
         [Required]
-        [DisplayName("Create date")]
+        [DisplayName("Created date")]
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         [Required]
-        [DisplayName("Update date")]
+        [DisplayName("Updated date")]
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
         public Team() { }

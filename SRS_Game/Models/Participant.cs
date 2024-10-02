@@ -49,15 +49,15 @@ namespace SRS_Game.Models
         public string? Address { get; set; }
 
         [Required]
-        [DisplayName("External participant")]
+        [DisplayName("External stakholder")]
         public bool IsExternal { get; set; }
 
         [Required]
-        [DisplayName("Create date")]
+        [DisplayName("Created date")]
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         [Required]
-        [DisplayName("Update date")]
+        [DisplayName("Updated date")]
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
         // Parameterless constructor required by EF Core

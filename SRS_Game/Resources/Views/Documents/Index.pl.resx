@@ -150,8 +150,8 @@
   <data name="Project" xml:space="preserve">
     <value>Projekt</value>
   </data>
-  <data name="Update date" xml:space="preserve">
-    <value>Zmiana</value>
+  <data name="Updated date" xml:space="preserve">
+    <value>Zmodyfikowany</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Wersja</value>

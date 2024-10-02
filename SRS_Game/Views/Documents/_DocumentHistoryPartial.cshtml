@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+@if (Model == null || ViewBag.History == null)
+{
+    @Localizer["VersionNoData"]
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th>@Localizer["Description"]</th>
+            <th>@Localizer["CreatedDate"]</th>
+            <th>@Localizer["Author"]</th>
+            <th>@Localizer["Version"]</th>
+        </tr>
+        @foreach (var itemHistory in ViewBag.History)
+        {
+            <tr>
+                <td>@itemHistory.Description</td>
+                <td>@itemHistory.Created</td>
+                <td>@itemHistory.AuthorFullName</td>
+                <td>@itemHistory.Version</td>
+            </tr>
+        }
+    </table>
+}

@@ -1,13 +1,21 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
 
-@model SRS_Game.Models.DocumentViewModel
+@model SRS_Game.Models.DocumentViewModel;
 
 @{
     ViewData["Title"] = @Localizer["Details"];
 }
-
-<h1>@Localizer["Document"]: @Html.DisplayFor(model => model.Name) - @Localizer["Details"]</h1>
+<div class="row">
+    <div class="col-8">
+        <h1>@Localizer["Document"] @Localizer["Details"]</h1>
+        <h4>"@Html.DisplayFor(model => model.Name)"</h4>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        @Html.ActionLink(@Localizer["Edit"].Value, "Edit", "Documents", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Documents", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
 <hr />
 <div class="card">
     <div class="card-header text-center">
@@ -71,10 +79,6 @@
                             @Html.DisplayFor(model => model.Author)
                         </dd>
                     </dl>
-                    <div>
-                        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
-                        <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
-                    </div>
                 </div>
             </div>
             <div class="row mt-3">
@@ -83,28 +87,7 @@
                     <h4>@Localizer["Document history"]</h4>
                 </div>
                 <div class="card-body">
-                    @if (Model == null || ViewBag.History == null)
-                    {
-                        @Localizer["There are no more version of this document."]
-                    }
-                    else
-                    {
-                        <table class="table table-striped">
-                            <tr>
-                                <th>@Localizer["Description"]</th>
-                                <th>@Localizer["Created"]</th>
-                                <th>@Localizer["Author"]</th>
-                            </tr>
-                            @foreach (var docVer in ViewBag.History)
-                            {
-                                <tr>
-                                    <td>@docVer.Description</td>
-                                    <td>@docVer.Created</td>
-                                    <td>@docVer.Author</td>
-                                </tr>
-                            }
-                        </table>
-                    }
+                    <partial name="_DocumentHistoryPartial" />
                 </div>
             </div>
         </div>
@@ -132,7 +115,7 @@
                                 <tr>
                                     <th>@Localizer["File name"]</th>
                                     <th>@Localizer["Content type"]</th>
-                                    <th>@Localizer["Created"]</th>
+                                    <th>@Localizer["CreatedDate"]</th>
                                 </tr>
                                 @foreach (var attachement in ViewBag.Attachements)
                                 {

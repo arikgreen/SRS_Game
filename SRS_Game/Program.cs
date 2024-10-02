@@ -35,25 +35,25 @@ builder.Services.AddControllersWithViews(options =>
 builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI();
 
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("en"),
+                new CultureInfo("pl")
+            };
+
+    options.DefaultRequestCulture = new RequestCulture("en");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+
+    options.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
+});
+
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddControllersWithViews()
         .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
         .AddDataAnnotationsLocalization();
-
-//builder.Services.Configure<RequestLocalizationOptions>(options =>
-//{
-//    var supportedCultures = new List<CultureInfo>
-//            {
-//                new CultureInfo("en"),
-//                new CultureInfo("pl")
-//            };
-
-//    options.DefaultRequestCulture = new RequestCulture("en");
-//    options.SupportedCultures = supportedCultures;
-//    options.SupportedUICultures = supportedCultures;
-
-//    options.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
-//});
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // Register IHttpContextAccessor
 
