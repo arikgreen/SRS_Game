@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 using System.Xaml;
+using SRS_Game.Models.Srs;
 
 namespace SRS_Game.Services
 {
@@ -117,6 +118,33 @@ namespace SRS_Game.Services
                 .Find(documentId, version);
         }
 
+        public async Task<DocumentDetailsViewModel?> GetDocumentParticipants(int documentId)
+        {
+            var documentDetails = await (from doc in _context.Documents
+                                         join author in _context.Participants
+                                            on doc.AuthorId equals author.Id
+                                         join teamLeader in _context.Participants
+                                            on doc.TeamLeaderId equals teamLeader.Id into tlJoin
+                                         from teamLeader in tlJoin.DefaultIfEmpty()
+                                         join project in _context.Projects
+                                            on doc.ProjectId equals project.Id into pJoin
+                                         from project in pJoin.DefaultIfEmpty()
+                                         join team in _context.Teams
+                                            on doc.TeamId equals team.Id into tJoin
+                                         from team in tJoin.DefaultIfEmpty()
+                                         where doc.Id == documentId
+                                         select new DocumentDetailsViewModel
+                                         {
+                                             DocumentName = doc.Name,
+                                             AuthorName = $"{author.FirstName} {author.LastName}",
+                                             TeamLeaderName = $"{teamLeader.FirstName} {teamLeader.LastName}",
+                                             ProjectName = project.Name,
+                                             TeamName = team.Name
+                                         }).FirstOrDefaultAsync();
+
+            return documentDetails;
+        }
+
         public async Task<List<int>> GetAttachements(int id, bool transcriptsOnly)
         {
             List<int> attachementsIdList = [];
@@ -138,24 +166,70 @@ namespace SRS_Game.Services
             return attachementsIdList;
         }
 
-        public async Task SaveSrsToDatabase(ProjectSpecification srsDocument)
+        public async Task UpdateProjectSpecification(int documentId, SRS? documentSrs, Document? document)
         {
-            _context.Add(srsDocument);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task UpdateVersion(int documentId)
-        {
-            var document = await _context.Documents.FindAsync(documentId);
-
-            if (document != null)
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
             {
+                document ??= await _context.Documents.FindAsync(documentId);
+
+                if (document == null)
+                {
+                    throw new Exception($"Error: document Id:{documentId} not exist.");
+                }
+
+                var versionOld = document.Version;
+
                 // Assuming Version is numeric (like an int or double) and needs to be incremented
                 document.Version++; // Increment the version
                 document.UpdatedDate = DateTime.Now;
 
                 // Save changes
+                _context.Update(document);
                 await _context.SaveChangesAsync();
+
+                if (documentSrs == null)
+                {
+                    var projectSpecification = GetSpecification(documentId, versionOld) ?? throw new Exception($"Project specification for document Id: {documentId} not exist.");
+                    documentSrs = XamlSerializer.DeserializeObjectToXaml(projectSpecification.XamlContent);
+
+                    var documentDetails = await GetDocumentParticipants(documentId);
+
+                    documentSrs.ProjectName = documentDetails.ProjectName;
+                    documentSrs.TeamNumber = documentDetails.TeamName;
+                    documentSrs.Owner = documentDetails.TeamLeaderName;
+                    documentSrs.Author = documentDetails.AuthorName;
+                }
+
+                if (documentSrs == null)
+                {
+                    throw new Exception($"Deserialize XAML to object error");
+                }
+
+                documentSrs.Version = document.Version;
+                documentSrs.UpdatedDate = document.UpdatedDate;
+
+                var projectSpecyfication = new ProjectSpecification
+                {
+                    DocumentId = documentId,
+                    Version = documentSrs.Version,
+                    CreatedDate = documentSrs.UpdatedDate,
+                    
+                    // Serialize the SRS object to XAML format
+                    XamlContent = XamlSerializer.SerializeObjectToXaml(documentSrs)
+                };
+
+                _context.Add(projectSpecyfication);
+                await _context.SaveChangesAsync();
+
+                // Commit the transaction
+                await transaction.CommitAsync();
+            }
+            catch (Exception)
+            {
+                // Rollback if any error occurs
+                await transaction.RollbackAsync();
+                throw;
             }
         }
     }

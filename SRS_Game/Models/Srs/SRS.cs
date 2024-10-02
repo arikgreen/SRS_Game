@@ -4,7 +4,7 @@
     {
         public required string ProjectName { get; set; }
         public string? TeamNumber { get; set; } = string.Empty;
-        public required string Version { get; set; }
+        public required int Version { get; set; }
         public string? Owner { get; set; }
         public required string Author { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
@@ -85,6 +85,6 @@
         /// <summary>
         /// Chapter 13. Attachements
         /// </summary>
-        public List<Attachement> Attachements { get; set; } = [];
+        public List<SrsAttachement> Attachements { get; set; } = [];
     }
 }

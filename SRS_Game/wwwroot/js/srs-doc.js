@@ -45,3 +45,13 @@
         $(this).parent().parent().remove();
     });
 }
+
+$("#srs-header").on("click", function () {
+    console.log("aaaa" + $("#srs-submit").attr("form"));
+    $("#srs-submit").attr("form", "srs-header-form")
+});
+
+$("#srs-body").on("click", function () {
+    console.log("bbbb" + $("#srs-submit").attr("form"));
+    $("#srs-submit").attr("form", "srs-doc-form")
+});

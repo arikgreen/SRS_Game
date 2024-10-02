@@ -20,7 +20,7 @@ namespace SRS_Game.Models
         [StringLength(50)]
         [DisplayName("File name")]
         public string FileName { get; set; }
-        
+
         [DisplayName("Content type")]
         public string ContentType { get; set; }
 
@@ -53,7 +53,7 @@ namespace SRS_Game.Models
     }
 
     public class AttachementViewModel : Attachement
-    { 
+    {
         public required string Document { get; set; }
     }
 
@@ -93,5 +93,12 @@ namespace SRS_Game.Models
 
             //Participants = mParticipants != null ? mParticipants.Cast<Match>().Select(match => match.Groups[1].Value).ToList() : [];
         }
+    }
+
+    public class SrsAttachement
+    {
+        public string? FileName { get; set; }
+        public string? ContentType { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

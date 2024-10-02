@@ -12,7 +12,7 @@
         <h4>"@Html.DisplayFor(model => model.Name)"</h4>
     </div>
     <div class="col-4 align-bottom text-end">
-        <input type="submit" value=@Localizer["Save"] form="srs-header-form" class="btn btn-primary mr-3" />
+        <input type="submit" value=@Localizer["Save"] form="srs-header-form" id="srs-submit" class="btn btn-primary mr-3" />
         @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Documents", new { id = Model.Id }, new { @class = "btn btn-primary" })
         @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Documents", null, new { @class = "btn btn-primary" })
     </div>
@@ -28,10 +28,13 @@
     <div class="card-header text-center">
         <ul class="nav nav-tabs card-header-tabs" data-bs-tabs="tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" aria-current="true" href="#summary">@Localizer["Summary"]</a>
+                <a class="nav-link active" id="srs-header" data-bs-toggle="tab" aria-current="true" href="#summary">@Localizer["Summary"]</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#srs-doc">SRS @Localizer["Document"]</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#srs-history">SRS @Localizer["History"]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="srs-body" data-bs-toggle="tab" href="#srs-doc">SRS @Localizer["Document"]</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#srs-sources">@Localizer["Source"]</a>

@@ -196,17 +196,6 @@ namespace SRS_Game.Controllers
                 }
             }
 
-            //var stakeholder = new Stakeholder {
-            //    Reference = "STKH_001",
-            //    Name = "Zleceniodawca",
-            //    Description = "Organizacja zamawiająca realizację projektu",
-            //    Type = StakeholderType.Corporation,
-            //    FullName = "pełna nazwa dla typu instytucjonalnego",
-            //    AddressOrContact = "adres pocztowy do korespondencji",
-            //    Representative = "STKH_002 Przedstawiciel zleceniodawcy",
-            //    Priority = Priority.medium
-            //};
-
             SRS? srsDoc = null;
             var spec = _readableDocument.GetSpecification(id, document.Version);
             
@@ -214,7 +203,16 @@ namespace SRS_Game.Controllers
             {
                 string xamlContent = spec.XamlContent;
                 srsDoc = XamlSerializer.DeserializeObjectToXaml(xamlContent);
-                srsDoc.Attachements = _readableAttachement.GetAllForDocument(id).ToList();
+                //srsDoc.Attachements = _readableAttachement.GetAllForDocument(id).ToList();
+                srsDoc.Attachements = [.. _context.Attachements
+                    .Where(a => a.DocumentId == id)
+                    .OrderBy(a => a.FileName)
+                    .Select(a => new SrsAttachement
+                    {
+                        FileName = a.FileName,
+                        ContentType = a.ContentType,
+                        CreatedDate = a.CreatedDate
+                    })];
             }
             else
             {
@@ -222,7 +220,7 @@ namespace SRS_Game.Controllers
                 {
                     ProjectName = document.Project ?? "",
                     TeamNumber = document.Team ?? "",
-                    Version = document.Version.ToString(),
+                    Version = document.Version,
                     Author = document.Author,
                     Owner = document.Owner ?? "",
                     CreatedDate = document.CreatedDate,
@@ -241,6 +239,7 @@ namespace SRS_Game.Controllers
                 Owner = document.Owner,
                 Version = document.Version,
                 CreatedDate = document.CreatedDate.ToLocalTime(),
+                UpdatedDate = document.UpdatedDate.ToLocalTime(),
                 TeamId = document.TeamId,
                 TeamLeaderId = document.TeamLeaderId,
                 SRS = srsDoc,
@@ -298,9 +297,12 @@ namespace SRS_Game.Controllers
             {
                 try
                 {
-                    document.Version++;
-                    _context.Update(document);
-                    await _context.SaveChangesAsync();
+                    await _writableDocument.UpdateProjectSpecification(id, null, document);
+
+                    //document.UpdatedDate = DateTime.Now;
+                    //document.Version++;
+                    //_context.Update(document);
+                    //await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -353,60 +355,28 @@ namespace SRS_Game.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // POST: Documents/SaveProjectSpecification
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SaveProjectSpecification(DocumentEditViewModel document)
+        public async Task<IActionResult> SaveProjectSpecification(DocumentEditViewModel documentVM)
         {
             if (!ModelState.IsValid)
             {
                 ViewBag.Message = new Alert { Type = AlertType.danger, Text = "Wrong data" };
                 
-                return RedirectToAction(nameof(Edit), new { id = document.Id });
+                return RedirectToAction(nameof(Edit), new { id = documentVM.Id });
             }
 
-            if (document == null || document.SRS == null)
+            if (documentVM == null || documentVM.SRS == null)
             {
                 return NotFound();
             }
 
-            using var transaction = await _context.Database.BeginTransactionAsync();
-            try
-            {
+            SRS document = documentVM.SRS;
+            
+            await _writableDocument.UpdateProjectSpecification(documentVM.Id, document, null);
 
-                var projectSpecyfication = new ProjectSpecification
-                {
-                    DocumentId = document.Id,
-                    Version = Int32.Parse(document.SRS.Version) + 1,
-                    CreatedDate = DateTime.Now
-                };
-
-                // Serialize the SRS object to XAML format
-                projectSpecyfication.XamlContent = XamlSerializer.SerializeObjectToXaml(document.SRS);
-
-                // Serialize the SRS object to XML format
-                //var xmlSerializer = new XmlSerializer(typeof(SRS));
-                //using (var stringWriter = new StringWriter())
-                //{
-                //    xmlSerializer.Serialize(stringWriter, document.SRS);
-                //    projectSpecyfication.XamlContent = stringWriter.ToString();
-                //}
-
-                await _writableDocument.SaveSrsToDatabase(projectSpecyfication);
-
-                await _writableDocument.UpdateVersion(document.Id);
-
-                // Commit the transaction
-                await transaction.CommitAsync();
-
-                return RedirectToAction("");
-
-            }
-            catch (Exception)
-            {
-                // Rollback if any error occurs
-                await transaction.RollbackAsync();
-                throw;
-            }
+            return RedirectToAction(nameof(Edit), new {id = documentVM.Id});
         }
     }
 }

@@ -7,7 +7,7 @@
     var addressOrContactHeader = Localizer[""];
 }
 
-<form asp-controller="Documents" asp-action="SaveProjectSpecification" method="post">
+<form id="srs-doc-form" asp-controller="Documents" asp-action="SaveProjectSpecification" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
     <input type="hidden" asp-for="Name" />
@@ -61,7 +61,7 @@
                                                     <select class="form-control" placeholder="osoba prawna" onselect="@Model.SRS.Stakeholders[@i].Type" asp-for="@Model.SRS.Stakeholders[@i].Type" asp-items="ViewBag.StakeholderTypes"></select>
                                                 </td>
                                             </tr>
-                                    @if (Model.SRS.Stakeholders[@i].FullName.Length > 0)
+                                    @if (Model.SRS.Stakeholders[@i].Type == 0)
                                     {
                                         addressOrContactHeader = @Localizer["Address"];
                                             <tr>
@@ -81,12 +81,12 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                    @if (Model.SRS.Stakeholders[@i].FullName.Length > 0)
+                                    @if (Model.SRS.Stakeholders[@i].Type == 0)
                                     {
                                         @* dla typu instytucjonalnego *@
                                                 <th scope="row">@Localizer["Representative"]</th>
                                                 <td>
-                                                    <input class="form-control" placeholder="imię i nazwisko, kontakt albo referencja do osobnego rekordu, np.: " value="@Model.SRS.Stakeholders[@i].Representative" asp-for="@Model.SRS.Stakeholders[@i].Representative" />
+                                                    <input class="form-control" placeholder="imię i nazwisko, kontakt albo referencja do osobnego rekordu" value="@Model.SRS.Stakeholders[@i].Representative" asp-for="@Model.SRS.Stakeholders[@i].Representative" />
                                                 </td>
                                     } else
                                     {
@@ -1324,6 +1324,5 @@
             </div>
         </li>
     </ol>
-    <button type="submit" class="btn btn-primary">@Localizer["SaveSrs"]</button>
 </form>
 
