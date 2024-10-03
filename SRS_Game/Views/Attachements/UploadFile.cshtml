@@ -27,7 +27,9 @@
                 @using (Html.BeginForm("UploadFilePost", "Attachements", FormMethod.Post, new { enctype = "multipart/form-data", @class = "was-validated" }))
                 {
                     <label asp-for="DocumentId" class="control-label">@Localizer["Document name"]</label>
-                    <select asp-for="DocumentId" class="form-select" asp-items="ViewBag.Documents" aria-label="@Localizer["Select document for this attachement"]"></select>
+                    <select asp-for="DocumentId" class="form-select" asp-items="ViewBag.Documents" aria-label="@Localizer["Select document for this attachement"]">
+                        <option value="">@Localizer["-- Select an option --"]</option>
+                    </select>
                     <div class="input-group my-3 border border-info p-2 rounded">
                         <div class="form-check-inline">@Localizer["Source (if uploading transcript)"]:</div>
                         <div class="form-check form-check-inline">

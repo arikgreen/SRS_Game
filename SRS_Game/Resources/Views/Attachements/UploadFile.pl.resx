@@ -117,14 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Back to List" xml:space="preserve">
+  <data name="BackToList" xml:space="preserve">
     <value>Wróc do listy</value>
   </data>
   <data name="Upload File" xml:space="preserve">
     <value>Dodaj Załącznik</value>
   </data>
-  <data name="Browse" xml:space="preserve">
-    <value>Wybierz</value>
+  <data name="Browse..." xml:space="preserve">
+    <value>Wybierz...</value>
   </data>
   <data name="Upload" xml:space="preserve">
     <value>Prześlij</value>
@@ -143,5 +143,8 @@
   </data>
   <data name="Source (if uploading transcript)" xml:space="preserve">
     <value>Źródło (jeśli przesyłasz plik z rozmową)</value>
+  </data>
+  <data name="-- Select an option --" xml:space="preserve">
+    <value>-- Wybierz --</value>
   </data>
 </root>

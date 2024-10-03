@@ -85,9 +85,9 @@ namespace ContosoUniversity.Data
 
             if (context.ProjectSepcyfications.Any())
             {
-                context.ProjectSepcyfications.ExecuteDelete();
+                //context.ProjectSepcyfications.ExecuteDelete();
                 //context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('ProjectSepcyfications', RESEED, 0)");
-                context.SaveChanges();
+                //context.SaveChanges();
             }
 
             var userRoles = new UserRole[]
@@ -180,8 +180,7 @@ namespace ContosoUniversity.Data
                 1,
                 DateTime.Now.AddMonths(-3),
                 DateTime.Now.AddMonths(-1),
-                1,
-                null
+                1
             ),new(
                 "Team Report",
                 null,
@@ -192,14 +191,13 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-4),
                 DateTime.Now.AddMonths(-2),
                 2,
-                1,
                 39
             ),new(
                 "Financial Report",
                 "Quarterly financial results",
                 3,
                 2,
-                null,
+                7,
                 3,
                 DateTime.Now.AddMonths(-6),
                 DateTime.Now.AddMonths(-3),
@@ -215,7 +213,6 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-1),
                 DateTime.Now.AddDays(-15),
                 1,
-                null,
                 83
             ),new(
                 "Project Proposal",
@@ -227,7 +224,6 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-8),
                 DateTime.Now.AddMonths(-4),
                 2,
-                null,
                 23
             ),new(
                 "Architecture Design",
@@ -245,12 +241,11 @@ namespace ContosoUniversity.Data
                 "Sprint 2 review notes",
                 2,
                 7,
-                null,
+                9,
                 6,
                 DateTime.Now.AddDays(-30),
                 DateTime.Now.AddDays(-20),
                 1,
-                null,
                 57
             ),new(
                 "Client Feedback",
@@ -262,19 +257,17 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-9),
                 DateTime.Now.AddMonths(-7),
                 1,
-                null,
                 47
             ),new(
                 "System Requirements",
                 "Complete list of system requirements",
                 3,
                 null,
-                null,
+                5,
                 7,
                 DateTime.Now.AddMonths(-2),
                 DateTime.Now.AddMonths(-1),
                 4,
-                null,
                 49
             ),new(
                 "UI Mockups",
@@ -292,7 +285,7 @@ namespace ContosoUniversity.Data
                 "Code review document for sprint 5",
                 8,
                 3,
-                null,
+                6,
                 9,
                 DateTime.Now.AddMonths(-7),
                 DateTime.Now.AddMonths(-5),
@@ -319,14 +312,13 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-1),
                 DateTime.Now.AddDays(-10),
                 1,
-                null,
                 79
             ),new(
                 "Security Audit",
                 "Audit results for Q2",
                 5,
                 4,
-                null,
+                8,
                 1,
                 DateTime.Now.AddMonths(-10),
                 DateTime.Now.AddMonths(-8),
@@ -342,7 +334,6 @@ namespace ContosoUniversity.Data
                 DateTime.Now.AddMonths(-12),
                 DateTime.Now.AddMonths(-10),
                 1,
-                null,
                 100
             )
         };
@@ -401,33 +392,25 @@ namespace ContosoUniversity.Data
                 new (9, "Poprawiono formatowanie", "2.1", "Wymagania w zakresie użyteczności", 12, 5, DateTime.Parse("2023-09-20")),
                 new (1, "Aktualizacja wersji", "1.2", "Sytuacje wyjątkowe", 13, 6, DateTime.Parse("2023-10-15")),
                 new (10, "Zmiana autora", "1.2", "Sytuacje nadzwyczajne", 13, 7, DateTime.Parse("2023-10-25")),
-                new (11, "Dodano nową sekcję", "1.0", "Sytuacje krytyczne", 13, 8, DateTime.Parse("2023-11-01")),
-                new (12, "Aktualizacja treści", "1.1", "Sytuacje awaryjne", 14, 9, DateTime.Parse("2023-12-05")),
-                new (13, "Nowa wersja dokumentu", "1.2", "Wymagania sprzętowe", 14, 10, DateTime.Parse("2024-01-10")),
-                new (13, "Dodano nowy rozdział", "1.3", "Wymagania programowe", 14, 10, DateTime.Parse("2024-01-20")),
-                new (14, "Zmiana treści", "1.0", "Inne wymagania", 15, 2, DateTime.Parse("2024-02-15")),
-                new (15, "Korekta merytoryczna", "1.1", "Kryteria akceptacyjne", 15, 3, DateTime.Parse("2024-03-01")),
-                new (16, "Aktualizacja danych", "1.2", "Słownik", 15, 4, DateTime.Parse("2024-04-05")),
-                new (17, "Poprawki redakcyjne", "1.0", "Załączniki", 15, 5, DateTime.Parse("2024-05-10")),
-                new (18, "Nowa wersja dokumentu", "1.0", "Wprowadzenie", 3, 10, DateTime.Parse("2023-01-10")),
+                new (1, "Dodano nową sekcję", "1.0", "Sytuacje krytyczne", 13, 8, DateTime.Parse("2023-11-01")),
+                new (2, "Aktualizacja treści", "1.1", "Sytuacje awaryjne", 14, 9, DateTime.Parse("2023-12-05")),
+                new (3, "Nowa wersja dokumentu", "1.2", "Wymagania sprzętowe", 14, 10, DateTime.Parse("2024-01-10")),
+                new (3, "Dodano nowy rozdział", "1.3", "Wymagania programowe", 14, 10, DateTime.Parse("2024-01-20")),
+                new (4, "Zmiana treści", "1.0", "Inne wymagania", 15, 2, DateTime.Parse("2024-02-15")),
+                new (5, "Korekta merytoryczna", "1.1", "Kryteria akceptacyjne", 15, 3, DateTime.Parse("2024-03-01")),
+                new (6, "Aktualizacja danych", "1.2", "Słownik", 15, 4, DateTime.Parse("2024-04-05")),
+                new (7, "Poprawki redakcyjne", "1.0", "Załączniki", 15, 5, DateTime.Parse("2024-05-10")),
+                new (8, "Nowa wersja dokumentu", "1.0", "Wprowadzenie", 3, 10, DateTime.Parse("2023-01-10")),
                 new (8, "Dodano nową sekcję", "1.1", "Źródła wymagań", 4, 10, DateTime.Parse("2023-01-20")),
                 new (9, "Aktualizacja danych", "1.0", "Interesariusze", 4, 3, DateTime.Parse("2023-02-15")),
-                new (10, "Poprawki redakcyjne", "1.0", "Cele systemu", 6, 4, DateTime.Parse("2023-03-01")),
-                new (21, "Dodano nowe wymagania", "1.1", "Cele biznesowe", 6, 5, DateTime.Parse("2023-03-10")),
-                new (12, "Zmiana autora", "1.0", "Użytkownicy", 8, 6, DateTime.Parse("2023-04-05")),
-                new (13, "Korekta błędów", "2.0", "Systemy zewnętrzne", 8, 7, DateTime.Parse("2023-05-10")),
-                new (14, "Uaktualniono dane", "2.1", "Komponenty sprzętowe", 10, 8, DateTime.Parse("2023-05-20"))
+                new (1, "Poprawki redakcyjne", "1.0", "Cele systemu", 6, 4, DateTime.Parse("2023-03-01")),
+                new (2, "Dodano nowe wymagania", "1.1", "Cele biznesowe", 6, 5, DateTime.Parse("2023-03-10")),
+                new (2, "Zmiana autora", "1.0", "Użytkownicy", 8, 6, DateTime.Parse("2023-04-05")),
+                new (3, "Korekta błędów", "2.0", "Systemy zewnętrzne", 8, 7, DateTime.Parse("2023-05-10")),
+                new (4, "Uaktualniono dane", "2.1", "Komponenty sprzętowe", 10, 8, DateTime.Parse("2023-05-20"))
             };
             context.DocumentHistories.AddRange(documentHistories);
             context.SaveChanges();
-
-            //var projectSpecification = new ProjectSpecification[]
-            //{
-            //    new() { DocumentId = 1, Version = 1, Name = "Specyfikacja wymagań", CreatedDate = DateTime.Now, XamlContent = "<StackPanel xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">\r\n<TextBlock FontSize=\"20\" FontWeight=\"Bold\" Text=\"Project: Projekt B\" />\r\n<TextBlock Text=\"Version: 1\" />\r\n<TextBlock Text=\"Author: Artur Wilczak\" />\r\n<TextBlock Text=\"Date: 27.09.2024 21:04:36\" />\r\n<TextBlock FontSize=\"16\" FontWeight=\"Bold\" Text=\"Introduction\" />\r\n<TextBlock Text=\"\" TextWrapping=\"Wrap\" />\r\n<TextBlock FontSize=\"16\" FontWeight=\"Bold\" Text=\"Functional Requirements\" />\r\n<TextBlock FontWeight=\"Bold\" Text=\"Złożenie zamówienia\" />\r\n<TextBlock Text=\"Złożenie zamówienia w sklepie\" TextWrapping=\"Wrap\" />\r\n<TextBlock Text=\"Priority: high\" />\r\n</StackPanel>\r\n'" }
-            //};
-
-            //context.ProjectSepcyfications.AddRange(projectSpecification);
-            //context.SaveChanges();
         }
     }
 }

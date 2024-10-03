@@ -123,7 +123,7 @@
   <data name="BackToList" xml:space="preserve">
     <value>Wróć do listy</value>
   </data>
-  <data name="Created date" xml:space="preserve">
+  <data name="CreatedDate" xml:space="preserve">
     <value>Utworzony</value>
   </data>
   <data name="Delete" xml:space="preserve">
@@ -170,5 +170,8 @@
   </data>
   <data name="Destination" xml:space="preserve">
     <value>Przeznaczenie</value>
+  </data>
+  <data name="NoAttachements" xml:space="preserve">
+    <value>Brak załączników dla tego dokumentu</value>
   </data>
 </root>

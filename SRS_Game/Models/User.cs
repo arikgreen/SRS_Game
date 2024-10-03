@@ -1,5 +1,4 @@
-﻿using Elfie.Serialization;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,6 +14,7 @@ namespace SRS_Game.Models
         /// </summary>
         [StringLength(50)]
         [DisplayName("First name")]
+        [Required(ErrorMessage = "The field is required")]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -22,39 +22,38 @@ namespace SRS_Game.Models
         /// </summary>
         [StringLength(50)]
         [DisplayName("Last name")]
+        [Required(ErrorMessage = "The field is required")]
         public string LastName { get; set; }
 
         /// <summary>
         /// Login
         /// </summary>
-        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "LoginRequired")]
+        //[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "LoginRequired")]
         [StringLength(20)]
+        [Required(ErrorMessage = "The field is required")]
         public string Login { get; set; }
         
         [EmailAddress]
         [StringLength(50)]
-        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
-        [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
+        //[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
+        //[RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "User")]
         public string Email { get; set; }
 
         [StringLength(15)]
         [DisplayName("Phone number")]
         public string? PhoneNumber { get; set; }
 
-        [Required]
         [PasswordPropertyText]
-        public string Password { get; set; }
-        
-        [Required]
-        [ForeignKey("Role")]
-        [DisplayName("Role")]
-        public int RoleId { get; set; }
+        public string? Password { get; set; }
 
-        [Required]
+        [ForeignKey(nameof(UserRole))]
+        [DisplayName("Role")]
+        [Required(ErrorMessage = "The field is required")]
+        public int UserRoleFK { get; set; }
+
         [DisplayName("Create date")]
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
-        [Required]
         [DisplayName("Update date")]
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
@@ -68,16 +67,27 @@ namespace SRS_Game.Models
             Email = email;
             Password = password;
             PhoneNumber = phoneNumber;
-            RoleId = roleId;
+            UserRoleFK = roleId;
             CreatedDate = createdDate;
             UpdatedDate = updatedDate;
         }
     }
 
-    public class UserViewModel : User
+    public class UserIndexViewModel : User
     {
-        [Required]
-        [StringLength (15)]
-        public required string Role { get; set; }
+        public string? Role { get; set; }
+    }
+
+    public class UserCreateViewModel : User
+    {
+        [Required(ErrorMessage = "Confirmation Password is required.")]
+        [Compare("Password", ErrorMessage = "Password and Confirmation Password must match.")]
+        public string ConfirmPassword { get; set; }
+    }
+
+    public class UserEditViewModel : User
+    {
+        [Compare("Password", ErrorMessage = "Password and Confirmation Password must match.")]
+        public string? ConfirmPassword { get; set; }
     }
 }

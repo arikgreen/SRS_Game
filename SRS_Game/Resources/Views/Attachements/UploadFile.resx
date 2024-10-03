@@ -123,8 +123,8 @@
   <data name="Upload File" xml:space="preserve">
     <value>Upload File</value>
   </data>
-  <data name="Browse" xml:space="preserve">
-    <value>Browse</value>
+  <data name="Browse..." xml:space="preserve">
+    <value>Browse...</value>
   </data>
   <data name="Upload" xml:space="preserve">
     <value>Upload</value>
@@ -143,5 +143,8 @@
   </data>
   <data name="Source (if uploading transcript)" xml:space="preserve">
     <value>Source (if uploading transcript)</value>
+  </data>
+  <data name="-- Select an option --" xml:space="preserve">
+    <value>-- Select an option --</value>
   </data>
 </root>

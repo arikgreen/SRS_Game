@@ -141,4 +141,7 @@
   <data name="Stakholder Fullname" xml:space="preserve">
     <value>Imię i Nazwisko Interesariusza</value>
   </data>
+  <data name="NoMembers" xml:space="preserve">
+    <value>Zespół nie posiada członków</value>
+  </data>
 </root>

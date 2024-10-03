@@ -4,11 +4,18 @@
 @model SRS_Game.Models.Document;
 
 @{
-    ViewData["Title"] = Localizer["Create a new document"];
+    ViewData["Title"] = @Localizer["Add a new document"];
 }
-
-<h1>@ViewData["Title"]</h1>
-<h4>@Localizer["Specification of requirements"]</h4>
+<div class="row">
+    <div class="col-8">
+        <h1>@ViewData["Title"]</h1>
+        <h4>@Localizer["Specification of requirements"]</h4>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        <input type="submit" value=@Localizer["Add"] form="create-form" class="btn btn-primary mr-3" />
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Documents", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
 <hr />
 @if (ViewBag.Message != null)
 {
@@ -18,7 +25,7 @@
 }
 <div class="row">
     <div class="col-sm-6">
-        <form asp-action="Create">
+        <form id="create-form" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3 row">
                 <label asp-for="Name" class="col-sm-3 col-form-label">@Localizer["Name"]</label>
@@ -30,8 +37,19 @@
             <div class="mb-3 row">
                 <label asp-for="ProjectId" class="col-sm-3 col-form-label">@Localizer["Project"]</label>
                 <div class="col-sm-9">
-                    <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.Projects"></select>
+                    <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.Projects">
+                        <option value="">@Localizer["-- Select an option --"]</option>
+                    </select>
                     <span asp-validation-for="ProjectId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label asp-for="TeamLeaderId" class="col-sm-3 col-form-label">@Localizer["SupervisorManager"]</label>
+                <div class="col-sm-9">
+                    <select asp-for="TeamLeaderId" class="form-control" asp-items="ViewBag.Participants">
+                        <option value="">@Localizer["-- Select an option --"]</option>
+                    </select>
+                    <span asp-validation-for="TeamLeaderId" class="text-danger"></span>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -44,7 +62,9 @@
             <div class="mb-3 row">
                 <label asp-for="AuthorId" class="col-sm-3 col-form-label">@Localizer["Autor"]</label>
                 <div class="col-sm-9">
-                    <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Participants"></select>
+                    <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Participants">
+                        <option value="">@Localizer["-- Select an option --"]</option>
+                    </select>
                     <span asp-validation-for="AuthorId" class="text-danger"></span>
                 </div>
             </div>
@@ -58,10 +78,6 @@
                 <div class="col-sm-9"><input asp-for="Version" class="form-control" /></div>
                 <span asp-validation-for="Version" class="text-danger"></span>
             </div> *@
-            <div class="form-group mt-3">
-                <input type="submit" value="@Localizer["Add"]" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
-            </div>
         </form>
     </div>
 </div>

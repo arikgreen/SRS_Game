@@ -6,8 +6,15 @@
 @{
     ViewData["Title"] = @Localizer["Add a new stakholder"];
 }
-
-<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-8">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        <input type="submit" value=@Localizer["Add"] form="create-form" class="btn btn-primary mr-3" />
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Participants", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
 <hr />
 @if (ViewBag.Message != null)
 {
@@ -17,7 +24,7 @@
 }
 <div class="row">
     <div class="col-sm-6">
-        <form asp-action="View">
+        <form id="create-form" asp-action="View">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3 row">
                 <label asp-for="FirstName" class="col-sm-4 col-form-label">@Localizer[Html.DisplayNameFor(model => model.FirstName)]</label>
@@ -62,14 +69,10 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <label asp-for="IsExternal" class="col-sm-4 col-form-label">@Html.DisplayNameFor(model => model.IsExternal)</label>
+                <label asp-for="IsExternal" class="col-sm-4 col-form-label">@Localizer[@Html.DisplayNameFor(model => model.IsExternal)]</label>
                 <div class="col-sm-8">
                     <input class="form-check-inline mt-2" asp-for="IsExternal" />
                 </div>
-            </div>
-            <div class="form-group mt-3">
-                <input type="submit" value="@Localizer["Add"]" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
             </div>
         </form>
     </div>

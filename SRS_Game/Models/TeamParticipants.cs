@@ -5,10 +5,10 @@ namespace SRS_Game.Models
 {
     public class TeamParticipants
     {
-        [ForeignKey("Team")]
+        [ForeignKey(nameof(Team))]
         public int TeamId { get; set; }
         
-        [ForeignKey("Participant")]
+        [ForeignKey(nameof(Participant))]
         public int ParticipantId { get; set; }
 
         public TeamParticipants() { }

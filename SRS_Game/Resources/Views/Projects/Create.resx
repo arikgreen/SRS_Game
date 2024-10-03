@@ -120,8 +120,8 @@
   <data name="BackToList" xml:space="preserve">
     <value>Back to List</value>
   </data>
-  <data name="Create a new project" xml:space="preserve">
-    <value>Create a new project</value>
+  <data name="Add a new project" xml:space="preserve">
+    <value>Add a new project</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
@@ -137,5 +137,8 @@
   </data>
   <data name="Project" xml:space="preserve">
     <value>Project</value>
+  </data>
+  <data name="-- Select an option --" xml:space="preserve">
+    <value>-- Select an option --</value>
   </data>
 </root>

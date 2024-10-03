@@ -4,10 +4,19 @@
 @model SRS_Game.Models.Team
 
 @{
-    ViewData["Title"] = Localizer["Create a new team"];
-}
+    ViewData["Title"] = @Localizer["Add a new team"];
 
-<h1>@ViewData["Title"]</h1>
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-8">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        <input type="submit" value=@Localizer["Add"] form="create-form" class="btn btn-primary mr-3" />
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Users", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
 <hr />
 @if (ViewBag.Message != null)
 {
@@ -17,7 +26,7 @@
 }
 <div class="row">
     <div class="col-sm-6">
-        <form asp-action="Create">
+        <form id="create-form" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3 row">
                 <label asp-for="Name" class="col-sm-4">@Localizer["Name"]</label>
@@ -32,10 +41,6 @@
                     <input asp-for="Number" class="form-control" />
                     <span asp-validation-for="Number" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="form-group mt-3">
-                <input type="submit" value="@Localizer["Add"]" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>
             </div>
         </form>
     </div>

@@ -150,7 +150,7 @@
   <data name="ProjectName" xml:space="preserve">
     <value>Nazwa projektu</value>
   </data>
-  <data name="UpdateDate" xml:space="preserve">
+  <data name="UpdatedDate" xml:space="preserve">
     <value>Zmodyfikowany</value>
   </data>
   <data name="VersionNr" xml:space="preserve">
@@ -185,5 +185,8 @@
   </data>
   <data name="History" xml:space="preserve">
     <value>Historia dokumetu</value>
+  </data>
+  <data name="high" xml:space="preserve">
+    <value>wysoki</value>
   </data>
 </root>

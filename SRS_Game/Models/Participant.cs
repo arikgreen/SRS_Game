@@ -16,7 +16,7 @@ namespace SRS_Game.Models
         /// <summary>
         /// First name of the participant or company representative
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [StringLength(50)]
         [DisplayName("First name")]
         public string FirstName { get; set; }
@@ -24,7 +24,7 @@ namespace SRS_Game.Models
         /// <summary>
         /// Surname of the participant or company representative
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [StringLength(50)]
         [DisplayName("Last name")]
         public string LastName { get; set; }
@@ -48,15 +48,15 @@ namespace SRS_Game.Models
         [StringLength(300)]
         public string? Address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("External stakholder")]
         public bool IsExternal { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Created date")]
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Updated date")]
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
 

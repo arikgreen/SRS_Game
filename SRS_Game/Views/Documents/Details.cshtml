@@ -82,18 +82,18 @@
                 </div>
             </div>
             <div class="row mt-3">
-            <div class="col card">
-                <div class="card-header">
-                    <h4>@Localizer["Document history"]</h4>
-                </div>
-                <div class="card-body">
-                    <partial name="_DocumentHistoryPartial" />
+                <div class="col card">
+                    <div class="card-header">
+                        <h4>@Localizer["Document history"]</h4>
+                    </div>
+                    <div class="card-body">
+                        <partial name="_DocumentHistoryPartial" />
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
         <div class="tab-pane" id="srs-doc">
-            <pre class="pre-wrap">@ViewBag.XamlContent</pre>
+            <pre class="pre-wrap">@Model.XamlContent</pre>
         </div>
         <div class="tab-pane" id="srs-attachements">
             <div class="row mt-4">
@@ -102,14 +102,7 @@
                         <h4>@Localizer["Attachements"]</h4>
                     </div>
                     <div class="card-body">
-                        @if (Model == null || ViewBag.Attachements == null)
-
-                        {
-                            @Localizer["There are no attachements for this document."]
-                        }
-
-                        else
-
+                        @if (Model != null && Model.Attachements.Any())
                         {
                             <table class="table table-striped">
                                 <tr>
@@ -117,7 +110,7 @@
                                     <th>@Localizer["Content type"]</th>
                                     <th>@Localizer["CreatedDate"]</th>
                                 </tr>
-                                @foreach (var attachement in ViewBag.Attachements)
+                                @foreach (var attachement in Model.Attachements)
                                 {
                                     <tr>
                                         <td>@attachement.FileName</td>
@@ -126,6 +119,10 @@
                                     </tr>
                                 }
                             </table>
+                        }
+                        else
+                        {
+                            @Localizer["NoAttachements"]
                         }
                     </div>
                 </div>

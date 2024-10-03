@@ -73,7 +73,7 @@ namespace SRS_Game.Services
                 })
                 .ToListAsync();
 
-            documents.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
+            //documents.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
 
             return new SelectList(documents, "Value", "Text");
         }

@@ -113,7 +113,7 @@ namespace SRS_Game.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadFilePost([Bind("DocumentId,file,FileSourceType")] IFormFile file)
+        public ActionResult UploadFilePost([Bind("file,FileSourceType")] IFormFile file)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("No file selected for upload...");

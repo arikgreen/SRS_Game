@@ -120,7 +120,7 @@
   <data name="BackToList" xml:space="preserve">
     <value>Wróć do listy</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
+  <data name="Add a new document" xml:space="preserve">
     <value>Dodaj nowy dokument</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -140,5 +140,14 @@
   </data>
   <data name="Specification of requirements" xml:space="preserve">
     <value>Specyfikacja wymagań</value>
+  </data>
+  <data name="SupervisorManager" xml:space="preserve">
+    <value>Opiekun/Kierownik</value>
+  </data>
+  <data name="The field is required" xml:space="preserve">
+    <value>Pole jest wymagane</value>
+  </data>
+  <data name="-- Select an option --" xml:space="preserve">
+    <value>-- Wybierz --</value>
   </data>
 </root>

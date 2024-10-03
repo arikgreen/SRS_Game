@@ -25,7 +25,7 @@
     </div>
 }
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form id="edit-form" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -51,7 +51,7 @@
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="mb-3 row">
-                <label asp-for="IsExternal" class="col-sm-4 col-form-label">@Localizer["Is external"]</label>
+                <label asp-for="IsExternal" class="col-sm-4 col-form-label">@Localizer[Html.DisplayNameFor(model => model.IsExternal)]</label>
                 <div class="col-sm-8 text-center"><input asp-for="IsExternal" class="form-check-input" type="checkbox" /></div>
                 <span asp-validation-for="IsExternal" class="text-danger"></span>
             </div>

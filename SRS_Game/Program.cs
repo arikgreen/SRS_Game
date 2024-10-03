@@ -22,15 +22,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddControllersWithViews(options =>
 {
     var policy = new AuthorizationPolicyBuilder()
         .RequireAuthenticatedUser()
         .Build();
     options.Filters.Add(new AuthorizeFilter(policy));
-});
-    //.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-    //.AddDataAnnotationsLocalization();
+})
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization();
 
 builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI();
@@ -50,10 +51,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
 });
 
-builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-builder.Services.AddControllersWithViews()
-        .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-        .AddDataAnnotationsLocalization();
+//builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+//builder.Services.AddControllersWithViews()
+//        .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+//        .AddDataAnnotationsLocalization();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // Register IHttpContextAccessor
 
@@ -70,6 +71,8 @@ builder.Services.AddScoped<IWritableDocument, DocumentService>();
 builder.Services.AddScoped<IReadableAttachement, AttachementService>();
 
 builder.Services.AddScoped<IReadableTeam, TeamService>();
+
+builder.Services.AddScoped<IReadableUser, UserService>();
 
 builder.Services.AddDbContext<SRS_GameDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SRS_GameDbContext") ?? throw new InvalidOperationException("Connection string 'SRS_GameDbContext' not found.")));

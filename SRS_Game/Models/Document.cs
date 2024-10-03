@@ -14,7 +14,7 @@ namespace SRS_Game.Models
         /// <summary>
         /// Nazwa dokumentu
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         public string Name { get; set; }
 
         /// <summary>
@@ -22,40 +22,39 @@ namespace SRS_Game.Models
         /// </summary>
         public string? Destination { get; set; }
 
-        [Required]
-        [ForeignKey("Participant")]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Author")]
+        [ForeignKey(nameof(Participant))]
         public int AuthorId { get; set; }
 
         /// <summary>
         /// Nr zespołu
         /// </summary>
-        [ForeignKey("Team")]
+        [ForeignKey(nameof(Team))]
         public int? TeamId { get; set; }
 
-        [ForeignKey("Participant")]
         [DisplayName("Team Leader")]
-        public int? TeamLeaderId { get; set; }
+        [Required(ErrorMessage = "The field is required")]
+        [ForeignKey(nameof(Participant))]
+        public int TeamLeaderId { get; set; }
 
-        [ForeignKey("Project")]
         [DisplayName("Project")]
+        [ForeignKey(nameof(Project))]
         public int? ProjectId { get; set; }
 
         [DisplayName("Created date")]
         public DateTime CreatedDate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Updated date")]
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Wersja dokumentu
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Version")]
         public int Version { get; set; }
-
-        public int? ParentId { get; set; }
 
         /// <summary>
         /// Percent 0% - 100%
@@ -64,8 +63,8 @@ namespace SRS_Game.Models
 
         public Document() { }
 
-        public Document(string name, string? destinatiption, int authorId, int? team, int? teamLeaderId, int? projectId, 
-            DateTime createDate, DateTime updateDate, int versionId, int? parentId, int? rate = 0)
+        public Document(string name, string? destinatiption, int authorId, int? team, int teamLeaderId, int? projectId, 
+            DateTime createDate, DateTime updateDate, int versionId, int? rate = 0)
         {
             Name = name;
             Destination = destinatiption;
@@ -76,7 +75,6 @@ namespace SRS_Game.Models
             CreatedDate = createDate;
             UpdatedDate = updateDate;
             Version = versionId;
-            ParentId = parentId;
             Rate = rate;
         }
     }
@@ -87,6 +85,9 @@ namespace SRS_Game.Models
         public string Author { get; set; } = string.Empty;
         public string Team { get; set; } = string.Empty;
         public string Owner { get; set; } = string.Empty;
+        public string XamlContent { get; set; } = string.Empty;
+        public IEnumerable<Attachement> Attachements { get; set; } = Enumerable.Empty<Attachement>();
+        public IEnumerable<DocumentHistoryViewModel> History { get; set; } = Enumerable.Empty<DocumentHistoryViewModel>();
     }
 
     public class DocumentEditViewModel : DocumentViewModel

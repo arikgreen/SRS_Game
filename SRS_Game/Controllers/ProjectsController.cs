@@ -92,6 +92,9 @@ namespace SRS_Game.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+
             return View(project);
         }
 

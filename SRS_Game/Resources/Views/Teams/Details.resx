@@ -141,4 +141,7 @@
   <data name="Stakholder Fullname" xml:space="preserve">
     <value>Stakholder Fullname</value>
   </data>
+  <data name="NoMembers" xml:space="preserve">
+    <value>There are no members at this team</value>
+  </data>
 </root>

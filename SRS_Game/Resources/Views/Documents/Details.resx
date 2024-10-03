@@ -171,4 +171,7 @@
   <data name="Destination" xml:space="preserve">
     <value>Destination</value>
   </data>
+  <data name="NoAttachements" xml:space="preserve">
+    <value>There are no attachements for this document</value>
+  </data>
 </root>

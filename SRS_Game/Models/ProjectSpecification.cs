@@ -6,8 +6,8 @@ namespace SRS_Game.Models
     public class ProjectSpecification
     {
         [Key]
-        [ForeignKey(nameof(Document))]
         [Required]
+        [ForeignKey(nameof(Document))]
         public int DocumentId { get; set; }
 
         [Key]

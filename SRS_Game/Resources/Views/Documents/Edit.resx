@@ -186,4 +186,7 @@
   <data name="History" xml:space="preserve">
     <value>History</value>
   </data>
+  <data name="high" xml:space="preserve">
+    <value>high</value>
+  </data>
 </root>

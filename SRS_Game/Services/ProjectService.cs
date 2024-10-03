@@ -40,7 +40,7 @@ namespace SRS_Game.Services
             var project = await _context.Projects.FindAsync(id);
             if (project == null)
             {
-                throw new KeyNotFoundException($"Author with id {id} not found.");
+                throw new KeyNotFoundException($"Project with id {id} not found.");
             }
 
             _context.Projects.Remove(project);
@@ -60,7 +60,7 @@ namespace SRS_Game.Services
                  })
                 .ToListAsync();
 
-            projects.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
+            //projects.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
 
             return new SelectList(projects, "Value", "Text");
         }

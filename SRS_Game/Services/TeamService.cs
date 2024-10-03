@@ -40,7 +40,7 @@ namespace SRS_Game.Services
             var Team = await _context.Teams.FindAsync(id);
             if (Team == null)
             {
-                throw new KeyNotFoundException($"Author with id {id} not found.");
+                throw new KeyNotFoundException($"Team with id {id} not found.");
             }
 
             _context.Teams.Remove(Team);
@@ -60,7 +60,7 @@ namespace SRS_Game.Services
                  })
                 .ToListAsync();
 
-            Teams.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
+            //Teams.Insert(0, new SelectListItem { Value = "", Text = "-- Select an option --" });
 
             return new SelectList(Teams, "Value", "Text");
         }

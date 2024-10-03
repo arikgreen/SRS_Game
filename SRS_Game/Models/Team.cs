@@ -8,19 +8,19 @@ namespace SRS_Game.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [StringLength(50)]
         public string Number { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Created date")]
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Updated date")]
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
 

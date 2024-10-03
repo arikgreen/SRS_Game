@@ -195,7 +195,7 @@
   <data name="FlexibilityRequirements" xml:space="preserve">
     <value>Wymagania w zakresie elastyczności</value>
   </data>
-  <data name="FullName" xml:space="preserve">
+  <data name="Full name" xml:space="preserve">
     <value>Pełna nazwa</value>
   </data>
   <data name="FunctionalityPurposes" xml:space="preserve">

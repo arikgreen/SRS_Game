@@ -129,7 +129,7 @@
   <data name="Version" xml:space="preserve">
     <value>Numer wersji</value>
   </data>
-  <data name="VersionNoData" xml:space="preserve">
-    <value>Nie ma innych wersji tego dokumentu</value>
+  <data name="NoHistory" xml:space="preserve">
+    <value>Nie ma jeszcze historii zmian dla tego dokumentu</value>
   </data>
 </root>

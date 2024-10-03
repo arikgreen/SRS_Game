@@ -11,12 +11,12 @@ namespace SRS_Game.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [ForeignKey("Document")]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Document")]
+        [ForeignKey("Document")]
         public int DocumentId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [StringLength(50)]
         [DisplayName("File name")]
         public string FileName { get; set; }
@@ -27,11 +27,11 @@ namespace SRS_Game.Models
         [DisplayName("File content")]
         public byte[] FileContent { get; set; } = [];
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Created date")]
         public DateTime CreatedDate { get; set; } = DateTime.MinValue;
 
-        [Required]
+        [Required(ErrorMessage = "The field is required")]
         [DisplayName("Updated date")]
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
 

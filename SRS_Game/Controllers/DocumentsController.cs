@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using SRS_Game.Data;
 using SRS_Game.Helpers;
 using SRS_Game.Interfaces;
@@ -31,6 +32,7 @@ namespace SRS_Game.Controllers
         private readonly IReadableAttachement _readableAttachement;
         private readonly IReadableDocument _readableDocument;
         private readonly IWritableDocument _writableDocument;
+        private readonly IStringLocalizer<DocumentsController> _localizer;
 
         public DocumentsController(SRS_GameDbContext context
             , IReadableParticipant readableParticipant
@@ -38,7 +40,7 @@ namespace SRS_Game.Controllers
             , IReadableTeam readableTeam
             , IReadableAttachement readableAttachement
             , IReadableDocument readableDocument
-            , IWritableDocument writableDocument)
+            , IWritableDocument writableDocument, IStringLocalizer<DocumentsController> localizer)
         {
             _context = context;
             _readableParticipant = readableParticipant;
@@ -47,6 +49,7 @@ namespace SRS_Game.Controllers
             _readableAttachement = readableAttachement;
             _readableDocument = readableDocument;
             _writableDocument = writableDocument;
+            _localizer = localizer;
         }
 
         // GET: Documents
@@ -85,14 +88,14 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            ViewBag.Attachements = _readableAttachement.GetAllForDocument(id);
-            ViewBag.History = _readableDocument.GetDocumentHistories(id);
+            document.Attachements = _readableAttachement.GetAllForDocument(id);
+            document.History = _readableDocument.GetDocumentHistories(id);
 
             var spec = _readableDocument.GetSpecification(id, document.Version);
             if (spec != null)
             {
                 string xamlContent = spec.XamlContent;
-                ViewBag.XamlContent = xamlContent;
+                document.XamlContent = xamlContent;
             }
 
             return View(document);
@@ -125,6 +128,9 @@ namespace SRS_Game.Controllers
 
             ViewBag.Message = new Alert { Type = AlertType.danger, Text = "Model state is not valid." };
 
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+            ViewBag.Projects = await _readableProject.GetProjectsForSelectListAsync();
+
             return View(document);
         }
 
@@ -145,22 +151,23 @@ namespace SRS_Game.Controllers
                 .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() })
                 .ToList();
             
-            stakholderTypes.Insert(0, new SelectListItem { Value = "-1", Text = "-- Select an option --" });
+            //stakholderTypes.Insert(0, new SelectListItem { Value = "-1", Text = "-- Select an option --" });
 
             var priorities = Enum.GetValues(typeof(Priority))
                 .Cast<Priority>()
-                .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() })
+                .Select(x => new SelectListItem { Text = _localizer[x.ToString()], Value = ((int)x).ToString() })
                 .ToList();
 
-            priorities.Insert(0, new SelectListItem { Value = "-1", Text = "-- Select an option --" });
+            //priorities.Insert(0, new SelectListItem { Value = "-1", Text = "-- Select an option --" });
 
             var participants = await _readableParticipant.GetParticipantsForSelectListAsync();
             var projects = await _readableProject.GetProjectsForSelectListAsync();
-            ViewBag.Projects = projects;
             var teams = await _readableTeam.GetTeamsForSelectListAsync();
-            ViewBag.Teams = teams;
-            ViewBag.StakeholderTypes = stakholderTypes;
+
             ViewBag.Priorities = priorities;
+            ViewBag.StakeholderTypes = stakholderTypes;
+            ViewBag.Projects = projects;
+            ViewBag.Teams = teams;
 
             var transcriptFileId = await _readableDocument.GetAttachements(id, transcriptsOnly: true);
 
@@ -224,6 +231,7 @@ namespace SRS_Game.Controllers
                 UpdatedDate = document.UpdatedDate.ToLocalTime(),
                 TeamId = document.TeamId,
                 TeamLeaderId = document.TeamLeaderId,
+                History = _readableDocument.GetDocumentHistories(id),
                 SRS = srsDoc,
                 
                 //SRS = new SRS

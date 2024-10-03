@@ -120,7 +120,7 @@
   <data name="BackToList" xml:space="preserve">
     <value>Wróć do listy</value>
   </data>
-  <data name="Create a new team" xml:space="preserve">
+  <data name="Add a new team" xml:space="preserve">
     <value>Dodaj nowy zespół</value>
   </data>
   <data name="Team" xml:space="preserve">
@@ -134,5 +134,8 @@
   </data>
   <data name="Stakholder Name" xml:space="preserve">
     <value>Nazwa Interesariusza</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Numer</value>
   </data>
 </root>

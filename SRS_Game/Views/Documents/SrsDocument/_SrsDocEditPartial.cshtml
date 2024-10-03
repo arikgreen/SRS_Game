@@ -58,14 +58,16 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Type"]</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="osoba prawna" onselect="@Model.SRS.Stakeholders[@i].Type" asp-for="@Model.SRS.Stakeholders[@i].Type" asp-items="ViewBag.StakeholderTypes"></select>
+                                                    <select class="form-control" placeholder="osoba prawna" onselect="@Model.SRS.Stakeholders[@i].Type" asp-for="@Model.SRS.Stakeholders[@i].Type" asp-items="ViewBag.StakeholderTypes">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                     @if (Model.SRS.Stakeholders[@i].Type == 0)
                                     {
                                         addressOrContactHeader = @Localizer["Address"];
                                             <tr>
-                                                <th scope="row">@Localizer["FullName"]</th>
+                                                <th scope="row">@Localizer["Full name"]</th>
                                                 <td>
                                                     <input class="form-control" placeholder="dla typu instytucjonalnego" value="@Model.SRS.Stakeholders[@i].FullName" asp-for="@Model.SRS.Stakeholders[@i].FullName" />
                                                 </td>
@@ -100,7 +102,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.Stakeholders[@i].Priority" asp-for="@Model.SRS.Stakeholders[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.Stakeholders[@i].Priority" asp-for="@Model.SRS.Stakeholders[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -161,7 +165,10 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]</th>
-                                                <td><select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.Personlesses[@i].Priority" asp-for="@Model.SRS.Personlesses[@i].Priority" asp-items="ViewBag.Priorities"></select></td>
+                                                <td><select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.Personlesses[@i].Priority" asp-for="@Model.SRS.Personlesses[@i].Priority" asp-items="ViewBag.Priorities">
+                                                    <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -208,7 +215,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.BusinesPurposes[@i].Priority" asp-for="@Model.SRS.BusinesPurposes[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.BusinesPurposes[@i].Priority" asp-for="@Model.SRS.BusinesPurposes[@i].Priority" asp-items="ViewBag.Priorities">
+                                                    <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -250,7 +259,11 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
-                                                <td></td>
+                                                <td>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.FunctionalityPurposes[@i].Priority" asp-for="@Model.SRS.FunctionalityPurposes[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -311,7 +324,10 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
-                                                <td><select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.SystemUsers[@i].Priority" asp-for="@Model.SRS.SystemUsers[@i].Priority" asp-items="ViewBag.Priorities"></select></td>
+                                                <td><select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.SystemUsers[@i].Priority" asp-for="@Model.SRS.SystemUsers[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -371,7 +387,10 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
-                                                <td><select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.ExternalSystems[@i].Priority" asp-for="@Model.SRS.ExternalSystems[@i].Priority" asp-items="ViewBag.Priorities"></select></td>
+                                                <td><select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.ExternalSystems[@i].Priority" asp-for="@Model.SRS.ExternalSystems[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -434,7 +453,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.SubSystems[@i].Priority" asp-for="@Model.SRS.SubSystems[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.SubSystems[@i].Priority" asp-for="@Model.SRS.SubSystems[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -482,7 +503,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.HardwareComponents[@i].Priority" asp-for="@Model.SRS.HardwareComponents[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.HardwareComponents[@i].Priority" asp-for="@Model.SRS.HardwareComponents[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -539,7 +562,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.SoftwareComponents[@i].Priority" asp-for="@Model.SRS.SoftwareComponents[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.SoftwareComponents[@i].Priority" asp-for="@Model.SRS.SoftwareComponents[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -605,7 +630,9 @@
                                 <tr>
                                     <th scope="row">@Localizer["Priority"]:</th>
                                     <td>
-                                        <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.FuncionalityRequirements[@i].Priority" asp-for="@Model.SRS.FuncionalityRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                        <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.FuncionalityRequirements[@i].Priority" asp-for="@Model.SRS.FuncionalityRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                            <option value="">@Localizer["-- Select an option --"]</option>
+                                        </select>
                                     </td>
                                 </tr>
                             </tbody>
@@ -656,7 +683,9 @@
                                 <tr>
                                     <th scope="row">@Localizer["Priority"]:</th>
                                     <td>
-                                        <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.DataRequirements[@i].Priority" asp-for="@Model.SRS.DataRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                        <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.DataRequirements[@i].Priority" asp-for="@Model.SRS.DataRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                            <option value="">@Localizer["-- Select an option --"]</option>
+                                        </select>
                                     </td>
                                 </tr>
                             </tbody>
@@ -712,7 +741,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.CredibilityRequirements[@i].Priority" asp-for="@Model.SRS.CredibilityRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.CredibilityRequirements[@i].Priority" asp-for="@Model.SRS.CredibilityRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -765,7 +796,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.PerformanceRequirements[@i].Priority" asp-for="@Model.SRS.PerformanceRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.PerformanceRequirements[@i].Priority" asp-for="@Model.SRS.PerformanceRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -818,7 +851,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.FlexibilityRequirements[@i].Priority" asp-for="@Model.SRS.FlexibilityRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.FlexibilityRequirements[@i].Priority" asp-for="@Model.SRS.FlexibilityRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -871,7 +906,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.UsabilityRequirements[@i].Priority" asp-for="@Model.SRS.UsabilityRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.UsabilityRequirements[@i].Priority" asp-for="@Model.SRS.UsabilityRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -937,7 +974,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.Exceptions[@i].Priority" asp-for="@Model.SRS.Exceptions[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.Exceptions[@i].Priority" asp-for="@Model.SRS.Exceptions[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -996,7 +1035,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.CriticalSituations[@i].Priority" asp-for="@Model.SRS.CriticalSituations[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.CriticalSituations[@i].Priority" asp-for="@Model.SRS.CriticalSituations[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1055,7 +1096,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.EmergancySituations[@i].Priority" asp-for="@Model.SRS.EmergancySituations[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.EmergancySituations[@i].Priority" asp-for="@Model.SRS.EmergancySituations[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1117,7 +1160,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.HardwareRequirements[@i].Priority" asp-for="@Model.SRS.HardwareRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.HardwareRequirements[@i].Priority" asp-for="@Model.SRS.HardwareRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1170,7 +1215,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.SoftwareRequirements[@i].Priority" asp-for="@Model.SRS.SoftwareRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.SoftwareRequirements[@i].Priority" asp-for="@Model.SRS.SoftwareRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1223,7 +1270,9 @@
                                             <tr>
                                                 <th scope="row">@Localizer["Priority"]:</th>
                                                 <td>
-                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.OtherRequirements[@i].Priority" asp-for="@Model.SRS.OtherRequirements[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                                    <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.OtherRequirements[@i].Priority" asp-for="@Model.SRS.OtherRequirements[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1279,7 +1328,9 @@
                                 <tr>
                                     <th scope="row">@Localizer["Priority"]:</th>
                                     <td>
-                                        <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.AcceptanceCriteria[@i].Priority" asp-for="@Model.SRS.AcceptanceCriteria[@i].Priority" asp-items="ViewBag.Priorities"></select>
+                                        <select class="form-control" placeholder="Type to search ..." onselect="@Model.SRS.AcceptanceCriteria[@i].Priority" asp-for="@Model.SRS.AcceptanceCriteria[@i].Priority" asp-items="ViewBag.Priorities">
+                                                        <option value="">@Localizer["-- Select an option --"]</option>
+                                                    </select>
                                     </td>
                                 </tr>
                             </tbody>

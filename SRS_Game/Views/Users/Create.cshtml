@@ -1,13 +1,22 @@
-﻿@model SRS_Game.Models.User
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer Localizer;
+
+@model SRS_Game.Models.UserCreateViewModel;
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = @Localizer["Add a new user"];
+    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Create</h1>
-
-<h4>User</h4>
+<div class="row">
+    <div class="col-8">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="col-4 align-bottom text-end">
+        <input type="submit" value=@Localizer["Add"] form="create-form" class="btn btn-primary mr-3" />
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Users", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
 <hr />
 @if (ViewBag.Message != null)
 {
@@ -16,52 +25,55 @@
     </div>
 }
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-6">
+        <form id="create-form" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
+                <label asp-for="FirstName" class="control-label">@Localizer[Html.DisplayNameFor(model => model.FirstName)]</label>
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
+                <label asp-for="LastName" class="control-label">@Localizer[Html.DisplayNameFor(model => model.LastName)]</label>
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Login" class="control-label"></label>
+                <label asp-for="Login" class="control-label">@Localizer[Html.DisplayNameFor(model => model.Login)]</label>
                 <input asp-for="Login" class="form-control" />
                 <span asp-validation-for="Login" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Email" class="control-label">@Localizer[Html.DisplayNameFor(model => model.Email)]</label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
+                <label asp-for="PhoneNumber" class="control-label">@Localizer[Html.DisplayNameFor(model => model.PhoneNumber)]</label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="row">
+                    <div class="col">
+                        <label asp-for="Password" class="control-label">@Localizer[Html.DisplayNameFor(model => model.Password)]</label>
+                        <input asp-for="Password" class="form-control" type="password" />
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col">
+                        <label asp-for="ConfirmPassword" class="control-label">@Localizer[Html.DisplayNameFor(model => model.ConfirmPassword)]</label>
+                        <input asp-for="ConfirmPassword" class="form-control" type="password" />
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="RoleId" class="control-label"></label>
-                <input asp-for="RoleId" class="form-control" />
-                <span asp-validation-for="RoleId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="UserRoleFK" class="control-label">@Localizer[Html.DisplayNameFor(model => model.UserRoleFK)]</label>
+                <select asp-for="UserRoleFK" class="form-control" asp-items="ViewBag.Roles">
+                    <option value="">@Localizer["-- Select an option --"]</option>
+                </select>
+                @Html.ValidationMessageFor(m => m.UserRoleFK, "", new { @class = "text-danger" })
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
