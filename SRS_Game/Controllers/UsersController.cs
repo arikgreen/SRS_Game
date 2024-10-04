@@ -115,7 +115,7 @@ namespace SRS_Game.Controllers
         {
             var user = await _context.Users
                 .Where(u => u.Id == id)
-                .Select(u => new UserCreateViewModel {
+                .Select(u => new UserEditViewModel {
                     Id = u.Id,
                     FirstName = u.FirstName,
                     LastName = u.LastName,
@@ -139,7 +139,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Login,Email,PhoneNumber,Password,ConfirmPassword,UserRoleFK,CreatedDate")] UserCreateViewModel user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,PhoneNumber,Password,ConfirmPassword,UserRoleFK,CreatedDate")] UserEditViewModel user)
         {
             if (id != user.Id)
             {
@@ -154,32 +154,19 @@ namespace SRS_Game.Controllers
 
                     if (currentUser != null)
                     {
-                        //await _writableUser.UpdateAsync(user);
-                        if (user.Password.Length > 0 && user.Password == user.ConfirmPassword)
+                        currentUser.FirstName = user.FirstName;
+                        currentUser.LastName = user.LastName;
+                        currentUser.Email = user.Email;
+                        currentUser.PhoneNumber = user.PhoneNumber;
+                        currentUser.UserRoleFK = user.UserRoleFK;
+
+                        if (user.Password != null && user.Password.Length > 0 && user.Password == user.ConfirmPassword)
                         {
-                            currentUser.FirstName = user.FirstName;
-                            currentUser.LastName = user.LastName;
-                            currentUser.Email = user.Email;
-                            currentUser.PhoneNumber = user.PhoneNumber;
                             currentUser.Password = user.Password;
-                            currentUser.UserRoleFK = user.UserRoleFK;
                         }
-                        else
-                        {
-                            var noChangedFields = await _context.Users
-                            .Where(u => u.Id == user.Id)
-                            .Select(r => new { r.Login, r.Password })
-                            .FirstOrDefaultAsync();
 
-                            if (noChangedFields.Password != null)
-                            {
-                                currentUser.Login = noChangedFields.Login;
-                                currentUser.Password = noChangedFields.Password;
-                            }
-
-                            _context.Users.Update(currentUser);
-                            await _context.SaveChangesAsync();
-                        }
+                        _context.Update(currentUser);
+                        await _context.SaveChangesAsync();
                     }
 
                     ViewBag.Message = new { Type = "error", Message = $"User Id: [{id}] not found." };

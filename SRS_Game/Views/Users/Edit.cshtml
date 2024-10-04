@@ -1,10 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer Localizer;
 
-@model SRS_Game.Models.UserCreateViewModel;
+@model SRS_Game.Models.UserEditViewModel;
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = @Localizer["Edit"];
     @*Layout = "~/Views/Shared/_Layout.cshtml";*@
 }
 <div class="row">

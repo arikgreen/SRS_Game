@@ -160,8 +160,20 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Projects
+            var project = await (from p in _context.Projects
+                join participant in _context.Participants
+                on p.ProjectManagerId equals participant.Id
+                select new ProjectsViewModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Number = p.Number,
+                    CreatedDate = p.CreatedDate,
+                    UpdateDate = p.UpdateDate,
+                    ProjectManager = String.Format("{0} {1}", participant.FirstName, participant.LastName)
+                })
                 .FirstOrDefaultAsync(m => m.Id == id);
+            
             if (project == null)
             {
                 return NotFound();

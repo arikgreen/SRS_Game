@@ -171,7 +171,7 @@ namespace SRS_Game.Controllers
 
             var transcriptFileId = await _readableDocument.GetAttachements(id, transcriptsOnly: true);
 
-            if (transcriptFileId != null)
+            if (transcriptFileId != null && transcriptFileId.Count != 0)
             {
                 var fileContent = await _readableAttachement.GetContentAsync(transcriptFileId[0]);
                 if (fileContent != null)

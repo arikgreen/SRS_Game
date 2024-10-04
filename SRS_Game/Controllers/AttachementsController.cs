@@ -210,8 +210,21 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            var attachement = await _context.Attachements
+            var attachement = await (_context.Attachements
+                .Join(_context.Documents,
+                a => a.DocumentId,
+                d => d.Id,
+                (a, d) => new AttachementViewModel
+                {
+                    Document = d.Name,
+                    Id = a.Id,
+                    FileName = a.FileName,
+                    ContentType = a.ContentType,
+                    CreatedDate = a.CreatedDate,
+                    UpdatedDate = a.UpdatedDate
+                }))
                 .FirstOrDefaultAsync(m => m.Id == id);
+            
             if (attachement == null)
             {
                 return NotFound();

@@ -43,7 +43,6 @@ namespace SRS_Game.Models
         [DisplayName("Phone number")]
         public string? PhoneNumber { get; set; }
 
-        [PasswordPropertyText]
         public string? Password { get; set; }
 
         [ForeignKey(nameof(UserRole))]
@@ -80,6 +79,10 @@ namespace SRS_Game.Models
 
     public class UserCreateViewModel : User
     {
+        [PasswordPropertyText]
+        [Required(ErrorMessage = "Password is required.")]
+        public string Password { get; set; }
+        
         [Required(ErrorMessage = "Confirmation Password is required.")]
         [Compare("Password", ErrorMessage = "Password and Confirmation Password must match.")]
         public string ConfirmPassword { get; set; }
@@ -87,6 +90,8 @@ namespace SRS_Game.Models
 
     public class UserEditViewModel : User
     {
+        public new string? Login { get; set; }
+
         [Compare("Password", ErrorMessage = "Password and Confirmation Password must match.")]
         public string? ConfirmPassword { get; set; }
     }

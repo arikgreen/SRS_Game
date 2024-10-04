@@ -117,41 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Attachement" xml:space="preserve">
-    <value>Załącznik</value>
+  <data name="Team members" xml:space="preserve">
+    <value>Członkowie zespołu</value>
   </data>
   <data name="BackToList" xml:space="preserve">
     <value>Wróc do listy</value>
   </data>
-  <data name="Content type" xml:space="preserve">
-    <value>Typ pliku</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="NoMembers" xml:space="preserve">
+    <value>Zespół nie posiada członków</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Numer</value>
+  </data>
+  <data name="Stakholder Fullname" xml:space="preserve">
+    <value>Imię i Nazwisko Interesariusza</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>Zespół</value>
+  </data>
+  <data name="Asking" xml:space="preserve">
+    <value>Czy napewno chcesz usunąć</value>
   </data>
   <data name="Created date" xml:space="preserve">
     <value>Utworzony</value>
   </data>
-  <data name="Create New" xml:space="preserve">
-    <value>Dodaj nowy</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>Dokument</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Zmień</value>
-  </data>
-  <data name="File content" xml:space="preserve">
-    <value>Zawartość</value>
-  </data>
-  <data name="File name" xml:space="preserve">
-    <value>Nazwa pliku</value>
-  </data>
   <data name="Updated date" xml:space="preserve">
     <value>Zmodyfikowany</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Anuluj</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>

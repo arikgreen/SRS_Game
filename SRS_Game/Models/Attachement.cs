@@ -87,8 +87,6 @@ namespace SRS_Game.Models
 
             MatchCollection mParticipants = Regex.Matches(transcriptContent, @"\*\*Participants:\*\*\r*\n\- ([\s\S]*\))[\r*\n]");
 
-            var aaa = mParticipants.First().Groups[1].ToString();
-
             Participants = (mParticipants.Count > 0) ? Regex.Replace(mParticipants.First().Groups[1].ToString(), @"\- ", "") : "";
 
             //Participants = mParticipants != null ? mParticipants.Cast<Match>().Select(match => match.Groups[1].Value).ToList() : [];
