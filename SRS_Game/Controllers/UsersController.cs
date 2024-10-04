@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -17,10 +18,13 @@ namespace SRS_Game.Controllers
 
         private readonly IReadableUser _readableUser;
 
+        private readonly PasswordHasher<User> _passwordHasher;
+
         public UsersController(SRS_GameDbContext context, IReadableUser readableUser)
         {
             _context = context;
             _readableUser = readableUser;
+            _passwordHasher = new PasswordHasher<User>();
         }
 
         // GET: Users
@@ -96,7 +100,7 @@ namespace SRS_Game.Controllers
                     Email = userForm.Email,
                     Login = userForm.Login,
                     PhoneNumber = userForm.PhoneNumber,
-                    Password = userForm.Password,
+                    Password = _passwordHasher.HashPassword(userForm, userForm.Password),
                     UserRoleFK = userForm.UserRoleFK
                 };
 
@@ -162,7 +166,7 @@ namespace SRS_Game.Controllers
 
                         if (user.Password != null && user.Password.Length > 0 && user.Password == user.ConfirmPassword)
                         {
-                            currentUser.Password = user.Password;
+                            currentUser.Password = _passwordHasher.HashPassword(currentUser, user.Password);
                         }
 
                         _context.Update(currentUser);
@@ -224,6 +228,25 @@ namespace SRS_Game.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<User?> LoginAsync(string email, string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            
+            if (user == null)
+            {
+                return null; // User not found
+            }
+
+            // Verify the password
+            var result = _passwordHasher.VerifyHashedPassword(user, user.Password, password);
+            if (result == PasswordVerificationResult.Success)
+            {
+                return user; // Successful login
+            }
+
+            return null; // Invalid password
         }
 
         private bool UserExists(int id)
