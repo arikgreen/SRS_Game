@@ -11,6 +11,7 @@
             <th>@Localizer["CreatedDate"]</th>
             <th>@Localizer["Author"]</th>
             <th>@Localizer["Version"]</th>
+            <th>@Localizer["Open"]</th>
         </tr>
         @foreach (var itemHistory in Model.History)
         {
@@ -19,6 +20,7 @@
                 <td>@itemHistory.Created</td>
                 <td>@itemHistory.AuthorFullName</td>
                 <td>@itemHistory.Version</td>
+                <td><a asp-action="Details" class="mr-3" title="View"><i class="bi bi-book"></i></a></td>
             </tr>
         }
     </table>

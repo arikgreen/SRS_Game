@@ -34,51 +34,58 @@
     <div class="card-body tab-content">
         <div class="tab-pane active" id="summary">
             <div class="row">
-                <div class="col">
+                <div class="col-6">
                     <dl class="row">
-                        <dt class="col-sm-2">
+                        <dt class="col-sm-4">
                             @Localizer[Html.DisplayNameFor(model => model.Version)]
                         </dt>
-                        <dd class="col-sm-10">
+                        <dd class="col-sm-8">
                             @Html.DisplayFor(model => model.Version)
                         </dd>
-                        <dt class = "col-sm-2">
+                        <dt class = "col-sm-4">
                             @Localizer[Html.DisplayNameFor(model => model.Destination)]
                         </dt>
-                        <dd class = "col-sm-10">
+                        <dd class = "col-sm-8">
                             @Html.DisplayFor(model => model.Destination)
                         </dd>
-                        <dt class="col-sm-2">
+                        <dt class="col-sm-4">
                             @Localizer[Html.DisplayNameFor(model => model.Project)]
                         </dt>
-                        <dd class="col-sm-10">
+                        <dd class="col-sm-8">
                             @Html.DisplayFor(model => model.Project)
                         </dd>
-                        <dt class="col-sm-2">
+                        <dt class="col-sm-4">
                             @Localizer[Html.DisplayNameFor(model => model.Team)]
                         </dt>
-                        <dd class="col-sm-10">
+                        <dd class="col-sm-8">
                             @Html.DisplayFor(model => model.Team)
                         </dd>
-                        <dt class = "col-sm-2">
+                        <dt class = "col-sm-4">
                             @Localizer[Html.DisplayNameFor(model => model.CreatedDate)]
                         </dt>
-                        <dd class = "col-sm-10">
+                        <dd class = "col-sm-8">
                             @Html.DisplayFor(model => model.CreatedDate)
                         </dd>
-                        <dt class = "col-sm-2">
+                        <dt class = "col-sm-4">
                             @Localizer[Html.DisplayNameFor(model => model.UpdatedDate)]
                         </dt>
-                        <dd class = "col-sm-10">
+                        <dd class = "col-sm-8">
                             @Html.DisplayFor(model => model.UpdatedDate)
                         </dd>
-                        <dt class="col-sm-2">
+                        <dt class="col-sm-4">
                             @Localizer[Html.DisplayNameFor(model => model.Author)]
                         </dt>
-                        <dd class="col-sm-10">
+                        <dd class="col-sm-8">
                             @Html.DisplayFor(model => model.Author)
                         </dd>
                     </dl>
+                </div>
+                <div class="col-6 d-flex align-items-center">
+                    <div class="row m-2">
+                        <div class="col-2 fw-bold text-white bg-success text-center d-flex align-items-center"><i class="bi bi-emoji-smile"></i>100%</div>
+                        <div class="col-3 bg-light fw-bold text-center d-flex align-items-center">Excelent</div>
+                        <div class="col-7 bg-dark-subtle">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-3">

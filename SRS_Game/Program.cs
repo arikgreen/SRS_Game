@@ -108,7 +108,7 @@ var localizationOptions = new RequestLocalizationOptions()
     .AddSupportedCultures(supportedCultures)
     .AddSupportedUICultures(supportedCultures);
 
-localizationOptions.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
+//localizationOptions.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
 
 app.UseStatusCodePagesWithReExecute("/NotFound");
 

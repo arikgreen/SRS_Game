@@ -13,7 +13,7 @@
     <div class="col-4 align-bottom text-end">
         <input type="submit" value=@Localizer["Save"] form="edit-form" class="btn btn-primary mr-3" />
         @Html.ActionLink(@Localizer["Cancel"].Value, "Details", "Projects", new { id = Model.Id }, new { @class = "btn btn-primary" })
-        @Html.ActionLink(@Localizer["Back to List"].Value, "Index", "Projects", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink(@Localizer["BackToList"].Value, "Index", "Projects", null, new { @class = "btn btn-primary" })
         @*<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary mr-3">@Localizer["Edit"]</a>
         <a asp-action="Index" class="btn btn-primary">@Localizer["Back to List"]</a>*@
     </div>

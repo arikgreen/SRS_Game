@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,17 +8,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SRS_Game.Data;
+using SRS_Game.Interfaces;
 using SRS_Game.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SRS_Game.Controllers
 {
     public class TeamsController : Controller
     {
         private readonly SRS_GameDbContext _context;
+        private readonly IReadableParticipant _readableParticipant;
 
-        public TeamsController(SRS_GameDbContext context)
+        public TeamsController(SRS_GameDbContext context, IReadableParticipant readableParticipant)
         {
             _context = context;
+            _readableParticipant = readableParticipant;
         }
 
         // GET: Teams
@@ -116,6 +121,8 @@ namespace SRS_Game.Controllers
                 Members = members,
             };
 
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+
             return View(viewModel);
         }
 
@@ -151,6 +158,9 @@ namespace SRS_Game.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
+
             return View(team);
         }
 
@@ -187,36 +197,52 @@ namespace SRS_Game.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteMember(int? id, int? participant)
+        [HttpGet]
+        public async Task<IActionResult> ChangeMembers(int id, int participant, string team_action)
         {
-            if (id == null || participant == null)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _context.TeamParticipants
-                        .Where(p => p.ParticipantId == participant && p.TeamId == id)
-                        .ExecuteDeleteAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!IsMember(participant))
+                    switch(team_action)
                     {
-                        return NotFound();
+                        case "add":
+                            _context.TeamParticipants.Add(new TeamParticipants { TeamId = id, ParticipantId = participant });
+                            await _context.SaveChangesAsync();
+                            break;
+                        
+                        case "delete":
+                            await _context.TeamParticipants
+                                .Where(p => p.ParticipantId == participant && p.TeamId == id)
+                                .ExecuteDeleteAsync();
+                            break;
+                    }
+                }
+                catch (DbUpdateException ex)
+                {
+                    // Check if the inner exception is a SqlException
+                    // Check for SQL Server error codes for duplicate key; 2627 - Unique constraint error, 2601 - Duplicate key row error
+                    if (ex.InnerException != null)
+                    {
+                        if (((Microsoft.Data.SqlClient.SqlException)ex.InnerException).Number == 2627 || ((Microsoft.Data.SqlClient.SqlException)ex.InnerException).Number == 2601)
+                        {
+                            // Handle the duplicate key error
+                            TempData["Message"] = "Duplicate team member. Cannot insert the same participant";
+                        }
+                        else
+                        {
+                            // Other SQL errors can be handled here
+                            TempData["Message"] = "A database error occurred";
+                        }
                     }
                     else
                     {
-                        throw;
+                        // Other DbUpdateException errors
+                        TempData["Message"] = "An error occurred while updating the database";
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Details), new { id = id});
+            return RedirectToAction(nameof(Edit), new { Id = id });
         }
 
         private bool TeamExists(int id)

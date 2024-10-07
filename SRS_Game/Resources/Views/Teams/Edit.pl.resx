@@ -150,4 +150,13 @@
   <data name="Save" xml:space="preserve">
     <value>Zapisz</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="Duplicate team member. Cannot insert the same participant" xml:space="preserve">
+    <value>Istnieje już taka osoba w zespole.</value>
+  </data>
+  <data name="-- Select an option --" xml:space="preserve">
+    <value>-- Wybierz --</value>
+  </data>
 </root>
