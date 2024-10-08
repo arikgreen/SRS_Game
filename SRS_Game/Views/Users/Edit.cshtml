@@ -64,11 +64,9 @@
                 @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <label asp-for="UserRoleFK" class="control-label">@Localizer[Html.DisplayNameFor(model => model.UserRoleFK)]</label>
-                <select asp-for="UserRoleFK" class="form-control" asp-items="ViewBag.Roles">
-                    <option value="">@Localizer["-- Select an option --"]</option>
-                </select>
-                <span asp-validation-for="UserRoleFK" class="text-danger"></span>
+                <label asp-for="SelectedRoleIds" class="control-label">@Localizer[Html.DisplayNameFor(model => model.SelectedRoleIds)]</label>
+                <select asp-for="SelectedRoleIds" class="form-control" asp-items="@Model.AvailableRoles"></select>
+                @Html.ValidationMessageFor(m => m.SelectedRoleIds, "", new { @class = "text-danger" })
             </div>
         </form>
     </div>

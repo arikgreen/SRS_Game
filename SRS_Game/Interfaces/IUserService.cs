@@ -9,7 +9,7 @@ namespace SRS_Game.Interfaces
         //Task<User?> GetUserByIdAsync(int? id);
         //UserIndexViewModel GetUserDetailsByIdAsync(int id);
         //Task <SelectList> GetUserRolesForSelectListAsync();   // don't know why not working
-        SelectList GetUserRolesForSelectList();
+        List<SelectListItem> GetUserRolesForSelectList();
     }
 
     public interface IWritableUser

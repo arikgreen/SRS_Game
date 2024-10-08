@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -33,10 +34,9 @@ namespace SRS_Game.Models
         [Required(ErrorMessage = "The field is required")]
         public string Login { get; set; }
         
-        [EmailAddress]
         [StringLength(50)]
-        //[Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
-        //[RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "User")]
+        [Required(ErrorMessage = "The field is required")]
+        [EmailAddress(ErrorMessage = "Email is not valid")]
         public string Email { get; set; }
 
         [StringLength(15)]
@@ -45,10 +45,8 @@ namespace SRS_Game.Models
 
         public string? Password { get; set; }
 
-        [ForeignKey(nameof(UserRole))]
         [DisplayName("Role")]
-        [Required(ErrorMessage = "The field is required")]
-        public int UserRoleFK { get; set; }
+        public ICollection<UserRole> Roles { get; set; } = [];
 
         [DisplayName("Create date")]
         public DateTime CreatedDate { get; set; } = DateTime.Now;
@@ -58,27 +56,36 @@ namespace SRS_Game.Models
 
         public User() { }  // Parameterless constructor required by EF Core
 
-        public User(string login, string password, string email, int roleId, string fname, string lname, string? phoneNumber, DateTime createdDate, DateTime updatedDate)
-        {
-            Login = login;
-            FirstName = fname;
-            LastName = lname;
-            Email = email;
-            Password = password;
-            PhoneNumber = phoneNumber;
-            UserRoleFK = roleId;
-            CreatedDate = createdDate;
-            UpdatedDate = updatedDate;
-        }
+        //public User(string login, string password, string email, int roleId, string fname, string lname, string? phoneNumber, DateTime createdDate, DateTime updatedDate)
+        //{
+        //    Login = login;
+        //    FirstName = fname;
+        //    LastName = lname;
+        //    Email = email;
+        //    Password = password;
+        //    PhoneNumber = phoneNumber;
+        //    UserRoleFK = roleId;
+        //    CreatedDate = createdDate;
+        //    UpdatedDate = updatedDate;
+        //}
     }
 
     public class UserIndexViewModel : User
     {
-        public string? Role { get; set; }
+        [DisplayName("Role")]
+        public string Roles { get; set; }
     }
 
     public class UserCreateViewModel : User
     {
+        // Multi-select list for roles
+        [DisplayName("Role")]
+        [Required(ErrorMessage = "At least one role must be selected")]
+        public List<int> SelectedRoleIds { get; set; }
+
+        // List of roles to display in the form
+        public List<SelectListItem> AvailableRoles { get; set; } = [];
+
         [PasswordPropertyText]
         [Required(ErrorMessage = "Password is required.")]
         public string Password { get; set; }
@@ -90,6 +97,14 @@ namespace SRS_Game.Models
 
     public class UserEditViewModel : User
     {
+        // Multi-select list for roles
+        [DisplayName("Role")]
+        [Required(ErrorMessage = "The field is required")]
+        public List<int> SelectedRoleIds { get; set; }
+
+        // List of roles to display in the form
+        public List<SelectListItem> AvailableRoles { get; set; } = [];
+
         public new string? Login { get; set; }
 
         [Compare("Password", ErrorMessage = "Password and Confirmation Password must match.")]

@@ -106,17 +106,18 @@ namespace SRS_Game.Services
         //    //throw new NotImplementedException();
         //}
 
-        public SelectList GetUserRolesForSelectList()
+        public List<SelectListItem> GetUserRolesForSelectList()
         {
             var roles = _context.UserRoles
-                .Select(p => new SelectListItem
+                .Select(r => new SelectListItem
                 {
-                    Value = p.Id.ToString(),
-                    Text = p.Name
+                    Value = r.Id.ToString(),
+                    Text = r.Name
                  })
                 .ToList();
 
-            return new SelectList(roles, "Value", "Text");
+            //return new SelectList(roles, "Value", "Text");
+            return roles;
         }
     }
 }

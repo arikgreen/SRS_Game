@@ -177,4 +177,7 @@
   <data name="Edit" xml:space="preserve">
     <value>Edytuj</value>
   </data>
+  <data name="At least one role must be selected" xml:space="preserve">
+    <value>Użytkownik musi posiadać rolę</value>
+  </data>
 </root>

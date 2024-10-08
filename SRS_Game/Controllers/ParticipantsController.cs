@@ -1,4 +1,5 @@
 ﻿using Elfie.Serialization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
@@ -9,6 +10,7 @@ using SRS_Game.Models.Srs;
 
 namespace SRS_Game.Controllers
 {
+    [Authorize(Policy = "AdminOrOwnerPolicy")]
     public class ParticipantsController : Controller
     {
         private readonly SRS_GameDbContext _context;

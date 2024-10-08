@@ -22,6 +22,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("AdministratorPolicy", policy => policy.RequireRole("Administrator"))
+    .AddPolicy("OwnerPolicy", policy => policy.RequireRole("Owner"))
+    .AddPolicy("UserPolicy", policy => policy.RequireRole("User"))
+    .AddPolicy("AdminOrOwnerPolicy", policy =>
+        policy.RequireAssertion(context => context.User.IsInRole("Administrator") || context.User.IsInRole("Owner")))
+    .AddPolicy("OwnerOrUserPolicy", policy =>
+        {
+            policy.RequireRole("Owner");
+            policy.RequireRole("User");
+        });
+
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddControllersWithViews(options =>
 {
@@ -35,6 +47,8 @@ builder.Services.AddControllersWithViews(options =>
 
 builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI();
+
+builder.Services.AddScoped<IClaimsTransformation, ClaimsTransformation>();
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -85,7 +99,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<SRS_GameDbContext>();
-        //DbInitializer.Initialize(context);
+        DbInitializer.Initialize(context);
     }
     catch (Exception ex)
     {

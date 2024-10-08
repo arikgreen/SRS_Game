@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SRS_Game.Controllers
 {
+    [Authorize(Policy = "AdminOrOwnerPolicy")]
     public class TeamsController : Controller
     {
         private readonly SRS_GameDbContext _context;

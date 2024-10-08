@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer Localizer;
 
-@model SRS_Game.Models.User;
+@model SRS_Game.Models.UserIndexViewModel;
 
 @{
     ViewData["Title"] = @Localizer["Delete"];
@@ -47,10 +47,10 @@
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
         <dt class = "col-sm-2">
-            @Localizer[@Html.DisplayNameFor(model => model.UserRoleFK)]
+            @Localizer[@Html.DisplayNameFor(model => model.Roles)]
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserRoleFK)
+            @Html.DisplayFor(model => model.Roles)
         </dd>
     </dl>
     

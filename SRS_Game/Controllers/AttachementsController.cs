@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Routing.Constraints;
@@ -15,6 +16,7 @@ using IFormFile = Microsoft.AspNetCore.Http.IFormFile;
 
 namespace SRS_Game.Controllers
 {
+    [Authorize(Policy = "AdminOrOwnerPolicy")]
     public class AttachementsController : Controller
     {
         private readonly SRS_GameDbContext _context;

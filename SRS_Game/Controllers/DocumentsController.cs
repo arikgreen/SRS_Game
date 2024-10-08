@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using Microsoft.Ajax.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -23,6 +24,7 @@ using SRS_Game.Models.Srs;
 
 namespace SRS_Game.Controllers
 {
+    //[Authorize(Roles = "Owner,User")]
     public class DocumentsController : Controller
     {
         private readonly SRS_GameDbContext _context;
@@ -102,6 +104,7 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Documents/Create
+        [Authorize(Policy = "AdminOrOwnerPolicy")]
         public async Task<IActionResult> Create()
         {
             ViewBag.Participants = await _readableParticipant.GetParticipantsForSelectListAsync();
@@ -115,6 +118,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "AdminOrOwnerPolicy")]
         public async Task<IActionResult> Create(Models.Document document)
         {
             if (ModelState.IsValid)
@@ -135,6 +139,7 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Documents/Edit/5
+        [Authorize(Policy = "AdminOrOwnerPolicy")]
         public async Task<IActionResult> Edit(int id)
         {
             //var document = await _context.Documents.FindAsync(id);
@@ -232,43 +237,7 @@ namespace SRS_Game.Controllers
                 TeamId = document.TeamId,
                 TeamLeaderId = document.TeamLeaderId,
                 History = _readableDocument.GetDocumentHistories(id),
-                SRS = srsDoc,
-                
-                //SRS = new SRS
-                //{
-                //    ProjectName = document.Project ?? "",
-                //    TeamNumber = document.Team ?? "",
-                //    Version = document.Version.ToString(),
-                //    Author = document.Author,
-                //    Owner = document.Owner,
-                //    CreatedDate = document.CreatedDate,
-                //    UpdatedDate = document.UpdatedDate,
-                //    Stakeholders =
-                //    [
-                //        stakeholder
-                //    ],
-                //    //Personlesses = [],
-                //    //BusinesPurposes = [],
-                //    //FunctionalityPurposes = [],
-                //    //SystemUsers = [],
-                //    //ExternalSystems = [],
-                //    //SubSystems = [],
-                //    //HardwareComponents = [],
-                //    //SoftwareComponents = [],
-                //    //FuncionalityRequirements = [],
-                //    //DataRequirements = [],
-                //    //CredibilityRequirements = [],
-                //    //PerformanceRequirements = [],
-                //    //FlexibilityRequirements = [],
-                //    //UsabilityRequirements = [],
-                //    //Exceptions = [],
-                //    //CriticalSituations = [],
-                //    //EmergancySituations = [],
-                //    //HardwareRequirements = [],
-                //    //SoftwareRequirements = [],
-                //    //OtherRequirements = [],
-                //    //AcceptanceCriteria = [],
-                //}
+                SRS = srsDoc
             };
 
             ViewBag.Participants = participants;
@@ -282,6 +251,7 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "AdminOrOwnerPolicy")]
         public async Task<IActionResult> Edit(int id, Models.Document document)
         {
             if (ModelState.IsValid)
@@ -317,6 +287,7 @@ namespace SRS_Game.Controllers
         }
 
         // GET: Documents/Delete/5
+        [Authorize(Policy = "AdminOrOwnerPolicy")]
         public async Task<IActionResult> Delete(int id)
         {
             var document = await _readableDocument.GetAsync((int)id);
@@ -334,6 +305,7 @@ namespace SRS_Game.Controllers
         // POST: Documents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "AdminOrOwnerPolicy")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var document = await _context.Documents.FindAsync(id);
@@ -349,6 +321,7 @@ namespace SRS_Game.Controllers
         // POST: Documents/SaveProjectSpecification
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "AdminOrOwnerPolicy")]
         public async Task<IActionResult> SaveProjectSpecification(DocumentEditViewModel documentVM)
         {
             if (!ModelState.IsValid)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using SRS_Game.Models;
 
 namespace SRS_Game.Controllers
 {
+    [Authorize(Policy = "AdminOrOwnerPolicy")]
     public class ProjectsController : Controller
     {
         private readonly SRS_GameDbContext _context;

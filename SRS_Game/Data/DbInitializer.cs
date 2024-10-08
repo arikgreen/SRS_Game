@@ -9,6 +9,7 @@ using SRS_Game.Data;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using SRS_Game.Models.Srs;
 using System.Text;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 
 namespace ContosoUniversity.Data
 {
@@ -100,10 +101,41 @@ namespace ContosoUniversity.Data
             context.UserRoles.AddRange(userRoles);
             context.SaveChanges();
 
+            var adminRole = context.UserRoles.First(r => r.Name == "Administrator");
+            var ownerRole = context.UserRoles.First(r => r.Name == "Owner");
+            var userRole = context.UserRoles.First(r => r.Name == "User");
+
             var users = new User[]
             {
-                new ("s94089", "", "s94089@student.pg.edu.pl", 3, "Artur", "Wilczak", "", new DateTime(2023, 1, 15), new DateTime(2023, 5, 15)),
-                new ("qhta", "", "qhta@pg.edu.pl", 2, "Jarosław", "Kuchta", "", new DateTime(2024, 1, 15), new DateTime(2024, 5, 15))
+                new User {
+                    Login = "s94089",
+                    Password = "",
+                    Email = "s94089@student.pg.edu.pl",
+                    Roles = [adminRole],
+                    FirstName = "Artur",
+                    LastName = "Wilczak",
+                    PhoneNumber = "",
+                    CreatedDate = new DateTime(2023, 1, 15),
+                    UpdatedDate = new DateTime(2023, 5, 15)
+                },
+                new User {
+                    Login = "qhta",
+                    Password = "",
+                    Email = "qhta@pg.edu.pl",
+                    Roles = [ownerRole, adminRole],
+                    FirstName = "Jarosław",
+                    LastName = "Kuchta",
+                    PhoneNumber = "",
+                    CreatedDate = new DateTime(2024, 1, 15),
+                    UpdatedDate = new DateTime(2024, 5, 15)
+                },
+                new User {
+                    Login = "user1",
+                    Email = "user1@example.com",
+                    Roles = [ ownerRole ],
+                    FirstName = "UserName",
+                    LastName = "UserSurname"
+                },
             };
 
             context.Users.AddRange(users);

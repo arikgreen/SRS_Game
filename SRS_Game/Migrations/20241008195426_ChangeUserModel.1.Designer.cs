@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SRS_Game.Data;
 
@@ -11,9 +12,11 @@ using SRS_Game.Data;
 namespace SRS_Game.Migrations
 {
     [DbContext(typeof(SRS_GameDbContext))]
-    partial class SRS_GameDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241008195426_ChangeUserModel.1")]
+    partial class ChangeUserModel1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -441,42 +444,29 @@ namespace SRS_Game.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Name")
                         .IsUnique();
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("UserRoles");
                 });
 
-            modelBuilder.Entity("UserUserRole", b =>
+            modelBuilder.Entity("SRS_Game.Models.UserRole", b =>
                 {
-                    b.Property<int>("RolesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RolesId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("UserUserRole");
+                    b.HasOne("SRS_Game.Models.User", null)
+                        .WithMany("UserRoleFK")
+                        .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("UserUserRole", b =>
+            modelBuilder.Entity("SRS_Game.Models.User", b =>
                 {
-                    b.HasOne("SRS_Game.Models.UserRole", null)
-                        .WithMany()
-                        .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SRS_Game.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("UserRoleFK");
                 });
 #pragma warning restore 612, 618
         }

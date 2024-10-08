@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +15,7 @@ using SRS_Game.Models;
 
 namespace SRS_Game.Controllers
 {
+    [Authorize(Policy = "AdministratorPolicy")]
     public class UsersController : Controller
     {
         private readonly SRS_GameDbContext _context;
@@ -31,10 +35,8 @@ namespace SRS_Game.Controllers
         public async Task<IActionResult> Index()
         {
             var users = await _context.Users
-                .Join(_context.UserRoles,
-                u => u.UserRoleFK,
-                r => r.Id,
-                (u, r) => new UserIndexViewModel
+                .Include(u => u.Roles)
+                .Select(u => new UserIndexViewModel
                 {
                     Id = u.Id,
                     FirstName = u.FirstName,
@@ -42,8 +44,9 @@ namespace SRS_Game.Controllers
                     Email = u.Email,
                     Login = u.Login,
                     PhoneNumber = u.PhoneNumber,
-                    Role = r.Name
-                }).ToListAsync();
+                    Roles = string.Join(",", u.Roles.Select(r => r.Name))
+                })
+                .ToListAsync();
 
             return View(users);
         }
@@ -55,8 +58,8 @@ namespace SRS_Game.Controllers
 
             var user = await _context.Users
                 .Where(u => u.Id == id)
-                .Join(_context.UserRoles, u => u.UserRoleFK, r => r.Id,
-                (u, r) => new UserIndexViewModel
+                .Include(u => u.Roles)
+                .Select(u => new UserIndexViewModel
                 {
                     Id = u.Id,
                     FirstName = u.FirstName,
@@ -64,7 +67,7 @@ namespace SRS_Game.Controllers
                     Email = u.Email,
                     Login = u.Login,
                     PhoneNumber = u.PhoneNumber,
-                    Role = r.Name
+                    Roles = string.Join(",", u.Roles.Select(r => r.Name))
                 })
                 .FirstOrDefaultAsync();
 
@@ -79,9 +82,12 @@ namespace SRS_Game.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
-            ViewBag.Roles = _readableUser.GetUserRolesForSelectList();
+            var viewModel = new UserCreateViewModel
+            {
+                AvailableRoles = _readableUser.GetUserRolesForSelectList()
+            };
 
-            return View();
+            return View(viewModel);
         }
 
         // POST: Users/Create
@@ -89,11 +95,14 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Login,Email,PhoneNumber,Password,ConfirmPassword,UserRoleFK")] UserCreateViewModel userForm)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Login,Email,PhoneNumber,Password,ConfirmPassword,SelectedRoleIds")] UserCreateViewModel userForm)
         {
+            userForm.AvailableRoles = _readableUser.GetUserRolesForSelectList();
+
             if (ModelState.IsValid)
             {
-                var user = new User
+                // Create a new user entity
+                var newUser = new User
                 {
                     FirstName = userForm.FirstName,
                     LastName = userForm.LastName,
@@ -101,15 +110,28 @@ namespace SRS_Game.Controllers
                     Login = userForm.Login,
                     PhoneNumber = userForm.PhoneNumber,
                     Password = _passwordHasher.HashPassword(userForm, userForm.Password),
-                    UserRoleFK = userForm.UserRoleFK
+                    Roles = []
                 };
 
-                _context.Add(user);
+                _context.Add(newUser);
                 await _context.SaveChangesAsync();
+
+                // Add selected roles to the user
+                foreach (var roleId in userForm.SelectedRoleIds)
+                {
+                    var role = await _context.UserRoles.FindAsync(roleId);
+                    if (role != null)
+                    {
+                        newUser.Roles.Add(role);
+                    }
+                }
+
+                // Add the user to the database and save changes
+                _context.Users.Update(newUser);
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
-
-            ViewBag.Roles = _readableUser.GetUserRolesForSelectList();
 
             return View(userForm);
         }
@@ -125,7 +147,7 @@ namespace SRS_Game.Controllers
                     LastName = u.LastName,
                     Email = u.Email,
                     PhoneNumber = u.PhoneNumber,
-                    UserRoleFK = u.UserRoleFK
+                    Roles = u.Roles
                 }).FirstOrDefaultAsync();
 
             if (user == null)
@@ -133,7 +155,7 @@ namespace SRS_Game.Controllers
                 return NotFound();
             }
 
-            ViewBag.Roles = _readableUser.GetUserRolesForSelectList();
+            user.AvailableRoles = _readableUser.GetUserRolesForSelectList();
 
             return View(user);
         }
@@ -143,41 +165,72 @@ namespace SRS_Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,PhoneNumber,Password,ConfirmPassword,UserRoleFK,CreatedDate")] UserEditViewModel user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,PhoneNumber,Password,ConfirmPassword,SelectedRoleIds,CreatedDate")] UserEditViewModel userForm)
         {
-            if (id != user.Id)
+            if (id != userForm.Id)
             {
                 return NotFound();
             }
+
+            userForm.AvailableRoles = _readableUser.GetUserRolesForSelectList();
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var currentUser = await _context.Users.FindAsync(id);
+                    var updatedUser = await _context.Users
+                        .Include(u => u.Roles)
+                        .FirstOrDefaultAsync(u => u.Id == id);
 
-                    if (currentUser != null)
+                    if (updatedUser != null)
                     {
-                        currentUser.FirstName = user.FirstName;
-                        currentUser.LastName = user.LastName;
-                        currentUser.Email = user.Email;
-                        currentUser.PhoneNumber = user.PhoneNumber;
-                        currentUser.UserRoleFK = user.UserRoleFK;
+                        updatedUser.FirstName = userForm.FirstName;
+                        updatedUser.LastName = userForm.LastName;
+                        updatedUser.Email = userForm.Email;
+                        updatedUser.PhoneNumber = userForm.PhoneNumber;
 
-                        if (user.Password != null && user.Password.Length > 0 && user.Password == user.ConfirmPassword)
+                        var currentRoleIds = updatedUser.Roles.Select(r => r.Id).ToList();
+                        var newRoleIds = userForm.SelectedRoleIds;
+                        var rolesToAdd = newRoleIds.Except(currentRoleIds).ToList();
+                        var rolesToRemove = currentRoleIds.Except(newRoleIds).ToList();
+
+                        // Remove roles that are no longer selected
+                        foreach (var roleIdToRemove in rolesToRemove)
                         {
-                            currentUser.Password = _passwordHasher.HashPassword(currentUser, user.Password);
+                            var role = updatedUser.Roles.FirstOrDefault(r => r.Id == roleIdToRemove);
+                            if (role != null)
+                            {
+                                updatedUser.Roles.Remove(role);
+                            }
                         }
 
-                        _context.Update(currentUser);
+                        // Add new roles that are selected but not yet assigned
+                        foreach (var roleIdToAdd in rolesToAdd)
+                        {
+                            var role = await _context.UserRoles.FindAsync(roleIdToAdd);
+                            if (role != null)
+                            {
+                                updatedUser.Roles.Add(role);
+                            }
+                        }
+
+                        // Update password if necesssary
+                        if (userForm.Password != null && userForm.Password.Length > 0 && userForm.Password == userForm.ConfirmPassword)
+                        {
+                            updatedUser.Password = _passwordHasher.HashPassword(updatedUser, userForm.Password);
+                        }
+
+                        _context.Update(updatedUser);
                         await _context.SaveChangesAsync();
+
+                        return RedirectToAction(nameof(Index));
                     }
 
                     ViewBag.Message = new { Type = "error", Message = $"User Id: [{id}] not found." };
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!UserExists(userForm.Id))
                     {
                         ViewBag.Message = new { Type = "error", Message = $"User Id: [{id}] not found." };
                     }
@@ -186,15 +239,13 @@ namespace SRS_Game.Controllers
                         throw;
                     }
                 }
-
-                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                ViewBag.Message = new { Type = "error", Text = $"Model is not valid." };
             }
 
-            ViewBag.Message = new { Type = "error", Text = $"Model is not valid." };
-
-            ViewBag.Roles = _readableUser.GetUserRolesForSelectList();
-
-            return View(user);
+            return View(userForm);
         }
 
         // GET: Users/Delete/5
@@ -206,7 +257,20 @@ namespace SRS_Game.Controllers
             }
 
             var user = await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
+               .Where(u => u.Id == id)
+               .Include(u => u.Roles)
+               .Select(u => new UserIndexViewModel
+               {
+                   Id = u.Id,
+                   FirstName = u.FirstName,
+                   LastName = u.LastName,
+                   Email = u.Email,
+                   Login = u.Login,
+                   PhoneNumber = u.PhoneNumber,
+                   Roles = string.Join(", ", u.Roles.Select(r => r.Name))
+               })
+               .FirstOrDefaultAsync();
+
             if (user == null)
             {
                 return NotFound();
@@ -221,6 +285,7 @@ namespace SRS_Game.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var user = await _context.Users.FindAsync(id);
+
             if (user != null)
             {
                 _context.Users.Remove(user);
